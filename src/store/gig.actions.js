@@ -83,7 +83,7 @@ export function addToGigt(gig) {
     })
 }
 
-export function removeFromGigt(gigId) {
+export function removeFromCart(gigId) {
     store.dispatch({
         type: REMOVE_FROM_CART,
         gigId
