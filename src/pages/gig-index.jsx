@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { loadGigs, addGig, updateGig, removeGig, addToGigt } from '../store/gig.actions.js'
+import { loadGigs, addGig, updateGig, removeGig, addToCart } from '../store/gig.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { gigService } from '../services/gig.service.js'
@@ -44,9 +44,9 @@ export function GigIndex() {
         }        
     }
 
-    function onAddToGigt(gig){
+    function onAddToCart(gig){
         console.log(`Adding ${gig.vendor} to Gigt`)
-        addToGigt(gig)
+        addToCart(gig)
         showSuccessMsg('Added to Gigt')
     }
 
@@ -71,7 +71,7 @@ export function GigIndex() {
                             </div>
 
                             <button onClick={() => { onAddGigMsg(gig) }}>Add gig msg</button>
-                            {/* <button className="buy" onClick={() => { onAddToCart(gig) }}>Add to gigt</button> */}
+                            <button className="buy" onClick={() => { onAddToCart(gig) }}>Add to cart</button>
                         </li>)
                     }
                 </ul>
