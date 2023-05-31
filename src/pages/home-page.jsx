@@ -14,7 +14,6 @@ export function HomePage() {
 
     return (
         <section>
-            {/* <img src={logo} alt="Logo" style={{ maxWidth: '300px' }} /> */}
             <h2>
                 Count {count}
                 <button onClick={() => {

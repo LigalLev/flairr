@@ -76,7 +76,7 @@ export function updateGig(gig) {
         })
 }
 
-export function addToGigt(gig) {
+export function addToCart(gig) {
     store.dispatch({
         type: ADD_TO_CART,
         gig
