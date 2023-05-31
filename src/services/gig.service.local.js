@@ -4,7 +4,7 @@ import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'gig'
-
+_createGigs()
 export const gigService = {
     query,
     getById,
@@ -16,15 +16,15 @@ export const gigService = {
 window.cs = gigService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = { title: '', price: 0 }) {
     var gigs = await storageService.query(STORAGE_KEY)
-    if (filterBy.txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
-        gigs = gigs.filter(gig => regex.test(gig.vendor) || regex.test(gig.description))
-    }
-    if (filterBy.price) {
-        gigs = gigs.filter(gig => gig.price <= filterBy.price)
-    }
+    // if (filterBy.title) {
+    //     const regex = new RegExp(filterBy.title, 'i')
+    //     gigs = gigs.filter(gig => regex.test(gig.title))
+    // }
+    // if (filterBy.price) {
+    //     gigs = gigs.filter(gig => gig.price <= filterBy.price)
+    // }
     return gigs
 }
 
@@ -67,10 +67,82 @@ async function addGigMsg(gigId, txt) {
 
 function getEmptyGig() {
     return {
-        vendor: 'Susita-' + (Date.now() % 1000),
-        price: utilService.getRandomIntInclusive(1000, 9000),
+            _id: "i101",
+            title: "I will design your logo",
+            price: 12,
+            owner: {
+              "_id": "u101",
+              "fullname": "Dudu Da",
+              "imgUrl": "url",
+              "level": "basic/premium",
+              "rate": 4
+            },
+            daysToMake: 3,
+            description: "Make unique logo...",
+            imgUrl: "",
+            tags: [
+              "logo-design",
+              "artisitic",
+              "proffesional",
+              "accessible"
+            ],
+            likedByUsers: ['mini-user'] 
+            }
     }
-}
+
+    function _createGigs(){
+       let gigs = utilService.loadFromStorage(STORAGE_KEY)
+        if (!gigs || !gigs.length)
+        gigs = [{
+            _id: "i101",
+            title: "I will design your logo",
+            price: 12,
+            owner: {
+              "_id": "u101",
+              "fullname": "Dudu Da",
+              "imgUrl": "url",
+              "level": "basic/premium",
+              "rate": 4
+            },
+            daysToMake: 3,
+            description: "Make unique logo...",
+            imgUrl: "",
+            tags: [
+              "logo-design",
+              "artisitic",
+              "proffesional",
+              "accessible"
+            ],
+            likedByUsers: ['mini-user'] 
+            },
+
+            {
+                _id: "i102",
+                title: "I will design your app",
+                price: 12,
+                owner: {
+                  "_id": "u101",
+                  "fullname": "Dudu Da",
+                  "imgUrl": "url",
+                  "level": "basic/premium",
+                  "rate": 4
+                },
+                daysToMake: 3,
+                description: "Make unique logo...",
+                imgUrl: "",
+                tags: [
+                  "voice-over",
+                  "artisitic",
+                  "proffesional",
+                  "accessible"
+                ],
+                likedByUsers: ['mini-user'] 
+                }
+        ]
+        utilService.saveToStorage(STORAGE_KEY, gigs)
+
+    }
+
 
 
 // TEST DATA

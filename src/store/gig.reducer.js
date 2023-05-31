@@ -9,14 +9,14 @@ export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 
 const initialState = {
     gigs: [],
-    gigt: [],
+    cart: [],
     lastRemovedGig: null
 }
 
 export function gigReducer(state = initialState, action) {
-    var newState = state
-    var gigs
-    var gigt
+    let newState = state
+    let gigs
+    let cart
     switch (action.type) {
         case SET_GIGS:
             newState = { ...state, gigs: action.gigs }
@@ -34,14 +34,14 @@ export function gigReducer(state = initialState, action) {
             newState = { ...state, gigs }
             break
         case ADD_TO_CART:
-            newState = { ...state, gigt: [...state.gigt, action.gig] }
+            newState = { ...state, cart: [...state.cart, action.gig] }
             break
         case REMOVE_FROM_CART:
-            gigt = state.gigt.filter(gig => gig._id !== action.gigId)
-            newState = { ...state, gigt }
+            cart = state.cart.filter(gig => gig._id !== action.gigId)
+            newState = { ...state, cart }
             break
         case CLEAR_CART:
-            newState = { ...state, gigt: [] }
+            newState = { ...state, cart: [] }
             break
         case UNDO_REMOVE_GIG:
             if (state.lastRemovedGig) {

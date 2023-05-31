@@ -16,7 +16,7 @@ export const ReviewAdd = ({ gig }) => {
         if (user) {
             setReview((prevReview) => ({ ...prevReview, name: user.fullname }))
         }
-    }, [toy])
+    }, [gig])
 
     const handleChange = (ev) => {
         const field = ev.target.name;
@@ -27,7 +27,7 @@ export const ReviewAdd = ({ gig }) => {
     const saveReview = async (ev) => {
         try{
             ev.preventDefault()
-            const reviewToAdd = { ...review, toyId: toy._id }
+            const reviewToAdd = { ...review, gigId: gig._id }
             await addReview(reviewToAdd)
             onToggleAddReview()
         }catch(err){

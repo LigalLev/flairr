@@ -35,6 +35,7 @@ export function AppHeader() {
     return (
         <header className="app-header">
             <nav>
+                <NavLink to="/">Home</NavLink>
                 <NavLink to="/gig">Explore</NavLink>
 
                 {user &&
