@@ -63,7 +63,6 @@ export function GigIndex() {
                     {gigs.map(gig =>
                         <li className="gig-preview" key={gig._id}>
                             <h4>{gig.vendor}</h4>
-                            <h1>⛐</h1>
                             <p>Price: <span>${gig.price.toLocaleString()}</span></p>
                             <p>Owner: <span>{gig.owner && gig.owner.fullname}</span></p>
                             <div>
@@ -72,7 +71,7 @@ export function GigIndex() {
                             </div>
 
                             <button onClick={() => { onAddGigMsg(gig) }}>Add gig msg</button>
-                            <button className="buy" onClick={() => { onAddToGigt(gig) }}>Add to gigt</button>
+                            {/* <button className="buy" onClick={() => { onAddToCart(gig) }}>Add to gigt</button> */}
                         </li>)
                     }
                 </ul>
