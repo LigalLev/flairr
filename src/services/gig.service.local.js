@@ -80,7 +80,7 @@ function getEmptyGig() {
         },
         daysToMake: 3,
         description: "About this gig Hello, I am Kris. Welcome to my logo design gig. I specialize in business logo design. My design will be clean, trendy, minimal and original.I have successfully designed logos for many brands and now I am here on Fiverr to give the best. Why Me? Original, minimal, unique, high quality logo designs Premium customer support 24 x 7 Unlimited revisions, until you are satisfied All types of vector and source files .AI, JPEG, .PNG, PDF, EPS in high resolution WORKFLOW Precise and Strong Communication - Research on current trend - Sketching the initial concepts and Digitalizing it - Submission for Review - Modifications for making the design perfect Minimalist Logo | Minimal | Professional | Modern | Text | Vintage | Badge | Hand drawn | Feminine | Signature | Custom | Watercolor | YouTube Channel | Beauty Customer satisfaction is my top-notch priority and I believe in providing my customer with smooth and comfortable journey on Fiverr. Sounds interesting?? Lets chat!!!Order a gig now and lets have the ball rolling!!!!",
-        imgUrl: [],
+        imgUrl: ['https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685611697/gigs/c9dhyxfmh80hbuawemlm.jpg',' https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607730/gigs/heyuacvxghfilhbloyay.jpg',' https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607711/gigs/utfc8fxcnbhrl2jken2o.jpg',' https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607696/gigs/zvysug7d3tdvekqdfms5.jpg'],
         tags: [
           "logo-design",
           "artisitic",
@@ -95,18 +95,18 @@ function getEmptyGig() {
         if (!gigs || !gigs.length)
         gigs = [{
             _id: "i101",
-            title: "I will design your logo",
+            title: "I will design modern minimalist elegant logo",
             price: 60,
             owner: {
               "_id": "u101",
               "fullname": "nadia_younus",
-              "imgUrl": "",
+              "imgUrl": "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616615/gigs/cy8yt73ihkig5aklntq8.jpg",
               "level": "Fiar's choise",
               "rate": 5.0
             },
             daysToMake: 3,
             description: "About this gig Hello, I am Kris. Welcome to my logo design gig. I specialize in business logo design. My design will be clean, trendy, minimal and original.I have successfully designed logos for many brands and now I am here on Fiverr to give the best. Why Me? Original, minimal, unique, high quality logo designs Premium customer support 24 x 7 Unlimited revisions, until you are satisfied All types of vector and source files .AI, JPEG, .PNG, PDF, EPS in high resolution WORKFLOW Precise and Strong Communication - Research on current trend - Sketching the initial concepts and Digitalizing it - Submission for Review - Modifications for making the design perfect Minimalist Logo | Minimal | Professional | Modern | Text | Vintage | Badge | Hand drawn | Feminine | Signature | Custom | Watercolor | YouTube Channel | Beauty Customer satisfaction is my top-notch priority and I believe in providing my customer with smooth and comfortable journey on Fiverr. Sounds interesting?? Lets chat!!!Order a gig now and lets have the ball rolling!!!!",
-            imgUrl: [],
+            imgUrl: ['https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685611697/gigs/c9dhyxfmh80hbuawemlm.jpg',' https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607730/gigs/heyuacvxghfilhbloyay.jpg',' https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607711/gigs/utfc8fxcnbhrl2jken2o.jpg',' https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607696/gigs/zvysug7d3tdvekqdfms5.jpg'],
             tags: [
               "logo-design",
               "artisitic",
@@ -123,13 +123,13 @@ function getEmptyGig() {
                 owner: {
                   "_id": "u102",
                   "fullname": "morningdesigns",
-                  "imgUrl": "",
+                  "imgUrl": "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616702/gigs/k1a31fmr4v2gnvu4pwe0.png",
                   "level": "Top rated",
                   "rate": 4.9
                 },
                 daysToMake: 3,
                 description: "About this gig Hello, I am Kris. Welcome to my logo design gig. I specialize in business logo design. My design will be clean, trendy, minimal and original. I have successfully designed logos for many brands and now I am here on Fiverr to give the best. Why Me? Original, minimal, unique, high quality logo designs Premium customer support 24 x 7 Unlimited revisions, until you are satisfied All types of vector and source files .AI, JPEG, .PNG, PDF, EPS in high resolution WORKFLOW Precise and Strong Communication - Research on current trend - Sketching the initial concepts and Digitalizing it - Submission for Review - Modifications for making the design perfect Minimalist Logo | Minimal | Professional | Modern | Text | Vintage | Badge | Hand drawn | Feminine | Signature | Custom | Watercolor | YouTube Channel | Beauty Customer satisfaction is my top-notch priority and I believe in providing my customer with smooth and comfortable journey on Fiverr. Sounds interesting?? Lets chat!!! Order a gig now and lets have the ball rolling!!!!",
-                imgUrl: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607951/gigs/sdqw13xszcr5ygmsmcwx.png"],
+                imgUrl: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607951/gigs/sdqw13xszcr5ygmsmcwx.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607931/gigs/rjvwpryqcforxtabuqfe.png"],
                 tags: [
                   "Minimalist",
                 ],
@@ -138,17 +138,17 @@ function getEmptyGig() {
             {
                 _id: "i103",
                 title: "I will design modern and amazing logo for your business",
-                price: 20,
+                price: 15,
                 owner: {
                   "_id": "u103",
                   "fullname": "best_designer89",
-                  "imgUrl": "url",
+                  "imgUrl": "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616760/gigs/s3g27wncmraefyoi6jfz.png",
                   "level": "Level 2",
                   "rate": 4.8
                 },
                 daysToMake: 3,
                 description: "About this gig Start Your Business with a Perfect Logo Design Our team of concept driven professionals works tirelessly to deliver amazing designs that are visually pleasing to the eyes. The professional logo design process plays a significant role in the development of logo and other visual content. Breaking down the entire project into smaller, manageable chunks helps architects, thinkers, and artists approach their tasks with utmost clarity and creativity. What can you get in my gig Original and Unique designs 3D Mockup Source/Vector Files Social Media Kit Logo Transparency Stationery Designs FREE Consultation 24 X 7 VIP support copyrights Our designing services help you get the best leaving the competition in the backyard and zip through the market of logo design companies. Have queries? Contact us in inbox anytime!",
-                imgUrl:[],
+                imgUrl:["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616104/gigs/t40t1sdutlm1q0d8oxqp.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616173/gigs/tvwysc5plrufen5xc4up.png"],
                 tags: [
                   "Minimalist",
                 ],
@@ -161,13 +161,13 @@ function getEmptyGig() {
                 owner: {
                   "_id": "u104",
                   "fullname": "mariya_logo99",
-                  "imgUrl": "",
+                  "imgUrl": "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616829/gigs/kb7ysdpej8mpjnnzalh3.jpg",
                   "level": "",
                   "rate": 4.9
                 },
                 daysToMake: 3,
                 description: "About this gig Hello, Welcome to my custom creative logo design gig! I have the superpowers to convert idea's/Sketches into a creative logo. I have the expertise in creating custom, premium, and high-quality logos. I focus on creating simple yet innovative designs that will highly impact the customer's mind. Advantages of working with me: * Get ultimate ideas and unique options to choose the best design. * TOP NOTCH quality will be provided * Multiple revisions * Custom graphics. * Fast delivery with VIP support. * All Copyrights. My Expertise includes: Company Logo | | Professional | Premium | Luxury | Versatile | Minimalist | Modern | Custom | Clean | Vintage | Retro | Badge | Hand drawn | Feminine | Flat | Signature | Business Logos and many more. NOTE: MASCOTS AND DETAILED DESIGNS ARE NOT INCLUDED IN THESE PACKAGES. Lets convert your dreams into a vector design. *** ORDER NOW***",
-                imgUrl: [],
+                imgUrl: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685612841/gigs/fj6kywpggljvflqki2lk.jpg","https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685612883/gigs/mlqhjt9vdxzg4p7vwgtf.jpg" ],
                 tags: [
                   "Minimalist",
                 ],
@@ -180,7 +180,7 @@ function getEmptyGig() {
                 owner: {
                   "_id": "u105",
                   "fullname": "websutra",
-                  "imgUrl":"",
+                  "imgUrl":"https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616889/gigs/qen2p4dwqjlyrpwnhsqe.png",
                   "level": "pro",
                   "rate": 4.9
                 },
