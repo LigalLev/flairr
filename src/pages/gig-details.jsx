@@ -43,11 +43,17 @@ export function GigDetails() {
                 <p className="gig-email">@{gig.owner.fullname}</p>
                 <p className="gig-level">Level : {gig.owner.level} <span>|</span></p>
                 <p className="gig-rate"> &#9733; &#9733; &#9733; &#9733; &#9733;<span>{gig.owner.rate}</span> (116)</p>
-                <span class="rating-filled">{getRatingString(gig)}</span>
+                {/* <span class="rating-filled">{getRatingString(gig)}</span> */}
+
                 <p className="gig-orders">14 Orders in Queue</p>
             </div>
-            {/* <img src={gig.owner.imgUrl}></img> */}
-            <p>{gig.description}</p>
+            <div className="img-container">
+                <img src={gig.imgUrl[0]}></img>
+            </div>
+            <div className="about-gig-container">
+                <h3>About this gig</h3>
+                <p>{gig.description}</p>
+            </div>
         </div> 
         }
         </section>

@@ -1,11 +1,14 @@
 .gig-details {
+    margin-right: 9.15%;
+    width: 57.42%;
 
     h1 {
         color: #404145;
         font-size: rem(28px);
         font-family: Macan-bold;
         line-height: 130%;
-        padding-block-end: 1em;
+        // padding-block-end: 1em;
+        margin-block: 0.67em;
         letter-spacing: 0.2px;
         overflow-wrap: break-word;
     }
@@ -15,10 +18,9 @@
         align-items: center;
         flex-direction: row;
         justify-content: flex-start;
+        margin-block-end: 24px;
 
         font-family: Macan;
-
-
 
         .user-round-img {
             height: 30px;
@@ -70,4 +72,33 @@
         }
 
     }
+
+    .img-container {
+        width: 714px;
+        background-color: whitesmoke;
+        display: flex;
+        justify-content: center;
+
+        img{
+            width: 94%;
+            // border: 1px solid #404145 ;
+        }
+    }
+
+    .about-gig-container{
+        color: #404145;
+
+        h3{
+            font-family: Macan-semibold;
+            font-size: rem(20px);
+            padding: 25px 0px 25px;
+        }
+
+        p{
+            color: #62646a;
+            font-size: rem(16px);
+        }
+    }
+
+
 }
