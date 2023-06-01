@@ -1,55 +1,79 @@
+import { useEffect, useState } from 'react'
 export function Hero() {
-    const items = [
+    const slides = [
         {
-            imgUrl: "https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606996/flairr/hero/hero1_dq2qdv.png",
+            heroClass: 'valentina',
             name: 'Valentina',
             Rating: '',
             occupation: 'AI Artist'
         },
         {
-            imgUrl: "https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606993/flairr/hero/hero2_bcsmlh.jpg",
             name: 'Andrea',
+            heroClass: 'andrea',
             Rating: '',
             occupation: 'Fashion Designer'
         },
         {
-            imgUrl: "https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606992/flairr/hero/hero3_atgfmp.jpg",
             name: 'Moon',
+            heroClass: 'moon',
             Rating: '',
             occupation: 'Marketing Expert'
         },
         {
-            imgUrl: "https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606993/flairr/hero/hero4_nn8gjb.jpg",
             name: 'Ritika',
+            heroClass: 'ritika',
             Rating: '',
             occupation: 'Shoemaker and Designer'
         },
         {
-            imgUrl: "https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606993/flairr/hero/hero5_eiz8iq.jpg",
             name: 'Zach',
+            heroClass: 'zach',
             Rating: '',
             occupation: 'Bar Owner'
         },
         {
-            imgUrl: "https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606993/flairr/hero/hero6_ozknih.jpg",
             name: 'Gabrielle',
+            heroClass: 'gabrielle',
             Rating: '',
             occupation: 'Video Editor'
         },
 
-        // <img src="https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606993/flairr/hero/hero2_bcsmlh.jpg" />,
-        // <img src="https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606993/flairr/hero/hero5_eiz8iq.jpg" />,
-        // <img src="https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606993/flairr/hero/hero4_nn8gjb.jpg" />,
-        // <img src="https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606993/flairr/hero/hero6_ozknih.jpg" />,
-        // <img src="https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606992/flairr/hero/hero3_atgfmp.jpg" />
+
     ]
 
+    const [currSlideIdx, setCurrSlideIdx] = useState(0)
+
+    useEffect(() => {
+        const slideInterval = setInterval(() => {
+            setCurrSlideIdx((prevIdx) => (prevIdx + 1) % slides.length)
+        }, 7000)
+
+        return () => {
+            clearInterval(slideInterval)
+        }
+    }, [])
+
+    const slide = slides[currSlideIdx]
     return (
         <section className="hero main-layout full">
-            <div className="full">
-                <img src="https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606993/flairr/hero/hero6_ozknih.jpg" alt="" />
-            </div>
+            {slides.map((slide, idx) => (
+                <section 
+                className='full hero-img-wrapper'
+                key={idx}
+                >
 
-        </section>
+                    <div
+                        
+                        className={`hero-img full ${slide.heroClass} ${currSlideIdx === idx ? 'active' : ''}`}
+                    ></div>
+
+                    {/* <p>
+                        {`${slide.name},`}
+                        <span>{slide.occupation}</span>
+                    </p> */}
+                </section>
+            ))}
+
+        </section >
     )
 }
