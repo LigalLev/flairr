@@ -1,7 +1,7 @@
 .home-page {
     top: 0;
     margin: 0;
-    
+
     .hero {
         position: absolute;
         top: 0;
@@ -11,6 +11,12 @@
         background-color: #b3c5ffc7;
         width: 100%;
         z-index: -1;
+
+        img {
+            align-self: stretch;
+            object-fit: cover;
+            height: 100%;
+        }
     }
 
 }
