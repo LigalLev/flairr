@@ -14,6 +14,7 @@ export function HomePage() {
 
     return (
         <section>
+
             <h2>
                 Count {count}
                 <button onClick={() => {
