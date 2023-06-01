@@ -12,12 +12,14 @@
 @import "./basics/forms";
 
 
-// Views
-@import "./views/AboutUs";
-@import "./views/HomePage";
-@import "./views/GigIndex";
-@import "./views/ReviewIndex";
-@import "./views/UserDetails";
+// Pages
+@import "./pages/AboutUs";
+@import "./pages/HomePage";
+@import "./pages/GigIndex";
+@import "./pages/ReviewIndex";
+@import "./pages/UserDetails";
+@import "./pages/GigDetails";
+
 
 // Components
 @import "./cmps/AppHeader";
