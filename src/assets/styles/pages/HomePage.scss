@@ -10,57 +10,117 @@
         height: $hero-height;
         background-color: #b3c5ffc7;
         width: 100%;
+        color: $clr6;
         z-index: -1;
 
-        .hero-img {
+        .hero-bg-wrapper {
             position: absolute;
+            grid-template-rows: 1fr;
+            top: 0;
+            left: 0;
+            margin: 0;
             width: 100%;
             height: 100%;
-            background-position: center;
-            background-size: cover;
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 1s ease-in-out;
+
+            .hero-name-wrapper {
+                z-index: 3;
+                height: fit-content;
+                justify-self: end;
+                align-self: end;
+                padding-block-end: rem(32px);
+
+                .rating {
+                    width: 5em;
+                    height: 0.7em;
+                    // position: absolute;
+                    margin-block-end: -0.4em;
+                    margin-inline-start: -0.4em;
+
+                }
+
+                p {
+                    font-size: rem(16px);
+                    line-height: rem(24px);
+                    white-space: pre-line;
+                    font-weight: 500;
+
+                    span {
+                        font-weight: 700;
+                    }
+                }
+            }
 
             &.active {
                 opacity: 1;
             }
 
-            &.valentina {
-                background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606996/flairr/hero/hero1_dq2qdv.png');
+            .hero-img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-position: center;
+                background-size: cover;
+
+                &.valentina {
+                    background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606996/flairr/hero/hero1_dq2qdv.png');
+
+                }
+
+                &.andrea {
+                    background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606996/flairr/hero/hero2_bcsmlh.jpg');
+
+                }
+
+                &.moon {
+                    background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606996/flairr/hero/hero3_atgfmp.jpg');
+
+                }
+
+                &.ritika {
+                    background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606996/flairr/hero/hero4_nn8gjb.jpg');
+
+                }
+
+                &.zach {
+                    background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606993/flairr/hero/hero5_eiz8iq.jpg');
+                }
+
+                &.gabrielle {
+                    background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606993/flairr/hero/hero6_ozknih.jpg');
+                }
 
             }
-
-            &.andrea {
-                background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606996/flairr/hero/hero2_bcsmlh.jpg');
-
-            }
-
-            &.moon {
-                background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606996/flairr/hero/hero3_atgfmp.jpg');
-
-            }
-
-            &.ritika {
-                background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606996/flairr/hero/hero4_nn8gjb.jpg');
-
-            }
-
-            &.zach {
-                background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606993/flairr/hero/hero5_eiz8iq.jpg');
-            }
-
-            &.gabrielle {
-                background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685606993/flairr/hero/hero6_ozknih.jpg');
-            }
-
         }
+
+        .filtering-area {
+            z-index: 3;
+            max-width: 650px;
+            align-self: center;
+            h1 {
+                font-size: rem(48px);
+                line-height:rem(56px);
+                letter-spacing: normal;
+                text-align:start;
+                font-weight:700;
+                padding-block: rem(24px);
+    
+                span {
+                    font-family:DomaineDisplay;
+                }
+            }
+
+            input[type="text"] {
+                
+                width: 100%;
+                border-radius: 4px 0 0 4px;
+                padding: 10px 2px 10px 16px;
+            }
+            
+        }
+
+
     }
-    .hero-img-wrapper {
-        position: absolute;
-        top: 0;
-        left: 0;
-        margin: 0;
-        width: 100%;
-        height: 100%;
-    }
+
 }
