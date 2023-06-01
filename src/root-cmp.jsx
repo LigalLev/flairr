@@ -16,7 +16,7 @@ import { Payment } from './pages/payment'
 export function RootCmp() {
 
     return (
-        <div>
+        <div className="main-layout">
 
             <AppHeader />
             <main>
@@ -33,6 +33,7 @@ export function RootCmp() {
                 </Routes>
             </main>
             <AppFooter />
+
         </div>
     )
 }

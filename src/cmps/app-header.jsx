@@ -33,7 +33,7 @@ export function AppHeader() {
     }
 
     return (
-        <header className="app-header">
+        <header className="app-header main-layout full">
             <nav>
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/gig">Explore</NavLink>

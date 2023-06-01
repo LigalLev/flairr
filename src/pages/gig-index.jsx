@@ -24,7 +24,7 @@ export function GigIndex() {
         }
     }
 
-    async function onAddGig() {
+    async function onAddGig() {//// will be neede at a seller page 
         const gig = gigService.getEmptyGig()
         gig.title = prompt('Vendor?')
         try {
