@@ -5,18 +5,19 @@ export function GigList({ gigs, onRemoveGig, onEditGig, addToCart }){
     
       
     return <ul className="gig-list">
+      {/* { gigs.length} */}
     {gigs.map(gig =>
-                <li className="gig-preview" key={gig._id}>
+                <li key={gig._id}>
                     <GigPreview gig={gig} />
     
-                    <div>
+                    {/* <div>
                         <button onClick={() => { onRemoveGig(gig._id) }}>Delete Item</button>
                         {/* <button onClick={() => { onEditToy(gig) }}>Edit</button> */}
-                    </div>
+                    {/* </div>} */}
     
-                    <button className="buy" onClick={() => { addToCart(gig) }}>
-                        Add to Cart
-                    </button>
+                    {/* <button className="buy" onClick={() => { addToCart(gig) }}> */}
+                        {/* Add to Cart
+                    </button> */}
                 </li>)}
         </ul>
     }

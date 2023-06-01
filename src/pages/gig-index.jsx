@@ -58,17 +58,15 @@ export function GigIndex() {
     }
 
     return (
-        <div>
-            <h3>Gigs App</h3>
             <main>
                 <GigList
                     gigs={gigs}
                     onRemoveGig={onRemoveGig}
                     onAddGig={onAddGig}
                 />
-                <div className='carousel-container'>
+                {/* <div className='carousel-container'>
                 <CarouselContainer />
-                </div>
+                </div> */}
                 {/* {
                             <button onClick={() => { onAddGigMsg(gig) }}>Add gig msg</button>
                             <button className="buy" onClick={() => { onAddToCart(gig) }}>Add to cart</button>
@@ -76,6 +74,5 @@ export function GigIndex() {
                     }
                 </ul> } */}
             </main>
-        </div>
     )
 }
