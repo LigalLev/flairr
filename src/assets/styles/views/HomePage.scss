@@ -1,0 +1,13 @@
+.home-page {
+    top: 0;
+    margin: 0;
+    min-height: 100vh;
+    
+    .hero {
+        position: absolute;
+        top: 0;
+        height: $hero-height;
+        background-color: #b3c5ffc7;
+        margin: 0;
+    }
+}
