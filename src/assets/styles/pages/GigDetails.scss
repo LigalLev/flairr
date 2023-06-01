@@ -1,0 +1,73 @@
+.gig-details {
+
+    h1 {
+        color: #404145;
+        font-size: rem(28px);
+        font-family: Macan-bold;
+        line-height: 130%;
+        padding-block-end: 1em;
+        letter-spacing: 0.2px;
+        overflow-wrap: break-word;
+    }
+
+    .main-details-container {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        font-family: Macan;
+
+
+
+        .user-round-img {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            border: 1px solid $clr1;
+            background-color: orange;
+        }
+
+        h2 {
+            color: #404145;
+            margin: 0;
+
+            padding-inline: 26px 10px;
+            font-size: rem(18px);
+            line-height: 1.44;
+            letter-spacing: 0.4px;
+        }
+
+        p{
+            margin: 0;
+            font-size: rem(14px);
+        }
+
+        .gig-email,
+        .gig-orders{
+            color:$clr4;
+            letter-spacing: 0.4px;
+            padding-inline-end: 8px;
+        }
+
+        .gig-level {
+            color: $clr5;
+            padding-inline-end: 8px;
+            span{
+                color: $clr4;
+            }
+        }
+
+        .gig-rate {
+            color: $clr5;
+            padding-inline-end: 8px;
+            color: #ffb33e;
+
+            span{
+                // color: #ffb33e;
+                font-family: Macan-bold;            }
+
+        }
+
+    }
+}
