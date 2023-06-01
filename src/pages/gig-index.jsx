@@ -6,6 +6,7 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 // import { gigService } from '../services/gig.service.js'
 import { gigService } from '../services/gig.service.local.js'
 import { GigList } from '../cmps/gig-list.jsx'
+import { CarouselContainer } from '../cmps/carousel-container.jsx'
 
 export function GigIndex() {
 
@@ -18,7 +19,7 @@ export function GigIndex() {
     async function onRemoveGig(gigId) {
         try {
             await removeGig(gigId)
-            showSuccessMsg('Gig removed')            
+            showSuccessMsg('Gig removed')
         } catch (err) {
             showErrorMsg('Cannot remove gig')
         }
@@ -32,7 +33,7 @@ export function GigIndex() {
             showSuccessMsg(`Gig added (id: ${savedGig._id})`)
         } catch (err) {
             showErrorMsg('Cannot add gig')
-        }        
+        }
     }
 
     async function onUpdateGig(gig) {
@@ -43,10 +44,10 @@ export function GigIndex() {
             showSuccessMsg(`Gig updated, new price: ${savedGig.price}`)
         } catch (err) {
             showErrorMsg('Cannot update gig')
-        }        
+        }
     }
 
-    function onAddToCart(gig){
+    function onAddToCart(gig) {
         console.log(`Adding ${gig.title} to Gigt`)
         addToCart(gig)
         showSuccessMsg('Added to Gigt')
@@ -60,12 +61,14 @@ export function GigIndex() {
         <div>
             <h3>Gigs App</h3>
             <main>
-            <GigList
-                gigs={gigs}
-                onRemoveGig={onRemoveGig}
-                onAddGig={onAddGig}
-            />
-
+                <GigList
+                    gigs={gigs}
+                    onRemoveGig={onRemoveGig}
+                    onAddGig={onAddGig}
+                />
+                <div className='carousel-container'>
+                <CarouselContainer />
+                </div>
                 {/* {
                             <button onClick={() => { onAddGigMsg(gig) }}>Add gig msg</button>
                             <button className="buy" onClick={() => { onAddToCart(gig) }}>Add to cart</button>

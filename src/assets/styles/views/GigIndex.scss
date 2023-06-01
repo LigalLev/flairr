@@ -1,23 +1,26 @@
-.gig-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    li {
-        background-color: $clr2;
-        color: $clr6;
-        padding: 5px;
-        margin: 5px;
-    }
-    a {
-        color: $clr1;
-        padding: 10px;
-    }    
-    h3 {
-        background-color: #ddd;
-        padding: 10px 5px;
-        margin: 5px;
-    }    
+// .gig-list {
+//     list-style: none;
+//     display: flex;
+//     flex-wrap: wrap;
+//     li {
+//         background-color: $clr2;
+//         color: $clr6;
+//         padding: 5px;
+//         margin: 5px;
+//     }
+//     a {
+//         color: $clr1;
+//         padding: 10px;
+//     }    
+//     h3 {
+//         background-color: #ddd;
+//         padding: 10px 5px;
+//         margin: 5px;
+//     }    
+// }
+
+.carousel-container{
+    height: 100px;
+    width: 370px;
 }
-
-
 

@@ -1,0 +1,12 @@
+.gig-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 326px);
+    gap: 1em;
+    // padding-block: 2em;
+    color: black;
+    background-color: white;
+    justify-content: center;
+    text-align: center;
+    list-style: none;
+
+}
