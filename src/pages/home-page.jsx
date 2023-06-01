@@ -7,8 +7,9 @@ export function HomePage() {
     const count = useSelector(storeState => storeState.userModule.count)
 
     return (
-        <section className="home-page">
+        <section className="home-page main-layout full">
             <Hero />
+
         </section>
     )
 }

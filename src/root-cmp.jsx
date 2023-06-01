@@ -19,7 +19,7 @@ export function RootCmp() {
         <div className="main-layout">
 
             <AppHeader />
-            <main>
+            <main className='main-layout full'>
                 <Routes>
                     <Route element={<HomePage />} path="/" />
                     <Route element={<GigIndex />} path="/gig" />

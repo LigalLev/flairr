@@ -1,14 +1,16 @@
 .home-page {
     top: 0;
     margin: 0;
-    min-height: 100vh;
     
     .hero {
         position: absolute;
         top: 0;
+        left: 0;
+        margin: 0;
         height: $hero-height;
         background-color: #b3c5ffc7;
+        width: 100%;
         z-index: -1;
-        margin: 0;
     }
+
 }
