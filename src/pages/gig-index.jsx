@@ -64,9 +64,7 @@ export function GigIndex() {
                     onRemoveGig={onRemoveGig}
                     onAddGig={onAddGig}
                 />
-                {/* <div className='carousel-container'>
-                <CarouselContainer />
-                </div> */}
+
                 {/* {
                             <button onClick={() => { onAddGigMsg(gig) }}>Add gig msg</button>
                             <button className="buy" onClick={() => { onAddToCart(gig) }}>Add to cart</button>
