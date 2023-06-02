@@ -1,20 +1,20 @@
 .gig-preview {
     font-size: rem(16px);
-// border: 1px solid black;
+    // border: 1px solid black;
 
-    .owner-name-rate-container{
+    .owner-name-level-container {
         display: flex;
         font-size: rem(14px);
-      justify-content: space-between;
-      font-weight: 700;
-    }
-    .preview-owner-fullName {
-       
-    }
-    .preview-owner-level{
-    }
-    .preview-gig-price{
+        justify-content: space-between;
         font-weight: 700;
+        color: $clr7;
+    }
+    .preview-gig-price {
+        font-weight: 700;
+        color: $clr7;
+    }
+    .preview-gig-title{
+        color: $clr8
     }
 
 }

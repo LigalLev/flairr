@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom"
 import { gigService } from "../services/gig.service"
+import { Carousel } from "react-responsive-carousel"
+import { CarouselContainer } from "./carousel-container"
 
 export function GigPreview({ gig }) {
     return <article className="gig-preview">
         <div className="img-wrapper">
-            <Link to={`/gig/${gig._id}`}> <img src={gigService.getImgUrl(gig.imgUrl)} alt="" /></Link>
+        <CarouselContainer gig={gig}/>
         </div>
-        <div className="owner-name-rate-container">
+        <div className="owner-name-level-container">
             {/* <div>{gig.owner.nam}</div> */}
             <div className="preview-owner-fullName">{gig.owner.fullname}</div>
             <div className="preview-owner-level">{gig.owner.level}</div></div>
