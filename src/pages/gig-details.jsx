@@ -43,10 +43,9 @@ export function GigDetails() {
                     {/* <Link to={`/gig/${gig._id}`}>About the seller</Link> */}
                 </nav>
             </section>
-            <section className="gig-details-content">
-                
+            {gig && <section className="gig-details-content">
                 <article className="gig-details-container">
-                    {gig && <div>
+                    <div>
                         <h1>{gig.title}</h1>
                         <div className="main-details-container">
                             <div className="user-round-img"></div>
@@ -66,7 +65,7 @@ export function GigDetails() {
                             <p>{gig.description}</p>
                         </div>
                     </div>
-                    }
+                   
                 </article>
                 <aside className="pricing-container">
                     <PricingPackage gig={gig}/> 
@@ -74,6 +73,7 @@ export function GigDetails() {
 
 
             </section>
+        }
 
 
 

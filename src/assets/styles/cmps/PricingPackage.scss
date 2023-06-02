@@ -1,3 +1,91 @@
 .pricing-package {
-    border: 1px solid red;
+    position: sticky;
+    // transform: translate3d(0px, 15px, 0px);
+    // width: 414.547px;
+    top: 0px;
+
+    padding-bottom: 32px;
+    z-index: 5;
+
+    font-family: Macan-semibold;
+
+    nav {
+        display: flex;
+
+        a {
+            text-decoration: none;
+            color: #74767e;
+            border-right: 1px solid #dadbdd;
+            border-bottom: 1px solid #dadbdd;
+            background-color: #fafafa;
+
+            font-size: rem(16px);
+            font-weight: 700;
+            padding: 16px;
+            text-align: center;
+            flex: 1 1;
+        }
+
+        // a:checked{
+        //     background-color: #fff;
+        //     border-bottom: 3px solid #1dbf73;
+        //     color: #1dbf73;
+        // }
+
+    }
+
+    .pricing-details {
+        font-family: Macan;
+        margin-inline-start: 24px;
+
+        &>* {
+            word-break: break-word;
+        }
+
+        h1 {
+            font-family: Macan-semibold;
+            margin-block-start: 32px;
+            color: #404145;
+            font-size: rem(24px);
+            line-height: 1em;
+            word-break: break-word;
+        }
+
+        p {
+            font-size: rem(16px);
+            color: #404145;
+            word-break: break-word;
+        }
+
+        .brand-fundamental-container {
+            margin-block: 24px 10px;
+
+            &::before {
+                content: url(../../img/clock.svg);
+                fill: red;
+            }
+
+
+
+            p {
+                font-family: Macan-semibold;
+                // color: #404145;
+                color: #62646a;
+                font-size: rem(16px);
+
+                span {
+                    font-family: Macan;
+    
+                    color: #62646a;
+                    font-size: rem(14px);
+                    word-break: break-word;
+                }
+            }
+
+
+
+           
+        }
+    }
+
 }
