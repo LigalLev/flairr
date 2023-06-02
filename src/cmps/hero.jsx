@@ -4,37 +4,37 @@ export function Hero() {
         {
             heroClass: 'valentina',
             name: 'Valentina',
-            Rating: '',
+            isSeller: true,
             occupation: 'AI Artist'
         },
         {
             name: 'Andrea',
             heroClass: 'andrea',
-            Rating: '',
+            isSeller: false,
             occupation: 'Fashion Designer'
         },
         {
             name: 'Moon',
             heroClass: 'moon',
-            Rating: '',
+            isSeller: true,
             occupation: 'Marketing Expert'
         },
         {
             name: 'Ritika',
             heroClass: 'ritika',
-            Rating: '',
+            isSeller: false,
             occupation: 'Shoemaker and Designer'
         },
         {
             name: 'Zach',
             heroClass: 'zach',
-            Rating: '',
+            isSeller: false,
             occupation: 'Bar Owner'
         },
         {
             name: 'Gabrielle',
             heroClass: 'gabrielle',
-            Rating: '',
+            isSeller: true,
             occupation: 'Video Editor'
         },
 
@@ -57,22 +57,46 @@ export function Hero() {
     return (
         <section className="hero main-layout full">
             {slides.map((slide, idx) => (
-                <section 
-                className='full hero-img-wrapper'
-                key={idx}
+                <section
+                    key={idx}
+                    className={`main-layout full hero-bg-wrapper  ${currSlideIdx === idx ? 'active' : ''}`}
                 >
 
                     <div
-                        
-                        className={`hero-img full ${slide.heroClass} ${currSlideIdx === idx ? 'active' : ''}`}
+
+                        className={`hero-img full ${slide.heroClass} `}
                     ></div>
 
-                    {/* <p>
-                        {`${slide.name},`}
-                        <span>{slide.occupation}</span>
-                    </p> */}
+                    <div className='hero-name-wrapper'>
+                        {slide.isSeller &&
+                            <img
+                                src="https://res.cloudinary.com/dqhfnvtca/image/upload/v1685657712/flairr/hero/five_stars_dfomu6.svg"
+                                alt="five stars"
+                                className='rating'
+                            />
+                        }
+                        <p>
+                            {`${slide.name}, `}
+                            <span>{slide.occupation}</span>
+                        </p>
+                    </div>
+
+
                 </section>
             ))}
+
+            <section className='filtering-area'>
+
+                <h1>
+                    Find the right <span>freelance service, </span>right away
+                </h1>
+                
+                <input 
+                type="text"
+                placeholder='Search for any device...'
+                />
+
+            </section>
 
         </section >
     )
