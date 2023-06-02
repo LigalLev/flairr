@@ -1,4 +1,6 @@
 .home-page {
+    $layoutPadding: 90;
+
     top: 0;
     margin: 0;
 
@@ -8,7 +10,7 @@
         left: 0;
         margin: 0;
         height: $hero-height;
-        background-color: #b3c5ffc7;
+        // background-color: black;
         width: 100%;
         color: $clr6;
         z-index: -1;
