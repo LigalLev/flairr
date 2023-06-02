@@ -58,7 +58,7 @@ export function GigIndex() {
     }
 
     return (
-            <main className='main-layout'>
+            <main>
                 <GigList
                     gigs={gigs}
                     onRemoveGig={onRemoveGig}
