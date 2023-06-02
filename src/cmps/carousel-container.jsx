@@ -63,8 +63,8 @@ export function CarouselContainer({gig}) {
       }
     >
       {urls.map((url) => {
-        return <div key={gig._id} className="image">
-          <img src={url} ></img>
+        return <div key={gig._id} className="carousel-img-container">
+          < img src={url} className="carousel-img"/>
         </div>
 
       })}

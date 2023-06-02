@@ -129,7 +129,7 @@ function getEmptyGig() {
                 },
                 daysToMake: 3,
                 description: "Hello, I am Kris. Welcome to my logo design gig. I specialize in business logo design. My design will be clean, trendy, minimal and original. I have successfully designed logos for many brands and now I am here on Fiverr to give the best. Why Me? Original, minimal, unique, high quality logo designs Premium customer support 24 x 7 Unlimited revisions, until you are satisfied All types of vector and source files .AI, JPEG, .PNG, PDF, EPS in high resolution WORKFLOW Precise and Strong Communication - Research on current trend - Sketching the initial concepts and Digitalizing it - Submission for Review - Modifications for making the design perfect Minimalist Logo | Minimal | Professional | Modern | Text | Vintage | Badge | Hand drawn | Feminine | Signature | Custom | Watercolor | YouTube Channel | Beauty Customer satisfaction is my top-notch priority and I believe in providing my customer with smooth and comfortable journey on Fiverr. Sounds interesting?? Lets chat!!! Order a gig now and lets have the ball rolling!!!!",
-                imgUrl: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607951/gigs/sdqw13xszcr5ygmsmcwx.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607931/gigs/rjvwpryqcforxtabuqfe.png"],
+                imgUrl: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607894/gigs/yc9ye93cjn3gfpgzsaid.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607951/gigs/sdqw13xszcr5ygmsmcwx.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607931/gigs/rjvwpryqcforxtabuqfe.png"],
                 tags: [
                   "Minimalist",
                 ],
@@ -148,7 +148,7 @@ function getEmptyGig() {
                 },
                 daysToMake: 3,
                 description: "About this gig Start Your Business with a Perfect Logo Design Our team of concept driven professionals works tirelessly to deliver amazing designs that are visually pleasing to the eyes. The professional logo design process plays a significant role in the development of logo and other visual content. Breaking down the entire project into smaller, manageable chunks helps architects, thinkers, and artists approach their tasks with utmost clarity and creativity. What can you get in my gig Original and Unique designs 3D Mockup Source/Vector Files Social Media Kit Logo Transparency Stationery Designs FREE Consultation 24 X 7 VIP support copyrights Our designing services help you get the best leaving the competition in the backyard and zip through the market of logo design companies. Have queries? Contact us in inbox anytime!",
-                imgUrl:["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616104/gigs/t40t1sdutlm1q0d8oxqp.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616173/gigs/tvwysc5plrufen5xc4up.png"],
+                imgUrl:["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616173/gigs/tvwysc5plrufen5xc4up.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685693250/gigs/bct2bt3jgnr6kkmaxzoi.jpg"," https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685693320/gigs/cbaalgidsnapwvmeakvl.jpg"],
                 tags: [
                   "Minimalist",
                 ],
