@@ -1,7 +1,8 @@
 .pricing-package {
     position: sticky;
-    // transform: translate3d(0px, 15px, 0px);
     // width: 414.547px;
+    border: 1px solid #dadbdd;
+
     top: 0px;
 
     padding-bottom: 32px;
@@ -35,8 +36,10 @@
     }
 
     .pricing-details {
+        display: flex;
+        flex-direction: column;
         font-family: Macan;
-        margin-inline-start: 24px;
+        margin-inline: 1.5em;
 
         &>* {
             word-break: break-word;
@@ -59,14 +62,6 @@
 
         .brand-fundamental-container {
             margin-block: 24px 10px;
-
-            &::before {
-                content: url(../../img/clock.svg);
-                fill: red;
-            }
-
-
-
             p {
                 font-family: Macan-semibold;
                 // color: #404145;
@@ -75,17 +70,62 @@
 
                 span {
                     font-family: Macan;
-    
                     color: #62646a;
                     font-size: rem(14px);
                     word-break: break-word;
                 }
+            } 
+        }
+
+        .delivery-info-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: rem(14px);
+            font-family: Macan-semibold;
+            color: #62646a;
+            margin-block-end: 20px;
+
+            svg{
+                fill: #62646a ;
+                margin-inline-end: 16px;
             }
 
-
-
-           
+            .delivery-days-item{
+                margin-inline-end: 16px;
+            }
         }
+
+        
+
+        .collapsible-container{
+            font-size: rem(14px);
+            h4{
+                font-family: Macan-bold;
+                color: #404145;
+            }
+
+            .collapsible-content {
+                li{
+                    color: #95979d;
+                }
+                svg{
+                    fill: #02c2a9;
+                    margin-inline-end: 0.75em
+                }
+            }
+            
+        }
+
+        .btn-continue {
+            background-color:$clr7 ;
+            font-size: rem(16px);
+            margin-block-start: 1.5em;
+            padding: 12px 24px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
     }
 
 }

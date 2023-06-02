@@ -27,9 +27,9 @@ export function GigDetails() {
     }
 
     function getRatingString(gig) {
-        const gRatingStar = '⭐'
+        const ratingStar = '&#9733;'
         if (!gig.owner.rate) return ''
-        var ratingString = gRatingStar.repeat(gig.owner.rate)
+        var ratingString = ratingStar.repeat(gig.owner.rate+1)
         console.log('ratingString:', ratingString)
         return ratingString
     }
@@ -52,8 +52,10 @@ export function GigDetails() {
                             <h2>{gig.owner.fullname}</h2>
                             <p className="gig-email">@{gig.owner.fullname}</p>
                             <p className="gig-level">Level : {gig.owner.level} <span>|</span></p>
+                            {/* <p className="gig-rate"> &#9733; &#9733; &#9733; &#9733; &#9733;<span>{gig.owner.rate}</span> (116)</p> */}
                             <p className="gig-rate"> &#9733; &#9733; &#9733; &#9733; &#9733;<span>{gig.owner.rate}</span> (116)</p>
-                            {/* <span class="rating-filled">{getRatingString(gig)}</span> */}
+
+                            {/* <span className="rating-filled">{getRatingString(gig)}</span> */}
 
                             <p className="gig-orders">14 Orders in Queue</p>
                         </div>
