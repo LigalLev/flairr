@@ -43,12 +43,11 @@ export function GigDetails() {
     }
 
     function onToggleIsOpen() {
-        console.log(isOpen)
         setIsOpen(prevIsOpen => !prevIsOpen)
     }
 
     const classMenu = (isOpen) ? 'isOpen' : ''
-    //${classMenu}
+
     return (
         <main className={`gig-details-main full main-layout ${classMenu}`}>
             <section className="top-nav-container full">
@@ -103,9 +102,7 @@ export function GigDetails() {
                     classMenu={classMenu}
                 />
 
-                {/* <div class="main-screen" onclick="toggleMenu()"></div> */}
-
-
+                <div className={`main-screen ${classMenu}`} onClick={onToggleIsOpen}></div>
 
             </section>
             }
