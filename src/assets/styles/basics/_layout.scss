@@ -19,7 +19,10 @@
     }
     
     @include for-wide-layout {
-        @include layoutGTC($break-wide);
+        grid-template-columns:
+        minmax($layoutPadding, 1fr)
+        minmax(auto,$break-wide)
+        minmax($layoutPadding, 1fr);
     }
 
 }
