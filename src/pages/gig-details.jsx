@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import { PricingPackage } from "../cmps/pricing-package.jsx"
 import { GigShoppingCart } from '../cmps/gig-shopping-cart'
 import { utilService } from "../services/util.service"
+import {BigCarousel} from "../cmps/big-carousel"
 
 export function GigDetails() {
     const [gig, setGig] = useState(null)
@@ -78,8 +79,8 @@ export function GigDetails() {
                             </div>
 
                         </div>
-                        <div className="img-container">
-                            <img src={gig.imgUrl[0]}></img>
+                        <div style={{maxWidth:"700px"}}>
+                         < BigCarousel imgUrls={gig.imgUrl}/>
                         </div>
                         <div className="about-gig-container">
                             <h3>About this gig</h3>

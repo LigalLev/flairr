@@ -72,11 +72,11 @@ function getEmptyGig() {
         title: "I will design your logo",
         price: 60,
         owner: {
-          "_id": "u101",
-          "fullname": "nadia_y",
-          "imgUrl": "",
-          "level": "Fairr's choice",
-          "rate": 5.0
+            "_id": "u101",
+            "fullname": "nadia_y",
+            "imgUrl": "",
+            "level": "Fairr's choice",
+            "rate": 5.0
         },
         daysToMake: 3,
         description: "Hello, I am Kris. Welcome to my logo design gig. I specialize in business logo design. My design will be clean, trendy, minimal and original.I have successfully designed logos for many brands and now I am here on Fiverr to give the best. Why Me? Original, minimal, unique, high quality logo designs Premium customer support 24 x 7 Unlimited revisions, until you are satisfied All types of vector and source files .AI, JPEG, .PNG, PDF, EPS in high resolution WORKFLOW Precise and Strong Communication - Research on current trend - Sketching the initial concepts and Digitalizing it - Submission for Review - Modifications for making the design perfect Minimalist Logo | Minimal | Professional | Modern | Text | Vintage | Badge | Hand drawn | Feminine | Signature | Custom | Watercolor | YouTube Channel | Beauty Customer satisfaction is my top-notch priority and I believe in providing my customer with smooth and comfortable journey on Fiverr. Sounds interesting?? Lets chat!!!Order a gig now and lets have the ball rolling!!!!",
@@ -98,18 +98,18 @@ function _oldCreateGigs() {
             title: "I will design modern minimalist elegant logo",
             price: 60,
             owner: {
-              "_id": "u101",
-              "fullname": "nadia_y",
-              "imgUrl": "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616615/gigs/cy8yt73ihkig5aklntq8.jpg",
-              "level": "Fiar's choise",
-              "rate": 5.0
+                "_id": "u101",
+                "fullname": "nadia_y",
+                "imgUrl": "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616615/gigs/cy8yt73ihkig5aklntq8.jpg",
+                "level": "Fiar's choise",
+                "rate": 5.0
             },
             daysToMake: 3,
             description: "Hello, I am Kris. Welcome to my logo design gig. I specialize in business logo design. My design will be clean, trendy, minimal and original.I have successfully designed logos for many brands and now I am here on Fiverr to give the best. Why Me? Original, minimal, unique, high quality logo designs Premium customer support 24 x 7 Unlimited revisions, until you are satisfied All types of vector and source files .AI, JPEG, .PNG, PDF, EPS in high resolution WORKFLOW Precise and Strong Communication - Research on current trend - Sketching the initial concepts and Digitalizing it - Submission for Review - Modifications for making the design perfect Minimalist Logo | Minimal | Professional | Modern | Text | Vintage | Badge | Hand drawn | Feminine | Signature | Custom | Watercolor | YouTube Channel | Beauty Customer satisfaction is my top-notch priority and I believe in providing my customer with smooth and comfortable journey on Fiverr. Sounds interesting?? Lets chat!!!Order a gig now and lets have the ball rolling!!!!",
             imgUrl: ['https://res.cloudinary.com/dlhjvt9b4/image/upload/w_308,h_186/v1685611697/gigs/c9dhyxfmh80hbuawemlm.jpg', ' https://res.cloudinary.com/dlhjvt9b4/image/upload/w_308,h_186/v1685607730/gigs/heyuacvxghfilhbloyay.jpg', ' https://res.cloudinary.com/dlhjvt9b4/image/upload/w_308,h_186/v1685607711/gigs/utfc8fxcnbhrl2jken2o.jpg', ' https://res.cloudinary.com/dlhjvt9b4/image/upload/w_308,h_186/v1685607696/gigs/zvysug7d3tdvekqdfms5.jpg'],
             tags: [
                 "logo-design",
-                "artisitic",
+                "logo maker",
                 "proffesional",
                 "accessible"
             ],
@@ -169,7 +169,9 @@ function _oldCreateGigs() {
             description: "Hello, Welcome to my custom creative logo design gig! I have the superpowers to convert idea's/Sketches into a creative logo. I have the expertise in creating custom, premium, and high-quality logos. I focus on creating simple yet innovative designs that will highly impact the customer's mind. Advantages of working with me: * Get ultimate ideas and unique options to choose the best design. * TOP NOTCH quality will be provided * Multiple revisions * Custom graphics. * Fast delivery with VIP support. * All Copyrights. My Expertise includes: Company Logo | | Professional | Premium | Luxury | Versatile | Minimalist | Modern | Custom | Clean | Vintage | Retro | Badge | Hand drawn | Feminine | Flat | Signature | Business Logos and many more. NOTE: MASCOTS AND DETAILED DESIGNS ARE NOT INCLUDED IN THESE PACKAGES. Lets convert your dreams into a vector design. *** ORDER NOW***",
             imgUrl: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685612841/gigs/fj6kywpggljvflqki2lk.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685612883/gigs/mlqhjt9vdxzg4p7vwgtf.jpg"],
             tags: [
-                "Minimalist",
+                "logo",
+                "unique",
+                "proffessional"
             ],
             likedByUsers: ['mini-user']
         },
@@ -188,7 +190,8 @@ function _oldCreateGigs() {
             description: "Looking for a unique logo concept for your enterprise? WebSutra is a dedicated team which focused on providing unique logo designs based on your branding requirements. We are specialised in minimal logo designs & branding projects which offer complete visual identity developments for enterprises. With 10 years of experience, over 400 projects completed on Fiverr and with over 200 5-star reviews, We will ensure, our unique branding graphics and logo designs will clearly convey your enterprise presence through the design of a quality modern logo and a colour scheme. What will you get? Unique custom made logo that will represent your business Profile picture and header for your social media profiles Stationary design like business card, letterhead and envelope 3D mockups Branding book for your business Transfer of Copyrights Document Please check all our packages and select the one that best suits your budget and requirements. If you have any questions, feel free to message us anytime. We are always happy to help. Thank You!",
             imgUrl: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685613453/gigs/bwreao1kjqirs16jxeis.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685613470/gigs/erkobstxfz29pcctwvgw.png"],
             tags: [
-                "Minimalist",
+                "garden design",
+                "landscape design"
             ],
             likedByUsers: ['mini-user']
         },
@@ -298,7 +301,9 @@ function _oldCreateGigs() {
                 "landscape design"
             ],
             likedByUsers: ['mini-user']
-        }
+        },
+       
+
 
         ]
     utilService.saveToStorage(STORAGE_KEY, gigs)
@@ -526,7 +531,53 @@ function _createGigs() {
                 "landscape design"
             ],
             likedByUsers: ['mini-user']
-        }
+        },
+        {
+            _id: "i111",
+            title: "I will build professional wordpress website design and ecommerce website",
+            price: 80,
+            owner: {
+                "_id": "u111",
+                "fullname": "wp_corporative",
+                "imgUrl": "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685815583/gigs/p0m9qj1qvh0zoou6lmhk.png",
+                "level": "basic",
+                "rate": 5
+            },
+            daysToMake: 3,
+            description: "About this gig Do you feel that more than 80% of big busines proprietors like to induce WordPress website design fo their enterprises. This is due to WordPress simplicity through a simple admin panel and managing thousands of new accounts effortlessly.I've been delivering web services to multiple businesses across the globe for the last 5 years and I'll deliver a complete one window result to your online presence. Why should you choose us? We've accomplished crew who are capable to deliver 100% satisfaction with solitary WordPress website designs for your old or new sites. We do Customized WordPress website that represent your company Fully Responsiveness Speed-optimized Simple to handle Eye Catching Layout Full Ecommerce capabilities After Sale Services SSL Installation Payment GatewayGoogle Map We Design: E-Commerce website Personal site Portfolio Business Education Health News IT Industry Public Sectors And Many More What Do We Need From You? Log in for your WordPress admin panel Complete Content/Logo Web Design Reference/Inspiration Site *Note: We will be very happy to assist you, please feel free to contact.",
+            imgUrl: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816071/gigs/uea1jxqnzlqmvhivrzmg.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816106/gigs/ou0iiawj8ahazwo5lxax.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816175/gigs/z6i5gjsrltbvxhpzccdq.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816218/gigs/mul6ewpupllaf2ji7w8w.png"],
+            tags: [
+                "wordpress developer",
+                "wordpress",
+                "website design",
+                "responsive",
+                "ecommerce website"
+            ],
+            likedByUsers: ['mini-user']
+        },
+        {
+            _id: "i112",
+            title: "I will fix your wordpress website issue",
+            price: 20,
+            owner: {
+                "_id": "u112",
+                "fullname": "wp_corporative",
+                "imgUrl": "https://res.cloudinary.com/dm4cdho4d/image/upload/v1685613877/flairr/4/874e937a-1369-4199-993d-f17530bd9872_t4j4uw.jpg",
+                "level": "Level 2",
+                "rate": 5.0
+            },
+            daysToMake: 3,
+            description: "About this gig Thank you so much for visiting my WordPress issue fix gig on Fiverr. Here Im Rafi, your wordpress bug fixer. With this gig I can help you to fix issues on your website. I have 5 years of experience with wordpress cms , and I fixed thousands of issues on sites. If youre facing any kind of bug, issue on your sites, send me a message, I would be happy to talk with you and assist you. Here is some common issue which happen: Internal Server Error Not Uploading Images Stuck in Maintenance Mode Site Break Issue after core update White Screen of Death Theme, Plugin, WP Core update. And anything WP related. Still, you're confused about my services? It's better to message me. I will reply to your message within 60 SECONDS. Try now! Note: This service exclusively on Fiverr only and For basic gig I will do small changes only.Again Thank you so much for visiting my gig and dont forget to favorite this gig if your issue is solved..",
+            imgUrl: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816822/gigs/reg1lhoe2castvwc8xfy.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816885/gigs/mg4mnnopyulvnsnevxsx.png","https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816916/gigs/mwz7puvx3rvddhf3zsvk.jpg","https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816962/gigs/s1vm21ga6iale8t8jqah.jpg"],
+            tags: [
+                "wordpress issue fix",
+                "wordpress bug fixes",
+                "wordpress",
+                "wordpress website",
+                "wordpress services"
+            ],
+            likedByUsers: ['mini-user']
+        },
 
         ]
     utilService.saveToStorage(STORAGE_KEY, gigs)
