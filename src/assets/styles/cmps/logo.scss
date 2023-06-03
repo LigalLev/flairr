@@ -1,0 +1,21 @@
+.logo {
+    font-family: Macan-bold;
+    font-size: 2rem;
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .dot {
+        color: $clr1;
+    }
+
+    .rr {
+        letter-spacing: -0.1em;
+    }
+
+}

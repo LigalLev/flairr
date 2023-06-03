@@ -1,8 +1,36 @@
-.app-footer{
-    background-color:$clr6;
+.app-footer {
+    height: 55px;
+    grid-template-rows: 1fr;
+    background-color: $clr6;
     color: $clr4;
     padding: 20px;
     text-align: center;
     bottom: 0;
     width: 100%;
+    justify-content: space-between;
+
+
+    >* {
+        grid-row: 1;
+
+    }
+
+    section {
+        display: flex;
+        // align-items: center;
+        justify-self: start;
+        line-height: 21px;
+
+        p {
+            align-self: center;
+            color: $clr10;
+            margin-left: 24px;
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 14px;
+            line-height: 21px;
+        }
+    }
 }

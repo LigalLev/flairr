@@ -1,0 +1,28 @@
+.popular-services-slider-container {
+    display: block;
+    height: 345px;
+    overflow: hidden;
+    position: relative;
+
+    .slick-slider {
+        background-color: gray;
+        height: 100%;
+        .slick-list {
+            height: 100%;
+            .slick-track {
+                height: 100%;
+            }
+        }
+    }
+
+    .carousel-wrapper {
+        .custom-slide {
+            width: 239px;
+            height: 100%;
+            background-color: cornflowerblue;
+            color: red;
+        }
+
+    }
+
+}
