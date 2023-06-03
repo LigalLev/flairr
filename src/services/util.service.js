@@ -5,7 +5,8 @@ export const utilService = {
     debounce,
     randomPastTime,
     saveToStorage,
-    loadFromStorage
+    loadFromStorage,
+    resizeImgUrl
 }
 
 function makeId(length = 6) {
@@ -60,4 +61,17 @@ function saveToStorage(key, value) {
 function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
+}
+
+function resizeImgUrl(url, params = 'w_308,h_186,c_lfill') {
+    const parts = url.split('/');
+    const uploadIndex = parts.findIndex(part => part === 'upload');
+
+    if (uploadIndex !== -1) {
+        parts.splice(uploadIndex + 1, 0, params);
+    }
+
+    const convertedUrl = parts.join('/');
+
+    return convertedUrl;
 }

@@ -31,6 +31,7 @@ export class StarsRating extends React.Component {
                             onMouseLeave={() => this.setHover(rating)}>
                             <span className="star">&#9733;</span>
                         </button>
+                      
                     );
                 })}
             </div>

@@ -58,7 +58,8 @@ export function GigIndex() {
     }
 
     return (
-            <main>
+            <section>
+                <div>{gigs.length} services available</div>
                 <GigList
                     gigs={gigs}
                     onRemoveGig={onRemoveGig}
@@ -71,6 +72,6 @@ export function GigIndex() {
                         </li>)
                     }
                 </ul> } */}
-            </main>
+            </section>
     )
 }

@@ -1,6 +1,13 @@
 .carousel-img-container {
+    // height: 190px;
+    padding:0;
+    margin: 0;
+
+  overflow: hidden;
     .carousel-img{
          border-radius: 10px;
+         height: 100%;
+         
     }
     cursor: pointer;
 }
