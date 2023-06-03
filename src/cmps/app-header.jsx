@@ -1,10 +1,36 @@
-import { Link, NavLink } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 
 export function AppHeader() {
+    const location = useLocation()
+    const [isHomePageTop, setIsHomePageTop] = useState(location.pathname === '/' && window.pageYOffset === 0)
+
+    useEffect(() => {
+        /* eslint-disable no-restricted-globals */
+        addEventListener('scroll', () => { onScroll() })
+        console.log('isHomePageTop: ', isHomePageTop)
+        onScroll()
+        return removeEventListener('scroll', onScroll)
+    }, [location.pathname])
+
+    useEffect(() => {
+
+    }, [location.pathname])
+
+    function onScroll() {
+        setIsHomePageTop((location.pathname === '/') && (window.pageYOffset === 0))
+    }
+
+    function getHeaderStyle() {
+        const isFixed = (location.pathname === '/') ? 'fixed' : ''
+        const isTransparent = (isHomePageTop) ? 'home-page-top' : ''
+        return `${isFixed} ${isTransparent}`
+    }
+
     const user = useSelector(storeState => storeState.userModule.user)
 
     async function onLogin(credentials) {
@@ -32,8 +58,9 @@ export function AppHeader() {
         }
     }
 
+
     return (
-        <header className="app-header main-layout full">
+        <header className={`app-header main-layout full ${getHeaderStyle()}`}>
             <div className='logo'>
                 <Link to="/">
                     flai<span className='rr'>rr</span><span className='dot'>.</span>

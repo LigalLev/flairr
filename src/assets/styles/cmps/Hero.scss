@@ -7,9 +7,9 @@
     // background-color: black;
     width: 100%;
     color: $clr6;
-    z-index: -1;
-
+    
     .hero-bg-wrapper {
+        z-index: -1;
         position: absolute;
         grid-template-rows: 1fr;
         top: 0;
@@ -95,7 +95,7 @@
 }
 
 .filtering-area {
-    z-index: 3;
+    z-index: 10;
     max-width: 650px;
     align-self: center;
 
