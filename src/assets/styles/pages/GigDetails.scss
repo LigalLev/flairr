@@ -48,11 +48,13 @@
 
     .gig-details-content {
         display: flex;
+        flex: 1fr 1fr; 
+        flex-wrap: wrap;
         padding: 3% 5% ;
       
     
         .gig-details-container {
-            margin-right: 9.15%;
+            margin-right: 8%;
             width: 57.42%;
 
             h1 {
@@ -76,60 +78,70 @@
                 font-family: Macan;
 
                 .user-round-img {
-                    height: 30px;
+                    height:30px ;
                     width: 30px;
                     border-radius: 50%;
                     border: 1px solid $clr1;
                     background-color: orange;
+                    margin-inline-end: 1em;
                 }
+                .details-wrapper {
+                    display: flex;
+                    flex-wrap: wrap;
 
-                h2 {
-                    color: #404145;
-                    margin: 0;
-
-                    padding-inline: 1.625em 0.625em;
-                    font-size: rem(18px);
-                    line-height: 1.44;
-                    letter-spacing: 0.01px;
-                }
-
-                p {
-                    margin: 0;
-                    font-size: rem(14px);
-                }
-
-                .gig-email,
-                .gig-orders {
-                    color: $clr4;
-                    letter-spacing: 0.4px;
-                    padding-inline-end: 0.5em;
-                }
-
-                .gig-level {
-                    color: $clr5;
-                    padding-inline-end: 8px;
-
-                    span {
+                    h2 {
+                        color: #404145;
+                        margin: 0;
+    
+                        padding-inline: 0em 0.625em;
+                        font-size: rem(18px);
+                        line-height: 1.44;
+                        letter-spacing: 0.01px;
+                    }
+    
+                    p {
+                        margin: 0;
+                        font-size: rem(14px);
+                    }
+    
+                    .gig-email,
+                    .gig-orders {
                         color: $clr4;
+                        letter-spacing: 0.4px;
+                        padding-inline-end: 0.5em;
                     }
+    
+                    .gig-level {
+                        color: $clr5;
+                        padding-inline-end: 8px;
+    
+                        span {
+                            color: $clr4;
+                        }
+                    }
+
+                    .gig-rate {
+                        color: $clr5;
+                        padding-inline-end: 8px;
+                        
+                        color: $clr4;
+                        span {
+                            color: #ffb33e;
+                            font-family: Macan-bold;
+                        }
+    
+                    }
+
                 }
 
-                .gig-rate {
-                    color: $clr5;
-                    padding-inline-end: 8px;
-                    
-                    color: $clr4;
-                    span {
-                        color: #ffb33e;
-                        font-family: Macan-bold;
-                    }
+                
 
-                }
+               
 
             }
 
             .img-container {
-                width: 714px;
+                // width: 714px;
                 background-color: whitesmoke;
                 display: flex;
                 justify-content: center;

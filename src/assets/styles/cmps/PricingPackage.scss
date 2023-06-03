@@ -1,6 +1,6 @@
 .pricing-package {
     position: sticky;
-    // width: 414.547px;
+    // width: 33.6%;
     border: 1px solid #dadbdd;
 
     top: 0px;
@@ -37,8 +37,7 @@
 
     .pricing-details {
         display: flex;
-        flex: 1fr 1fr;
-        flex-wrap: wrap;
+       
 
         flex-direction: column;
         font-family: Macan;
