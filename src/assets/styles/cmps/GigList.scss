@@ -1,6 +1,6 @@
 .gig-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1fr);
     gap: rem(32px);
     margin-top: 16px;
     // padding-block: 2em;
@@ -9,4 +9,19 @@
     // justify-content: center;
     // text-align: center;
     list-style: none;
+
+    @include for-narrow-layout {
+         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include for-normal-layout {
+       grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @include for-wide-layout {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
+
+// 
+//
