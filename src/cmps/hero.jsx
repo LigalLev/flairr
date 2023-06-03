@@ -88,7 +88,7 @@ export function Hero() {
 
             <section className="filtering-area" >
                 <h1>
-                    Find the right <span>freelance service, </span>right away
+                    Find the right <span>freelance <br /> service, </span>right away
                 </h1>
 
                 <div className='search-bar'>
