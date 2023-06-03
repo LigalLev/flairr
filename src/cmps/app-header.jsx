@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
@@ -11,7 +11,7 @@ export function AppHeader() {
         try {
             const user = await login(credentials)
             showSuccessMsg(`Welcome: ${user.fullname}`)
-        } catch(err) {
+        } catch (err) {
             showErrorMsg('Cannot login')
         }
     }
@@ -19,7 +19,7 @@ export function AppHeader() {
         try {
             const user = await signup(credentials)
             showSuccessMsg(`Welcome new user: ${user.fullname}`)
-        } catch(err) {
+        } catch (err) {
             showErrorMsg('Cannot signup')
         }
     }
@@ -27,18 +27,25 @@ export function AppHeader() {
         try {
             await logout()
             showSuccessMsg(`Bye now`)
-        } catch(err) {
+        } catch (err) {
             showErrorMsg('Cannot logout')
         }
     }
 
     return (
         <header className="app-header main-layout full">
+            <div className='logo'>
+                <Link to="/">
+                    flai<span className='rr'>rr</span><span className='dot'>.</span>
+                </Link>
+            </div>
             <nav>
-                <NavLink to="/">Home</NavLink>
                 <NavLink to="/gig">Explore</NavLink>
+                <NavLink to="/">Sign in</NavLink>
+                <button className='join-btn'>Join</button>
 
-                {user &&
+
+                {/* {user &&
                     <span className="user-info">
                         <Link to={`user/${user._id}`}>
                             {user.imgUrl && <img src={user.imgUrl} />}
@@ -52,7 +59,7 @@ export function AppHeader() {
                     <section className="user-info">
                         <LoginSignup onLogin={onLogin} onSignup={onSignup} />
                     </section>
-                }
+                } */}
             </nav>
         </header>
     )

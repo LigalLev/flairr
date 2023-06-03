@@ -13,6 +13,7 @@ export function GigShoppingCart({ gig }) {
                     <p><span>Description:</span> {gig.title}</p>
                     <p><span>Price for single order</span> ${gig.price}</p>
                 </div>
+                
                 <article className="total-order-wrapper">
                     <p><span>${gig.price}</span></p>
                     <p>For single order</p>
@@ -28,6 +29,7 @@ export function GigShoppingCart({ gig }) {
                         </div>
                     </div>
                 </article>
+
                 <div className="pricing-footer">
                     <button className="btn-continue-purchase">Continue (${gig.price})</button>
                     <p className="not-charging">You won't be charged yet</p>
