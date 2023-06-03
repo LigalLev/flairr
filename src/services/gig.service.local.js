@@ -73,7 +73,7 @@ function getEmptyGig() {
         price: 60,
         owner: {
           "_id": "u101",
-          "fullname": "nadia_younus",
+          "fullname": "nadia_y",
           "imgUrl": "",
           "level": "Fairr's choice",
           "rate": 5.0
@@ -99,7 +99,7 @@ function getEmptyGig() {
             price: 60,
             owner: {
               "_id": "u101",
-              "fullname": "nadia_younus",
+              "fullname": "nadia_y",
               "imgUrl": "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616615/gigs/cy8yt73ihkig5aklntq8.jpg",
               "level": "Fiar's choise",
               "rate": 5.0

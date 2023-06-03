@@ -22,7 +22,7 @@
 
             font-size: rem(16px);
             font-weight: 700;
-            padding: 16px;
+            padding: 1em;
             text-align: center;
             flex: 1 1;
         }
@@ -37,6 +37,9 @@
 
     .pricing-details {
         display: flex;
+        flex: 1fr 1fr;
+        flex-wrap: wrap;
+
         flex-direction: column;
         font-family: Macan;
         margin-inline: 1.5em;
@@ -88,11 +91,11 @@
 
             svg{
                 fill: #62646a ;
-                margin-inline-end: 16px;
+                margin-inline-end: 1em;
             }
 
             .delivery-days-item{
-                margin-inline-end: 16px;
+                margin-inline-end: 1em;
             }
         }
 
