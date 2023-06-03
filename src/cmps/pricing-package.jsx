@@ -3,8 +3,8 @@ import React from 'react'
 
 
 
-export function PricingPackage({ gig }) {
-    console.log('gig:', gig)
+export function PricingPackage({ gig, onToggleIsOpen }) {
+    // console.log('gig:', gig)
 
     return (
         <section className="pricing-package">
@@ -42,7 +42,7 @@ export function PricingPackage({ gig }) {
                     </div>
                 </div>
 
-                <button className="btn-continue">Continue</button>
+                <button className="btn-continue" onClick={onToggleIsOpen}>Continue</button>
                 {/* <OrderOptions/> */}
 
 

@@ -4,17 +4,22 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useParams, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { PricingPackage } from "../cmps/pricing-package.jsx"
-import {GigShoppingCart} from '../cmps/gig-shopping-cart'
-
+import { GigShoppingCart } from '../cmps/gig-shopping-cart'
+import { utilService } from "../services/util.service"
 
 export function GigDetails() {
     const [gig, setGig] = useState(null)
+    const [isOpen, setIsOpen] = useState(false)
     const { gigId } = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
         loadGig()
     }, [gigId])
+
+    useEffect(() => {
+
+    }, [isOpen])
 
     async function loadGig() {
         try {
@@ -36,8 +41,15 @@ export function GigDetails() {
         return ratingString
     }
 
+    function onToggleIsOpen() {
+        console.log(isOpen)
+        setIsOpen(prevIsOpen => !prevIsOpen)
+    }
+
+    const classMenu = (isOpen) ? 'isOpen' : ''
+    //${classMenu}
     return (
-        <main className="gig-details-main full main-layout">
+        <main className={`gig-details-main full main-layout ${classMenu}`}>
             <section className="top-nav-container full">
                 <nav>
                     <Link >Overview</Link>
@@ -50,7 +62,9 @@ export function GigDetails() {
                     <div>
                         <h1>{gig.title}</h1>
                         <div className="main-details-container">
-                            <div className="user-round-img"></div>
+                            <div className="user-round-img">
+                                <img src={utilService.resizeImgUrl(gig.owner.imgUrl)} alt="" className="details-owner-img" />
+                            </div>
                             <div className="details-wrapper">
                                 <h2>{gig.owner.fullname}</h2>
                                 <p className="gig-email">@{gig.owner.fullname}</p>
@@ -75,9 +89,20 @@ export function GigDetails() {
 
                 </article>
                 <aside className="pricing-container">
-                    <PricingPackage gig={gig} />
+                    <PricingPackage
+                        gig={gig}
+                        onToggleIsOpen={onToggleIsOpen}
+
+                    />
                 </aside>
-                <GigShoppingCart gig={gig}/>
+
+                <GigShoppingCart
+                    gig={gig}
+                    onToggleIsOpen={onToggleIsOpen}
+                    classMenu={classMenu}
+                />
+
+                {/* <div class="main-screen" onclick="toggleMenu()"></div> */}
 
 
 

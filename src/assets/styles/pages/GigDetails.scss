@@ -1,4 +1,9 @@
 .gig-details-main {
+    &.isOpen {
+        .shopping-cart {
+            transform: translate(0%, 0%);
+        }
+    }
    
     .top-nav-container {
         // border: 1px solid #62646a;
@@ -80,10 +85,16 @@
                 .user-round-img {
                     height:30px ;
                     width: 30px;
-                    border-radius: 50%;
-                    border: 1px solid $clr1;
-                    background-color: orange;
+                    // border-radius: 50%;
+                    // border: 1px solid $clr1;
+                    // background-color: orange;
                     margin-inline-end: 1em;
+
+                    .details-owner-img{
+                        border-radius: 50%;
+                    }
+
+
                 }
                 .details-wrapper {
                     display: flex;
