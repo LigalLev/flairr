@@ -32,7 +32,7 @@ export function RootCmp() {
                     <Route element={<Payment />} path="/payment" />
                 </Routes>
             </main>
-            {/* <AppFooter /> */}
+            <AppFooter />
 
         </div>
     )
