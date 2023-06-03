@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from "react-responsive-carousel";
 import { GigIndex } from "../pages/gig-index";
+import { utilService } from "../services/util.service";
 
 function ArrowButton(props) {
   const { direction } = props
@@ -42,7 +43,7 @@ export function CarouselContainer({gig}) {
   return <div onMouseOver={() => setIsHovered(true)} onMouseOut={() => setIsHovered(false)}>
     <Carousel
       infiniteLoop={true}
-      showIndicators={false}
+      showIndicators={true}
       showThumbs={false}
       showStatus={false}
       renderArrowNext={(clickHandler, hasNext) => {
@@ -64,7 +65,7 @@ export function CarouselContainer({gig}) {
     >
       {urls.map((url) => {
         return <div key={gig._id} className="carousel-img-container">
-          < img src={url} className="carousel-img"/>
+          < img src={utilService.resizeImgUrl(url)} className="carousel-img"/>
         </div>
 
       })}
