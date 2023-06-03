@@ -1,26 +1,19 @@
-// .gig-list {
-//     list-style: none;
-//     display: flex;
-//     flex-wrap: wrap;
-//     li {
-//         background-color: $clr2;
-//         color: $clr6;
-//         padding: 5px;
-//         margin: 5px;
+.gig-index {
+    .index-title {
+        font-size: 32px;
+        // line-height: 120%;
+    }
+    .index-gigs-length{
+        font-size: 16px;
+
+    }
+
+
+}
+
+// @media only screen and (min-width: 600px) {
+//     .index-title {
+//         font-size: 24px;
+//         line-height: 130%;
 //     }
-//     a {
-//         color: $clr1;
-//         padding: 10px;
-//     }    
-//     h3 {
-//         background-color: #ddd;
-//         padding: 10px 5px;
-//         margin: 5px;
-//     }    
 // }
-
-// .carousel-container{
-//     height: 100px;
-//     width: 370px;
-// }
-

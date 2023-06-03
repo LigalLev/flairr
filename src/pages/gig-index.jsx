@@ -58,8 +58,9 @@ export function GigIndex() {
     }
 
     return (
-            <section>
-                <div>{gigs.length} services available</div>
+            <section className="gig-index">
+                <div className ="index-title">All</div>
+                <div className="index-gigs-length">{gigs.length} services available</div>
                 <GigList
                     gigs={gigs}
                     onRemoveGig={onRemoveGig}

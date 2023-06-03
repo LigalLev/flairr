@@ -19,14 +19,22 @@
         flex-direction: column;
         margin-inline-end: 8px;
 
-        .owner-name-level-container {
+        .owner-details-container {
             display: flex;
             font-size: rem(14px);
-            justify-content: space-between;
+            // justify-content: space-between;
             font-weight: 700;
             color: $clr7;
             line-height: 21px;
             margin-block: 12px;
+            .img-name-preview{
+                display: flex; //!!!
+            }
+           img{
+            border-radius: 50%;
+            height: 24px;
+            width: 24px;
+           }
         }
 
         .preview-gig-price {
@@ -43,6 +51,14 @@
             -webkit-box-orient: vertical;
             text-overflow: ellipsis;
 
+        }
+
+        .preview-owner-level{//!!!
+            margin-left: auto;
+        }
+
+        .preview-owner-fullName{//!!!
+            margin-left: 8px;
         }
 
         .preview-rate {

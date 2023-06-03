@@ -20,6 +20,7 @@
     
     @include for-wide-layout {
         grid-template-columns: repeat(4, 1fr);
+        // padding-inline: 60px;
     }
 }
 
