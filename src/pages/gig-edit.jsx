@@ -1,63 +1,78 @@
-import React from 'react';
-import { Formik } from 'formik';
+import React from 'react'
+import { useFormik } from 'formik'
+import { useNavigate } from "react-router-dom"
 
 export function GigEdit() {
+    const navigate = useNavigate()
+    const initialValues = {
+        title: '',
+        price: '',
+        daysToMake: '',
+        description: '',
+        packages: {
+            basic: {
+                price: '',
+                daysToMake: '',
+                included: []
+            },
+            standard: {
+                price: '',
+                daysToMake: '',
+                included: []
+            },
+            premium: {
+                price: '',
+                daysToMake: '',
+                included: []
+            }
+        },
+        imgUrls: [],
+        tags: []
+    }
+
+    function onSubmit() {
+
+        navigate('/gigs-dashboard')
+    }
+
+    const formik = useFormik({ initialValues, onSubmit })
+
+
+
     return (
-        <div>
-            <h1>Anywhere in your app!</h1>
-            <Formik
-                initialValues={{ email: '', password: '' }}
-                validate={values => {
-                    const errors = {};
-                    if (!values.email) {
-                        errors.email = 'Required';
-                    } else if (
-                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                    ) {
-                        errors.email = 'Invalid email address';
-                    }
-                    return errors;
-                }}
-                onSubmit={(values, { setSubmitting }) => {
-                    setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
-                        setSubmitting(false);
-                    }, 400);
-                }}
-            >
-                {({
-                    values,
-                    errors,
-                    touched,
-                    handleChange,
-                    handleBlur,
-                    handleSubmit,
-                    isSubmitting,
-                    /* and other goodies */
-                }) => (
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            type="email"
-                            name="email"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.email}
-                        />
-                        {errors.email && touched.email && errors.email}
-                        <input
-                            type="password"
-                            name="password"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.password}
-                        />
-                        {errors.password && touched.password && errors.password}
-                        <button type="submit" disabled={isSubmitting}>
-                            Add Gig
-                        </button>
-                    </form>
-                )}
-            </Formik>
-        </div>
+        <section className="gig-edit">
+            <form onSubmit={formik.handleSubmit}>
+                <label htmlFor="title">Gig Title</label>
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    onChange={formik.handleChange}
+                    value={formik.values.title}
+                    placeholder="I will..."
+                />
+
+                <label htmlFor="description">Gig description</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    onChange={formik.handleChange}
+                    value={formik.values.description}
+                    placeholder="Please provide a brief description of the gig."
+                />
+
+                <label htmlFor="">Price</label>
+                <input
+                    type="number"
+                    id="price"
+                    name="price"
+                    onChange={formik.handleChange}
+                    value={formik.values.packages.basic.price}
+                    min="5"
+                    max="995"
+                />
+
+            </form>
+        </section>
     )
 }

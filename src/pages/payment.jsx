@@ -1,4 +1,3 @@
-import { useParams} from "react-router-dom"
 import {CCPayment} from '../cmps/cc-payment'
 import { setOrderNotice } from "../store/order.action"
 import { logger } from "workbox-core/_private"
