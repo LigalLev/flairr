@@ -312,7 +312,7 @@ function _createGigs() {
             },
             daysToMake: 3,
             description: "About this gig Do you feel that more than 80% of big busines proprietors like to induce WordPress website design fo their enterprises. This is due to WordPress simplicity through a simple admin panel and managing thousands of new accounts effortlessly.I've been delivering web services to multiple businesses across the globe for the last 5 years and I'll deliver a complete one window result to your online presence. Why should you choose us? We've accomplished crew who are capable to deliver 100% satisfaction with solitary WordPress website designs for your old or new sites. We do Customized WordPress website that represent your company Fully Responsiveness Speed-optimized Simple to handle Eye Catching Layout Full Ecommerce capabilities After Sale Services SSL Installation Payment GatewayGoogle Map We Design: E-Commerce website Personal site Portfolio Business Education Health News IT Industry Public Sectors And Many More What Do We Need From You? Log in for your WordPress admin panel Complete Content/Logo Web Design Reference/Inspiration Site *Note: We will be very happy to assist you, please feel free to contact.",
-            imgUrl: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816071/gigs/uea1jxqnzlqmvhivrzmg.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816106/gigs/ou0iiawj8ahazwo5lxax.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816175/gigs/z6i5gjsrltbvxhpzccdq.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816218/gigs/mul6ewpupllaf2ji7w8w.png"],
+            imgUrl: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816071/gigs/uea1jxqnzlqmvhivrzmg.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816106/gigs/ou0iiawj8ahazwo5lxax.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816175/gigs/z6i5gjsrltbvxhpzccdq.jpg"],
             tags: [
                 "wordpress developer",
                 "wordpress",
@@ -345,7 +345,6 @@ function _createGigs() {
             ],
             likedByUsers: ['mini-user']
         },
-
         ]
     utilService.saveToStorage(STORAGE_KEY, gigs)
 

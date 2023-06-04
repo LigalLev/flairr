@@ -2,12 +2,9 @@
     position: sticky;
     // width: 33.6%;
     border: 1px solid #dadbdd;
-
     top: 0px;
-
     padding-bottom: 32px;
     // z-index: 5;
-
     font-family: Macan-semibold;
 
     nav {
@@ -19,7 +16,6 @@
             border-right: 1px solid #dadbdd;
             border-bottom: 1px solid #dadbdd;
             background-color: #fafafa;
-
             font-size: rem(16px);
             font-weight: 700;
             padding: 1em;
@@ -37,8 +33,6 @@
 
     .pricing-details {
         display: flex;
-       
-
         flex-direction: column;
         font-family: Macan;
         margin-inline: 1.5em;
@@ -64,6 +58,7 @@
 
         .brand-fundamental-container {
             margin-block: 24px 10px;
+
             p {
                 font-family: Macan-semibold;
                 // color: #404145;
@@ -76,7 +71,7 @@
                     font-size: rem(14px);
                     word-break: break-word;
                 }
-            } 
+            }
         }
 
         .delivery-info-container {
@@ -88,46 +83,43 @@
             color: #62646a;
             margin-block-end: 20px;
 
-            svg{
-                fill: #62646a ;
+            svg {
+                fill: #62646a;
                 margin-inline-end: 1em;
             }
 
-            .delivery-days-item{
+            .delivery-days-item {
                 margin-inline-end: 1em;
             }
         }
 
-        
-
-        .collapsible-container{
+        .collapsible-container {
             font-size: rem(14px);
-            h4{
+
+            h4 {
                 font-family: Macan-bold;
                 color: #404145;
             }
 
             .collapsible-content {
-                li{
+                li {
                     color: #95979d;
                 }
-                svg{
+
+                svg {
                     fill: #02c2a9;
                     margin-inline-end: 0.75em
                 }
             }
-            
         }
 
         .btn-continue {
-            background-color:$clr7 ;
+            background-color: $clr7 ;
             font-size: rem(16px);
             margin-block-start: 1.5em;
             padding: 12px 24px;
             border: 1px solid transparent;
             border-radius: 4px;
         }
-
     }
-
 }
