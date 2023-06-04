@@ -4,6 +4,7 @@
 
     .popular-services {
         margin-top: $hero-height;
+
         .carousel-wrapper {
             width: 100%;
             background-color: lightgreen;
@@ -14,20 +15,30 @@
 
     .info-wrapper {
         background-color: $clr9;
-        padding-inline-end:0 ;
+        padding-inline-end: 0;
 
         .info {
             margin: 0 auto;
             display: flex;
+            flex-direction: column;
             padding-block: 64px;
+
+            @include for-normal-layout {
+                flex-direction: row;
+            }
 
             .img-wrapper {
                 align-self: center;
                 justify-self: flex-end;
-                margin-inline-start: 50px;
+                
+                @include for-normal-layout {
+                    margin-inline-start: 50px;
+
+                }
+
                 .img {
                     aspect-ratio: 5/3;
-                    align-self:stretch;
+                    align-self: stretch;
                     object-fit: cover;
                 }
             }
@@ -37,14 +48,17 @@
                 padding-block-end: 48px;
                 // padding: 0 16px;
                 padding-right: 11%;
-                max-width: 46.66667%;
+                
+                @include for-normal-layout {
+                    max-width: 46.66667%;
+                }
 
                 h2 {
                     font-family: Macan-semibold;
                     padding-bottom: 24px;
                     font-size: 32px;
                     line-height: 120%;
-                    
+
                     span {
                         font-family: Helvetica;
                     }
@@ -79,6 +93,73 @@
                 }
             }
         }
+    }
+
+    .suddenly-doable {
+        // opacity: 0;
+        padding: 48px 24px;
+        background-color: #45091b;
+        background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685858418/flairr/bg-signup-1400-x1_fcnje3.png');
+        background-position: cover;
+        background-position-y:center;
+        display: flex;
+        // flex-direction: column;
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto 24px;
+        width: 100%;
+        border-radius: 4px;
+        height: 260px;
+        // justify-content: center;
+        
+        @include for-normal-layout {
+            padding: 64px 32px;
+            height: 380px;
+        }
+        
+        
+        .signup-text {
+            align-self: start;
+            margin-block: auto;
+        }
+
+        h2 {
+            color: $clr6;
+            font-family: Macan-bold;
+            line-height: 48px;
+            font-weight: 700;
+            padding-block-end: 40px;
+            font-size: 32px;
+            justify-self: center;
+            
+            @include for-normal-layout {
+                font-size: 40px;
+
+            }
+
+            span {
+                font-family: DomaineDisplay;
+            }
+        }
+
+        button {
+            font-family: Macan;
+            border: 1px solid transparent;
+            background-color: $clr1;
+            border-radius: 4px;
+            font-size: em(16px);
+            font-weight: 600;
+            line-height: 100%;
+            padding: 12px 24px;
+            position: relative;
+            text-align: center;
+            width: max-content;
+
+            &:hover {
+                background-color: darken($clr1, 5%);
+            }
+        }
+
     }
 
 }
