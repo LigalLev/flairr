@@ -1,7 +1,11 @@
 import { setOrderNotice } from "../store/order.action"
 import { logger } from "workbox-core/_private"
-import { showSuccessMsg } from "../services/event-bus.service"
+import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service"
 import { useParams, useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { orderService } from "../services/order.service"
+import { gigService } from "../services/gig.service.local"
+import { saveOrder } from '../store/order.action'
 
 
 
@@ -9,7 +13,7 @@ export function Payment() {
     const [gig, setGig] = useState(null)
     const { gigId } = useParams()
     const navigate = useNavigate()
-    const orderToSave = OrderService.getEmptyOrder()
+    // const orderToSave = orderService.getEmptyOrder()
 
     useEffect(() => {
         loadGig()
@@ -36,9 +40,24 @@ export function Payment() {
         }
     }
 
-    return <div>
-        <img src={gig.imgUrls[0]} alt="" />
+    return (<div >
+        {gig && <div> <img src={gig.imgUrls[0]} alt="" />
+            <div>{gig.title}</div>
+            <div>{gig.level}</div>
+            <div className="details-wrapper">
+                <h2>{gig.owner.fullname}</h2>
+                <p className="gig-email">@{gig.owner.fullname}</p>
+                <p className="gig-level">Level {gig.owner.level} <span>|</span></p>
+                <p className="gig-rate"> <span>&#9733; &#9733; &#9733; &#9733; &#9733;{gig.owner.rate}</span> (116)</p>
+                {/* <span className="rating-filled">{getRatingString(gig)}</span> */}
+                <p className="gig-orders">14 Orders in Queue</p>
+            </div>
+            <div>{gig.price}</div>
+
+
+
+        </div>}
 
         <button onClick={() => setOrderNotice(true)}>Pay</button>
-    </div>
+    </div>)
 }

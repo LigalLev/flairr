@@ -77,7 +77,7 @@ export function GigDetails() {
 
                         </div>
                         <div style={{maxWidth:"700px"}}>
-                         < BigCarousel imgUrls={gig.imgUrl}/>
+                         < BigCarousel imgUrls={gig.imgUrls}/>
                         </div>
                         <div className="about-gig-container">
                             <h3>About this gig</h3>
