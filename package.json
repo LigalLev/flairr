@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@trendyol-js/react-carousel": "^3.0.2",
     "axios": "^0.21.4",
+    "formik": "^2.4.1",
     "keen-slider": "^6.8.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -47,6 +47,7 @@ export function Hero() {
     const [currSlideIdx, setCurrSlideIdx] = useState(0)
 
     useEffect(() => {
+        if (window.innerWidth < 964) return
         const slideInterval = setInterval(() => {
             setCurrSlideIdx((prevIdx) => (prevIdx + 1) % slides.length)
         }, 7000)

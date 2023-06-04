@@ -10,6 +10,7 @@ import { GigDetails } from './pages/gig-details'
 import { ChatApp } from './pages/chat-app'
 import { GigEdit } from './pages/gig-edit'
 import { Payment } from './pages/payment'
+import { GigsDashboard } from './pages/gigs-dashboard'
 
 export function RootCmp() {
 
@@ -28,6 +29,7 @@ export function RootCmp() {
                     <Route element={<GigEdit />} path="/gig/edit" />
                     <Route element={<Payment />} path="/payment/:gigId" />
                     <Route element={<UserDetails />} path="user/:id" />
+                    <Route element={<GigsDashboard />} path="/gigs-dashboard"/>
                 </Routes>
             </main>
             <AppFooter />

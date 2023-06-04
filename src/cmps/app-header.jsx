@@ -67,6 +67,7 @@ export function AppHeader() {
             </div>
             <nav>
                 <NavLink to="/gig">Explore</NavLink>
+                <NavLink to="/gigs-dashboard">Become a Seller</NavLink>
                 <span>
                     <a>Orders</a>
                     {isOrderDot && <span>🔴</span>}
