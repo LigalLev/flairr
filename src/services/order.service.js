@@ -15,12 +15,17 @@ async function query() {
 
 function createOrder(){
     let orders = utilService.loadFromStorage(STORAGE_KEY)
-    // if (!orders || !orders.length)
      orders = [
     {
           _id: "o1225",
-          buyer: "mini-user",
-          seller: "mini-user",
+          buyer: {
+            _id: "",
+            fullname: ""
+          },
+          seller: {
+            _id:"",
+            fullname: ""
+          },
           gig: {
             _id: "i101",
             title: "Design Logo", //[name?]

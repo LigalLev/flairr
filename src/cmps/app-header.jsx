@@ -8,6 +8,7 @@ import { LoginSignup } from './login-signup.jsx'
 export function AppHeader() {
     const location = useLocation()
     const [isHomePageTop, setIsHomePageTop] = useState(location.pathname === '/' && window.pageYOffset === 0)
+    const isOrderDot = useSelector(storeState => storeState.orderModule.isOrderDot)
 
     useEffect(() => {
         /* eslint-disable no-restricted-globals */
@@ -68,6 +69,10 @@ export function AppHeader() {
             </div>
             <nav>
                 <NavLink to="/gig">Explore</NavLink>
+                <span>
+                    <a>Orders</a>
+                    {isOrderDot && <span>🔴</span>}
+                </span>
                 <NavLink to="/">Sign in</NavLink>
                 <button className='join-btn'>Join</button>
 
