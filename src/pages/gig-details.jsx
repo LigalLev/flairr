@@ -69,10 +69,8 @@ export function GigDetails() {
                                 <h2>{gig.owner.fullname}</h2>
                                 <p className="gig-email">@{gig.owner.fullname}</p>
                                 <p className="gig-level">Level {gig.owner.level} <span>|</span></p>
-                                
                                 <p className="gig-rate"> <span>&#9733; &#9733; &#9733; &#9733; &#9733;{gig.owner.rate}</span> (116)</p>
                                 {/* <span className="rating-filled">{getRatingString(gig)}</span> */}
-
                                 <p className="gig-orders">14 Orders in Queue</p>
                             </div>
 
@@ -91,7 +89,6 @@ export function GigDetails() {
                     <PricingPackage
                         gig={gig}
                         onToggleIsOpen={onToggleIsOpen}
-
                     />
                 </aside>
 

@@ -1,3 +1,14 @@
+
 export function Payment () {
-    return <div>hi</div>
+
+
+
+
+    return(
+        <section>
+            
+
+            <button>Pay</button>
+        </section>
+    ) 
 }
