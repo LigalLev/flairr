@@ -1,3 +1,4 @@
+import {CCPayment} from '../cmps/cc-payment'
 import { setOrderNotice } from "../store/order.action"
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service"
 import { useParams, useNavigate } from "react-router-dom"
@@ -5,7 +6,6 @@ import { useState, useEffect } from "react"
 import { orderService } from "../services/order.service"
 import { gigService } from "../services/gig.service.local"
 import { saveOrder } from '../store/order.action'
-
 
 
 export function Payment() {
@@ -72,6 +72,7 @@ export function Payment() {
 
         }}>Pay</button>
 
+        <CCPayment/>
 
     </div>)
 }
