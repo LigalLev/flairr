@@ -32,7 +32,7 @@ function ArrowButton(props) {
 }
 export function CarouselContainer({ gig }) {
   const navigate = useNavigate()
-  const urls = gig.imgUrl
+  const urls = gig.imgUrls
   const [isHovered, setIsHovered] = useState(false)
   let nextClassName;
   let prevClassName;

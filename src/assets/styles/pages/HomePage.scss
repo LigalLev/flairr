@@ -10,7 +10,6 @@
             background-color: lightgreen;
             margin: 0;
         }
-
     }
 
     .info-wrapper {
@@ -31,9 +30,9 @@
                 align-self: center;
                 justify-self: flex-end;
                 width: 100%;
+
                 @include for-normal-layout {
                     margin-inline-start: 50px;
-
                 }
 
                 .img {
@@ -46,9 +45,8 @@
             .info-text {
                 color: $clr8;
                 padding-block-end: 48px;
-                // padding: 0 16px;
                 padding-right: 11%;
-                
+
                 @include for-normal-layout {
                     max-width: 46.66667%;
                 }
@@ -79,7 +77,6 @@
                         background-repeat: no-repeat;
                         margin-inline-end: 0.5em;
                         margin-block-end: -0.3em;
-
                     }
                 }
 
@@ -89,35 +86,30 @@
                     color: $clr5;
                     font-size: 18px;
                     line-height: 26px;
-
                 }
             }
         }
     }
 
     .suddenly-doable {
-        // opacity: 0;
         padding: 48px 24px;
         background-color: #45091b;
         background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685858418/flairr/bg-signup-1400-x1_fcnje3.png');
         background-position: cover;
-        background-position-y:center;
+        background-position-y: center;
         display: flex;
-        // flex-direction: column;
         overflow: hidden;
         position: relative;
         margin: 0 auto 24px;
         width: 100%;
         border-radius: 4px;
         height: 260px;
-        // justify-content: center;
-        
+
         @include for-normal-layout {
             padding: 64px 32px;
             height: 380px;
         }
-        
-        
+
         .signup-text {
             align-self: start;
             margin-block: auto;
@@ -131,10 +123,9 @@
             padding-block-end: 40px;
             font-size: 32px;
             justify-self: center;
-            
+
             @include for-normal-layout {
                 font-size: 40px;
-
             }
 
             span {
@@ -159,7 +150,5 @@
                 background-color: darken($clr1, 5%);
             }
         }
-
     }
-
 }

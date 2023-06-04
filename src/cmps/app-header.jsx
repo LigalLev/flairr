@@ -4,10 +4,12 @@ import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
+import { OrderModal } from './order-modal'
 
 export function AppHeader() {
     const location = useLocation()
     const [isHomePageTop, setIsHomePageTop] = useState(location.pathname === '/' && window.pageYOffset === 0)
+    const isOrderNotice = useSelector(storeState => storeState.orderModule.isOrderNotice)
 
     useEffect(() => {
         /* eslint-disable no-restricted-globals */
@@ -18,7 +20,6 @@ export function AppHeader() {
     }, [location.pathname])
 
     useEffect(() => {
-
     }, [location.pathname])
 
     function onScroll() {
@@ -58,7 +59,6 @@ export function AppHeader() {
         }
     }
 
-
     return (
         <header className={`app-header main-layout full ${getHeaderStyle()}`}>
             <div className='logo'>
@@ -68,25 +68,14 @@ export function AppHeader() {
             </div>
             <nav>
                 <NavLink to="/gig">Explore</NavLink>
+                <NavLink to="/gigs-dashboard">Become a Seller</NavLink>
+                <span>
+                    <a>Orders</a>
+                    {isOrderNotice && <span>🔴</span>}
+                    <OrderModal/>
+                </span>
                 <NavLink to="/">Sign in</NavLink>
                 <button className='join-btn'>Join</button>
-
-
-                {/* {user &&
-                    <span className="user-info">
-                        <Link to={`user/${user._id}`}>
-                            {user.imgUrl && <img src={user.imgUrl} />}
-                            {user.fullname}
-                        </Link>
-                        <span className="score">{user.score?.toLocaleString()}</span>
-                        <button onClick={onLogout}>Logout</button>
-                    </span>
-                }
-                {!user &&
-                    <section className="user-info">
-                        <LoginSignup onLogin={onLogin} onSignup={onSignup} />
-                    </section>
-                } */}
             </nav>
         </header>
     )

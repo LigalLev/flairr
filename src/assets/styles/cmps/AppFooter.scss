@@ -9,15 +9,12 @@
     width: 100%;
     justify-content: space-between;
 
-
     >* {
         grid-row: 1;
-
     }
 
     section {
         display: flex;
-        // align-items: center;
         justify-self: start;
         line-height: 21px;
 

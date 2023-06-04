@@ -29,8 +29,8 @@ export function GigDetails() {
             console.log('gig:', gig)
             setGig(gig)
         } catch (err) {
-            console.log('Had issues in toy details', err)
-            showErrorMsg('Cannot load toy')
+            console.log('Had issues in order details', err)
+            showErrorMsg('Cannot load order')
             navigate('/gig')
         }
     }
@@ -77,7 +77,7 @@ export function GigDetails() {
 
                         </div>
                         <div style={{maxWidth:"700px"}}>
-                         < BigCarousel imgUrls={gig.imgUrl}/>
+                         < BigCarousel imgUrls={gig.imgUrls}/>
                         </div>
                         <div className="about-gig-container">
                             <h3>About this gig</h3>

@@ -6,6 +6,7 @@
     height: 80px;
     width: 100%;
     transition: background-color 0.5s;
+
     >* {
         align-self: center;
     }
@@ -63,14 +64,13 @@
             padding: 10px 16px;
             line-height: 100%;
             text-align: center;
-            transition: background-color .5s ease,border .5s ease;
+            transition: background-color .5s ease, border .5s ease;
 
             &:hover {
                 border-color: transparent;
                 background-color: $clr1;
                 color: $clr6;
             }
-
         }
     }
 
@@ -79,20 +79,20 @@
         color: $clr8;
         width: max-content;
     }
-
 }
 
 .app-header {
- 
     &.home-page-top {
         background-color: transparent;
+        
         .join-btn {
             border-color: $clr6;
             color: $clr6;
         }
-        
+
         a {
             color: $clr6;
+
             &:hover {
                 color: $clr6;
             }
