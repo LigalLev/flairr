@@ -21,7 +21,6 @@ export function RootCmp() {
                     <Route element={<HomePage />} path="/" />
                     <Route element={<GigIndex />} path="/gig" />
                     <Route element={<GigDetails />} path="/gig/:gigId">
-                        {/* <Route element={<GigPayment />} exact path="/gig/:gigId/:payment" /> */}
                         <Route element={<ReviewIndex />} path="reviews" />
                         <Route element={<ChatApp />} path="chat" />
                     </Route>

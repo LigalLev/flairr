@@ -4,11 +4,12 @@ import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
+import { OrderModal } from './order-modal'
 
 export function AppHeader() {
     const location = useLocation()
     const [isHomePageTop, setIsHomePageTop] = useState(location.pathname === '/' && window.pageYOffset === 0)
-    const isOrderDot = useSelector(storeState => storeState.orderModule.isOrderDot)
+    const isOrderNotice = useSelector(storeState => storeState.orderModule.isOrderNotice)
 
     useEffect(() => {
         /* eslint-disable no-restricted-globals */
@@ -69,7 +70,8 @@ export function AppHeader() {
                 <NavLink to="/gig">Explore</NavLink>
                 <span>
                     <a>Orders</a>
-                    {isOrderDot && <span>🔴</span>}
+                    {isOrderNotice && <span>🔴</span>}
+                    <OrderModal/>
                 </span>
                 <NavLink to="/">Sign in</NavLink>
                 <button className='join-btn'>Join</button>

@@ -29,8 +29,8 @@ export function GigDetails() {
             console.log('gig:', gig)
             setGig(gig)
         } catch (err) {
-            console.log('Had issues in toy details', err)
-            showErrorMsg('Cannot load toy')
+            console.log('Had issues in order details', err)
+            showErrorMsg('Cannot load order')
             navigate('/gig')
         }
     }
