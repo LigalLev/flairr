@@ -8,7 +8,6 @@ import { UserMsg } from './user-msg.jsx'
 
 export function AppFooter() {
 
-
     return (
         <footer className="app-footer main-layout full">
             <section>
@@ -17,9 +16,7 @@ export function AppFooter() {
                 </div>
 
                 <p>© Flairr International Ltd. 2023</p>
-
             </section>
-
         </footer>
     )
 }

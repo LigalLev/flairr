@@ -18,7 +18,6 @@ export function AppHeader() {
     }, [location.pathname])
 
     useEffect(() => {
-
     }, [location.pathname])
 
     function onScroll() {
@@ -58,7 +57,6 @@ export function AppHeader() {
         }
     }
 
-
     return (
         <header className={`app-header main-layout full ${getHeaderStyle()}`}>
             <div className='logo'>
@@ -70,7 +68,6 @@ export function AppHeader() {
                 <NavLink to="/gig">Explore</NavLink>
                 <NavLink to="/">Sign in</NavLink>
                 <button className='join-btn'>Join</button>
-
 
                 {/* {user &&
                     <span className="user-info">
