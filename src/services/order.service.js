@@ -8,6 +8,7 @@ export const orderService = {
   getById,
   save,
   remove,
+  getEmptyOrder,
 }
 
 async function query(filterBy) {
@@ -23,7 +24,26 @@ async function query(filterBy) {
   }
 }
 
-
+function getEmptyOrder() {
+  return {
+    _id: "",
+    buyer: {
+      _id: "b101",
+      fullname: "Puki"
+    },
+    seller: {
+      _id: "",
+      fullname: ""
+    },
+    gig: {
+      _id: "",
+      title: "", //[name?]
+      price: null,
+      imgUrl: ""
+    },
+    status: "pending"
+  }
+}
 function createOrder() {
   let orders = utilService.loadFromStorage(STORAGE_KEY)
   let order =

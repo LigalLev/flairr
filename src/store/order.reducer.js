@@ -3,13 +3,15 @@ export const REMOVE_ORDER = 'REMOVE_ORDER'
 export const ADD_ORDER = 'ADD_ORDER'
 export const UPDATE_ORDER = 'UPDATE_ORDER'
 export const SET_ORDER_NOTICE = 'SET_ORDER_NOTICE'
+export const SET_ORDER_MODAL_VISIBLE = 'SET_ORDER_MODAL_VISIBLE'
 
 export const SET_IS_LOADING = 'SET_IS_LOADING'
 
 const initialState = {
     orders: [],
     isLoading: false,
-    isOrderNotice: false
+    isOrderNotice: false,
+    isOrderModalOpen: false
 }
 
 export function orderReducer(state = initialState, action) {
@@ -18,6 +20,8 @@ export function orderReducer(state = initialState, action) {
         /// UI
         case SET_ORDER_NOTICE:
             return { ...state, isOrderNotice: action.isOrderNotice }
+        case SET_ORDER_MODAL_VISIBLE:
+            return { ...state, isOrderModalOpen: action.isOrderModalOpen }
 
         // Orders
         case SET_IS_LOADING:

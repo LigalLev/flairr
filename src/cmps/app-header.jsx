@@ -70,7 +70,7 @@ export function AppHeader() {
                 <NavLink to="/gig">Explore</NavLink>
                 <NavLink to="/gigs-dashboard">Become a Seller</NavLink>
                 <span>
-                    <a>Orders</a>
+                    <button>Orders</button>
                     {isOrderNotice && <span>🔴</span>}
                     <OrderModal/>
                 </span>
