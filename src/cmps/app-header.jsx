@@ -5,7 +5,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import { OrderModal } from './order-modal'
-import { setOrdeModalVisible } from '../store/order.action'
+import { setOrdeModalVisible, setOrderNotice } from '../store/order.action'
 
 export function AppHeader() {
     const location = useLocation()
@@ -62,9 +62,10 @@ export function AppHeader() {
     }
 
     function onClickOrders() {
+        setOrderNotice(false)
         if (isOrderModalOpen) {
             setOrdeModalVisible(false)
-        }else setOrdeModalVisible(true)
+        } else setOrdeModalVisible(true)
 
     }
 
@@ -81,7 +82,7 @@ export function AppHeader() {
                 <span>
                     <button onClick={onClickOrders}>Orders</button>
                     {isOrderNotice && <span>🔴</span>}
-                  { isOrderModalOpen &&  < OrderModal />}
+                    {isOrderModalOpen && < OrderModal />}
                 </span>
                 <NavLink to="/">Sign in</NavLink>
                 <button className='join-btn'>Join</button>
