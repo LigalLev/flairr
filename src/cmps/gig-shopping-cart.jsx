@@ -1,5 +1,6 @@
-export function GigShoppingCart({ gig, onToggleIsOpen, classMenu }) {
+import { Link } from "react-router-dom"
 
+export function GigShoppingCart({ gig, onToggleIsOpen, classMenu }) {
 
     return (
         <section className="shopping-cart">
@@ -31,7 +32,8 @@ export function GigShoppingCart({ gig, onToggleIsOpen, classMenu }) {
                 </article>
 
                 <div className="pricing-footer">
-                    <button className="btn-continue-purchase">Continue (${gig.price})</button>
+                {/* <Link to={`/gig/${gig._id}/123`}><button className="btn-continue-purchase">Continue (${gig.price})</button></Link> */}
+                <button className="btn-continue-purchase">Continue (${gig.price})</button>
                     <p className="not-charging">You won't be charged yet</p>
 
                 </div>

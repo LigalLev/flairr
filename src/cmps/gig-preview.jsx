@@ -4,6 +4,7 @@ import { Carousel } from "react-responsive-carousel"
 import { CarouselContainer } from "./carousel-container"
 import { utilService } from "../services/util.service"
 
+
 export function GigPreview({ gig }) {
     return <article className="gig-preview">
         {/* <div className="img-wrapper"> */}
