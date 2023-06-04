@@ -9,6 +9,7 @@
         cursor: pointer;
 
         pointer-events: none;
+        z-index: 99;
 
         opacity: 0;
         transition: opacity 0.6s;
@@ -162,17 +163,10 @@
                         }
     
                     }
-
                 }
-
-                
-
-               
-
             }
 
             .img-container {
-                // width: 714px;
                 background-color: whitesmoke;
                 display: flex;
                 justify-content: center;
@@ -200,13 +194,8 @@
         }
 
         .pricing-container {
-            //for min 1160 screen 
             width: 33.6%;
-            // min-height: 100vh;
-            // border: 1px solid #dadbdd;
-            // margin-block-start: 32px;
+            max-height: 100vh;
         }
     }
-
-
 }
