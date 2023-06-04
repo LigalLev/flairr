@@ -10,9 +10,17 @@ export const orderService = {
   remove,
 }
 
-async function query() {
-  let orders = await storageService.query(STORAGE_KEY)
-  return orders
+async function query(filterBy) {
+  try {
+    let orders = await storageService.query(STORAGE_KEY, filterBy)
+
+    // if (filterBy.buyerId) {
+    //   orders = orders.filter((order) => { return order.buyer._id === filterBy.buyerId})
+    // }
+    return orders
+  } catch {
+    console.log('Can not find orders');
+  }
 }
 
 
