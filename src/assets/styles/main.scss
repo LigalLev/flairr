@@ -13,26 +13,22 @@
 
 
 // Pages
-@import "./pages/AboutUs";
 @import "./pages/HomePage";
 @import "./pages/GigIndex";
 @import "./pages/ReviewIndex";
 @import "./pages/UserDetails";
 @import "./pages/GigDetails";
 
-
 // Components
 @import "./cmps/AppHeader";
 @import "./cmps/AppFooter";
 @import "./cmps/UserMsg";
-// @import "./cmps/ShoppingCart";
 @import "./cmps/CarouselContainer";
 @import "./cmps/GigList";
 @import "./cmps/GigPreview";
 @import "./cmps/PricingPackage";
 @import "./cmps/GigShoppingCart";
 @import "./cmps/BigCarousel";
-
 @import "./cmps/Hero";
 @import "./cmps/PopularServicesCarousel.scss";
 @import "./cmps/logo.scss";

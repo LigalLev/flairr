@@ -7,7 +7,7 @@ function ThumbnailPlugin(mainRef) {
         function removeActive() {
             slider.slides.forEach((slide) => {
                 slide.classList.remove("active");
-            });
+            })
         }
 
         function addActive(idx) {
@@ -18,8 +18,8 @@ function ThumbnailPlugin(mainRef) {
             slider.slides.forEach((slide, idx) => {
                 slide.addEventListener("click", () => {
                     if (mainRef.current) mainRef.current.moveToIdx(idx);
-                });
-            });
+                })
+            })
         }
 
         slider.on("created", () => {
@@ -31,11 +31,10 @@ function ThumbnailPlugin(mainRef) {
                 const next = main.animator.targetIdx || 0;
                 addActive(main.track.absToRel(next));
                 slider.moveToIdx(Math.min(slider.track.details.maxIdx, next));
-            });
-        });
-    };
+            })
+        })
+    }
 }
-
 
 export function BigCarousel(props) {
     const imgUrls = props.imgUrls
@@ -46,7 +45,7 @@ export function BigCarousel(props) {
         initial: 0,
 
         slideChanged(slider) {
-            setCurrentSlide(slider.track.details.rel);
+            setCurrentSlide(slider.track.details.rel)
         },
         created() {
             setLoaded(true);
@@ -92,7 +91,6 @@ export function BigCarousel(props) {
                     </>
                 )}
             </div>
-     
             <div ref={thumbnailRef} className="keen-slider thumbnail">
                 {imgUrls.map((url) =>
                     <div className="keen-slider__slide">
@@ -101,13 +99,13 @@ export function BigCarousel(props) {
                 )}
             </div>
         </>
-    );
+    )
 }
 
 function Arrow(props) {
     const {direction} = props
-    let arrowToShow;
-    let className;
+    let arrowToShow
+    let className
     if (direction === "right") {
         arrowToShow = <svg width="8" height="16" viewBox="0 0 8 16" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -122,7 +120,7 @@ function Arrow(props) {
         </svg>
         className = "details-arrow arrow arrow--left"
     }
-    const disabeld = props.disabled ? " arrow--disabled" : "";
+    const disabeld = props.disabled ? " arrow--disabled" : ""
 
     return (
         <div onClick={props.onClick} className={className}>
@@ -147,5 +145,5 @@ function Arrow(props) {
                 <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/>
             )}
         </svg>
-    );
+    )
 }
