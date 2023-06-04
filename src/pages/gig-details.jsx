@@ -7,6 +7,7 @@ import { PricingPackage } from "../cmps/pricing-package.jsx"
 import { GigShoppingCart } from '../cmps/gig-shopping-cart'
 import { utilService } from "../services/util.service"
 import {BigCarousel} from "../cmps/big-carousel"
+import { GigPayment } from "./gig-payment"
 
 export function GigDetails() {
     const [gig, setGig] = useState(null)
@@ -99,6 +100,10 @@ export function GigDetails() {
                 />
 
                 <div className={`main-screen ${classMenu}`} onClick={onToggleIsOpen}></div>
+
+                <GigPayment
+                 gig={gig}
+                />
 
             </section>
             }

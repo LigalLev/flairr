@@ -3,6 +3,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from "react-responsive-carousel";
 import { GigIndex } from "../pages/gig-index";
 import { utilService } from "../services/util.service";
+import { Link, useNavigate } from "react-router-dom"
+
+
 
 function ArrowButton(props) {
   const { direction } = props
@@ -27,7 +30,8 @@ function ArrowButton(props) {
     </div>
   )
 }
-export function CarouselContainer({gig}) {
+export function CarouselContainer({ gig }) {
+  const navigate = useNavigate()
   const urls = gig.imgUrl
   const [isHovered, setIsHovered] = useState(false)
   let nextClassName;
@@ -64,8 +68,9 @@ export function CarouselContainer({gig}) {
       }
     >
       {urls.map((url) => {
-        return <div key={gig._id} className="carousel-img-container">
-          < img src={utilService.resizeImgUrl(url)} className="carousel-img"/>
+        return <div key={gig._id} className="carousel-img-container" onClick={()=>navigate (`/gig/${gig._id}`)}>
+          {/* <button na to={`/gig/${gig._id}`}> */}
+            < img src={utilService.resizeImgUrl(url)} className="carousel-img" />
         </div>
 
       })}

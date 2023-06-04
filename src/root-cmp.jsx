@@ -10,7 +10,7 @@ import { GigIndex } from './pages/gig-index'
 import { GigDetails } from './pages/gig-details'
 import { ChatApp } from './pages/chat-app'
 import { GigEdit } from './pages/gig-edit'
-import { Payment } from './pages/payment'
+import { GigPayment } from './pages/gig-payment'
 
 
 export function RootCmp() {
@@ -24,12 +24,13 @@ export function RootCmp() {
                     <Route element={<HomePage />} path="/" />
                     <Route element={<GigIndex />} path="/gig" />
                     <Route element={<GigDetails />} path="/gig/:gigId">
+                        {/* <Route element={<GigPayment />} exact path="/gig/:gigId/:payment" /> */}
                         <Route element={<ReviewIndex />} path="reviews" />
                         <Route element={<ChatApp />} path="chat" />
                     </Route>
                     <Route element={<GigEdit />} path="/gig/edit" />
+                    <Route element={<GigPayment />} path="/gig/:gigId/:payment" />
                     <Route element={<UserDetails />} path="user/:id" />
-                    <Route element={<Payment />} path="/payment" />
                 </Routes>
             </main>
             <AppFooter />

@@ -6,7 +6,7 @@ import { PopularServicesCarousel } from '../cmps/popular-service-carousel'
 export function HomePage() {
     const dispatch = useDispatch()
     const count = useSelector(storeState => storeState.userModule.count)
-    
+
     return (
         <section className="home-page main-layout full">
             <Hero />
@@ -19,7 +19,6 @@ export function HomePage() {
 
             <section className="info-wrapper main-layout full">
                 <div className="info">
-
                     <div className="info-text">
                         <h2>The best part<span>?</span> Everything.</h2>
 
@@ -35,10 +34,16 @@ export function HomePage() {
                         <h6>Count on 24/7 support</h6>
                         <p>Our round-the-clock support team is available to help anytime, anywhere.</p>
                     </div>
-
                     <div className="img-wrapper">
                         <img src="https://res.cloudinary.com/dqhfnvtca/image/upload/v1685741317/flairr/selling-proposition-still-1400-x1_exn4qm.png" alt="Two smiling women using a laptop." />
                     </div>
+                </div>
+            </section>
+
+            <section className="suddenly-doable">
+                <div className="signup-text">
+                    <h2>Suddenly it's all so <span>doable.</span></h2>
+                    <button>Join Flairr</button>
                 </div>
             </section>
         </section>
