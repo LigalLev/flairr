@@ -1,13 +1,13 @@
 import { orderService } from "../services/order.service"
 import { store } from './store'
-import { ADD_ORDER, REMOVE_ORDER, SET_ORDER, SET_IS_LOADING, UPDATE_ORDER, SET_ORDER_DOT } from './order.reducer'
+import { ADD_ORDER, REMOVE_ORDER, SET_ORDERS, SET_IS_LOADING, UPDATE_ORDER, SET_ORDER_DOT } from './order.reducer'
 
 export async function loadOrders() {
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
     try {
         const orders = await orderService.query()
         console.log('orders after await:', orders)
-        store.dispatch({ type: SET_ORDER, orders })
+        store.dispatch({ type: SET_ORDERS, orders })
         return orders
     } catch (err) {
         console.log('order action -> Cannot load orders', err)
@@ -41,6 +41,6 @@ export async function saveOrder(order) {
 
 ///UI
 
-export function setRedDot(isOrderDot){
+export function setOrderDot(isOrderDot){
     store.dispatch({ type: SET_ORDER_DOT, isOrderDot })
 }

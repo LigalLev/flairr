@@ -1,47 +1,50 @@
 import { utilService } from "./util.service"
+import { storageService } from "./async-storage.service"
+import { userService } from "./user.service"
+
 const STORAGE_KEY = 'order'
 export const orderService = {
-    query,
-    getById,
-    save,
-    remove,
+  query,
+  getById,
+  save,
+  remove,
 }
 
 async function query() {
-    let orders = await storageService.query(STORAGE_KEY)
-    return orders
+  let orders = await storageService.query(STORAGE_KEY)
+  return orders
 }
 
 
-function createOrder(){
-    let orders = utilService.loadFromStorage(STORAGE_KEY)
-     orders = [
-    {
-          _id: "o1225",
-          buyer: {
-            _id: "",
-            fullname: ""
-          },
-          seller: {
-            _id:"",
-            fullname: ""
-          },
-          gig: {
-            _id: "i101",
-            title: "Design Logo", //[name?]
-            price: 20
-          },
-          status: "pending"
-        }
-      ]
-      utilService.saveToStorage(STORAGE_KEY, Order)
+function createOrder() {
+  let orders = utilService.loadFromStorage(STORAGE_KEY)
+  let order =
+  {
+    _id: "o1225",
+    buyer: {
+      _id: "",
+      fullname: ""
+    },
+    seller: {
+      _id: "",
+      fullname: ""
+    },
+    gig: {
+      _id: "i101",
+      title: "Design Logo", //[name?]
+      price: 20
+    },
+    status: "pending"
+  }
+
+  utilService.saveToStorage(STORAGE_KEY, order)
 }
 
 function getById(orderId) {
   return storageService.get(STORAGE_KEY, orderId)
 }
 
-async function remove(gigId) {
+async function remove(orderId) {
   // throw new Error('Nope')
   await storageService.remove(STORAGE_KEY, orderId)
 }
@@ -49,11 +52,11 @@ async function remove(gigId) {
 async function save(order) {
   var savedOrder
   if (order._id) {
-      savedOrder = await storageService.put(STORAGE_KEY, order)
+    savedOrder = await storageService.put(STORAGE_KEY, order)
   } else {
-      // Later, owner is set by the backend
-      gig.owner = userService.getLoggedinUser()
-      savedOrder = await storageService.post(STORAGE_KEY, order)
+    // Later, owner is set by the backend
+    order.gig.user = userService.getLoggedinUser()
+    savedOrder = await storageService.post(STORAGE_KEY, order)
   }
   return savedOrder
 }
