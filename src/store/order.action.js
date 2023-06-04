@@ -1,6 +1,6 @@
 import { orderService } from "../services/order.service"
 import { store } from './store'
-import { ADD_ORDER, REMOVE_ORDER, SET_ORDER, SET_IS_LOADING, UPDATE_ORDER } from './order.reducer'
+import { ADD_ORDER, REMOVE_ORDER, SET_ORDER, SET_IS_LOADING, UPDATE_ORDER, SET_ORDER_DOT } from './order.reducer'
 
 export async function loadOrders() {
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
@@ -39,3 +39,8 @@ export async function saveOrder(order) {
     }
 }
 
+///UI
+
+export function setRedDot(isOrderDot){
+    store.dispatch({ type: SET_ORDER_DOT, isOrderDot })
+}

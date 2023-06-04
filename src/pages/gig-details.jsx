@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState} from "react"
 import { gigService } from "../services/gig.service.local"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useParams, useNavigate } from "react-router-dom"
@@ -7,7 +7,7 @@ import { PricingPackage } from "../cmps/pricing-package.jsx"
 import { GigShoppingCart } from '../cmps/gig-shopping-cart'
 import { utilService } from "../services/util.service"
 import {BigCarousel} from "../cmps/big-carousel"
-import { GigPayment } from "./gig-payment"
+import { Payment } from "../pages/payment"
 
 export function GigDetails() {
     const [gig, setGig] = useState(null)
@@ -70,10 +70,8 @@ export function GigDetails() {
                                 <h2>{gig.owner.fullname}</h2>
                                 <p className="gig-email">@{gig.owner.fullname}</p>
                                 <p className="gig-level">Level {gig.owner.level} <span>|</span></p>
-                                
                                 <p className="gig-rate"> <span>&#9733; &#9733; &#9733; &#9733; &#9733;{gig.owner.rate}</span> (116)</p>
                                 {/* <span className="rating-filled">{getRatingString(gig)}</span> */}
-
                                 <p className="gig-orders">14 Orders in Queue</p>
                             </div>
 
@@ -92,7 +90,6 @@ export function GigDetails() {
                     <PricingPackage
                         gig={gig}
                         onToggleIsOpen={onToggleIsOpen}
-
                     />
                 </aside>
 
@@ -103,11 +100,6 @@ export function GigDetails() {
                 />
 
                 <div className={`main-screen ${classMenu}`} onClick={onToggleIsOpen}></div>
-
-                <GigPayment
-                 gig={gig}
-                />
-
             </section>
             }
 
