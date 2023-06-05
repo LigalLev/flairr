@@ -14,10 +14,12 @@ export function OrderModal() {
     return <ul className="buyer-order-list-container">
         {orders.map(order =>
             <li key={order._id} className="order-list-item">
-                <div className="order-list-img"><img src={order.gig.imgUrl} alt="" /></div>
+                <div><img src={order.gig.imgUrl} alt="" className="order-list-img"/></div>
                 <div>{order.gig.title}</div>
+                <div className="order-list-buyer">
                 <div>by{order.seller.fullname}</div>
                 <div>{order.status}</div>
+                </div>
             </li>)}
     </ul>
 }

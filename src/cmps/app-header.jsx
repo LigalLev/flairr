@@ -80,7 +80,7 @@ export function AppHeader() {
                 <NavLink to="/gig">Explore</NavLink>
                 <NavLink to="/gigs-dashboard">Become a Seller</NavLink>
                 <span>
-                    <button onClick={onClickOrders}>Orders</button>
+                    <button onClick={onClickOrders} class="orders-btn">Orders</button>
                     {isOrderNotice && <span>🔴</span>}
                     {isOrderModalOpen && < OrderModal />}
                 </span>
@@ -89,4 +89,4 @@ export function AppHeader() {
             </nav>
         </header>
     )
-}
+}  
