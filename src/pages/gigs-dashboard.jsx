@@ -1,8 +1,18 @@
-// import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from 'react-redux'
+import { loadGigs, addGig, updateGig, removeGig, addToCart } from '../store/gig.actions.js'
+import { gigService } from '../services/gig.service.local.js'
 
 export function GigsDashboard() {
     const navigate = useNavigate()
+
+    const gigs = useSelector(storeState => storeState.gigModule.gigs)
+
+    useEffect(() => {
+        loadGigs()
+        console.log('gigs: ', gigs)
+    }, [])
 
     function onCreateNewGig() {
         navigate("/gig/edit")
@@ -14,9 +24,6 @@ export function GigsDashboard() {
 
             <button onClick={onCreateNewGig} >Create a new gig</button>
 
-            <pre>
-                render gig object here
-            </pre>
         </section>
     )
 }

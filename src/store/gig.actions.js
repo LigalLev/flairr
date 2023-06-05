@@ -63,6 +63,18 @@ export async function addGig(gig) {
     }
 }
 
+export async function saveGig(gig) {
+    const type = gig._id ? UPDATE_GIG : ADD_GIG
+    try {
+        const savedGig= await gigService.save(gig)
+        store.dispatch({ type, gig: savedGig })
+        return savedGig
+    } catch (err) {
+        console.log('gig action -> Cannot save gig', err)
+        throw err
+    }
+}
+
 export function updateGig(gig) {
     return gigService.save(gig)
         .then(savedGig => {
