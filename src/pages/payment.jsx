@@ -1,4 +1,4 @@
-import {CCPayment} from '../cmps/cc-payment'
+import { CCPayment } from '../cmps/cc-payment'
 import { setOrderNotice } from "../store/order.action"
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service"
 import { useParams, useNavigate } from "react-router-dom"
@@ -40,6 +40,7 @@ export function Payment() {
             newOrder.gig.title = gig.title
             newOrder.gig.imgUrl = gig.imgUrls[0]
             newOrder.gig.price = gig.price
+            newOrder.gig.owner.fullname = gig.seller.fullname
             setOrderToSave(newOrder)
             const savedOrder = await saveOrder(orderToSave)
             showSuccessMsg(`order added (id: ${savedOrder._id})`)
@@ -49,30 +50,37 @@ export function Payment() {
         }
     }
 
-    return (<div className="order-details">
-        {gig && <div> <img src={gig.imgUrls[0]} alt="" />
-            <div>{gig.title}</div>
-            <div>{gig.level}</div>
-            <div>{gig.owner.fullname}</div>
-            <div>
-                <ul>
-                    {included.map((includedItem) => {
-                        return <li><span><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M13.6202 2.6083L5.4001 10.8284L2.37973 7.80805C2.23329 7.66161 1.99585 7.66161 1.84939 7.80805L0.96551 8.69193C0.819073 8.83836 0.819073 9.0758 0.96551 9.22227L5.13492 13.3917C5.28135 13.5381 5.51879 13.5381 5.66526 13.3917L15.0344 4.02252C15.1809 3.87608 15.1809 3.63865 15.0344 3.49218L14.1505 2.6083C14.0041 2.46186 13.7667 2.46186 13.6202 2.6083Z" /></svg></span>{includedItem}</li>
-                    })}
-                </ul>
-            </div>
-            <div>${gig.price}</div>
-            <div>Total delivery time {gig.daysToMake} days</div>
+    return (
+        <div className="order-details">
+            <CCPayment />
+
+            {gig && <div className='order-information-summery'>
+                <div className='header-order-wrapper'>
+                    <img src={gig.imgUrls[0]} alt="" />
+                    <p>{gig.title}</p>
+                </div>
+
+                <div>{gig.level}</div>
+                <div>{gig.owner.fullname}</div>
+                <div className='order-items-wrapper'>
+                    <ul>
+                        {included.map((includedItem) => {
+                            return <li><span><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M13.6202 2.6083L5.4001 10.8284L2.37973 7.80805C2.23329 7.66161 1.99585 7.66161 1.84939 7.80805L0.96551 8.69193C0.819073 8.83836 0.819073 9.0758 0.96551 9.22227L5.13492 13.3917C5.28135 13.5381 5.51879 13.5381 5.66526 13.3917L15.0344 4.02252C15.1809 3.87608 15.1809 3.63865 15.0344 3.49218L14.1505 2.6083C14.0041 2.46186 13.7667 2.46186 13.6202 2.6083Z" /></svg></span>{includedItem}</li>
+                        })}
+                    </ul>
+                </div>
+                <div>${gig.price}</div>
+                <div>Total delivery time {gig.daysToMake} days</div>
 
 
-        </div>}
-        <button className="btn-pay" onClick={() => {
-            setOrderNotice(true)
-            onAddOrder(orderToSave)
+                <button className="btn-pay" onClick={() => {
+                    setOrderNotice(true)
+                    onAddOrder(orderToSave)
 
-        }}>Pay</button>
+                }}>Pay</button>
+            </div>}
 
-        <CCPayment/>
 
-    </div>)
+
+        </div>)
 }
