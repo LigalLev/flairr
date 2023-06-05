@@ -1,11 +1,5 @@
 .app-header {
-    button{
-        font-family: Macan-semibold;
-        background-color: $clr6;
-        color: $clr5;
-        font-weight: 700;
-        font-size: 16px;
-    }
+    // grid-template-columns: 1fr 1fr auto 1fr;
     z-index: 300;
     background-color: $clr6;
     padding: 10px;
@@ -59,9 +53,12 @@
         }
 
         .orders-btn {
+            font-family: Macan-semibold;
             background: none;
-            font-weight: 500;
+            font-size: rem(16px);
             padding: 0;
+            color: $clr5;
+
             &:hover {
                 color: $clr1;
             }
@@ -80,38 +77,89 @@
             padding: 10px 16px;
             line-height: 100%;
             text-align: center;
+            color: $clr1;
             transition: background-color .5s ease, border .5s ease;
 
             &:hover {
                 border-color: transparent;
-                background-color: $clr1;
+                background-color: darken($clr1, 5%);
                 color: $clr6;
             }
         }
     }
 
     .logo {
+        order: 1;
         grid-row: 1;
         color: $clr8;
         width: max-content;
+    }
+
+    .search-bar {
+        display: none;
+        
+        @include for-normal-layout {
+            // margin-inline: auto;
+            order: 2;
+            position: relative;
+            grid-row: 1;
+            // justify-self: start;
+            width: 50%;
+            display: flex;
+
+            input[type="text"] {
+                display: block;
+                width: 100%;
+                border-radius: 4px 0 0 4px;
+                border:solid 1px #c5c6c9;
+                padding: 10px 2px 10px 16px;
+                outline: none;
+                height: 48px;
+                flex-shrink: 1;
+
+                &::placeholder {
+                    color: $placeholder-clr;
+                    line-height: 24px;
+                    font-size: 16px;
+                }
+            }
+
+            .search-btn {
+                display: inline-block;
+                background-color: $clr7;
+                border-radius: 0px 4px 4px 0px;
+                padding: 12px 24px;
+                margin: 0;
+                flex-shrink: 0;
+                transition: 70ms cubic-bezier(.75,0,.25,1);
+                svg {
+                    fill: $clr6;
+                }
+
+                &:hover {
+                    background-color: lighten($clr7, 4%);
+                }
+            }
+        }
     }
 }
 
 .app-header {
     &.home-page-top {
         background-color: transparent;
-        
+
         .join-btn {
             border-color: $clr6;
             color: $clr6;
         }
 
-        a, .orders-btn {
+        a:not(.logo),
+        .orders-btn {
             color: $clr6;
+        }
 
-            &:hover {
-                color: $clr6;
-            }
+        .orders-btn:hover {
+            color: $clr6;
         }
     }
 }

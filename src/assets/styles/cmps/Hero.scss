@@ -116,7 +116,7 @@
         display: flex;
         flex-direction: column;
         border: 1px solid transparent;
-
+        justify-self: start;
         @include for-normal-layout {
             flex-direction: row;
         }
@@ -136,6 +136,8 @@
 
             &::placeholder {
                 color: $placeholder-clr;
+                line-height: 24px;
+                font-size: 16px;
             }
             
             @include for-normal-layout {
@@ -160,7 +162,7 @@
             }
 
             &:hover {
-                background-color: darken($clr1, 5%);
+                background-color: $clr8;
             }
 
             svg {
@@ -185,7 +187,7 @@
             ul {
                 display: flex;
                 margin-inline-start: 12px;
-
+                
                 a {
                     color: inherit;
                     text-decoration: none;
@@ -200,7 +202,8 @@
                     line-height: 24px;
                     padding: 1px 12px 0;
                     background-color: transparent;
-                    font-size: em(14px);
+                    font-size: rem(14px);
+                    margin-inline-end: 0 0 0 12px;
 
                     &:hover {
                         background-color: $clr6;
