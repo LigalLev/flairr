@@ -18,8 +18,11 @@ export function GigPreview({ gig }) {
                 </div>
                 <div className="preview-owner-level">{gig.owner.level}</div>
             </div>
-            <Link to={`/gig/${gig._id}`}> <div className="preview-gig-title">{gig.title}</div> </Link>
-            <div className="preview-rate">&#9733;{gig.owner.rate}</div>
+            <Link to={`/gig/${gig._id}`} className="gig-link-title"> <div className="preview-gig-title">{gig.title}</div> </Link>
+            <div className="preview-rate">
+                {/* <div className="star-rate">&#9733;</div> */}
+                <div className="rate-number">{gig.owner.rate.toFixed(1)}</div>
+            </div>
             <div className="preview-gig-price">From ${gig.price}</div>
         </div>
         {/* <Link to={`/gig/${gig._id}`}>Details</Link> | */}

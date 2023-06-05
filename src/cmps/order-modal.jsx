@@ -17,7 +17,7 @@ export function OrderModal() {
                 <div><img src={order.gig.imgUrl} alt="" className="order-list-img"/></div>
                 <div>{order.gig.title}</div>
                 <div className="order-list-buyer">
-                <div>by{order.seller.fullname}</div>
+                <div className="order-list-buyer-name" >by{order.seller.fullname}</div>
                 <div>{order.status}</div>
                 </div>
             </li>)}
