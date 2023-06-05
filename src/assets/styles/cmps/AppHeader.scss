@@ -58,6 +58,15 @@
             margin-inline-start: 24px;
         }
 
+        .orders-btn {
+            background: none;
+            font-weight: 500;
+            padding: 0;
+            &:hover {
+                color: $clr1;
+            }
+        }
+
         a:hover {
             color: $clr1;
         }
@@ -97,7 +106,7 @@
             color: $clr6;
         }
 
-        a {
+        a, .orders-btn {
             color: $clr6;
 
             &:hover {

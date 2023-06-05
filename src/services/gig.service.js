@@ -42,15 +42,44 @@ async function save(gig) {
 }
 
 async function addGigMsg(gigId, txt) {
-    const savedMsg = await httpService.post(`gig/${gigId}/msg`, {txt})
+    const savedMsg = await httpService.post(`gig/${gigId}/msg`, { txt })
     return savedMsg
 }
 
 
 function getEmptyGig() {
     return {
-        vendor: 'Susita-' + (Date.now() % 1000),
-        price: utilService.getRandomIntInclusive(1000, 9000),
+        _id: '',
+        title: '',
+        description: '',
+        imgUrls: [],
+        owner: {
+            "_id": '',
+            "fullname": '',
+            "imgUrl": '',
+            "level": '',
+            "rate": ''
+        },
+        tags: [],
+        likedByUsers: [],
+
+        packages: {
+            basic: {
+                price: '',
+                daysToMake: '',
+                included: []
+            },
+            standard: {
+                price: '',
+                daysToMake: '',
+                included: []
+            },
+            premium: {
+                price: '',
+                daysToMake: '',
+                included: []
+            }
+        }
     }
 }
 
