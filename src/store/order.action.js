@@ -1,6 +1,6 @@
 import { orderService } from "../services/order.service"
 import { store } from './store'
-import { ADD_ORDER, REMOVE_ORDER, SET_ORDERS, SET_IS_LOADING, UPDATE_ORDER, SET_ORDER_NOTICE } from './order.reducer'
+import { ADD_ORDER, REMOVE_ORDER, SET_ORDERS, SET_IS_LOADING, UPDATE_ORDER, SET_ORDER_NOTICE, SET_ORDER_MODAL_VISIBLE } from './order.reducer'
 
 export async function loadOrders() {
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
@@ -43,4 +43,7 @@ export async function saveOrder(order) {
 
 export function setOrderNotice(isOrderNotice){
     store.dispatch({ type: SET_ORDER_NOTICE, isOrderNotice })
+}
+export function setOrdeModalVisible(isOrderModalOpen){
+    store.dispatch({ type: SET_ORDER_MODAL_VISIBLE, isOrderModalOpen })
 }

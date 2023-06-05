@@ -1,0 +1,66 @@
+.order-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    top: 0px;
+    padding-bottom: 32px;
+    font-family: Macan-semibold;
+
+    .order-information-summery {
+        display: flex;
+        flex-direction: column;
+        
+        border: 1px solid #dadbdd;
+        border-radius: 0.25em;
+        background-color: $white;
+        width: 377px;
+        padding: 16px 24px;
+        color: $clr5;
+        
+        &>* {
+            margin-inline-start: 1em;
+        }
+
+        .header-order-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 4px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 16px;
+
+            img {
+                max-width: 100px;
+                object-fit: contain;
+                border-radius: 0.25em;
+                margin-right: 16px;
+            }
+
+            p {
+                line-height: 1.4;
+                font-size: rem(16px);
+            }
+        }
+
+        .order-items-wrapper{
+            li{
+                font-family: Macan;
+            }
+
+            svg {
+                fill: #02c2a9;
+                margin-inline-end: 0.75em
+            }
+        }
+
+        .btn-pay {
+            background-color: $clr7;
+            font-size: rem(16px);
+            margin-block-start: 1.5em;
+            padding: 12px 24px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+    }
+}

@@ -5,11 +5,13 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import { OrderModal } from './order-modal'
+import { setOrdeModalVisible, setOrderNotice } from '../store/order.action'
 
 export function AppHeader() {
     const location = useLocation()
     const [isHomePageTop, setIsHomePageTop] = useState(location.pathname === '/' && window.pageYOffset === 0)
     const isOrderNotice = useSelector(storeState => storeState.orderModule.isOrderNotice)
+    const isOrderModalOpen = useSelector(storeState => storeState.orderModule.isOrderModalOpen)
 
     useEffect(() => {
         /* eslint-disable no-restricted-globals */
@@ -59,6 +61,14 @@ export function AppHeader() {
         }
     }
 
+    function onClickOrders() {
+        setOrderNotice(false)
+        if (isOrderModalOpen) {
+            setOrdeModalVisible(false)
+        } else setOrdeModalVisible(true)
+
+    }
+
     return (
         <header className={`app-header main-layout full ${getHeaderStyle()}`}>
             <div className='logo'>
@@ -70,9 +80,9 @@ export function AppHeader() {
                 <NavLink to="/gig">Explore</NavLink>
                 <NavLink to="/gigs-dashboard">Become a Seller</NavLink>
                 <span>
-                    <a>Orders</a>
+                    <button onClick={onClickOrders}>Orders</button>
                     {isOrderNotice && <span>🔴</span>}
-                    <OrderModal/>
+                    {isOrderModalOpen && < OrderModal />}
                 </span>
                 <NavLink to="/">Sign in</NavLink>
                 <button className='join-btn'>Join</button>
