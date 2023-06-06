@@ -12,9 +12,11 @@ import { GigFilter } from '../cmps/gig-filter.jsx'
 export function GigIndex() {
 
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
+    const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
+
 
     useEffect(() => {
-        loadGigs()
+        loadGigs(filterBy)
     }, [])
 
     async function onRemoveGig(gigId) {
@@ -66,10 +68,7 @@ export function GigIndex() {
                     gigs={gigs}
                     onRemoveGig={onRemoveGig}
                     onAddGig={onAddGig}
-                />
-    
-<GigFilter/>
-                {/* {
+                />                {/* {
                             <button onClick={() => { onAddGigMsg(gig) }}>Add gig msg</button>
                             <button className="buy" onClick={() => { onAddToCart(gig) }}>Add to cart</button>
                         </li>)
