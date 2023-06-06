@@ -66,7 +66,7 @@ export function GigDetails() {
                         <h1>{gig.title}</h1>
                         <div className="main-details-container">
                             <div className="user-round-img">
-                                <img src={utilService.resizeImgUrl(gig.owner.imgUrl)} alt="" className="details-owner-img" />
+                                <img src={gig.owner.imgUrl} alt="" className="details-owner-img" />
                             </div>
                             <div className="details-wrapper">
                                 <h2>{gig.owner.fullname}</h2>

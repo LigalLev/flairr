@@ -10,13 +10,13 @@
         grid-column: 1/ -1;
     }
 
-    @include for-narrow-layout {
-        @include layoutGTC($break-narrow);
-    }
+    // @include for-narrow-layout {
+    //     @include layoutGTC($break-narrow);
+    // }
     
-    @include for-normal-layout {
-        @include layoutGTC($break-normal);
-    }
+    // @include for-normal-layout {
+    //     @include layoutGTC($break-normal);
+    // }
     
     @include for-wide-layout {
         grid-template-columns:

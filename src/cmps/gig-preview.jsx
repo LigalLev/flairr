@@ -13,7 +13,7 @@ export function GigPreview({ gig }) {
         <div className="content-container">
             <div className="owner-details-container">
                 <div className="img-name-preview">
-                    <img src={utilService.resizeImgUrl(gig.owner.imgUrl)} alt="" className="preview-owner-img" />
+                    <img src={gig.owner.imgUrl} alt="" className="preview-owner-img" />
                     <div className="preview-owner-fullName">{gig.owner.fullname}</div>
                 </div>
                 <div className="preview-owner-level">{gig.owner.level}</div>

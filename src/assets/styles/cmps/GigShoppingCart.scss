@@ -9,7 +9,7 @@
     bottom: 0px;
 
     max-width: 480px;
-    height: 100%;
+    height: 100vh;
 
     color: $clr8;
     border-left: 1px solid #dadbdd;
@@ -44,6 +44,7 @@
         padding-inline: 32px;
         display: flex;
         flex-direction: column;
+        flex: 1;
         max-height: 100%;
         // align-content: center;
         // justify-content: space-between;
@@ -74,6 +75,7 @@
             border-radius: 8px;
             color: #404145;
             padding: 32px 32px;
+            flex: 1;
 
             p {
                 font-size: rem(14px);
@@ -131,7 +133,7 @@
                 text-align: center;
                 font-size: rem(12px);
                 color: $clr5;
-                margin-block-end: 10em;
+                margin-block-end: 1em;
             }
         }
     }

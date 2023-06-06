@@ -24,10 +24,10 @@
   }
 }
 
-@mixin layoutGTC($max) {
-  grid-template-columns:
-    minmax($layoutPadding) minmax(auto, $max) minmax($layoutPadding);
-}
+// @mixin layoutGTC($max) {
+//   grid-template-columns:
+//     minmax($layoutPadding) minmax(auto, $max) minmax($layoutPadding);
+// }
 
 /* Media  Mixins */
 @mixin aspect-ratio($width, $height) {

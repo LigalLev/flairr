@@ -63,7 +63,7 @@ function loadFromStorage(key) {
     return (data) ? JSON.parse(data) : undefined
 }
 
-function resizeImgUrl(url, params = 'w_300,h_160,c_lfill') {
+function resizeImgUrl(url, params = 'w_440,h_230,c_fill') {
     const parts = url.split('/');
     const uploadIndex = parts.findIndex(part => part === 'upload');
 
