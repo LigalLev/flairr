@@ -6,7 +6,6 @@ import { gigService } from '../services/gig.service.local.js'
 
 export function GigsDashboard() {
     const navigate = useNavigate()
-
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
 
     useEffect(() => {

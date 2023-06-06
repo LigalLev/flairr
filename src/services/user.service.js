@@ -2,6 +2,13 @@ import { storageService } from './async-storage.service'
 import { httpService } from './http.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
+const GUEST = {
+    _id: '0001',
+    fullname: 'Guest',
+    imgUrl: 'https://res.cloudinary.com/dqhfnvtca/image/upload/v1686055437/flairr/undraw_male_avatar_g98d_nn0ijg.svg',
+    level: 'Basic',
+    rate: 5
+}
 
 export const userService = {
     login,
@@ -37,7 +44,7 @@ function remove(userId) {
     // return httpService.delete(`user/${userId}`)
 }
 
-async function update({_id, score}) {
+async function update({ _id, score }) {
     const user = await storageService.get('user', _id)
     user.score = score
     await storageService.put('user', user)
@@ -78,13 +85,13 @@ async function changeScore(by) {
 
 
 function saveLocalUser(user) {
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score}
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, username: '', level: 'Basic', reviews: [] }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
 
 function getLoggedinUser() {
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || GUEST
 }
 
 
@@ -94,28 +101,15 @@ function getLoggedinUser() {
 //     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
 // })()
 
-function getUser(){
-return[
-    {
-      _id: "u101",
-      fullname: "User 1",
-      imgUrl: "/img/img1.jpg",
-      username: "user1",
-      password: "secret",
-      level: "basic/premium",
-      reviews: [
-        {
-          "id": "madeId",
-          "gig": "{optional-mini-gig}",
-          "txt": "Very kind and works fast",
-          "rate": 4,
-          "by": {
-            "_id": "u102",
-            "fullname": "user2",
-            "imgUrl": "/img/img2.jpg"
-          }
-        }
-      ],
-    },
-  ]
+function getEmptyUser() {
+    return {
+        _id: '',
+        fullname: '',
+        imgUrl: '',
+        username: '',
+        password: '',
+        level: 'Basic',
+        reviews: [],
+
+    }
 }

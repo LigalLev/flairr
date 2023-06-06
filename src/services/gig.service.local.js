@@ -38,7 +38,9 @@ async function remove(gigId) {
 }
 
 async function save(gig) {
-    var savedGig
+    console.log('hi from service ♥♥♥♥♥♥')
+    console.log('gig: ', gig)
+    let savedGig
     if (gig._id) {
         savedGig = await storageService.put(STORAGE_KEY, gig)
     } else {
@@ -66,27 +68,40 @@ async function addGigMsg(gigId, txt) {
 }
 
 function getEmptyGig() {
+    const user = userService.getLoggedinUser() 
     return {
-        _id: "i101",
-        title: "I will design your logo",
-        price: 60,
+        _id: '',
+        title: '',
+        description: '',
+        imgUrls: [],
         owner: {
-            "_id": "u101",
-            "fullname": "nadia_y",
-            "imgUrl": "",
-            "level": "Fairr's choice",
-            "rate": 5.0
+            _id: user._id,
+            fullname: user.fullname,
+            imgUrl: user.imgUrl,
+            level: user.level,
+            rate: user.rate
         },
-        daysToMake: 3,
-        description: "Hello, I am Kris. Welcome to my logo design gig. I specialize in business logo design. My design will be clean, trendy, minimal and original.I have successfully designed logos for many brands and now I am here on Fiverr to give the best. Why Me? Original, minimal, unique, high quality logo designs Premium customer support 24 x 7 Unlimited revisions, until you are satisfied All types of vector and source files .AI, JPEG, .PNG, PDF, EPS in high resolution WORKFLOW Precise and Strong Communication - Research on current trend - Sketching the initial concepts and Digitalizing it - Submission for Review - Modifications for making the design perfect Minimalist Logo | Minimal | Professional | Modern | Text | Vintage | Badge | Hand drawn | Feminine | Signature | Custom | Watercolor | YouTube Channel | Beauty Customer satisfaction is my top-notch priority and I believe in providing my customer with smooth and comfortable journey on Fiverr. Sounds interesting?? Lets chat!!!Order a gig now and lets have the ball rolling!!!!",
-        imgUrls: ['https://res.cloudinary.com/dlhjvt9b4/image/upload/w_308,h_186/v1685611697/gigs/c9dhyxfmh80hbuawemlm.jpg', ' https://res.cloudinary.com/dlhjvt9b4/image/upload/w_308,h_186/v1685607730/gigs/heyuacvxghfilhbloyay.jpg', ' https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607711/gigs/utfc8fxcnbhrl2jken2o.jpg', ' https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607696/gigs/zvysug7d3tdvekqdfms5.jpg'],
-        tags: [
-            "logo-design",
-            "artisitic",
-            "proffesional",
-            "accessible"
-        ],
-        likedByUsers: ['mini-user']
+        category: '',
+        tags: [],
+        likedByUsers: [],
+
+        packages: {
+            basic: {
+                price: '',
+                daysToMake: '',
+                included: []
+            },
+            standard: {
+                price: '',
+                daysToMake: '',
+                included: []
+            },
+            premium: {
+                price: '',
+                daysToMake: '',
+                included: []
+            }
+        }
     }
 }
 
@@ -335,7 +350,7 @@ function _createGigs() {
             },
             daysToMake: 3,
             description: "About this gig Thank you so much for visiting my WordPress issue fix gig on Fiverr. Here Im Rafi, your wordpress bug fixer. With this gig I can help you to fix issues on your website. I have 5 years of experience with wordpress cms , and I fixed thousands of issues on sites. If youre facing any kind of bug, issue on your sites, send me a message, I would be happy to talk with you and assist you. Here is some common issue which happen: Internal Server Error Not Uploading Images Stuck in Maintenance Mode Site Break Issue after core update White Screen of Death Theme, Plugin, WP Core update. And anything WP related. Still, you're confused about my services? It's better to message me. I will reply to your message within 60 SECONDS. Try now! Note: This service exclusively on Fiverr only and For basic gig I will do small changes only.Again Thank you so much for visiting my gig and dont forget to favorite this gig if your issue is solved..",
-            imgUrls: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816822/gigs/reg1lhoe2castvwc8xfy.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816885/gigs/mg4mnnopyulvnsnevxsx.png","https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816916/gigs/mwz7puvx3rvddhf3zsvk.jpg","https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816962/gigs/s1vm21ga6iale8t8jqah.jpg"],
+            imgUrls: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816822/gigs/reg1lhoe2castvwc8xfy.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816885/gigs/mg4mnnopyulvnsnevxsx.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816916/gigs/mwz7puvx3rvddhf3zsvk.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816962/gigs/s1vm21ga6iale8t8jqah.jpg"],
             tags: [
                 "wordpress issue fix",
                 "wordpress bug fixes",
