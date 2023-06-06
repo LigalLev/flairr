@@ -7,9 +7,21 @@
     height: 80px;
     width: 100%;
     transition: background-color 0.5s;
+    background-color: $clr6;
 
     >* {
         align-self: center;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &.filter-visible .search-bar {
+        opacity: 1;
+        visibility: visible;
     }
 
     // .user-info {
@@ -38,10 +50,13 @@
     // }
 
     nav {
+        display: flex;
         grid-row: 1;
         justify-self: end;
         flex-wrap: nowrap;
         justify-content: flex-start;
+        align-content: center;
+        order: 3;
 
         >* {
             color: $clr5;
@@ -50,6 +65,8 @@
             line-height: 24px;
             text-decoration: none;
             margin-inline-start: 24px;
+            align-self: center;
+            white-space: nowrap;
         }
 
         .orders-btn {
@@ -57,6 +74,7 @@
             background: none;
             font-size: rem(16px);
             padding: 0;
+            margin: 0;
             color: $clr5;
 
             &:hover {
@@ -78,6 +96,7 @@
             line-height: 100%;
             text-align: center;
             color: $clr1;
+            margin: 0 0 0 24px;
             transition: background-color .5s ease, border .5s ease;
 
             &:hover {
@@ -97,41 +116,56 @@
 
     .search-bar {
         display: none;
-        
+        -webkit-font-smoothing: antialiased;
+
         @include for-normal-layout {
-            // margin-inline: auto;
+            transition: opacity .25s ease;
+            opacity: 0;
+            visibility: hidden;
+            
+            align-self: center;
+            margin-inline: 24px;
             order: 2;
             position: relative;
             grid-row: 1;
-            // justify-self: start;
-            width: 50%;
+            width: 40%;
             display: flex;
 
             input[type="text"] {
                 display: block;
                 width: 100%;
+                font-size: rem(16px);
                 border-radius: 4px 0 0 4px;
-                border:solid 1px #c5c6c9;
+                border: solid 1px $grey;
                 padding: 10px 2px 10px 16px;
                 outline: none;
-                height: 48px;
+                height: 42px;
                 flex-shrink: 1;
+                line-height: 1.6;
+                color: $clr5;
 
                 &::placeholder {
                     color: $placeholder-clr;
                     line-height: 24px;
                     font-size: 16px;
                 }
+
+                &:focus {
+                    border-color: $clr7;
+                }
             }
 
             .search-btn {
                 display: inline-block;
+                height: 42px;
                 background-color: $clr7;
                 border-radius: 0px 4px 4px 0px;
-                padding: 12px 24px;
+                padding: 8px 16px;
                 margin: 0;
                 flex-shrink: 0;
-                transition: 70ms cubic-bezier(.75,0,.25,1);
+                transition: 70ms cubic-bezier(.75, 0, .25, 1);
+                border: 1px solid transparent;
+
                 svg {
                     fill: $clr6;
                 }
@@ -145,21 +179,24 @@
 }
 
 .app-header {
-    &.home-page-top {
-        background-color: transparent;
-
-        .join-btn {
-            border-color: $clr6;
-            color: $clr6;
-        }
-
-        a:not(.logo),
-        .orders-btn {
-            color: $clr6;
-        }
-
-        .orders-btn:hover {
-            color: $clr6;
+    @include for-narrow-layout {
+        &.home-page-top {
+            background-color: transparent;
+    
+            .join-btn {
+                border-color: $clr6;
+                color: $clr6;
+            }
+    
+            a:not(.logo),
+            .orders-btn {
+                color: $clr6;
+            }
+    
+            .orders-btn:hover {
+                color: $clr6;
+            }
         }
     }
 }
+
