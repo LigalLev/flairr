@@ -1,4 +1,4 @@
-import { useEffect, useState} from "react"
+import { useEffect, useState } from "react"
 import { gigService } from "../services/gig.service.local"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useParams, useNavigate } from "react-router-dom"
@@ -6,8 +6,9 @@ import { Link } from "react-router-dom"
 import { PricingPackage } from "../cmps/pricing-package.jsx"
 import { GigShoppingCart } from '../cmps/gig-shopping-cart'
 import { utilService } from "../services/util.service"
-import {BigCarousel} from "../cmps/big-carousel"
+import { BigCarousel } from "../cmps/big-carousel"
 import { Payment } from "../pages/payment"
+import { StarRating } from "../cmps/star-rating-new"
 
 export function GigDetails() {
     const [gig, setGig] = useState(null)
@@ -34,6 +35,7 @@ export function GigDetails() {
             navigate('/gig')
         }
     }
+    let svgStar = 'https://res.cloudinary.com/dqhfnvtca/image/upload/v1685985776/flairr/star-yellow_i1kita.svg'
 
     function getRatingString(gig) {
         const ratingStar = '&#9733;'
@@ -70,14 +72,22 @@ export function GigDetails() {
                                 <h2>{gig.owner.fullname}</h2>
                                 <p className="gig-email">@{gig.owner.fullname}</p>
                                 <p className="gig-level">Level {gig.owner.level} <span>|</span></p>
-                                <p className="gig-rate"> <span>&#9733; &#9733; &#9733; &#9733; &#9733;{gig.owner.rate}</span> (116)</p>
-                                {/* <span className="rating-filled">{getRatingString(gig)}</span> */}
+                                {/* <p className="gig-rate"> <span>&#9733; &#9733; &#9733; &#9733; &#9733;{gig.owner.rate}</span> (116)</p> */}
+
+                                <div className="gig-starRate">
+                                    <StarRating rating={gig.owner.rate} />
+                                    <div className="owner-rate">
+                                        {gig.owner.rate} <span>(116)</span>
+                                    </div>
+                                </div>
+
+                                {/* <span className="gig-rate">{getRatingString(gig)}</span> */}
                                 <p className="gig-orders">14 Orders in Queue</p>
                             </div>
 
                         </div>
-                        <div style={{maxWidth:"700px"}}>
-                         < BigCarousel imgUrls={gig.imgUrls}/>
+                        <div style={{ maxWidth: "700px" }}>
+                            < BigCarousel imgUrls={gig.imgUrls} />
                         </div>
                         <div className="about-gig-container">
                             <h3>About this gig</h3>

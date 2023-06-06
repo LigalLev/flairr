@@ -1,6 +1,6 @@
 .cc-payment {
     flex: 1;
-    margin-inline-end: 17px;
+    margin-inline-end: 1.0625em;
     header {
         display: flex;
         flex-direction: row;
@@ -26,6 +26,9 @@
             padding: 1.25em;
             border: 1px solid $white1;
             border-radius: 0.25em;
+            // font-family: Macan;
+            font-family: Macan-light;
+
 
             p:first-child {
                 margin-block-end: 1em;

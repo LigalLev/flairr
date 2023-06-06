@@ -40,7 +40,6 @@ export function Payment() {
             newOrder.gig.title = gig.title
             newOrder.gig.imgUrl = gig.imgUrls[0]
             newOrder.gig.price = gig.price
-            newOrder.gig.owner.fullname = gig.seller.fullname
             setOrderToSave(newOrder)
             const savedOrder = await saveOrder(orderToSave)
             showSuccessMsg(`order added (id: ${savedOrder._id})`)
@@ -61,7 +60,7 @@ export function Payment() {
                 </div>
 
                 <div>{gig.level}</div>
-                <div>{gig.owner.fullname}</div>
+                <div className='gig-owner-fullname'>{gig.owner.fullname}</div>
                 <div className='order-items-wrapper'>
                     <ul>
                         {included.map((includedItem) => {
@@ -69,15 +68,24 @@ export function Payment() {
                         })}
                     </ul>
                 </div>
-                <div>${gig.price}</div>
-                <div>Total delivery time {gig.daysToMake} days</div>
 
-
+                <div className='total-payment-wrapper'>
+                    <p>You'll pay</p>
+                    <div>${gig.price}</div>
+                </div>    
+                <div className='totel-delivery-time'>
+                    <p>Total delivery time</p>
+                    <p>{gig.daysToMake} days</p>
+                </div>    
+                
                 <button className="btn-pay" onClick={() => {
                     setOrderNotice(true)
                     onAddOrder(orderToSave)
-
                 }}>Pay</button>
+
+                <div className='ssl-secure'>
+                    <p>SSL Secure Payment</p>
+                </div>
             </div>}
 
 

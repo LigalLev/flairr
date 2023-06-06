@@ -1,10 +1,8 @@
 .pricing-package {
     position: sticky;
-    // width: 33.6%;
     border: 1px solid #dadbdd;
     top: 0px;
     padding-bottom: 32px;
-    // z-index: 5;
     font-family: Macan-semibold;
 
     nav {
@@ -34,7 +32,7 @@
     .pricing-details {
         display: flex;
         flex-direction: column;
-        font-family: Macan;
+        font-family: Macan-light;
         margin-inline: 1.5em;
 
         &>* {
@@ -43,7 +41,8 @@
 
         h1 {
             font-family: Macan-semibold;
-            margin-block-start: 32px;
+            margin-block: 32px 2px;
+            
             color: #404145;
             font-size: rem(24px);
             line-height: 1em;
@@ -54,6 +53,7 @@
             font-size: rem(16px);
             color: #404145;
             word-break: break-word;
+            margin-block-start: 0.125em;
         }
 
         .brand-fundamental-container {
@@ -61,7 +61,6 @@
 
             p {
                 font-family: Macan-semibold;
-                // color: #404145;
                 color: #62646a;
                 font-size: rem(16px);
 
@@ -88,9 +87,19 @@
                 margin-inline-end: 1em;
             }
 
-            .delivery-days-item {
-                margin-inline-end: 1em;
+            p{
+                color: #62646a;
+                font-size: rem(16px);
+                font-family: Macan-semibold;
+
+
+
+                &.delivery-days-item {
+                    margin-inline-end: 1em;
+                }
             }
+
+            
         }
 
         .collapsible-container {
@@ -98,12 +107,15 @@
 
             h4 {
                 font-family: Macan-bold;
-                color: #404145;
+                color: $clr5;
+                margin-block-end: 1em;
+
             }
 
             .collapsible-content {
                 li {
                     color: #95979d;
+                    padding-block:0.375em ;
                 }
 
                 svg {
@@ -114,12 +126,21 @@
         }
 
         .btn-continue {
-            background-color: $clr7 ;
+            background-color: $black;
             font-size: rem(16px);
             margin-block-start: 1.5em;
             padding: 12px 24px;
             border: 1px solid transparent;
-            border-radius: 4px;
+            border-radius: 0.25em;
+
+            &::after {
+                content: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685980291/flairr/arrow-white_lyifpf.svg');
+                width: 18px;
+                height: 18px;
+                position: absolute;
+                display: inline-block;
+                margin-inline-start: 6em;
+            }
         }
     }
 }

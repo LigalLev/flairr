@@ -17,7 +17,7 @@ export function PricingPackage({ gig, onToggleIsOpen }) {
                 <NavLink>Premium</NavLink> */}
             </nav>
             <section className="pricing-details">
-                <h1>${gig.price}</h1>
+                <h1>US${gig.price}</h1>
                 <p>We charge just after the seller finished the project</p>
                 <div className="brand-fundamental-container">
                     <p>Brand Fundamentals: <span> {gig.title}</span></p>

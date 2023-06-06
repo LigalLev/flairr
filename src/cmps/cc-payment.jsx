@@ -47,14 +47,14 @@ export const CCPayment = () => {
                             <div className='CC-details'>
                                 <label>
                                     Card number
-                                    <input name="cardNumber" defaultValue="0000 0000 0000 0000" />
+                                    <input name="cardNumber" defaultValue="4580 2222 3333 4444" />
                                 </label>
                             </div>
 
                             <div className='experation-details'>
                                 <label>
                                     Expiration date
-                                    <input name="myInput" defaultValue="MM/YY" />
+                                    <input name="myInput" defaultValue="07/27" />
                                 </label>
                                 <label>
                                     Security code: <input name="myInput" defaultValue="300" />
