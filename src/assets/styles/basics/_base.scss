@@ -44,7 +44,8 @@ a:hover {
     text-decoration: underline;
 }
 
-ul, li {
+ul,
+li {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -54,7 +55,21 @@ button {
     cursor: pointer;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     font: inherit;
     -webkit-font-smoothing: antialiased;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    cursor: pointer;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-image: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/clear_button_sprite.75ff164.svg);
+    background-position: 0 0;
+
+
 }

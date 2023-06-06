@@ -162,7 +162,7 @@
             }
 
             &:hover {
-                background-color: $clr8;
+                background-color: darken($clr1, 5%);
             }
 
             svg {
