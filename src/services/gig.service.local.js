@@ -12,16 +12,22 @@ export const gigService = {
     remove,
     getEmptyGig,
     addGigMsg,
+    getDefaultFilter,
 }
 window.cs = gigService
 
 
 async function query(filterBy = { title: '', price: 0 }) {
     let gigs = await storageService.query(STORAGE_KEY)
-    // if (filterBy.title) {
-    //     const regex = new RegExp(filterBy.title, 'i')
-    //     gigs = gigs.filter(gig => regex.test(gig.title))
-    // }
+    if (filterBy.txt) {
+        const regex = new RegExp(filterBy.txt, 'i')
+        gigs = gigs.filter(gig =>{
+            return ( regex.test(gig.title) ||
+            regex.test(gig.description) ||
+            regex.test(gig.catergory) ||
+            regex.test(gig.tags) ||
+            regex.test(gig.owner.fullname))})
+        }
     // if (filterBy.price) {
     //     gigs = gigs.filter(gig => gig.price <= filterBy.price)
     // }
@@ -63,6 +69,11 @@ async function addGigMsg(gigId, txt) {
     await storageService.put(STORAGE_KEY, gig)
 
     return msg
+}
+
+
+function getDefaultFilter() {
+    return { title: '', categorie: '' }
 }
 
 function getEmptyGig() {
@@ -335,7 +346,7 @@ function _createGigs() {
             },
             daysToMake: 3,
             description: "About this gig Thank you so much for visiting my WordPress issue fix gig on Fiverr. Here Im Rafi, your wordpress bug fixer. With this gig I can help you to fix issues on your website. I have 5 years of experience with wordpress cms , and I fixed thousands of issues on sites. If youre facing any kind of bug, issue on your sites, send me a message, I would be happy to talk with you and assist you. Here is some common issue which happen: Internal Server Error Not Uploading Images Stuck in Maintenance Mode Site Break Issue after core update White Screen of Death Theme, Plugin, WP Core update. And anything WP related. Still, you're confused about my services? It's better to message me. I will reply to your message within 60 SECONDS. Try now! Note: This service exclusively on Fiverr only and For basic gig I will do small changes only.Again Thank you so much for visiting my gig and dont forget to favorite this gig if your issue is solved..",
-            imgUrls: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816822/gigs/reg1lhoe2castvwc8xfy.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816885/gigs/mg4mnnopyulvnsnevxsx.png","https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816916/gigs/mwz7puvx3rvddhf3zsvk.jpg","https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816962/gigs/s1vm21ga6iale8t8jqah.jpg"],
+            imgUrls: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816822/gigs/reg1lhoe2castvwc8xfy.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816885/gigs/mg4mnnopyulvnsnevxsx.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816916/gigs/mwz7puvx3rvddhf3zsvk.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685816962/gigs/s1vm21ga6iale8t8jqah.jpg"],
             tags: [
                 "wordpress issue fix",
                 "wordpress bug fixes",

@@ -14,7 +14,8 @@ export const gigService = {
     remove,
     getEmptyGig,
     addGigMsg,
-    getImgUrl
+    getImgUrl,
+    getDefaultFilter
 }
 window.cs = gigService
 
@@ -84,7 +85,9 @@ function getEmptyGig() {
 }
 
 
-
+function getDefaultFilter() {
+    return { txt: '', category: '', price: 0 }
+}
 
 
 function getImgUrl(imgUrl) {
