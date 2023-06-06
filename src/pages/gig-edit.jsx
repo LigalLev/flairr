@@ -1,5 +1,4 @@
 import React from 'react'
-import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { Formik, Form, Field, getIn } from 'formik'
 import * as Yup from 'yup'
@@ -13,6 +12,7 @@ export function GigEdit() {
     const navigate = useNavigate()
     const params = useParams()
     const gigToEdit = useSelector((storeState) => storeState.gigModule.gigs.find(gig => gig._id === params.gigId)) || gigService.getEmptyGig()
+    
     // const [updatedGig, setUpdatedGig] = useState(gigToEdit)
 
     // useEffect(() => {
@@ -30,33 +30,6 @@ export function GigEdit() {
     //         navigate('/gigs-dashboard')
     //     }
     // }
-
-    const initialValues = {
-        title: '',
-        price: '',
-        description: '',
-        packages: {
-            basic: {
-                price: 5,
-                daysToMake: 1,
-                included: []
-            },
-            standard: {
-                price: 5,
-                daysToMake: 1,
-                included: []
-            },
-            premium: {
-                price: 5,
-                daysToMake: 1,
-                included: []
-            }
-        },
-        imgUrls: [],
-        tags: []
-    }
-
-  
 
     async function onSubmit(updatedGig) {
         console.log('updatedGig: ', updatedGig)
