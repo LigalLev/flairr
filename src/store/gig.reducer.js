@@ -1,3 +1,5 @@
+import { gigService } from "../services/gig.service"
+
 export const SET_GIGS = 'SET_GIGS'
 export const REMOVE_GIG = 'REMOVE_GIG'
 export const ADD_GIG = 'ADD_GIG'
@@ -6,11 +8,14 @@ export const ADD_TO_CART = 'ADD_TO_CART'
 export const CLEAR_CART = 'CLEAR_CART'
 export const UNDO_REMOVE_GIG = 'UNDO_REMOVE_GIG'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+export const SET_FILTERBY = 'SET_FILTERBY'
 
 const initialState = {
     gigs: [],
     cart: [],
-    lastRemovedGig: null
+    lastRemovedGig: null,
+    filterBy: gigService.getDefaultFilter()
+
 }
 
 export function gigReducer(state = initialState, action) {
@@ -48,6 +53,8 @@ export function gigReducer(state = initialState, action) {
                 newState = { ...state, gigs: [...state.gigs, state.lastRemovedGig], lastRemovedGig: null }
             }
             break
+        case SET_FILTERBY:
+            return { ...state, filterBy: action.filterBy }
         default:
     }
     return newState

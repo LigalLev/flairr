@@ -5,6 +5,12 @@
     padding-bottom: 32px;
     font-family: Macan-semibold;
 
+    @include for-normal-layout {
+        grid-area: 2;   
+    }
+
+    // margin-inline-start: 7.25em;
+
     nav {
         display: flex;
 

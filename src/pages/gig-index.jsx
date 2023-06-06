@@ -7,6 +7,7 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { gigService } from '../services/gig.service.local.js'
 import { GigList } from '../cmps/gig-list.jsx'
 import { CarouselContainer } from '../cmps/carousel-container.jsx'
+import { GigFilter } from '../cmps/gig-filter.jsx'
 
 export function GigIndex() {
 
@@ -66,7 +67,8 @@ export function GigIndex() {
                     onRemoveGig={onRemoveGig}
                     onAddGig={onAddGig}
                 />
-
+    
+<GigFilter/>
                 {/* {
                             <button onClick={() => { onAddGigMsg(gig) }}>Add gig msg</button>
                             <button className="buy" onClick={() => { onAddToCart(gig) }}>Add to cart</button>

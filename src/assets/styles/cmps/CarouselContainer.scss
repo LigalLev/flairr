@@ -2,6 +2,8 @@
     // height: 190px;
     padding:0;
     margin: 0;
+    border-radius: 10px;
+    // height: 100%;
 
     &::after{
         content: "";
@@ -11,11 +13,13 @@
         height: 100%;
         width: 100%;
         background-image: linear-gradient(transparent 75%, rgba(21, 21, 21, 0.3));
+        border-radius: 10px;
+
     }
 
   overflow: hidden;
     .carousel-img{
-         border-radius: 10px;
+        //  border-radius: 10px;
          height: 100%;
          
     }
