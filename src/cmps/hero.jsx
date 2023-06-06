@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
+import { GigFilter } from './gig-filter'
 export function Hero() {
     const slides = [
         {
@@ -92,13 +93,7 @@ export function Hero() {
                     Find the right <span>freelance <br /> service, </span>right away
                 </h1>
 
-                <div className='search-bar'>
-                    <input type="text" placeholder='Search for any service...' name="txt" id="hero-search-text" />
-
-                    <button className='search-btn'>
-                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="m15.89 14.653-3.793-3.794a.37.37 0 0 0-.266-.109h-.412A6.499 6.499 0 0 0 6.5 0C2.91 0 0 2.91 0 6.5a6.499 6.499 0 0 0 10.75 4.919v.412c0 .1.04.194.11.266l3.793 3.794a.375.375 0 0 0 .531 0l.707-.707a.375.375 0 0 0 0-.53ZM6.5 11.5c-2.763 0-5-2.238-5-5 0-2.763 2.237-5 5-5 2.762 0 5 2.237 5 5 0 2.762-2.238 5-5 5Z" /></svg>
-                    </button>
-                </div>
+                <GigFilter placeholder={'Search for any service...'} />
 
                 <div className='popular-tags'>
                     <p>Popular:</p>
