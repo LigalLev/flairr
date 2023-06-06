@@ -68,7 +68,7 @@ export function GigIndex() {
                     onAddGig={onAddGig}
                 />
     
-
+<GigFilter/>
                 {/* {
                             <button onClick={() => { onAddGigMsg(gig) }}>Add gig msg</button>
                             <button className="buy" onClick={() => { onAddToCart(gig) }}>Add to cart</button>

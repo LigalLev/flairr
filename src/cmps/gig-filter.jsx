@@ -1,14 +1,14 @@
 import { useSelector } from 'react-redux'
 import { useEffect, useRef, useState } from "react"
-import { gigService } from "../services/gig.service"
 import { utilService } from "../services/util.service"
 import { loadGigs, setFilterBy } from '../store/gig.actions.js'
 
 
 export function GigFilter() {
 
+    const [filterBySearch, setFilterBySearch] = useState('')
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
-    const debouncedFilterBySearch = utilService.debounce(onFilterBySearch, 500)
+    // const debouncedFilterBySearch = utilService.debounce(onFilterBySearch, 500)
 
     const elInputRef = useRef(null)
 
@@ -22,36 +22,39 @@ export function GigFilter() {
         loadGigs(filterBy)
     }, [filterBy])
 
-
-
-    function onFilterBySearch({ target }) {
-        console.log('on change instock target:', target.value)
-        const field = target.name
-        const value = target.value
-        const newFilterBy = { ...filterBy }
-        switch (field) {
-            case 'txt':
-                newFilterBy[field] = value
-                break
-        }
-        setFilterBy(newFilterBy)
-    }
+    // function onFilterBySearch({ target }) {
+    //     console.log('target:', target.value)
+    //     const field = target.name
+    //     const value = target.value
+    //     const newFilterBy = { ...filterBy }
+    //     switch (field) {
+    //         case 'txt':
+    //             newFilterBy[field] = value
+    //             break
+    //     }
+    //     setFilterBy(newFilterBy)
+    // }
 
     function onClick(){
-        
+        // ev.preventDefault()
+        setFilterBy({txt: filterBySearch})
+    }
+
+    function onChange({target}){
+        console.log('ev:', target.value)
+        setFilterBySearch(target.value)
     }
 
     return <section className="gig-filter">
         <div className='search-bar'>
-            <input 
-            onChange={debouncedFilterBySearch}
+            <input onChange={onChange}
                 ref={elInputRef}
                 type="text"
                 placeholder='What service are you looking for today?'
                 name="txt"
                 id="header-search-text" />
 
-            <button className='search-btn' onClick={()=>onClick}>
+            <button className='search-btn' onClick={onClick}>
                 <svg width="16"
                     height="16"
                     viewBox="0 0 16 16"
