@@ -6,7 +6,7 @@ import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import { OrderModal } from './order-modal'
 import { setOrdeModalVisible, setOrderNotice } from '../store/order.action'
-import { GigFilter } from './gig-filter'
+import { SearchFilter } from './search-filter'
 
 export function AppHeader() {
     const location = useLocation()
@@ -83,16 +83,16 @@ export function AppHeader() {
                     </Link>
                 </div>
 
-                <GigFilter placeholder={'What service are you looking for today?'}/>
+                <SearchFilter placeholder={'What service are you looking for today?'}/>
 
                 <nav>
                     <NavLink to="/gig">Explore</NavLink>
                     <NavLink to="/gigs-dashboard">Become a Seller</NavLink>
-                    <span>
+                    <div>
                         <button onClick={onClickOrders} className="orders-btn">Orders</button>
                         {isOrderNotice && <span>🔴</span>}
                         {isOrderModalOpen && < OrderModal />}
-                    </span>
+                    </div>
                     <NavLink to="/">Sign in</NavLink>
                     <button className='join-btn'>Join</button>
                 </nav>

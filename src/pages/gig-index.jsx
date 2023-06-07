@@ -7,7 +7,7 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { gigService } from '../services/gig.service.local.js'
 import { GigList } from '../cmps/gig-list.jsx'
 import { CarouselContainer } from '../cmps/carousel-container.jsx'
-import { GigFilter } from '../cmps/gig-filter.jsx'
+import { GigFilter } from '../cmps/search-filter.jsx'
 
 export function GigIndex() {
 

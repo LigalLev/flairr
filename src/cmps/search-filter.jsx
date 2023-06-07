@@ -5,7 +5,7 @@ import { loadGigs, setFilterBy } from '../store/gig.actions.js'
 import { useNavigate } from 'react-router'
 
 
-export function GigFilter(props) {
+export function SearchFilter(props) {
 
     const [filterBySearch, setFilterBySearch] = useState('')
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
