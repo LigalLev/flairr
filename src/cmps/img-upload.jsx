@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useDropzone } from 'react-dropzone'
 import { cloudinaryService } from '../services/cloudinary.service'
 
-export function ImgUpload({ maxFiles = 5, formikField, setFieldValue }) {
+export function ImgUpload({ maxFiles = 5, formikField, setFieldValue, setFiles }) {
 
   const [uploadedImgUrls, setUploadedImgUrls] = useState([])
   useEffect(() => {
@@ -16,8 +16,15 @@ export function ImgUpload({ maxFiles = 5, formikField, setFieldValue }) {
     acceptedFiles,
     fileRejections,
     getRootProps,
-    getInputProps
-  } = useDropzone({ maxFiles: maxFiles })
+    getInputProps,
+  } = useDropzone({
+    maxFiles: maxFiles,
+    onDrop: acceptedFiles => {
+      setFiles(acceptedFiles.map(file => Object.assign(file, {
+        preview: URL.createObjectURL(file)
+      })))
+    }
+  })
 
 
   const files = acceptedFiles.map(file => (
@@ -68,7 +75,6 @@ export function ImgUpload({ maxFiles = 5, formikField, setFieldValue }) {
     <section className="container" style={baseStyle}>
       <div {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} onChange={onUploadImg} />
-        <div className="dropzone-design"></div>
       </div>
       <aside>
         <h4>Files</h4>

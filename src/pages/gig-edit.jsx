@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { gigService } from '../services/gig.service.local'
 import { saveGig } from "../store/gig.actions"
 import { ImgUpload } from '../cmps/img-upload'
+import {ImgUploadWithPreviews} from '../cmps/img-upload-with-previews'
 import { Loader } from '../cmps/loader'
 
 
@@ -129,7 +130,9 @@ export function GigEdit() {
                         </div>
                         
                         <label> Images
-                        <ImgUpload maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} />
+                        {/* <ImgUpload maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} /> */}
+                        {/* <ImgUploadWithPreviews maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} /> */}
+                        <ImgUploadWithPreviews maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} />
                         </label>
 
                         <h3>Packages</h3>
