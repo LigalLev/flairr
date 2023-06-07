@@ -41,7 +41,7 @@ function getEmptyOrder() {
       price: null,
       imgUrl: ""
     },
-    status: "pending"
+    status: 'Pending'
   }
 }
 function createOrder() {

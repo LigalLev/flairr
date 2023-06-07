@@ -44,7 +44,9 @@ async function remove(gigId) {
 }
 
 async function save(gig) {
-    var savedGig
+    console.log('hi from service ♥♥♥♥♥♥')
+    console.log('gig: ', gig)
+    let savedGig
     if (gig._id) {
         savedGig = await storageService.put(STORAGE_KEY, gig)
     } else {
@@ -77,27 +79,40 @@ function getDefaultFilter() {
 }
 
 function getEmptyGig() {
+    const user = userService.getLoggedinUser() 
     return {
-        _id: "i101",
-        title: "I will design your logo",
-        price: 60,
+        _id: '',
+        title: '',
+        description: '',
+        imgUrls: [],
         owner: {
-            "_id": "u101",
-            "fullname": "nadia_y",
-            "imgUrl": "",
-            "level": "Fairr's choice",
-            "rate": 5.0
+            _id: user._id,
+            fullname: user.fullname,
+            imgUrl: user.imgUrl,
+            level: user.level,
+            rate: user.rate
         },
-        daysToMake: 3,
-        description: "Hello, I am Kris. Welcome to my logo design gig. I specialize in business logo design. My design will be clean, trendy, minimal and original.I have successfully designed logos for many brands and now I am here on Fiverr to give the best. Why Me? Original, minimal, unique, high quality logo designs Premium customer support 24 x 7 Unlimited revisions, until you are satisfied All types of vector and source files .AI, JPEG, .PNG, PDF, EPS in high resolution WORKFLOW Precise and Strong Communication - Research on current trend - Sketching the initial concepts and Digitalizing it - Submission for Review - Modifications for making the design perfect Minimalist Logo | Minimal | Professional | Modern | Text | Vintage | Badge | Hand drawn | Feminine | Signature | Custom | Watercolor | YouTube Channel | Beauty Customer satisfaction is my top-notch priority and I believe in providing my customer with smooth and comfortable journey on Fiverr. Sounds interesting?? Lets chat!!!Order a gig now and lets have the ball rolling!!!!",
-        imgUrls: ['https://res.cloudinary.com/dlhjvt9b4/image/upload/w_308,h_186/v1685611697/gigs/c9dhyxfmh80hbuawemlm.jpg', ' https://res.cloudinary.com/dlhjvt9b4/image/upload/w_308,h_186/v1685607730/gigs/heyuacvxghfilhbloyay.jpg', ' https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607711/gigs/utfc8fxcnbhrl2jken2o.jpg', ' https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607696/gigs/zvysug7d3tdvekqdfms5.jpg'],
-        tags: [
-            "logo-design",
-            "artisitic",
-            "proffesional",
-            "accessible"
-        ],
-        likedByUsers: ['mini-user']
+        category: '',
+        tags: [],
+        likedByUsers: [],
+
+        packages: {
+            basic: {
+                price: '',
+                daysToMake: '',
+                included: []
+            },
+            standard: {
+                price: '',
+                daysToMake: '',
+                included: []
+            },
+            premium: {
+                price: '',
+                daysToMake: '',
+                included: []
+            }
+        }
     }
 }
 

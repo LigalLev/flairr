@@ -5,7 +5,14 @@ import { utilService } from './util.service.js'
 
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
-_createUser()
+// _createUser()
+const GUEST = {
+    _id: '0001',
+    fullname: 'Guest',
+    imgUrl: 'https://res.cloudinary.com/dqhfnvtca/image/upload/v1686055437/flairr/undraw_male_avatar_g98d_nn0ijg.svg',
+    level: 'Basic',
+    rate: 5
+}
 
 export const userService = {
     login,
@@ -82,13 +89,13 @@ async function changeScore(by) {
 
 
 function saveLocalUser(user) {
-    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score }
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, username: '', level: 'Basic', reviews: [] }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
 
 function getLoggedinUser() {
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || GUEST
 }
 
 
@@ -167,4 +174,16 @@ function _createUser() {
             ],
         },
     ]
+}
+function getEmptyUser() {
+    return {
+        _id: '',
+        fullname: '',
+        imgUrl: '',
+        username: '',
+        password: '',
+        level: 'Basic',
+        reviews: [],
+
+    }
 }

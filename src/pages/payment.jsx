@@ -40,6 +40,7 @@ export function Payment() {
             newOrder.gig.title = gig.title
             newOrder.gig.imgUrl = gig.imgUrls[0]
             newOrder.gig.price = gig.price
+            newOrder.seller.fullname = gig.owner.fullname
             setOrderToSave(newOrder)
             const savedOrder = await saveOrder(orderToSave)
             showSuccessMsg(`order added (id: ${savedOrder._id})`)
