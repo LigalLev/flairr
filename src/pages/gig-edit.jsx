@@ -1,36 +1,18 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Formik, Form, Field, getIn} from 'formik'
+import { useSelector } from 'react-redux'
+import { Formik, Form, Field, getIn } from 'formik'
 import * as Yup from 'yup'
 import { useNavigate, useParams } from "react-router-dom"
 import { gigService } from '../services/gig.service.local'
 import { saveGig } from "../store/gig.actions"
-import { ImgUpload } from '../cmps/img-upload'
 import { ImgUploadWithPreviews } from '../cmps/img-upload-with-previews'
-import { Loader } from '../cmps/loader'
+import { categories, packageTypes, tags } from '../constants/constants'
 
 
 export function GigEdit() {
     const navigate = useNavigate()
     const params = useParams()
-   
     const gigToEdit = useSelector((storeState) => storeState.gigModule.gigs.find(gig => gig._id === params.gigId)) || gigService.getEmptyGig()
-    const packageTypes = ['basic', 'standard', 'premium']
-    const categories = ['Graphics & Design', 'Digital Marketing', 'Writing & Translation', 'Video & Animation', 'Music & Audio', 'Programming & Tech', 'Photography', 'Business', 'AI Services']
-    const tags = [
-        "artistic",
-        "logo design",
-        "professional",
-        "accessible",
-        "website design",
-        "seo article writing",
-        "product photography",
-        "telemarketing",
-        "sales",
-        "video editing",
-        "concept art",
-        "ui ux design"
-    ]
 
     async function onSubmit(updatedGig) {
         console.log('updatedGig: ', updatedGig)
@@ -67,7 +49,6 @@ export function GigEdit() {
     function CustomInput(props) {
         return <input id="outlined-basic" label="Outlined" variant="outlined" {...props} />
     }
-
 
     return (
         <section className="gig-edit main-layout full">
@@ -107,7 +88,6 @@ export function GigEdit() {
                         <div className="tags-select">
                             <label>Tags</label>
                             <div className='tags-checkboxes'>
-
                                 {tags.map(tag =>
                                     <label key={tag}>
                                         <Field type="checkbox" name="tags" value={tag} />
@@ -115,19 +95,17 @@ export function GigEdit() {
                                     </label>
                                 )}
                             </div>
-
                         </div>
 
                         <label> Images
                             {/* <ImgUpload maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} /> */}
                             {/* <ImgUploadWithPreviews maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} /> */}
-                            <ImgUploadWithPreviews maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue}/>
+                            <ImgUploadWithPreviews maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} />
                         </label>
 
                         <h3>Packages</h3>
                         {packageTypes.map(packageType =>
                             <article key={packageType}>
-
                                 <h6>{packageType}</h6>
                                 <label htmlFor="price">Price</label>
                                 <Field as={CustomInput} name={`packages.${packageType}.price`} />
@@ -138,18 +116,11 @@ export function GigEdit() {
                                 {getIn(errors, `packages.${packageType}.daysToMake`) && getIn(touched, `packages.${packageType}.daysToMake`) && <div>{getIn(errors, `packages.${packageType}.daysToMake`)}</div>}
                             </article>
                         )}
-
-
-
                         <button type="submit">{(params.gigId) ? 'Save Gig' : 'Create Gig'}</button>
-
                     </Form>
                 )}
             </Formik>
-
             <button onClick={() => navigate('/gigs-dashboard')}>Back</button>
-
-            <Loader />
         </section>
     )
 }
