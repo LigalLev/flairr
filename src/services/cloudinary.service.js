@@ -31,6 +31,5 @@ async function uploadImg(target, setIsLoading = false) {
   } catch (err) {
     console.error(err)
   }
-
 }
 
