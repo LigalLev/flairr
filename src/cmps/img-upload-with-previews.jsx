@@ -17,6 +17,7 @@ const baseStyle = {
   color: '#bdbdbd',
   outline: 'none',
   transition: 'border .24s ease-in-out',
+  width: '100%'
 }
 
 const thumbsContainer = {
@@ -103,7 +104,7 @@ export function ImgUploadWithPreviews({ maxFiles = 5, formikField, setFieldValue
     <section className="container" style={baseStyle}>
       <div {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} />
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p>Click or drop images here</p>
       </div>
 
       {!isLoading ?

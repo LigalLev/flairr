@@ -7,6 +7,7 @@ import { gigService } from '../services/gig.service.local'
 import { saveGig } from "../store/gig.actions"
 import { ImgUploadWithPreviews } from '../cmps/img-upload-with-previews'
 import { categories, packageTypes, tags } from '../constants/constants'
+import { CustomSelect } from '../cmps/mui-form-components'
 
 
 export function GigEdit() {
@@ -64,24 +65,36 @@ export function GigEdit() {
                         <h3>Overview</h3>
 
                         <label htmlFor="title">Gig Title
-                            <Field as={CustomInput} name="title" placeholder="I will..." />
-                            {errors.title && touched.title && <div>{errors.title}</div>}
+                            <div>
+                                <Field as={CustomInput} name="title" placeholder="I will..." />
+                                {errors.title && touched.title && <div className="error">{errors.title}</div>}
+                            </div>
                         </label>
 
 
 
                         <label htmlFor="description">Description
-                            <Field as="textarea" name="description" placeholder="Add a description of your gig." />
-                            {errors.description && touched.description && <div>{errors.description}</div>}
+                            <div>
+                                <Field as="textarea" name="description" placeholder="Add a description of your gig." className="description-input" />
+                                {errors.description && touched.description && <div className="error">{errors.description}</div>}
+                            </div>
+                        </label>
+
+                        <label> Images
+                            <ImgUploadWithPreviews maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} />
                         </label>
 
                         <label htmlFor="category">Category
-                            <Field name="category" as="select">
-                                {
+                            <Field name="category" component={customSelect} className="category-select">
+                                {/* {
                                     categories.map(category =>
                                         <option key={category} value={category}>{category}</option>
                                     )
-                                }
+                                } */}
+
+                                {categories.map((category) => 
+                                <MenuItem value={category} key={category}>{category}</MenuItem>
+                                )}
                             </Field>
                         </label>
 
@@ -97,25 +110,21 @@ export function GigEdit() {
                             </div>
                         </div>
 
-                        <label> Images
-                            {/* <ImgUpload maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} /> */}
-                            {/* <ImgUploadWithPreviews maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} /> */}
-                            <ImgUploadWithPreviews maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} />
-                        </label>
-
                         <h3>Packages</h3>
-                        {packageTypes.map(packageType =>
-                            <article key={packageType}>
-                                <h6>{packageType}</h6>
-                                <label htmlFor="price">Price</label>
-                                <Field as={CustomInput} name={`packages.${packageType}.price`} />
-                                {getIn(errors, `packages.${packageType}.price`) && getIn(touched, `packages.${packageType}.price`) && <div>{getIn(errors, `packages.${packageType}.price`)}</div>}
+                        <div className="packages-container">
+                            {packageTypes.map(packageType =>
+                                <article key={packageType}>
+                                    <h6>{packageType}</h6>
+                                    <label htmlFor="price">Price</label>
+                                    <Field as={CustomInput} name={`packages.${packageType}.price`} />
+                                    {getIn(errors, `packages.${packageType}.price`) && getIn(touched, `packages.${packageType}.price`) && <div className="error">{getIn(errors, `packages.${packageType}.price`)}</div>}
 
-                                <label htmlFor="daysToMake">Days to make</label>
-                                <Field as={CustomInput} name={`packages.${packageType}.daysToMake`} />
-                                {getIn(errors, `packages.${packageType}.daysToMake`) && getIn(touched, `packages.${packageType}.daysToMake`) && <div>{getIn(errors, `packages.${packageType}.daysToMake`)}</div>}
-                            </article>
-                        )}
+                                    <label htmlFor="daysToMake">Days to make</label>
+                                    <Field as={CustomInput} name={`packages.${packageType}.daysToMake`} />
+                                    {getIn(errors, `packages.${packageType}.daysToMake`) && getIn(touched, `packages.${packageType}.daysToMake`) && <div className="error">{getIn(errors, `packages.${packageType}.daysToMake`)}</div>}
+                                </article>
+                            )}
+                        </div>
                         <button type="submit">{(params.gigId) ? 'Save Gig' : 'Create Gig'}</button>
                     </Form>
                 )}
