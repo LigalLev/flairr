@@ -70,7 +70,7 @@
 
     .gig-details-content {
         display: grid;
-        
+
         // display: flex;
         // flex: 1fr 1fr;
         // flex-wrap: wrap;
@@ -78,6 +78,7 @@
         @include for-normal-layout {
             grid-template-columns: 66.4% 33.6%;
             padding: 3% 5%;
+            // grid-auto-flow: row;
             // grid-area: 2;   
         }
 
@@ -198,16 +199,17 @@
             //     }
             // }
 
-            .carousel-wrapper{
+            .carousel-wrapper {
                 max-width: 90vw;
-
-
-                // @include for-normal-layout {
-                //     max-width: 700px;
-                // }
             }
+        }
 
-           
+        .pricing-container {
+            max-width: 100%;
+
+            @include for-normal-layout {
+                grid-area: 1/2/3/3
+            }
         }
 
         .about-gig-container {
@@ -232,6 +234,6 @@
             }
         }
 
-       
+
     }
 }

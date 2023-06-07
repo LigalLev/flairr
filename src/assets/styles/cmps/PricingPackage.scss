@@ -3,16 +3,20 @@
     border: 1px solid #dadbdd;
     top: 100px;
     padding-bottom: 32px;
+    // margin-inline-end: 18.5em ;
     font-family: Macan-semibold;
+    // max-width: 100%;
 
-    @include for-normal-layout {
-        grid-area: 2;   
-    }
-
-    // margin-inline-start: 7.25em;
+    // @include for-normal-layout {
+    //     grid-area: 2;   
+    // }
+    // @include for-normal-layout {
+    //     grid-area: 1/2/3/3
+    // }
 
     nav {
         display: flex;
+
 
         a {
             text-decoration: none;
