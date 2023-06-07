@@ -1,0 +1,53 @@
+.gig-edit {
+    background-color: $grey2;
+    width: 100%;
+
+    .gig-edit-form {
+        background-color: $clr6;
+        margin-top: 1em;
+        padding: 30px;
+        border: 1px solid $grey1;
+
+        h3 {
+            width: 100%;
+            margin-block-start: 1.5em;
+            border-top: 1px solid $grey;
+        }
+
+        label {
+            display: flex;
+            width: 70%;
+            justify-content: space-between;
+            white-space: nowrap;
+        }
+
+        .tags-select {
+            width: 70%;
+            display: flex;
+            label:first-of-type {
+                width: max-content;
+                margin-inline-end: 3em;
+            }
+            
+            .tags-checkboxes {
+                border: 2px solid $white1;
+                background-color: #fff;
+                padding: 1em;
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, 15em );
+                grid-auto-flow: dense;
+                
+                label {
+                    font-family: Macan-light;
+                    justify-self: start;
+                    text-align: start;
+                    display: block;
+                }
+            }
+        }
+    }
+
+
+
+}

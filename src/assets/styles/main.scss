@@ -18,6 +18,7 @@
 @import "./pages/ReviewIndex";
 @import "./pages/UserDetails";
 @import "./pages/GigDetails";
+@import "./pages/GigEdit";
 
 // Components
 @import "./cmps/AppHeader";
@@ -32,10 +33,6 @@
 @import "./cmps/CCPayment";
 @import "./cmps/StarRating";
 @import "./cmps/ImgUpload";
-
-
-
-
 @import "./cmps/Hero";
 @import "./cmps/PopularServicesCarousel.scss";
 @import "./cmps/logo.scss";

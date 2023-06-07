@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { useDropzone } from 'react-dropzone'
 import { cloudinaryService } from '../services/cloudinary.service'
 
-
 export function ImgUpload({ maxFiles = 5, formikField, setFieldValue }) {
 
   const [uploadedImgUrls, setUploadedImgUrls] = useState([])
@@ -28,6 +27,7 @@ export function ImgUpload({ maxFiles = 5, formikField, setFieldValue }) {
   ))
 
 
+
   const fileRejectionItems = fileRejections.map(({ file, errors }) => {
     return (
       <li key={file.path}>
@@ -46,11 +46,29 @@ export function ImgUpload({ maxFiles = 5, formikField, setFieldValue }) {
     setUploadedImgUrls((prev) => [...prev, ...value])
   }
 
+  //Style 
+  const baseStyle = {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '20px',
+    borderWidth: 2,
+    borderRadius: 2,
+    borderColor: '#eeeeee',
+    borderStyle: 'dashed',
+    backgroundColor: '#fafafa',
+    color: '#bdbdbd',
+    outline: 'none',
+    transition: 'border .24s ease-in-out',
+    width: "90%"
+  }
+
   return (
-    <section className="container">
+    <section className="container" style={baseStyle}>
       <div {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} onChange={onUploadImg} />
-        <img src="https://res.cloudinary.com/dqhfnvtca/image/upload/v1686057854/flairr/upload_nrh2mm.svg" alt="Upload images" />
+        <div className="dropzone-design"></div>
       </div>
       <aside>
         <h4>Files</h4>

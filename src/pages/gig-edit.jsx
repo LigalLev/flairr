@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { gigService } from '../services/gig.service.local'
 import { saveGig } from "../store/gig.actions"
 import { ImgUpload } from '../cmps/img-upload'
+import { Loader } from '../cmps/loader'
 
 
 export function GigEdit() {
@@ -15,18 +16,21 @@ export function GigEdit() {
     const packageTypes = ['basic', 'standard', 'premium']
     const categories = ['Graphics & Design', 'Digital Marketing', 'Writing & Translation', 'Video & Animation', 'Music & Audio', 'Programming & Tech', 'Photography', 'Business', 'AI Services']
     const tags = [
-        "logo-design",
-        "artisitic",
-        "proffesional",
-        "accessible"
+        "artistic",
+        "logo design",
+        "professional",
+        "accessible",
+        "website design",
+        "seo article writing",
+        "product photography",
+        "telemarketing",
+        "sales",
+        "video editing",
+        "concept art",
+        "ui ux design"
     ]
     // const [updatedGig, setUpdatedGig] = useState(gigToEdit)
 
-    // useEffect(() => {
-    //     if (!params.gigId) return
-    //     loadGig()
-    //     // eslint-disable-next-line
-    // }, [])
 
     // async function loadGig() {
     //     try {
@@ -74,44 +78,61 @@ export function GigEdit() {
         return <input id="outlined-basic" label="Outlined" variant="outlined" {...props} />
     }
 
+
     return (
-        <section className="gig-edit">
-            <h1>Add a new gig</h1>
+        <section className="gig-edit main-layout full">
             <Formik
                 initialValues={{ ...gigToEdit }}
                 validationSchema={gigSchema}
                 onSubmit={onSubmit}
+                enableReinitialize={true}
             >
                 {({ errors, touched, dirty, setFieldValue }) => (
-                    <Form className='formik'>
-                        <label htmlFor="title">Gig Title</label>
-                        <Field as={CustomInput} name="title" placeholder="I will..." />
-                        {errors.title && touched.title && <div>{errors.title}</div>}
+                    <Form className='formik gig-edit-form'>
+                        <h2>{(params.gigId) ? 'Edit gig' : 'Add a new gig'}</h2>
+                        <h3>Overview</h3>
 
-                        <label htmlFor="description">Description</label>
-                        <Field as="textarea" name="description" placeholder="Add a description of your gig." />
-                        {errors.description && touched.description && <div>{errors.description}</div>}
+                        <label htmlFor="title">Gig Title
+                            <Field as={CustomInput} name="title" placeholder="I will..." />
+                            {errors.title && touched.title && <div>{errors.title}</div>}
+                        </label>
 
-                        <label htmlFor="category">Category</label>
-                        <Field name="category" as="select">
-                            {
-                                categories.map(category =>
-                                    <option key={category} value={category}>{category}</option>
-                                )
-                            }
-                        </Field>
+
+
+                        <label htmlFor="description">Description
+                            <Field as="textarea" name="description" placeholder="Add a description of your gig." />
+                            {errors.description && touched.description && <div>{errors.description}</div>}
+                        </label>
+
+                        <label htmlFor="category">Category
+                            <Field name="category" as="select">
+                                {
+                                    categories.map(category =>
+                                        <option key={category} value={category}>{category}</option>
+                                    )
+                                }
+                            </Field>
+                        </label>
 
                         <div className="tags-select">
-                            <h6>Tags</h6>
-                            {tags.map(tag =>
-                                <label key={tag}>
-                                    <Field type="checkbox" name="tags" value={tag} />
-                                    {tag}
-                                </label>
+                            <label>Tags</label>
+                            <div className='tags-checkboxes'>
 
-                            )}
+                                {tags.map(tag =>
+                                    <label key={tag}>
+                                        <Field type="checkbox" name="tags" value={tag} />
+                                        {tag}
+                                    </label>
+                                )}
+                            </div>
+
                         </div>
+                        
+                        <label> Images
+                        <ImgUpload maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} />
+                        </label>
 
+                        <h3>Packages</h3>
                         {packageTypes.map(packageType =>
                             <article key={packageType}>
 
@@ -128,14 +149,15 @@ export function GigEdit() {
 
 
 
-                        <ImgUpload maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} />
-                        <button type="submit">Create Gig</button>
+                        <button type="submit">{(params.gigId) ? 'Save Gig' : 'Create Gig'}</button>
 
                     </Form>
                 )}
             </Formik>
 
             <button onClick={() => navigate('/gigs-dashboard')}>Back</button>
+
+            <Loader />
         </section>
     )
 }

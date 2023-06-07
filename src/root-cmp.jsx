@@ -26,6 +26,7 @@ export function RootCmp() {
                         <Route element={<ChatApp />} path="chat" />
                     </Route>
                     <Route element={<GigEdit />} path="/gig/edit" />
+                    <Route element={<GigEdit />} path="/gig/edit/:gigId" />
                     <Route element={<Payment />} path="/payment/:gigId" />
                     <Route element={<UserDetails />} path="user/:id" />
                     <Route element={<GigsDashboard />} path="/gigs-dashboard"/>
