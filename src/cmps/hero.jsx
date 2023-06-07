@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-import { GigFilter } from './gig-filter'
+import { SearchFilter } from './search-filter'
 export function Hero() {
     const slides = [
         {
@@ -93,7 +93,7 @@ export function Hero() {
                     Find the right <span>freelance <br /> service, </span>right away
                 </h1>
 
-                <GigFilter placeholder={'Search for any service...'} />
+                <SearchFilter placeholder={'Search for any service...'} />
 
                 <div className='popular-tags'>
                     <p>Popular:</p>

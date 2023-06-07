@@ -1,42 +1,132 @@
-.buyer-order-list-container {
-    .order-list-item {
+.order-modal {
+    // .empty-order-list-container {
+    //     align-items: center;
+    //     background-color: #fff;
+    //     border: 1px solid #e4e5e7;
+    //     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .15);
+    //     // // height: -webkit-fit-content;
+    //     // // height: -moz-fit-content;
+    //     height: fit-content;
+    //     max-height: 600px;
+    //     // // overflow: auto;
+    //     position: absolute;
+    //     right: 2rem;
+    //     width: 400px;
+    //     padding: 10px;
+    //     display: flex;
+    //     flex-direction: column;
+
+    // }
+
+    svg {
+        width: 50%;
+        padding: 20px;
+        background-color:$white1; 
+
+    }
+
+    .empty-list-title {
+        font-family: Macan-bold;
+        font-size: 20px;
+
+    }
+
+    .empty-list {
         display: flex;
-        font-size: 14px;
         flex-wrap: wrap;
+        font-family: Macan;
+        font-size: 15px;
+        margin-block: 1em;
+        margin-inline: 1em;
+        white-space: break-spaces;
+        text-align: center;
+        padding-inline: 2em; 
     }
+    .buyer-order-list-container {
 
-    .order-list-buyer {
+        align-items: center;
+        background-color: #fff;
+        border: 1px solid #e4e5e7;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .15);
+        // height: -webkit-fit-content;
+        // height: -moz-fit-content;
+        height: fit-content;
+        max-height: 600px;
+        // overflow: auto;
+        position: absolute;
+        right: 2rem;
+        width: 400px;
+        padding: 10px;
         display: flex;
-        flex-direction: row;
-        margin: 10px;
-        // flex-wrap: wrap;
-        font-size: 12px;
+        flex-direction: column;
 
-        .order-list-buyer-name{
-            margin:10px;
+
+
+
+        .order-list-item {
+            display: flex;
+            padding: 0.5em;
+            border-bottom: 1px solid #dadbdd;
+            width: 100%;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .order-info-container {
+                display: flex;
+                flex-direction: column;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+
+                .order-gig-title {
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    width: 100%;
+                }
+            }
+
+            .order-list-buyer {
+                font-family: Macan-light;
+                display: flex;
+                flex-direction: row;
+                font-size: 12px;
+
+                .order-list-buyer-name {
+                    margin-inline-end: 10px;
+                }
+
+                .status {
+                    &.pending {
+                        color: $clr2;
+                    }
+
+                    &.rejected {
+                        color: $clrRejected;
+                    }
+
+                    &.completed {
+                        color: $clr1;
+                    }
+
+                    &.progress {
+                        color: $clrInProgress;
+                    }
+                }
+            }
         }
-    }
 
-    align-items: center;
-    background-color: #fff;
-    border: 1px solid #e4e5e7;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .15);
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    max-height: 500px;
-    overflow: auto;
-    position: absolute;
-    right: 0;
-    -webkit-transform: translateY(1%);
-    transform: translateY(1%);
-    width: 500px;
-    padding:5px;
+        .order-gig-img-container {
+            margin-inline-end: 10px;
+            width: 60px;
+            margin-block: auto;
 
-    // transform: translate(-27%,12px);
-
-    .order-list-img {
-        margin-inline-end: 10px;
-        width: 50px;
+            .order-gig-img {
+                margin-inline-end: 10px;
+                width: 60px;
+                margin-block: auto; // grid-column: 2;
+            }
+        }
     }
 }

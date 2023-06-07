@@ -1,7 +1,11 @@
 import { storageService } from './async-storage.service'
 import { httpService } from './http.service'
+import { utilService } from './util.service.js'
+
+
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
+// _createUser()
 const GUEST = {
     _id: '0001',
     fullname: 'Guest',
@@ -20,7 +24,7 @@ export const userService = {
     getById,
     remove,
     update,
-    changeScore
+    changeScore,
 }
 
 window.userService = userService
@@ -101,6 +105,76 @@ function getLoggedinUser() {
 //     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
 // })()
 
+function getUser() {
+    return [
+        {
+            _id: "u101",
+            fullname: "User 1",
+            imgUrl: "/img/img1.jpg",
+            username: "user1",
+            password: "secret",
+            level: "basic/premium",
+            reviews: [
+                {
+                    "id": "madeId",
+                    "gig": "{optional-mini-gig}",
+                    "txt": "Very kind and works fast",
+                    "rate": 4,
+                    "by": {
+                        "_id": "u102",
+                        "fullname": "user2",
+                        "imgUrl": "/img/img2.jpg"
+                    }
+                }
+            ],
+        },
+    ]
+}
+
+
+function _createUser() {
+    let user = utilService.loadFromStorage(STORAGE_KEY_LOGGEDIN_USER)
+    return [
+        {
+            _id: "seller1",
+            fullname: "User 1",
+            imgUrl: "/img/img1.jpg",
+            username: "user1",
+            password: "secret",
+            level: "basic/premium",
+            reviews: [
+                {
+                    _id: "review1",
+                    gig: "{optional-mini-gig}",
+                    txt: "He is a super kind artist. While processing the project he was super professional and only took him 1 shot to deliver a perfect result!",
+                    rate: 4,
+                    reviewedAt: "1 week ago",
+                    byUser: {
+                        _id: "buyer1",
+                        fullname: 'Anna_brod',
+                        imgUrl: "https://res.cloudinary.com/dm4cdho4d/image/upload/v1685460594/cld-sample.jpg",
+                        country: 'United state',
+                        flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                    }
+                },
+                {
+                    _id: "review2",
+                    gig: "{optional-mini-gig}",
+                    txt: "It was great to work with. Communication was prompt and clear. All deadlines were met without issue. I will be using them again when I am ready for another project.",
+                    rate: 5,
+                    reviewedAt: "2 week ago",
+                    byUser: {
+                        _id: "buyer2",
+                        fullname: 'colton_miller',
+                        imgUrl: "https://res.cloudinary.com/dm4cdho4d/image/upload/v1685460594/cld-sample.jpg",
+                        country: 'United state',
+                        flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                    }
+                }
+            ],
+        },
+    ]
+}
 function getEmptyUser() {
     return {
         _id: '',
