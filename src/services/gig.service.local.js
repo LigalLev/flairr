@@ -29,6 +29,15 @@ async function query(filterBy = { title: '', price: 0 }) {
                 regex.test(gig.owner.fullname))
         })
     }
+    if (filterBy.category) {
+        gigs = gigs.filter(gig => gig.category === filterBy.category)
+    }
+    if (filterBy.tag) {
+        gigs = gigs.filter((gig) => {
+            let gigLowerCaseTags = gig.tags.map(tag => tag.toLowerCase())
+            return gigLowerCaseTags.includes(filterBy.tag.toLowerCase())
+        })
+    }
     // if (filterBy.price) {
     //     gigs = gigs.filter(gig => gig.price <= filterBy.price)
     // }
@@ -139,7 +148,9 @@ function _createGigs() {
                 "logo-design",
                 "artisitic",
                 "proffesional",
-                "accessible"
+                "accessible",
+                "Logo design",
+
             ],
             likedByUsers: ['mini-user']
         },
@@ -161,6 +172,7 @@ function _createGigs() {
             category: "Graphics & Design",
             tags: [
                 "Minimalist",
+                "WordPress"
             ],
             likedByUsers: ['mini-user']
         },
@@ -201,6 +213,7 @@ function _createGigs() {
             category: "Graphics & Design",
             tags: [
                 "Minimalist",
+                "Logo Design"
             ],
             likedByUsers: ['mini-user']
         },
@@ -220,6 +233,7 @@ function _createGigs() {
             imgUrls: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685613453/gigs/bwreao1kjqirs16jxeis.png", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685613470/gigs/erkobstxfz29pcctwvgw.png"],
             tags: [
                 "Minimalist",
+                "AI services"
             ],
             likedByUsers: ['mini-user']
         },
@@ -532,7 +546,7 @@ function _createGigs() {
                 "sales strategy",
                 "selling",
                 "best seller"
-            ], 
+            ],
             likedByUsers: ['mini-user']
         },
         {
@@ -548,14 +562,14 @@ function _createGigs() {
             },
             daysToMake: 3,
             description: "About this gig I will transform your ideas into unique ai generated art! !! IMPORTANT: Since not all kind of art is possible with AI, please always contact me first BEFORE making an order, so we can discuss together your ideas:) !! I can create:  portraits character designt-shirt concepts landscapes product photographymusic/book coversanimals general art  ... and much more - the possibilities are endless! I'll submit as many samples as needed until you are 100% satisfied with the final result. I will be more than happy and eager to provide the best results:",
-            imgUrls: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1686163176/gigs/wvwzlulbnn2moqya8zun.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1686163187/gigs/ytwif5i8w3j4jrm9o5rg.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1686163206/gigs/gb1zbbrqu92o6zlotlqt.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1686163218/gigs/s5bzafumt9tcgswtfthz.jpg" ],
+            imgUrls: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1686163176/gigs/wvwzlulbnn2moqya8zun.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1686163187/gigs/ytwif5i8w3j4jrm9o5rg.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1686163206/gigs/gb1zbbrqu92o6zlotlqt.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1686163218/gigs/s5bzafumt9tcgswtfthz.jpg"],
             category: "AI Services",
             tags: [
                 "ai",
                 "cover photo",
                 "artcharacter design",
                 "product design"
-            ], 
+            ],
             likedByUsers: ['mini-user']
         },
 

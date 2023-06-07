@@ -1,0 +1,15 @@
+.category-btns {
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    justify-content: space-between;
+    max-width: 1400px;
+
+    button {
+        font-size: 1rem;
+        color: $clr5;
+        background-color: transparent;
+        padding-block: 8px;
+        padding-inline: 10px;
+    }
+}

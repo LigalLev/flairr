@@ -3,26 +3,25 @@ import { useEffect, useRef, useState } from "react"
 import { utilService } from "../services/util.service"
 import { loadGigs, setFilterBy } from '../store/gig.actions.js'
 import { useNavigate } from 'react-router'
+import { categories } from '../constants/constants.js'
 
 
-export function BtnsFilter(props) {
+export function CategoryFilter(props) {
 
-    const [filterBySearch, setFilterBySearch] = useState('')
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
     const navigate = useNavigate()
     // const debouncedFilterBySearch = utilService.debounce(onFilterBySearch, 500)
-    const categories = ['Graphics & Design', 'Digital Marketing', 'Writing & Translation', 'Video & Animation', 'Music & Audio', 'Programming & Tech', ' Business', 'AI Services']
-    const elInputRef = useRef(null)
+    // const categories = ['Graphics & Design', 'Digital Marketing', 'Writing & Translation', 'Video & Animation', 'Music & Audio', 'Programming & Tech', ' Business', 'AI Services']
 
     // useEffect(() => {
     //     elInputRef.current.focus()
     // }, [])
 
-    useEffect(() => {
-        console.log('filterBy:', filterBy)
+    // useEffect(() => {
+    //     console.log('filterBy:', filterBy)
 
-        loadGigs(filterBy)
-    }, [filterBy])
+    //     loadGigs(filterBy)
+    // }, [filterBy])
 
     // function onFilterBySearch({ target }) {
     //     console.log('target:', target.value)
@@ -39,7 +38,9 @@ export function BtnsFilter(props) {
 
     function onClick(category) {
         // ev.preventDefault()
-        setFilterBy({ category: {category} })
+       const filterByCategory ={ category:  category  }
+        setFilterBy(filterByCategory)
+        loadGigs(filterByCategory)
         navigate('/gig')
     }
 
@@ -56,15 +57,15 @@ export function BtnsFilter(props) {
     //     }
     // }
 
-    return <div className='category-btns'>
-        {categories.map((category)=>{
-            return<div><button onClick={()=>onClick(category)}>{category}</button></div>
-        }      
-           
- )}
-      </div>
+    return <ul className='category-btns'>
+        {categories.map((category) => {
+            return <li><button onClick={() => onClick(category)}>{category}</button></li>
+        }
+
+        )}
+    </ul>
 
 
-// included.map((includedItem) => {
-//     return <li><span><svg width="
+    // included.map((includedItem) => {
+    //     return <li><span><svg width="
 }

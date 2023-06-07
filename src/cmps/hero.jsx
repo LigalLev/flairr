@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { SearchFilter } from './search-filter'
+import { TagFilter } from './tag-filter'
 export function Hero() {
     const slides = [
         {
@@ -43,7 +44,7 @@ export function Hero() {
 
     ]
 
-    const popularTags = ['Website Design', 'wordPress', 'Logo Design', 'AI services']
+    const popularTags = ['Website Design', 'WordPress', 'Logo Design', 'AI services']
 
     const [currSlideIdx, setCurrSlideIdx] = useState(0)
 
@@ -97,7 +98,8 @@ export function Hero() {
 
                 <div className='popular-tags'>
                     <p>Popular:</p>
-                    <ul>
+                    <TagFilter popularTags={popularTags}/>
+                    {/* <ul>
                         {popularTags.map(tag =>
                             <li key={tag}>
                                 <button>
@@ -108,7 +110,7 @@ export function Hero() {
                             </li>
                         )}
 
-                    </ul>
+                    </ul> */}
                 </div>
 
             </section >
