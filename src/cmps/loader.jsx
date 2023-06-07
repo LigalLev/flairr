@@ -11,7 +11,7 @@ export function Loader() {
             wrapperClass=""
             visible={true}
             ariaLabel='oval-loading'
-            secondaryColor="whitesmoke"
+            secondaryColor="white"
             strokeWidth={4}
             strokeWidthSecondary={4}
 

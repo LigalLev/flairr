@@ -6,7 +6,7 @@ export const cloudinaryService = {
 
 //FETCH
 // const uploadImg = async (ev) => {
-async function uploadImg(target) {
+async function uploadImg(target, setIsLoading = false) {
   //Defining our variables
   const CLOUD_NAME = 'dqhfnvtca'
   const UPLOAD_PRESET = 'wnu4fjlc'
@@ -26,6 +26,7 @@ async function uploadImg(target) {
     const responses = await Promise.all(uploadPromises)
     const urls = responses.map((res) => res.data.url)
     console.log('urls: ', urls)
+    if (setIsLoading) setIsLoading(false)
     return urls
   } catch (err) {
     console.error(err)

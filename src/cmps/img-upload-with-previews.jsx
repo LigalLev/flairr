@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { cloudinaryService } from '../services/cloudinary.service'
+import { Loader } from './loader'
 
 const baseStyle = {
   flex: 1,
@@ -9,7 +10,7 @@ const baseStyle = {
   alignItems: 'center',
   padding: '20px',
   borderWidth: 2,
-  borderRadius: 2,
+  borderRadius: 4,
   borderColor: '#eeeeee',
   borderStyle: 'dashed',
   backgroundColor: '#fafafa',
@@ -53,16 +54,20 @@ const img = {
 export function ImgUploadWithPreviews({ maxFiles = 5, formikField, setFieldValue }) {
   const [uploadedImgUrls, setUploadedImgUrls] = useState([])
   const [files, setFiles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
+
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
       'image/*': []
     },
     maxFiles: maxFiles,
     onDrop: acceptedFiles => {
-      onUploadImg({target: {files: acceptedFiles}})
+      setIsLoading(true)
+      onUploadImg({ target: { files: acceptedFiles } })
       setFiles(acceptedFiles.map(file => Object.assign(file, {
         preview: URL.createObjectURL(file)
       })))
+      console.log('files: ', files)
     }
   })
 
@@ -72,13 +77,8 @@ export function ImgUploadWithPreviews({ maxFiles = 5, formikField, setFieldValue
   }, [uploadedImgUrls])
 
   async function onUploadImg({ target }) {
-    console.log('target.files: ', target.files)
-    const value = await cloudinaryService.uploadImg(target)
+    const value = await cloudinaryService.uploadImg(target, setIsLoading)
     setUploadedImgUrls((prev) => [...prev, ...value])
-  }
-
-  function testy(){
-    console.log('testy toast')
   }
 
   const thumbs = files.map(file => (
@@ -92,22 +92,28 @@ export function ImgUploadWithPreviews({ maxFiles = 5, formikField, setFieldValue
         />
       </div>
     </div>
-  ));
+  ))
 
   useEffect(() => {
     // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
     return () => files.forEach(file => URL.revokeObjectURL(file.preview));
-  }, []);
+  }, [])
 
   return (
     <section className="container" style={baseStyle}>
       <div {...getRootProps({ className: 'dropzone' })}>
-        <input {...getInputProps()}/>
+        <input {...getInputProps()} />
         <p>Drag 'n' drop some files here, or click to select files</p>
       </div>
-      <aside style={thumbsContainer}>
-        {thumbs}
-      </aside>
+
+      {!isLoading ?
+        <aside style={thumbsContainer}>
+          {thumbs}
+        </aside>
+        :
+        <Loader />
+      }
+
     </section>
   )
 }

@@ -1,18 +1,19 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Formik, Form, Field, getIn } from 'formik'
+import { Formik, Form, Field, getIn} from 'formik'
 import * as Yup from 'yup'
 import { useNavigate, useParams } from "react-router-dom"
 import { gigService } from '../services/gig.service.local'
 import { saveGig } from "../store/gig.actions"
 import { ImgUpload } from '../cmps/img-upload'
-import {ImgUploadWithPreviews} from '../cmps/img-upload-with-previews'
+import { ImgUploadWithPreviews } from '../cmps/img-upload-with-previews'
 import { Loader } from '../cmps/loader'
 
 
 export function GigEdit() {
     const navigate = useNavigate()
     const params = useParams()
+   
     const gigToEdit = useSelector((storeState) => storeState.gigModule.gigs.find(gig => gig._id === params.gigId)) || gigService.getEmptyGig()
     const packageTypes = ['basic', 'standard', 'premium']
     const categories = ['Graphics & Design', 'Digital Marketing', 'Writing & Translation', 'Video & Animation', 'Music & Audio', 'Programming & Tech', 'Photography', 'Business', 'AI Services']
@@ -30,18 +31,6 @@ export function GigEdit() {
         "concept art",
         "ui ux design"
     ]
-    // const [updatedGig, setUpdatedGig] = useState(gigToEdit)
-
-
-    // async function loadGig() {
-    //     try {
-    //         const gig = await gigService.getById(params.gigId)
-    //         setUpdatedGig(gig)
-    //     } catch (err) {
-    //         console.log('Had issue in gig details', err)
-    //         navigate('/gigs-dashboard')
-    //     }
-    // }
 
     async function onSubmit(updatedGig) {
         console.log('updatedGig: ', updatedGig)
@@ -128,11 +117,11 @@ export function GigEdit() {
                             </div>
 
                         </div>
-                        
+
                         <label> Images
-                        {/* <ImgUpload maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} /> */}
-                        {/* <ImgUploadWithPreviews maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} /> */}
-                        <ImgUploadWithPreviews maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} />
+                            {/* <ImgUpload maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} /> */}
+                            {/* <ImgUploadWithPreviews maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} /> */}
+                            <ImgUploadWithPreviews maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue}/>
                         </label>
 
                         <h3>Packages</h3>
