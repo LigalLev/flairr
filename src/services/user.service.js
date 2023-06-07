@@ -1,7 +1,11 @@
 import { storageService } from './async-storage.service'
 import { httpService } from './http.service'
+import { utilService } from './util.service.js'
+
+
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
+_createUser()
 
 export const userService = {
     login,
@@ -13,7 +17,7 @@ export const userService = {
     getById,
     remove,
     update,
-    changeScore
+    changeScore,
 }
 
 window.userService = userService
@@ -37,7 +41,7 @@ function remove(userId) {
     // return httpService.delete(`user/${userId}`)
 }
 
-async function update({_id, score}) {
+async function update({ _id, score }) {
     const user = await storageService.get('user', _id)
     user.score = score
     await storageService.put('user', user)
@@ -78,7 +82,7 @@ async function changeScore(by) {
 
 
 function saveLocalUser(user) {
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score}
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -94,28 +98,73 @@ function getLoggedinUser() {
 //     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
 // })()
 
-function getUser(){
-return[
-    {
-      _id: "u101",
-      fullname: "User 1",
-      imgUrl: "/img/img1.jpg",
-      username: "user1",
-      password: "secret",
-      level: "basic/premium",
-      reviews: [
+function getUser() {
+    return [
         {
-          "id": "madeId",
-          "gig": "{optional-mini-gig}",
-          "txt": "Very kind and works fast",
-          "rate": 4,
-          "by": {
-            "_id": "u102",
-            "fullname": "user2",
-            "imgUrl": "/img/img2.jpg"
-          }
-        }
-      ],
-    },
-  ]
+            _id: "u101",
+            fullname: "User 1",
+            imgUrl: "/img/img1.jpg",
+            username: "user1",
+            password: "secret",
+            level: "basic/premium",
+            reviews: [
+                {
+                    "id": "madeId",
+                    "gig": "{optional-mini-gig}",
+                    "txt": "Very kind and works fast",
+                    "rate": 4,
+                    "by": {
+                        "_id": "u102",
+                        "fullname": "user2",
+                        "imgUrl": "/img/img2.jpg"
+                    }
+                }
+            ],
+        },
+    ]
+}
+
+
+function _createUser() {
+    let user = utilService.loadFromStorage(STORAGE_KEY_LOGGEDIN_USER)
+    return [
+        {
+            _id: "seller1",
+            fullname: "User 1",
+            imgUrl: "/img/img1.jpg",
+            username: "user1",
+            password: "secret",
+            level: "basic/premium",
+            reviews: [
+                {
+                    _id: "review1",
+                    gig: "{optional-mini-gig}",
+                    txt: "He is a super kind artist. While processing the project he was super professional and only took him 1 shot to deliver a perfect result!",
+                    rate: 4,
+                    reviewedAt: "1 week ago",
+                    byUser: {
+                        _id: "buyer1",
+                        fullname: 'Anna_brod',
+                        imgUrl: "https://res.cloudinary.com/dm4cdho4d/image/upload/v1685460594/cld-sample.jpg",
+                        country: 'United state',
+                        flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                    }
+                },
+                {
+                    _id: "review2",
+                    gig: "{optional-mini-gig}",
+                    txt: "It was great to work with. Communication was prompt and clear. All deadlines were met without issue. I will be using them again when I am ready for another project.",
+                    rate: 5,
+                    reviewedAt: "2 week ago",
+                    byUser: {
+                        _id: "buyer2",
+                        fullname: 'colton_miller',
+                        imgUrl: "https://res.cloudinary.com/dm4cdho4d/image/upload/v1685460594/cld-sample.jpg",
+                        country: 'United state',
+                        flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                    }
+                }
+            ],
+        },
+    ]
 }

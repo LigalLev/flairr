@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { gigService } from "../services/gig.service.local"
+import {userService} from "../services/user.service"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useParams, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
@@ -12,8 +13,10 @@ import { StarRating } from "../cmps/star-rating-new"
 
 export function GigDetails() {
     const [gig, setGig] = useState(null)
+    const [user, setUser] = useState(null)
     const [isOpen, setIsOpen] = useState(false)
     const { gigId } = useParams()
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -34,15 +37,6 @@ export function GigDetails() {
             showErrorMsg('Cannot load order')
             navigate('/gig')
         }
-    }
-    let svgStar = 'https://res.cloudinary.com/dqhfnvtca/image/upload/v1685985776/flairr/star-yellow_i1kita.svg'
-
-    function getRatingString(gig) {
-        const ratingStar = '&#9733;'
-        if (!gig.owner.rate) return ''
-        var ratingString = ratingStar.repeat(gig.owner.rate + 1)
-        console.log('ratingString:', ratingString)
-        return ratingString
     }
 
     function onToggleIsOpen() {
