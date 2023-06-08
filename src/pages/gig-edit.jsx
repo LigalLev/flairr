@@ -8,6 +8,7 @@ import { saveGig } from "../store/gig.actions"
 import { ImgUploadWithPreviews } from '../cmps/img-upload-with-previews'
 import { categories, packageTypes, tags } from '../constants/constants'
 import { CustomSelect } from '../cmps/mui-form-components'
+import MenuItem from '@mui/material/MenuItem';
 
 
 export function GigEdit() {
@@ -85,7 +86,7 @@ export function GigEdit() {
                         </label>
 
                         <label htmlFor="category">Category
-                            <Field name="category" component={customSelect} className="category-select">
+                            <Field name="category" component={CustomSelect} className="category-select">
                                 {/* {
                                     categories.map(category =>
                                         <option key={category} value={category}>{category}</option>
