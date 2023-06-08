@@ -106,6 +106,7 @@ export function GigDetails() {
                 />
 
                 <div className={`main-screen ${classMenu}`} onClick={onToggleIsOpen}></div>
+                
             </section>
             }
 

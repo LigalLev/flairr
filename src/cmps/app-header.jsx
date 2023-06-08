@@ -83,7 +83,7 @@ export function AppHeader() {
     }
 
     function onClickExpolore() {
-console.log(':hi' )
+        console.log(':hi')
         setFilterBy({})
         // navigate('/gig')
     }
@@ -101,7 +101,7 @@ console.log(':hi' )
                 <SearchFilter placeholder={'What service are you looking for today?'} />
 
                 <nav>
-                    <NavLink to="/gig"  onClick={()=>onClickExpolore()} className="orders-btn"> Explore</NavLink>
+                    <NavLink to="/gig" onClick={() => onClickExpolore()} className="orders-btn"> Explore</NavLink>
                     <NavLink to="/gigs-dashboard">Become a Seller</NavLink>
                     <div>
                         <button onClick={onClickOrders} className="orders-btn">Orders</button>
