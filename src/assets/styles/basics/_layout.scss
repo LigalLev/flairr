@@ -28,3 +28,16 @@
 }
 
 
+.base-layout {
+    grid-template-rows: 1fr minmax(100vh, auto) 1fr;
+    > *:not(:first-child):not(:last-child){
+        grid-row: 2;
+    }
+    
+    .app-header {
+        grid-row:1;
+    }
+    .app-footer {
+        grid-row: 3;
+    }
+}
