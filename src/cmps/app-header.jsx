@@ -12,9 +12,13 @@ import { CategoryFilter } from './category-filter'
 export function AppHeader() {
     const location = useLocation()
     const [isHomePageTop, setIsHomePageTop] = useState(location.pathname === '/' && window.pageYOffset === 0)
-    const [isFilterVisible, setIsFilterVisible] = useState(location.pathname !== '/' || window.pageYOffset > 152 )
+    const [isFilterVisible, setIsFilterVisible] = useState(location.pathname !== '/' || window.pageYOffset > 152)
     const isOrderNotice = useSelector(storeState => storeState.orderModule.isOrderNotice)
     const isOrderModalOpen = useSelector(storeState => storeState.orderModule.isOrderModalOpen)
+    
+    const [isShowLoginSignup, setIsShowLoginSignup] = useState(false)
+    const [isSignup, setIsSignup] = useState(false)
+
 
     useEffect(() => {
         /* eslint-disable no-restricted-globals */
@@ -30,6 +34,10 @@ export function AppHeader() {
         setIsHomePageTop((location.pathname === '/') && (window.pageYOffset === 0))
         setIsFilterVisible((location.pathname !== '/') || (window.pageYOffset > 152))
 
+    }
+
+    function toggleSignup() {
+        setIsSignup(!isSignup)
     }
 
     function getHeaderStyle() {
@@ -84,7 +92,7 @@ export function AppHeader() {
                     </Link>
                 </div>
 
-                <SearchFilter placeholder={'What service are you looking for today?'}/>
+                <SearchFilter placeholder={'What service are you looking for today?'} />
 
                 <nav>
                     <NavLink to="/gig">Explore</NavLink>
@@ -94,8 +102,27 @@ export function AppHeader() {
                         {isOrderNotice && <span>🔴</span>}
                         {isOrderModalOpen && < OrderModal />}
                     </div>
-                    <NavLink to="/">Sign in</NavLink>
-                    <button className='join-btn'>Join</button>
+                    <NavLink onClick={()=> {setIsSignup(false)
+                    setIsShowLoginSignup(true)}} to="/">Sign in</NavLink>
+                    <button onClick={()=> {setIsSignup(true)
+                    setIsShowLoginSignup(true)}} className='join-btn'>Join</button>
+                    {/* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */}
+
+                    {user &&
+                        <span className="user-info">
+                            <Link to={`user/${user._id}`}>
+                                {user.imgUrl && <img src={user.imgUrl} />}
+                                {user.fullname}
+                            </Link>
+                            {/* <span className="score">{user.score?.toLocaleString()}</span> */}
+                            <button onClick={onLogout}>Logout</button>
+                        </span>
+                    }
+                    {isShowLoginSignup &&
+                        <section className="user-info">
+                            <LoginSignup onLogin={onLogin} onSignup={onSignup} toggleSignup={toggleSignup} isSignup={isSignup} />
+                        </section>
+                    }
                 </nav>
             </div>
             <CategoryFilter/>
