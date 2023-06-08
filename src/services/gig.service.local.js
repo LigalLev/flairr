@@ -152,7 +152,7 @@ function _createGigs() {
                 "Logo design",
 
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: [120]
         },
 
         {
