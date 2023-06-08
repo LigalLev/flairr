@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
@@ -8,6 +8,7 @@ import { OrderModal } from './order-modal'
 import { setOrdeModalVisible, setOrderNotice } from '../store/order.action'
 import { SearchFilter } from './search-filter'
 import { CategoryFilter } from './category-filter'
+import { setFilterBy } from '../store/gig.actions'
 
 export function AppHeader() {
     const location = useLocation()
@@ -15,10 +16,9 @@ export function AppHeader() {
     const [isFilterVisible, setIsFilterVisible] = useState(location.pathname !== '/' || window.pageYOffset > 152)
     const isOrderNotice = useSelector(storeState => storeState.orderModule.isOrderNotice)
     const isOrderModalOpen = useSelector(storeState => storeState.orderModule.isOrderModalOpen)
-    
     const [isShowLoginSignup, setIsShowLoginSignup] = useState(false)
     const [isSignup, setIsSignup] = useState(false)
-
+    const navigate = useNavigate()
 
     useEffect(() => {
         /* eslint-disable no-restricted-globals */
@@ -82,6 +82,12 @@ export function AppHeader() {
 
     }
 
+    function onClickExpolore() {
+console.log(':hi' )
+        setFilterBy({})
+        // navigate('/gig')
+    }
+
     return (
         <header className={`app-header main-layout full ${getHeaderStyle()}`}>
             <div className='header-content'>
@@ -95,17 +101,21 @@ export function AppHeader() {
                 <SearchFilter placeholder={'What service are you looking for today?'} />
 
                 <nav>
-                    <NavLink to="/gig">Explore</NavLink>
+                    <NavLink to="/gig"  onClick={()=>onClickExpolore()} className="orders-btn"> Explore</NavLink>
                     <NavLink to="/gigs-dashboard">Become a Seller</NavLink>
                     <div>
                         <button onClick={onClickOrders} className="orders-btn">Orders</button>
                         {isOrderNotice && <span>🔴</span>}
                         {isOrderModalOpen && < OrderModal />}
                     </div>
-                    <NavLink onClick={()=> {setIsSignup(false)
-                    setIsShowLoginSignup(true)}} to="/">Sign in</NavLink>
-                    <button onClick={()=> {setIsSignup(true)
-                    setIsShowLoginSignup(true)}} className='join-btn'>Join</button>
+                    <NavLink onClick={() => {
+                        setIsSignup(false)
+                        setIsShowLoginSignup(true)
+                    }} to="/">Sign in</NavLink>
+                    <button onClick={() => {
+                        setIsSignup(true)
+                        setIsShowLoginSignup(true)
+                    }} className='join-btn'>Join</button>
                     {/* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */}
 
                     {user &&
@@ -125,7 +135,7 @@ export function AppHeader() {
                     }
                 </nav>
             </div>
-            <CategoryFilter/>
+            <CategoryFilter />
         </header>
     )
 }  
