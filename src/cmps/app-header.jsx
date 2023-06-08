@@ -98,7 +98,7 @@ export function AppHeader() {
                     </Link>
                 </div>
 
-                <SearchFilter placeholder={'What service are you looking for today?'} />
+                <SearchFilter placeholder={'What service are you looking for today?'} isDarkening={true}/>
 
                 <nav>
                     <NavLink to="/gig" onClick={() => onClickExpolore()} className="orders-btn"> Explore</NavLink>

@@ -54,7 +54,7 @@ export function Hero() {
                     Find the right <span>freelance <br /> service, </span>right away
                 </h1>
 
-                <SearchFilter placeholder={'Search for any service...'} />
+                <SearchFilter placeholder={'Search for any service...'} isDarkening={false} />
 
                 <div className='popular-tags'>
                     <p>Popular:</p>
