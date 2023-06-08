@@ -1,0 +1,55 @@
+.login-page {
+    background-color: white;
+
+    // display: flex;
+    // justify-content: center;
+    // position: absolute;
+    // align-content: center;
+    // top: 0;
+    // right: 50%;
+    @include for-normal-layout {
+        max-height: 90vh;
+        max-width: 600px;
+        border-radius: 4px;
+        bottom: auto;
+        left: auto;
+        position: relative;
+        right: auto;
+        top: auto;
+    }
+
+    .signup-section {
+        // position: relative;
+        // display: flex;
+
+        border-radius: 4px;
+        // bottom: auto;
+        // left: auto;
+        // position: relative;
+        // right: auto;
+        // top: auto;
+
+
+        // top: 50vh;
+        // right: 50vw;
+
+        // background-color: white;
+        padding: 1em;
+        // transform: translate(0);
+
+
+
+        // z-index: 9999;
+
+        .signup-form {
+            padding: 0 36px 24px;
+            width: 400px;
+            // position: relative;
+        }
+
+
+    }
+
+
+
+}

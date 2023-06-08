@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service'
 import { ImgUploader } from '../cmps/img-uploader'
+import { Link, NavLink, useLocation } from 'react-router-dom'
+
 
 export function LoginSignup(props) {
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
-    const [isSignup, setIsSignup] = useState(false)
+    // const [isSignup, setIsSignup] = useState(false)
     const [users, setUsers] = useState([])
+    const {isSignup} = props
+
 
     useEffect(() => {
         loadUsers()
@@ -18,7 +22,7 @@ export function LoginSignup(props) {
 
     function clearState() {
         setCredentials({ username: '', password: '', fullname: '', imgUrl: '' })
-        setIsSignup(false)
+        // setIsSignup(false)
     }
 
     function handleChange(ev) {
@@ -41,9 +45,9 @@ export function LoginSignup(props) {
         clearState()
     }
 
-    function toggleSignup() {
-        setIsSignup(!isSignup)
-    }
+    // function toggleSignup() {
+    //     setIsSignup(!isSignup)
+    // }
 
     function onUploaded(imgUrl) {
         setCredentials({ ...credentials, imgUrl })
@@ -51,9 +55,13 @@ export function LoginSignup(props) {
 
     return (
         <div className="login-page">
-            <p>
-                <button className="btn-link" onClick={toggleSignup}>{!isSignup ? 'Signup' : 'Login'}</button>
-            </p>
+            {/* <p> */}
+            {/* <button onClick={toggleSignup} className='join-btn'>Join</button>
+            <NavLink onClick={onLogin} to="/">Sign in</NavLink> */}
+            {/* onClick={toggleSignup} */}
+
+                {/* <button className="btn-link" >{!isSignup ? 'Signup' : 'Login'}</button> */}
+            {/* </p> */}
             {!isSignup && <form className="login-form" onSubmit={onLogin}>
                 <select
                     name="username"
@@ -82,6 +90,7 @@ export function LoginSignup(props) {
                     /> */}
                 <button>Login!</button>
             </form>}
+
             <div className="signup-section">
                 {isSignup && <form className="signup-form" onSubmit={onSignup}>
                     <input
