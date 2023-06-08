@@ -29,3 +29,44 @@ export const tags = [
     "concept art",
     "ui ux design"
 ]
+
+export const popularTags = ['Website Design', 'WordPress', 'Logo Design', 'AI Services']
+
+export const heroSlides = [
+    {
+        heroClass: 'valentina',
+        name: 'Valentina',
+        isSeller: true,
+        occupation: 'AI Artist'
+    },
+    {
+        name: 'Andrea',
+        heroClass: 'andrea',
+        isSeller: false,
+        occupation: 'Fashion Designer'
+    },
+    {
+        name: 'Moon',
+        heroClass: 'moon',
+        isSeller: true,
+        occupation: 'Marketing Expert'
+    },
+    {
+        name: 'Ritika',
+        heroClass: 'ritika',
+        isSeller: false,
+        occupation: 'Shoemaker and Designer'
+    },
+    {
+        name: 'Zach',
+        heroClass: 'zach',
+        isSeller: false,
+        occupation: 'Bar Owner'
+    },
+    {
+        name: 'Gabrielle',
+        heroClass: 'gabrielle',
+        isSeller: true,
+        occupation: 'Video Editor'
+    },
+]

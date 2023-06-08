@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux'
 import { loadGigs, setFilterBy } from '../store/gig.actions.js'
 import { useNavigate } from 'react-router'
-import { categories } from '../constants/constants.js'
-
+import { categories, popularTags } from '../constants/constants.js'
 
 export function TagFilter(props) {
 
@@ -20,7 +19,7 @@ export function TagFilter(props) {
 
 
     return <ul>
-        {props.popularTags.map(tag =>
+        {popularTags.map(tag =>
             <li key={tag}>
                 <button onClick={() => onClick(tag)}>
                     {tag}
