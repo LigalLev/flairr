@@ -15,7 +15,7 @@ import { GigsDashboard } from './pages/gigs-dashboard'
 export function RootCmp() {
 
     return (
-        <div className="main-layout">
+        <div className="main-layout base-layout">
             <AppHeader />
             <main className='main-layout full'>
                 <Routes>

@@ -59,21 +59,22 @@ export function GigIndex() {
     function onAddGigMsg(gig) {
         console.log(`TODO Adding msg to gig`)
     }
+    console.log('filterByindex:', filterBy)
 
     return (
-            <section className="gig-index">
-                <div className ="index-title">All</div>
-                <div className="index-gigs-length">{gigs.length} services available</div>
-                <GigList
-                    gigs={gigs}
-                    onRemoveGig={onRemoveGig}
-                    onAddGig={onAddGig}
-                />                {/* {
+        <section className="gig-index">
+            <h1 className="index-title">{filterBy.category ? filterBy.category : 'All'}</h1>
+            <div className="index-gigs-length">{gigs.length} services available</div>
+            <GigList
+                gigs={gigs}
+                onRemoveGig={onRemoveGig}
+                onAddGig={onAddGig}
+            />                {/* {
                             <button onClick={() => { onAddGigMsg(gig) }}>Add gig msg</button>
                             <button className="buy" onClick={() => { onAddToCart(gig) }}>Add to cart</button>
                         </li>)
                     }
                 </ul> } */}
-            </section>
+        </section>
     )
 }

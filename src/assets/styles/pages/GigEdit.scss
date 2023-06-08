@@ -1,12 +1,41 @@
 .gig-edit {
+
+    .btns-container {
+        width: max-content;
+        margin-inline: auto;
+        display: flex;
+        button {
+            display: inline-block;
+            @include btn1($clr1);
+            white-space: nowrap;
+            &.back-btn {
+                @include btn1($clr8);
+            }
+        }
+    }
+
     background-color: $grey2;
     width: 100%;
-
+    
+    input , .description-input {
+        outline: none;
+        border: 1px solid $grey1;
+        &:focus {
+            border-color: $clr1;
+        }
+    }
+    
     .gig-edit-form {
         background-color: $clr6;
         margin-top: 1em;
         padding: 30px;
         border: 1px solid $grey1;
+        
+        .error {
+            color: rgba($clrRejected,0.7);
+            font-size: 0.8em;
+            align-self: end;
+        }
 
         h3 {
             width: 100%;
@@ -16,17 +45,33 @@
 
         label {
             display: flex;
-            width: 70%;
+            flex-direction: column;
+            width: 100%;
             justify-content: space-between;
             white-space: nowrap;
+            margin-inline-end: 2em;
+        }
+
+        .description-input {
+            resize: none;
+        }
+
+        .category-label {
+            width: 150px;
+        }
+        .category-select {
+            option {
+                font-family: Macan-regular;
+            }
         }
 
         .tags-select {
-            width: 70%;
+            width: 100%;
             display: flex;
+            flex-direction: column;
             label:first-of-type {
                 width: max-content;
-                margin-inline-end: 3em;
+                
             }
             
             .tags-checkboxes {
@@ -35,7 +80,7 @@
                 padding: 1em;
                 width: 100%;
                 display: grid;
-                grid-template-columns: repeat(auto-fill, 15em );
+                grid-template-columns: repeat(auto-fill, 12em );
                 grid-auto-flow: dense;
                 
                 label {
@@ -46,8 +91,32 @@
                 }
             }
         }
+
+        .packages-container {
+            // background-color: yellowgreen;
+            width: 100%;
+            justify-items: center;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3,1ft);
+            @include for-normal-layout {
+                padding: 2em;
+                grid-template-rows: 1fr;
+                grid-template-columns: repeat(3,1fr);
+            }
+
+            h6 {
+                font-size: 1em;
+                text-align: center;
+            }
+
+            article {
+                border: 2px solid $grey;
+                background-color: $white;
+                margin-block: 1em;
+                padding: 1em;
+            }
+        }
     }
-
-
 
 }

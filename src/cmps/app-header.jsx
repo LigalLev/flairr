@@ -7,6 +7,7 @@ import { LoginSignup } from './login-signup.jsx'
 import { OrderModal } from './order-modal'
 import { setOrdeModalVisible, setOrderNotice } from '../store/order.action'
 import { SearchFilter } from './search-filter'
+import { CategoryFilter } from './category-filter'
 
 export function AppHeader() {
     const location = useLocation()
@@ -124,6 +125,7 @@ export function AppHeader() {
                     }
                 </nav>
             </div>
+            <CategoryFilter/>
         </header>
     )
 }  

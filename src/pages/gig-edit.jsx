@@ -1,46 +1,20 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Formik, Form, Field, getIn } from 'formik'
 import * as Yup from 'yup'
 import { useNavigate, useParams } from "react-router-dom"
 import { gigService } from '../services/gig.service.local'
 import { saveGig } from "../store/gig.actions"
-import { ImgUpload } from '../cmps/img-upload'
-import { Loader } from '../cmps/loader'
+import { ImgUploadWithPreviews } from '../cmps/img-upload-with-previews'
+import { categories, packageTypes, tags } from '../constants/constants'
+import { CustomSelect } from '../cmps/mui-form-components'
+import MenuItem from '@mui/material/MenuItem';
 
 
 export function GigEdit() {
     const navigate = useNavigate()
     const params = useParams()
     const gigToEdit = useSelector((storeState) => storeState.gigModule.gigs.find(gig => gig._id === params.gigId)) || gigService.getEmptyGig()
-    const packageTypes = ['basic', 'standard', 'premium']
-    const categories = ['Graphics & Design', 'Digital Marketing', 'Writing & Translation', 'Video & Animation', 'Music & Audio', 'Programming & Tech', 'Photography', 'Business', 'AI Services']
-    const tags = [
-        "artistic",
-        "logo design",
-        "professional",
-        "accessible",
-        "website design",
-        "seo article writing",
-        "product photography",
-        "telemarketing",
-        "sales",
-        "video editing",
-        "concept art",
-        "ui ux design"
-    ]
-    // const [updatedGig, setUpdatedGig] = useState(gigToEdit)
-
-
-    // async function loadGig() {
-    //     try {
-    //         const gig = await gigService.getById(params.gigId)
-    //         setUpdatedGig(gig)
-    //     } catch (err) {
-    //         console.log('Had issue in gig details', err)
-    //         navigate('/gigs-dashboard')
-    //     }
-    // }
 
     async function onSubmit(updatedGig) {
         console.log('updatedGig: ', updatedGig)
@@ -78,7 +52,6 @@ export function GigEdit() {
         return <input id="outlined-basic" label="Outlined" variant="outlined" {...props} />
     }
 
-
     return (
         <section className="gig-edit main-layout full">
             <Formik
@@ -93,31 +66,42 @@ export function GigEdit() {
                         <h3>Overview</h3>
 
                         <label htmlFor="title">Gig Title
-                            <Field as={CustomInput} name="title" placeholder="I will..." />
-                            {errors.title && touched.title && <div>{errors.title}</div>}
+                            <div>
+                                <Field as={CustomInput} name="title" placeholder="I will..." />
+                                {errors.title && touched.title && <div className="error">{errors.title}</div>}
+                            </div>
                         </label>
 
 
 
                         <label htmlFor="description">Description
-                            <Field as="textarea" name="description" placeholder="Add a description of your gig." />
-                            {errors.description && touched.description && <div>{errors.description}</div>}
+                            <div>
+                                <Field as="textarea" name="description" placeholder="Add a description of your gig." className="description-input" />
+                                {errors.description && touched.description && <div className="error">{errors.description}</div>}
+                            </div>
                         </label>
 
-                        <label htmlFor="category">Category
-                            <Field name="category" as="select">
-                                {
+                        <label> Images
+                            <ImgUploadWithPreviews maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} />
+                        </label>
+
+                        <label htmlFor="category" className="category-label">Category
+                            <Field name="category" component={CustomSelect} className="category-select">
+                                {/* {
                                     categories.map(category =>
                                         <option key={category} value={category}>{category}</option>
                                     )
-                                }
+                                } */}
+
+                                {categories.map((category) =>
+                                    <MenuItem value={category} key={category}>{category}</MenuItem>
+                                )}
                             </Field>
                         </label>
 
                         <div className="tags-select">
                             <label>Tags</label>
                             <div className='tags-checkboxes'>
-
                                 {tags.map(tag =>
                                     <label key={tag}>
                                         <Field type="checkbox" name="tags" value={tag} />
@@ -125,39 +109,30 @@ export function GigEdit() {
                                     </label>
                                 )}
                             </div>
-
                         </div>
-                        
-                        <label> Images
-                        <ImgUpload maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} />
-                        </label>
 
                         <h3>Packages</h3>
-                        {packageTypes.map(packageType =>
-                            <article key={packageType}>
+                        <div className="packages-container">
+                            {packageTypes.map(packageType =>
+                                <article key={packageType}>
+                                    <h6>{packageType}</h6>
+                                    <label htmlFor="price">Price</label>
+                                    <Field as={CustomInput} name={`packages.${packageType}.price`} />
+                                    {getIn(errors, `packages.${packageType}.price`) && getIn(touched, `packages.${packageType}.price`) && <div className="error">{getIn(errors, `packages.${packageType}.price`)}</div>}
 
-                                <h6>{packageType}</h6>
-                                <label htmlFor="price">Price</label>
-                                <Field as={CustomInput} name={`packages.${packageType}.price`} />
-                                {getIn(errors, `packages.${packageType}.price`) && getIn(touched, `packages.${packageType}.price`) && <div>{getIn(errors, `packages.${packageType}.price`)}</div>}
-
-                                <label htmlFor="daysToMake">Days to make</label>
-                                <Field as={CustomInput} name={`packages.${packageType}.daysToMake`} />
-                                {getIn(errors, `packages.${packageType}.daysToMake`) && getIn(touched, `packages.${packageType}.daysToMake`) && <div>{getIn(errors, `packages.${packageType}.daysToMake`)}</div>}
-                            </article>
-                        )}
-
-
-
-                        <button type="submit">{(params.gigId) ? 'Save Gig' : 'Create Gig'}</button>
-
+                                    <label htmlFor="daysToMake">Days to make</label>
+                                    <Field as={CustomInput} name={`packages.${packageType}.daysToMake`} />
+                                    {getIn(errors, `packages.${packageType}.daysToMake`) && getIn(touched, `packages.${packageType}.daysToMake`) && <div className="error">{getIn(errors, `packages.${packageType}.daysToMake`)}</div>}
+                                </article>
+                            )}
+                        </div>
+                        <div className="btns-container">
+                            <button onClick={() => navigate('/gigs-dashboard')} className="back-btn">Back</button>
+                            <button type="submit">{(params.gigId) ? 'Save Gig' : 'Create Gig'}</button>
+                        </div>
                     </Form>
                 )}
             </Formik>
-
-            <button onClick={() => navigate('/gigs-dashboard')}>Back</button>
-
-            <Loader />
         </section>
     )
 }

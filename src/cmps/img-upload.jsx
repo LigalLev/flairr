@@ -1,32 +1,36 @@
+//Use this component if you don't want to show the previews of the uploaded images.
+
 import React from 'react'
 import { useEffect, useState } from "react"
 import { useDropzone } from 'react-dropzone'
 import { cloudinaryService } from '../services/cloudinary.service'
 
-export function ImgUpload({ maxFiles = 5, formikField, setFieldValue }) {
-
+export function ImgUpload({ maxFiles = 5, formikField, setFieldValue, setFiles }) {
   const [uploadedImgUrls, setUploadedImgUrls] = useState([])
   useEffect(() => {
     console.log('uploadedImgUrls: ', uploadedImgUrls)
     setFieldValue(formikField, ([...uploadedImgUrls]))
   }, [uploadedImgUrls])
 
-
   const {
     acceptedFiles,
     fileRejections,
     getRootProps,
-    getInputProps
-  } = useDropzone({ maxFiles: maxFiles })
-
+    getInputProps,
+  } = useDropzone({
+    maxFiles: maxFiles,
+    onDrop: acceptedFiles => {
+      setFiles(acceptedFiles.map(file => Object.assign(file, {
+        preview: URL.createObjectURL(file)
+      })))
+    }
+  })
 
   const files = acceptedFiles.map(file => (
     <li key={file.path}>
       {file.path} - {file.size} bytes
     </li>
   ))
-
-
 
   const fileRejectionItems = fileRejections.map(({ file, errors }) => {
     return (
@@ -35,7 +39,6 @@ export function ImgUpload({ maxFiles = 5, formikField, setFieldValue }) {
         <ul>
           {errors.map(e => <li key={e.code}>{e.message}</li>)}
         </ul>
-
       </li>
     )
   })
@@ -68,7 +71,6 @@ export function ImgUpload({ maxFiles = 5, formikField, setFieldValue }) {
     <section className="container" style={baseStyle}>
       <div {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} onChange={onUploadImg} />
-        <div className="dropzone-design"></div>
       </div>
       <aside>
         <h4>Files</h4>
