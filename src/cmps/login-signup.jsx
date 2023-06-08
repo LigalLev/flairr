@@ -93,6 +93,7 @@ export function LoginSignup(props) {
 
             <div className="signup-section">
                 {isSignup && <form className="signup-form" onSubmit={onSignup}>
+                    <h1 className='join-fiverr'>Join Fiverr</h1>
                     <input
                         type="text"
                         name="fullname"
