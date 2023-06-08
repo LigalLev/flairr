@@ -2,50 +2,10 @@ import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { SearchFilter } from './search-filter'
 import { TagFilter } from './tag-filter'
+import { heroSlides } from '../constants/constants'
+
 export function Hero() {
-    const slides = [
-        {
-            heroClass: 'valentina',
-            name: 'Valentina',
-            isSeller: true,
-            occupation: 'AI Artist'
-        },
-        {
-            name: 'Andrea',
-            heroClass: 'andrea',
-            isSeller: false,
-            occupation: 'Fashion Designer'
-        },
-        {
-            name: 'Moon',
-            heroClass: 'moon',
-            isSeller: true,
-            occupation: 'Marketing Expert'
-        },
-        {
-            name: 'Ritika',
-            heroClass: 'ritika',
-            isSeller: false,
-            occupation: 'Shoemaker and Designer'
-        },
-        {
-            name: 'Zach',
-            heroClass: 'zach',
-            isSeller: false,
-            occupation: 'Bar Owner'
-        },
-        {
-            name: 'Gabrielle',
-            heroClass: 'gabrielle',
-            isSeller: true,
-            occupation: 'Video Editor'
-        },
-
-
-    ]
-
-    const popularTags = ['Website Design', 'WordPress', 'Logo Design', 'AI services']
-
+    const slides = heroSlides
     const [currSlideIdx, setCurrSlideIdx] = useState(0)
 
     useEffect(() => {
@@ -98,7 +58,7 @@ export function Hero() {
 
                 <div className='popular-tags'>
                     <p>Popular:</p>
-                    <TagFilter popularTags={popularTags}/>
+                    <TagFilter/>
                     {/* <ul>
                         {popularTags.map(tag =>
                             <li key={tag}>
