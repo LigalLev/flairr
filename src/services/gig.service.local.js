@@ -473,7 +473,7 @@ function _createGigs() {
             },
             daysToMake: 3,
             description: "About this gig If you need your songs to sound like real songs I can produce a demo for commercial use/ pitching to publishers/ or personal use. I can do a simple stripped down unplugged version or a more stepped up small group feel or all the way to fully produced full band sound.",
-            imgUrls: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1686153916/gigs/ko3ovcjh0cvjwnv6x7n7.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1686155165/gigs/xuzevromcwy2elhm9ybu.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1686155213/gigs/aryvw4roafstxqdv9j9w.jpg"],
+            imgUrls: ["https://res.cloudinary.com/dlhjvt9b4/image/upload/v1686153916/gigs/ko3ovcjh0cvjwnv6x7n7.jpg", "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1686155213/gigs/aryvw4roafstxqdv9j9w.jpg"],
             category: "Music & Audio",
             tags: [
                 "musician",
