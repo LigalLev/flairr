@@ -85,7 +85,7 @@ export function GigEdit() {
                             <ImgUploadWithPreviews maxFiles={5} formikField={'imgUrls'} setFieldValue={setFieldValue} />
                         </label>
 
-                        <label htmlFor="category">Category
+                        <label htmlFor="category" className="category-label">Category
                             <Field name="category" component={CustomSelect} className="category-select">
                                 {/* {
                                     categories.map(category =>
@@ -93,8 +93,8 @@ export function GigEdit() {
                                     )
                                 } */}
 
-                                {categories.map((category) => 
-                                <MenuItem value={category} key={category}>{category}</MenuItem>
+                                {categories.map((category) =>
+                                    <MenuItem value={category} key={category}>{category}</MenuItem>
                                 )}
                             </Field>
                         </label>
@@ -126,11 +126,13 @@ export function GigEdit() {
                                 </article>
                             )}
                         </div>
-                        <button type="submit">{(params.gigId) ? 'Save Gig' : 'Create Gig'}</button>
+                        <div className="btns-container">
+                            <button onClick={() => navigate('/gigs-dashboard')} className="back-btn">Back</button>
+                            <button type="submit">{(params.gigId) ? 'Save Gig' : 'Create Gig'}</button>
+                        </div>
                     </Form>
                 )}
             </Formik>
-            <button onClick={() => navigate('/gigs-dashboard')}>Back</button>
         </section>
     )
 }
