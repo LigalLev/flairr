@@ -19,13 +19,10 @@ export function CategoryFilter(props) {
         navigate('/gig')
     }
 
-
-
     return <div className='categoty-btns-container main-layout full'> <ul className='category-btns'>
-        {categories.map((category) => {
-            return <li><button onClick={() => onClick(category)}>{category}</button></li>
+        {categories.slice(0,9).map((category) => {
+            return <li><button onClick={() => onClick(category.name)}>{category.name}</button></li>
         }
-
         )}
     </ul>
     </div>

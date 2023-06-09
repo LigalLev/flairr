@@ -1,11 +1,15 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Hero } from '../cmps/hero'
+import { Link } from 'react-router-dom'
 import { PopularServicesCarousel } from '../cmps/popular-service-carousel'
+import { categories } from '../constants/constants'
 
 export function HomePage() {
     const dispatch = useDispatch()
     const count = useSelector(storeState => storeState.userModule.count)
+    const iconCategories = categories.filter(category => category.iconUrl)
+    console.log('iconCategories: ', iconCategories)
 
     return (
         <section className="home-page main-layout full">
@@ -38,6 +42,20 @@ export function HomePage() {
                         <img src="https://res.cloudinary.com/dqhfnvtca/image/upload/v1685741317/flairr/selling-proposition-still-1400-x1_exn4qm.png" alt="Two smiling women using a laptop." />
                     </div>
                 </div>
+            </section>
+
+            <section className="main-categories">
+                <h2>You need it, we've got it</h2>
+                <ul className="icon-categories">
+                    {iconCategories.map(category =>
+                        <li className="category-card">
+                            <Link to="/gig">
+                                <img src={category.iconUrl} alt={category.name} />
+                                {category.name}
+                            </Link>
+                        </li>
+                    )}
+                </ul>
             </section>
 
             <section className="suddenly-doable">

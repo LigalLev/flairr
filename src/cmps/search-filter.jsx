@@ -4,10 +4,10 @@ import { utilService } from "../services/util.service"
 import { loadGigs, setFilterBy } from '../store/gig.actions.js'
 import { useNavigate } from 'react-router'
 
-
 export function SearchFilter(props) {
 
     const [filterBySearch, setFilterBySearch] = useState('')
+    const [isOpen, setIsOpen] = useState(false)
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
     const navigate = useNavigate()
     // const debouncedFilterBySearch = utilService.debounce(onFilterBySearch, 500)
@@ -23,6 +23,10 @@ export function SearchFilter(props) {
 
         loadGigs(filterBy)
     }, [filterBy])
+
+    useEffect(() => {
+
+    }, [isOpen])
 
     // function onFilterBySearch({ target }) {
     //     console.log('target:', target.value)
@@ -55,14 +59,25 @@ export function SearchFilter(props) {
         }
     }
 
+    function onToggleIsOpen() {
+        if (!props.isDarkening) return
+        setIsOpen(prevIsOpen => !prevIsOpen)
+    }
+
+    const classMenu = (isOpen) ? 'isOpen' : ''
+
     return <div className='search-bar'>
         <input onChange={onChange}
+        onFocus={onToggleIsOpen}
             ref={elInputRef}
             type="search"
             placeholder={props.placeholder}
             onKeyDown={handleKeyDown}
             name="txt"
-            id="header-search-text" />
+            id="header-search-text"
+            isDarkening={props.isDarkening}
+            />
+            
         <button className='search-btn' onClick={onClick}>
             <svg width="16"
                 height="16"
@@ -71,7 +86,7 @@ export function SearchFilter(props) {
                 fill="currentFill">
                 <path d="m15.89 14.653-3.793-3.794a.37.37 0 0 0-.266-.109h-.412A6.499 6.499 0 0 0 6.5 0C2.91 0 0 2.91 0 6.5a6.499 6.499 0 0 0 10.75 4.919v.412c0 .1.04.194.11.266l3.793 3.794a.375.375 0 0 0 .531 0l.707-.707a.375.375 0 0 0 0-.53ZM6.5 11.5c-2.763 0-5-2.238-5-5 0-2.763 2.237-5 5-5 2.762 0 5 2.237 5 5 0 2.762-2.238 5-5 5Z" /></svg>
         </button>
-       
+        <div className={`main-screen ${classMenu}`} onClick={onToggleIsOpen} style={{zIndex: 200}}></div>
     </div>
 }
   

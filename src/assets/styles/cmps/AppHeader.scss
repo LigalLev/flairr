@@ -1,10 +1,15 @@
 .app-header {
+
+    .main-screen {
+        top: 80px;
+    }
+
     // grid-template-columns: 1fr 1fr auto 1fr;
     z-index: 300;
     background-color: $clr6;
     // padding-block-start: 10px;
     grid-template-rows: 1fr;
-    height: 120px;
+    height: 80px;
     width: 100%;
     transition: background-color 0.5s;
     background-color: $clr6;
@@ -14,14 +19,14 @@
         align-self: center;
     }
 
-
     .header-content {
         display: flex;
         justify-content: space-between;
         width: 100%;
-        padding-block: 16px;
+        padding-block-start: 16px;
+        padding-block-end: 8px;
     }
-
+    
     &.filter-visible .search-bar {
         opacity: 1;
         visibility: visible;
