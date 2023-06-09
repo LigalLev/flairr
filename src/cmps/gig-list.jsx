@@ -1,23 +1,11 @@
 import { GigPreview } from "./gig-preview.jsx"
 
-export function GigList({ gigs, onRemoveGig, onEditGig, addToCart }){
-
+export function GigList({ gigs}){
     
-      
     return <ul className="gig-list">
-      {/* { gigs.length} */}
     {gigs.map(gig =>
                 <li key={gig._id}>
                     <GigPreview gig={gig} />
-    
-                    {/* <div>
-                        <button onClick={() => { onRemoveGig(gig._id) }}>Delete Item</button>
-                        {/* <button onClick={() => { onEditToy(gig) }}>Edit</button> */}
-                    {/* </div>} */}
-    
-                    {/* <button className="buy" onClick={() => { addToCart(gig) }}> */}
-                        {/* Add to Cart
-                    </button> */}
                 </li>)}
         </ul>
     }
