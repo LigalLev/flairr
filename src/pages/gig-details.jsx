@@ -10,6 +10,7 @@ import { utilService } from "../services/util.service"
 import { BigCarousel } from "../cmps/big-carousel"
 import { Payment } from "../pages/payment"
 import { StarRating } from "../cmps/star-rating-new"
+// import {ReviewPage} from "../pages/review-page"
 
 export function GigDetails() {
     const [gig, setGig] = useState(null)
@@ -111,7 +112,7 @@ export function GigDetails() {
 
 
 
-
+{/* <ReviewIndex/> */}
 
         </main>
 

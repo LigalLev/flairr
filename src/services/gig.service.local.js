@@ -15,7 +15,16 @@ export const gigService = {
     getDefaultFilter,
 }
 window.cs = gigService
+// const criteria = {};
 
+// if (filterBy.name) {
+//   criteria.$or = [
+//     { name: { $regex: filterBy.name, $options: 'i' } },
+//     { field2: { $regex: filterBy.name, $options: 'i' } },
+//     { field3: { $regex: filterBy.name, $options: 'i' } }
+//     // Add more fields as needed
+//   ];
+// }
 
 async function query(filterBy = { title: '', price: 0 }) {
     let gigs = await storageService.query(STORAGE_KEY)
