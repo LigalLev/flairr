@@ -94,7 +94,7 @@ export function GigEdit() {
                                 } */}
 
                                 {categories.map((category) =>
-                                    <MenuItem value={category} key={category}>{category}</MenuItem>
+                                    <MenuItem value={category.name} key={category.name}>{category.name}</MenuItem>
                                 )}
                             </Field>
                         </label>
