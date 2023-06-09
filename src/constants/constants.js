@@ -14,7 +14,6 @@ export const categories = [
     {
         name: 'Video & Animation',
         iconUrl: 'https://res.cloudinary.com/dqhfnvtca/image/upload/v1685607598/flairr/You%20need%20it%2C%20we%27ve%20got%20it/video-animation.1356999_g86sbm.svg'
-
     },
     {
         name: 'Music & Audio',
@@ -45,7 +44,6 @@ export const categories = [
         iconUrl: 'https://res.cloudinary.com/dqhfnvtca/image/upload/v1685607598/flairr/You%20need%20it%2C%20we%27ve%20got%20it/lifestyle.112b348_karvbj.svg'
     }
 ]
-
 
 export const packageTypes = [
     'basic',

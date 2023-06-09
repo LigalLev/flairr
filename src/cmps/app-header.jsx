@@ -33,7 +33,6 @@ export function AppHeader() {
     function onScroll() {
         setIsHomePageTop((location.pathname === '/') && (window.pageYOffset === 0))
         setIsFilterVisible((location.pathname !== '/') || (window.pageYOffset > 152))
-
     }
 
     function toggleSignup() {
