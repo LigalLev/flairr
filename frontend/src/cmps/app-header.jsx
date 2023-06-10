@@ -53,6 +53,7 @@ export function AppHeader() {
 
     async function onLogin(credentials) {
         try {
+            console.log('credentials:', credentials)
             const user = await login(credentials)
             showSuccessMsg(`Welcome: ${user.fullname}`)
         } catch (err) {
