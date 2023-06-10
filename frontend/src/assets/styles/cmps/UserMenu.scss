@@ -23,8 +23,11 @@
         font-size: rem(16px);
     }
 
-    a {
-        text-decoration: none;
+    @include for-narrow-layout {
+        a.user-menu-link {
+            text-decoration: none;
+            color: $clr7;
+        }
     }
 
     button {

@@ -193,7 +193,7 @@
                 color: $clr6;
             }
 
-            a:not(.logo),
+            a:not(.logo):not(.user-menu-link),
             .orders-btn {
                 color: $clr6;
             }
