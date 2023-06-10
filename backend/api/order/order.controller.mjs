@@ -4,9 +4,9 @@ import {logger} from '../../services/logger.service.mjs'
 export async function getOrders(req, res) {
     try {
       logger.debug('Getting Gigs:', req.query)
-      const { filterBy } = req.query
-      const gigs = await orderService.query(filterBy)
-      res.json(gigs)
+      const  filterBy   = req.query
+      const orders = await orderService.query(filterBy)
+      res.json(orders)
     } catch (err) {
       logger.error('Failed to get orders', err)
       res.status(400).send({ err: 'Failed to get orders' })
@@ -14,16 +14,16 @@ export async function getOrders(req, res) {
   }
   export async function getOrderById(req, res) {
     try {
-      const gigId = req.params.id
-      const gig = await orderService.getById(orderId)
-      res.json(gig)
+      const orderId = req.params.id
+      const order = await orderService.getById(orderId)
+      res.json(order)
     } catch (err) {
-      logger.error('Failed to get gig', err)
-      res.status(400).send({ err: 'Failed to get gig' })
+      logger.error('Failed to get order', err)
+      res.status(400).send({ err: 'Failed to get order' })
     }
   }
   export async function addOrder(req, res) {
-    const {loggedinUser} = req
+    // const {loggedinUser} = req
     try {
       const order = req.body
     //   gig.owner = loggedinUser

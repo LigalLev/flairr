@@ -38,7 +38,7 @@ function getById(gigId) {
 }
 
 async function remove(gigId) {
-    return httpService.delete(`gig/${gigId}`)
+    return httpService.delete(BASE_URL + gigId)
 }
 async function save(gig) {
     var savedGig
@@ -57,22 +57,27 @@ async function addGigMsg(gigId, txt) {
 }
 
 
+function getDefaultFilter() {
+    return { txt: '', category: '', price: 0 }
+}
+
+
+function getImgUrl(imgUrl) {
+    const tempUrl = "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"
+    if (imgUrl) return imgUrl
+    return tempUrl
+
+}
+
 function getEmptyGig() {
+    const user = userService.getLoggedinUser()
     return {
-        _id: '',
         title: '',
         description: '',
         imgUrls: [],
-        owner: {
-            "_id": '',
-            "fullname": '',
-            "imgUrl": '',
-            "level": '',
-            "rate": ''
-        },
+        category: '',
         tags: [],
         likedByUsers: [],
-
         packages: {
             basic: {
                 price: '',
@@ -91,17 +96,4 @@ function getEmptyGig() {
             }
         }
     }
-}
-
-
-function getDefaultFilter() {
-    return { txt: '', category: '', price: 0 }
-}
-
-
-function getImgUrl(imgUrl) {
-    const tempUrl = "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"
-    if (imgUrl) return imgUrl
-    return tempUrl
-
 }

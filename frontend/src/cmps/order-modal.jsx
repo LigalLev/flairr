@@ -4,10 +4,11 @@ import { loadOrders } from "../store/order.action"
 
 export function OrderModal() {
     const orders = useSelector(storeState => storeState.orderModule.orders)
+    const user = useSelector(storeState => storeState.userModule.user)
 
 
     useEffect(() => {
-        loadOrders()
+        loadOrders({buyerId: user._id})
     }, [])
 
     return <div className="order-modal">

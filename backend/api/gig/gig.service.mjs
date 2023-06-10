@@ -97,13 +97,14 @@ async function add(gig) {
         
         const gigToSave = {
             title: gig.title,
-            price: gig.price,
-            daysToMake: gig.daysToMake,
+            // price: gig.price,
+            // daysToMake: gig.daysToMake,
             description: gig.description,
             imgUrls: [...gig.imgUrls],
             category: gig.category,
             tags: [...gig.tags],
             likedByUsers: [...gig.likedByUsers],
+            packages: {...gig.packages},
             owner:{
                 _id: owner._id,
                 fullname: owner.fullname,
@@ -125,8 +126,9 @@ async function update(gig) {
     try {
         const gigToSave = {
             title: gig.title,
-            price: gig.price,
-            daysToMake: gig.daysToMake,
+            packages: {...gig.packages},
+            // price: gig.price,
+            // daysToMake: gig.daysToMake,
             description: gig.description,
             imgUrls: [...gig.imgUrls],
             category: gig.category,

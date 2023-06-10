@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Formik, Form, Field, getIn } from 'formik'
 import * as Yup from 'yup'
 import { useNavigate, useParams } from "react-router-dom"
-import { gigService } from '../services/gig.service.local'
+import { gigService } from '../services/gig.service'
 import { saveGig } from "../store/gig.actions"
 import { ImgUploadWithPreviews } from '../cmps/img-upload-with-previews'
 import { categories, packageTypes, tags } from '../constants/constants'
@@ -15,10 +15,15 @@ export function GigEdit() {
     const navigate = useNavigate()
     const params = useParams()
     const gigToEdit = useSelector((storeState) => storeState.gigModule.gigs.find(gig => gig._id === params.gigId)) || gigService.getEmptyGig()
-
+    const loggedInUser =  useSelector((storeState)=>storeState.userModule.user)
     async function onSubmit(updatedGig) {
         console.log('updatedGig: ', updatedGig)
+        console.log('loggedInUser:', loggedInUser)
         try {
+            if(!updatedGig._id){
+                updatedGig.ownerId = loggedInUser._id
+                alert(updatedGig)
+            }
             const gig = await saveGig(updatedGig)
             console.log('gig saved', gig)
             navigate('/gig')

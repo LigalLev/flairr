@@ -4,17 +4,13 @@ import { utilService } from '../../services/util.service.mjs'
 import mongodb from 'mongodb'
 const { ObjectId } = mongodb
 
-async function query() {
+async function query(filterBy) {
     try {
         const criteria = {
+            "buyer._id": filterBy.buyerId
         }
         const collection = await dbService.getCollection('order')
-        var orderCursor = await collection.find(criteria)
-
-        // if (filterBy.pageIdx !== undefined) {
-        //     orderCursor.skip(filterBy.pageIdx * PAGE_SIZE).limit(PAGE_SIZE)     
-        // }
-
+        let orderCursor = await collection.find(criteria)
         const orders = orderCursor.toArray()
         return orders
     } catch (err) {

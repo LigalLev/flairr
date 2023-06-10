@@ -2,10 +2,10 @@ import { orderService } from "../services/order.service"
 import { store } from './store'
 import { ADD_ORDER, REMOVE_ORDER, SET_ORDERS, SET_IS_LOADING, UPDATE_ORDER, SET_ORDER_NOTICE, SET_ORDER_MODAL_VISIBLE } from './order.reducer'
 
-export async function loadOrders() {
+export async function loadOrders(filterBy) {
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
     try {
-        const orders = await orderService.query()
+        const orders = await orderService.query(filterBy)
         console.log('orders after await:', orders)
         store.dispatch({ type: SET_ORDERS, orders })
         return orders

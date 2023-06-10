@@ -1,8 +1,10 @@
 import { utilService } from "./util.service"
 import { storageService } from "./async-storage.service"
 import { userService } from "./user.service"
+import { httpService } from "./http.service"
 
 const STORAGE_KEY = 'order'
+const BASE_URL = 'order/'
 export const orderService = {
   query,
   getById,
@@ -12,8 +14,10 @@ export const orderService = {
 }
 
 async function query(filterBy) {
+  console.log('filterByorrder:', filterBy)
   try {
-    let orders = await storageService.query(STORAGE_KEY, filterBy)
+    // let orders = await storageService.query(STORAGE_KEY, filterBy)
+    let orders = await httpService.get(BASE_URL, filterBy)
 
     // if (filterBy.buyerId) {
     //   orders = orders.filter((order) => { return order.buyer._id === filterBy.buyerId})
