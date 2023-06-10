@@ -6,7 +6,8 @@ export const utilService = {
     randomPastTime,
     saveToStorage,
     loadFromStorage,
-    resizeImgUrl
+    resizeImgUrl,
+    formatSearchParam
 }
 
 function makeId(length = 6) {
@@ -74,4 +75,10 @@ function resizeImgUrl(url, params = 'w_440,h_230,c_fill') {
     const convertedUrl = parts.join('/');
 
     return convertedUrl;
+}
+
+function formatSearchParam(searchParam) {
+    if (searchParam.includes('&')) return searchParam.replaceAll(' & ', '-')
+    else if (searchParam.includes('-')) return searchParam.replaceAll('-',' & ')
+    else return searchParam
 }

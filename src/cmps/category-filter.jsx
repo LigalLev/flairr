@@ -14,8 +14,8 @@ export function CategoryFilter(props) {
     function onClick(category) {
         // ev.preventDefault()
        const filterByCategory ={ category:  category  }
-        setFilterBy(filterByCategory)
-        navigate(`gig/?category=${filterByCategory.category}`)
+        // setFilterBy(filterByCategory)
+        navigate(`gig/?category=${utilService.formatSearchParam(category)}`)
         // loadGigs(filterByCategory)
         // navigate('/gig')
     }
