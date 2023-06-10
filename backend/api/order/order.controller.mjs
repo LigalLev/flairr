@@ -1,0 +1,60 @@
+import {orderService} from './order.service.mjs'
+import {logger} from '../../services/logger.service.mjs'
+
+export async function getOrders(req, res) {
+    try {
+      logger.debug('Getting Gigs:', req.query)
+      const { filterBy } = req.query
+      const gigs = await orderService.query(filterBy)
+      res.json(gigs)
+    } catch (err) {
+      logger.error('Failed to get orders', err)
+      res.status(400).send({ err: 'Failed to get orders' })
+    }
+  }
+  export async function getOrderById(req, res) {
+    try {
+      const gigId = req.params.id
+      const gig = await orderService.getById(orderId)
+      res.json(gig)
+    } catch (err) {
+      logger.error('Failed to get gig', err)
+      res.status(400).send({ err: 'Failed to get gig' })
+    }
+  }
+  export async function addOrder(req, res) {
+    const {loggedinUser} = req
+    try {
+      const order = req.body
+    //   gig.owner = loggedinUser
+      const addedOrder = await orderService.add(order)
+      res.json(addedOrder)
+    } catch (err) {
+      logger.error('Failed to add order', err)
+      res.status(400).send({ err: 'Failed to add order' })
+    }
+  }
+
+  
+export async function updateOrder(req, res) {
+    try {
+      const order = req.body
+      const updatedOrder = await orderService.update(order)
+      res.json(updatedOrder)
+    } catch (err) {
+      logger.error('Failed to update order', err)
+      res.status(400).send({ err: 'Failed to update order' })
+  
+    }
+  }
+  
+  export async function removeOrder(req, res) {
+    try {
+      const orderId = req.params.id
+      const removedId = await orderService.remove(orderId)
+      res.send(removedId)
+    } catch (err) {
+      logger.error('Failed to remove order', err)
+      res.status(400).send({ err: 'Failed to remove order' })
+    }
+  }
