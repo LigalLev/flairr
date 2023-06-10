@@ -78,7 +78,7 @@ function resizeImgUrl(url, params = 'w_440,h_230,c_fill') {
 }
 
 function formatSearchParam(searchParam) {
-    if (searchParam.includes('&')) return searchParam.replaceAll(' & ', '-')
-    else if (searchParam.includes('-')) return searchParam.replaceAll('-',' & ')
+    if (searchParam.includes('&')) return searchParam.replaceAll('&', '%26')
+    // else if (searchParam.includes('-')) return searchParam.replaceAll('%26',' & ')
     else return searchParam
 }
