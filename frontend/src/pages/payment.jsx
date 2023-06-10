@@ -34,7 +34,7 @@ export function Payment() {
 
     async function onAddOrder(orderToSave) {
         try {
-            console.log('gig:', gig)
+            // console.log('gig:', gig)
             const newOrder = orderToSave
             newOrder.gig._id = gig._id
             newOrder.gig.title = gig.title

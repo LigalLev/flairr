@@ -10,7 +10,7 @@ export function GigsDashboard() {
 
     useEffect(() => {
         loadGigs()
-        console.log('gigs: ', gigs)
+        // console.log('gigs: ', gigs)
     }, [])
 
     function onCreateNewGig() {

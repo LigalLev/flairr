@@ -6,6 +6,7 @@ import { userService } from './user.service.js'
 
 
 const STORAGE_KEY = 'gig'
+const BASE_URL = 'gig/'
 
 export const gigService = {
     query,
@@ -20,12 +21,20 @@ export const gigService = {
 window.cs = gigService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
-    return httpService.get(STORAGE_KEY, filterBy)
+async function query() {
+    const filterKeysValues = window.location.search
+    const urlParams = new URLSearchParams(filterKeysValues)
+    const filterBy = {
+        txt: urlParams.get('txt'),
+        category: urlParams.get('category'),
+        tag: urlParams.get('tag')
+    }
+    return httpService.get(BASE_URL, filterBy)
 }
 
 function getById(gigId) {
-    return httpService.get(`gig/${gigId}`)
+    console.log(':gigId', gigId )
+    return httpService.get(BASE_URL + gigId)
 }
 
 async function remove(gigId) {
