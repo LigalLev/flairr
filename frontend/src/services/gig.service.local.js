@@ -48,7 +48,7 @@ async function query() {
         })
     }
     if (filterBy.category) {
-        gigs = gigs.filter(gig => gig.category === filterBy.category)
+        gigs = gigs.filter(gig => gig.category === utilService.formatSearchParam(filterBy.category))
     }
     if (filterBy.tag) {
         gigs = gigs.filter((gig) => {
