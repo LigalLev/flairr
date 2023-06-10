@@ -79,7 +79,7 @@ export function LoginSignup(props) {
                 <input
                     type="text"
                     name="username"
-                    
+
                     placeholder="Username"
                     onChange={handleChange}
                     required
@@ -88,7 +88,7 @@ export function LoginSignup(props) {
                 <input
                     type="password"
                     name="password"
-                    
+
                     placeholder="Password"
                     onChange={handleChange}
                     required

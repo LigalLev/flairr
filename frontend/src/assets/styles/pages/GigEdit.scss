@@ -1,19 +1,5 @@
 .gig-edit {
 
-    .btns-container {
-        width: max-content;
-        margin-inline: auto;
-        display: flex;
-        button {
-            display: inline-block;
-            @include btn1($clr1);
-            white-space: nowrap;
-            &.back-btn {
-                @include btn1($clr8);
-            }
-        }
-    }
-
     background-color: $grey2;
     width: 100%;
     
@@ -26,31 +12,32 @@
     }
     
     .gig-edit-form {
-        background-color: $clr6;
-        margin-top: 1em;
-        padding: 30px;
-        border: 1px solid $grey1;
+        @include generic-form;
+        // background-color: $clr6;
+        // margin-top: 1em;
+        // padding: 30px;
+        // border: 1px solid $grey1;
         
-        .error {
-            color: rgba($clrRejected,0.7);
-            font-size: 0.8em;
-            align-self: end;
-        }
+        // .error {
+        //     color: rgba($clrRejected,0.7);
+        //     font-size: 0.8em;
+        //     align-self: end;
+        // }
 
-        h3 {
-            width: 100%;
-            margin-block-start: 1.5em;
-            border-top: 1px solid $grey;
-        }
+        // h3 {
+        //     width: 100%;
+        //     margin-block-start: 1.5em;
+        //     border-top: 1px solid $grey;
+        // }
 
-        label {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            justify-content: space-between;
-            white-space: nowrap;
-            margin-inline-end: 2em;
-        }
+        // label {
+        //     display: flex;
+        //     flex-direction: column;
+        //     width: 100%;
+        //     justify-content: space-between;
+        //     white-space: nowrap;
+        //     margin-inline-end: 2em;
+        // }
 
         .description-input {
             resize: none;

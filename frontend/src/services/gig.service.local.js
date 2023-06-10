@@ -116,8 +116,8 @@ function getEmptyGig() {
             _id: user._id,
             fullname: user.fullname,
             imgUrl: user.imgUrl,
-            level: user.level,
-            rate: user.rate
+            level: 1,
+            rate: 0
         },
         category: '',
         tags: [],

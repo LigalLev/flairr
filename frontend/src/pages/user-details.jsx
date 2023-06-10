@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import { loadUser } from '../store/user.actions'
 import { store } from '../store/store'
@@ -10,8 +10,9 @@ import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from
 export function UserDetails() {
 
   const params = useParams()
-  const user = useSelector(storeState => storeState.userModule.watchedUser)
-
+  const navigate = useNavigate()
+  const user = useSelector(storeState => storeState.userModule.user)
+  console.log('user: ', user)
   useEffect(() => {
     loadUser(params.id)
 
@@ -23,6 +24,10 @@ export function UserDetails() {
     }
 
   }, [])
+
+  useEffect(() => {
+
+  }, [user])
 
   function onUserUpdate(user) {
     showSuccessMsg(`This user ${user.fullname} just got updated from socket, new score: ${user.score}`)
@@ -37,12 +42,16 @@ export function UserDetails() {
           {user.fullname}
         </h3>
         {/* Demo for dynamic images: */}
-        <div className="user-img" style={{ backgroundImage: `url('/img/u${0}.png')` }}>
+        <div className="user-img" style={{ backgroundImage: `url(${user.imgUrl})` }}>
         </div>
         <pre>
           {JSON.stringify(user, null, 2)}
         </pre>
       </div>}
+
+      {user.profession &&
+        <button onClick={() => navigate('/gig/edit')}>Create a new gig</button>
+      }
     </section>
   )
 }

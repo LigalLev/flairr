@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 import { loadGigs, addGig, updateGig, removeGig, addToCart } from '../store/gig.actions.js'
+import { useNavigate } from "react-router-dom"
 import { gigService } from '../services/gig.service.local.js'
 
 export function GigsDashboard() {
     const navigate = useNavigate()
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
+    const user = useSelector(storeState => storeState.userModule.user)
 
     useEffect(() => {
         loadGigs()

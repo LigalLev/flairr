@@ -5,7 +5,7 @@ import { utilService } from './util.service.js'
 // _createUsers()
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
-const STORAGE_KEY= 'users'
+const STORAGE_KEY = 'users'
 
 
 const GUEST = {
@@ -26,6 +26,7 @@ export const userService = {
     getById,
     remove,
     update,
+    getEmptyUser
 }
 
 window.userService = userService
@@ -67,7 +68,6 @@ async function login(userCred) {
     }
 }
 async function signup(userCred) {
-    userCred.score = 10000
     if (!userCred.imgUrl) userCred.imgUrl = 'https://res.cloudinary.com/dqhfnvtca/image/upload/v1686399022/flairr/profile_pic_rvmsjs.svg'
     const user = await storageService.post('user', userCred)
     // const user = await httpService.post('auth/signup', userCred)
@@ -79,7 +79,19 @@ async function logout() {
 }
 
 function saveLocalUser(user) {
-    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, username: '', level: 'Basic', reviews: [] }
+    user = {
+        _id: user._id,
+        fullname: user.fullname,
+        imgUrl: user.imgUrl,
+        username: user.username,
+        level: 'Basic',
+        profession: user.profession,
+        from: user.from,
+        languages: user.languages,
+        about: user.about,
+        reviews: [],
+        rate: 5
+    }
     localStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -403,6 +415,12 @@ function getEmptyUser() {
         imgUrl: '',
         username: '',
         password: '',
+        profession: '',
+        about: '',
+        from: '',
+        memberSince: Date.now(),
+        languages: [],
+        rate: '',
         level: 'Basic',
         reviews: [],
 
