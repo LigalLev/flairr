@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { gigService } from "../services/gig.service.local"
-import {userService} from "../services/user.service"
+import { userService } from "../services/user.service"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useParams, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
@@ -10,6 +10,7 @@ import { utilService } from "../services/util.service"
 import { BigCarousel } from "../cmps/big-carousel"
 import { Payment } from "../pages/payment"
 import { StarRating } from "../cmps/star-rating-new"
+import {AboutTheSeller} from "../cmps/about-the-seller"
 
 export function GigDetails() {
     const [gig, setGig] = useState(null)
@@ -59,31 +60,30 @@ export function GigDetails() {
             {gig && <section className="gig-details-content">
 
                 <article className="gig-details-container">
-                    
-                        <h1>{gig.title}</h1>
-                        <div className="main-details-container">
-                            <div className="user-round-img">
-                                <img src={gig.owner.imgUrl} alt="" className="details-owner-img" />
-                            </div>
-                            <div className="details-wrapper">
-                                <h2>{gig.owner.fullname}</h2>
-                                <p className="gig-email">@{gig.owner.fullname}</p>
-                                <p className="gig-level">Level {gig.owner.level} <span>|</span></p>
-                                {/* <p className="gig-rate"> <span>&#9733; &#9733; &#9733; &#9733; &#9733;{gig.owner.rate}</span> (116)</p> */}
-                                <div className="gig-starRate">
-                                    <StarRating rating={gig.owner.rate} />
-                                    <div className="owner-rate">
-                                        {gig.owner.rate} <span>(116)</span>
-                                    </div>
+
+                    <h1>{gig.title}</h1>
+                    <div className="main-details-container">
+                        <div className="user-round-img">
+                            <img src={gig.owner.imgUrl} alt="" className="details-owner-img" />
+                        </div>
+                        <div className="details-wrapper">
+                            <h2>{gig.owner.fullname}</h2>
+                            <p className="gig-email">@{gig.owner.fullname}</p>
+                            <p className="gig-level">Level {gig.owner.level} <span>|</span></p>
+                            <div className="gig-starRate">
+                                <StarRating rating={gig.owner.rate} />
+                                <div className="owner-rate">
+                                    {gig.owner.rate} <span>(116)</span>
                                 </div>
-                                {/* <span className="gig-rate">{getRatingString(gig)}</span> */}
-                                <p className="gig-orders">14 Orders in Queue</p>
                             </div>
+                            {/* <span className="gig-rate">{getRatingString(gig)}</span> */}
+                            <p className="gig-orders">14 Orders in Queue</p>
                         </div>
-                        <div className="carousel-wrapper" >
-                            < BigCarousel imgUrls={gig.imgUrls} />
-                        </div>
-                    
+                    </div>
+                    <div className="carousel-wrapper" >
+                        < BigCarousel imgUrls={gig.imgUrls} />
+                    </div>
+
                 </article>
 
                 <aside className="pricing-container">
@@ -98,6 +98,12 @@ export function GigDetails() {
                     <p>{gig.description}</p>
                 </article>
 
+                <article>
+                    <AboutTheSeller
+                        gig={gig}
+                    />
+                </article>
+
 
                 <GigShoppingCart
                     gig={gig}
@@ -107,6 +113,8 @@ export function GigDetails() {
 
                 <div className={`main-screen ${classMenu}`} onClick={onToggleIsOpen}></div>
             </section>
+
+
             }
 
 

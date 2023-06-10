@@ -134,25 +134,80 @@ function _createGigs() {
             title: "I will design modern minimalist elegant logo",
             price: 60,
             owner: {
-                "_id": "u101",
-                "fullname": "nadia_younus",
-                "imgUrl": "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616615/gigs/cy8yt73ihkig5aklntq8.jpg",
-                "level": "Fiar's choise",
-                "rate": 5.0
+                _id: "u101",
+                fullname: "nadia_younus",
+                profession: "Logo designer",
+                from: "Pakistan",
+                memberSince: "Jul 2019",
+                Languages: "English",
+                about: "Hi, It's Nadia, a professional logo designer with more than 2000 satisfied clients, here to provide a premier service to you. As customer satisfaction is a key factor for any project to have a happy ending, I do not compromise with that, and I always make sure client gets more than their expectations. I own the talent, you own a business idea, together we can design the best brand identity for you!",
+                imgUrl: "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685616615/gigs/cy8yt73ihkig5aklntq8.jpg",
+                level: "Flairr's choice",
+                rate: 5.0
             },
             daysToMake: 3,
-            description: "Hello, I am Kris. Welcome to my logo design gig. I specialize in business logo design. My design will be clean, trendy, minimal and original.I have successfully designed logos for many brands and now I am here on Fiverr to give the best. Why Me? Original, minimal, unique, high quality logo designs Premium customer support 24 x 7 Unlimited revisions, until you are satisfied All types of vector and source files .AI, JPEG, .PNG, PDF, EPS in high resolution WORKFLOW Precise and Strong Communication - Research on current trend - Sketching the initial concepts and Digitalizing it - Submission for Review - Modifications for making the design perfect Minimalist Logo | Minimal | Professional | Modern | Text | Vintage | Badge | Hand drawn | Feminine | Signature | Custom | Watercolor | YouTube Channel | Beauty Customer satisfaction is my top-notch priority and I believe in providing my customer with smooth and comfortable journey on Fiverr. Sounds interesting?? Lets chat!!!Order a gig now and lets have the ball rolling!!!!",
+            description: "Hello, I am nadia. Welcome to my logo design gig. I specialize in business logo design. My design will be clean, trendy, minimal and original.I have successfully designed logos for many brands and now I am here on Fiverr to give the best. Why Me? Original, minimal, unique, high quality logo designs Premium customer support 24 x 7 Unlimited revisions, until you are satisfied All types of vector and source files .AI, JPEG, .PNG, PDF, EPS in high resolution WORKFLOW Precise and Strong Communication - Research on current trend - Sketching the initial concepts and Digitalizing it - Submission for Review - Modifications for making the design perfect Minimalist Logo | Minimal | Professional | Modern | Text | Vintage | Badge | Hand drawn | Feminine | Signature | Custom | Watercolor | YouTube Channel | Beauty Customer satisfaction is my top-notch priority and I believe in providing my customer with smooth and comfortable journey on Fiverr. Sounds interesting?? Lets chat!!!Order a gig now and lets have the ball rolling!!!!",
             imgUrls: ['https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685611697/gigs/c9dhyxfmh80hbuawemlm.jpg', ' https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607730/gigs/heyuacvxghfilhbloyay.jpg', ' https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607711/gigs/utfc8fxcnbhrl2jken2o.jpg', ' https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607696/gigs/zvysug7d3tdvekqdfms5.jpg'],
             category: "Graphics & Design",
             tags: [
-                "logo-design",
+                "logo design",
                 "artisitic",
                 "proffesional",
                 "accessible",
-                "Logo design",
-
             ],
-            likedByUsers: [120]
+            likedByUsers: 727,
+            reviews: [
+                {
+                    name: "tobiaspille300",
+                    country: "Thailand",
+                    flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
+                    review: "nadia is a super kind artist doing the process he was super professional and only took her 1 shot to deliver a perfect result ! Highly recommended work with this guy !",
+                    reviewedAt: "2 months ago",
+                    rate: 5
+
+                },
+                {
+                    name: "ligc2023",
+                    country: "United States",
+                    flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
+                    review: "Very easy. nadia_younus asked what we wanted and implemented it exactly to our needs. Can't wait to work again in the future.",
+                    reviewedAt: "6 days ago",
+                    rate: 5
+
+                },
+                {
+                    name: "stoxventures",
+                    country: "Canada",
+                    flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
+                    review: "Nadia is such a pleasure to work with. I am a repeat customer. She's always friendly, professional, creative and very talented!",
+                    reviewedAt: "2 weeks ago",
+                    rate: 5
+                },
+                {
+                    name: "sandro_koenig",
+                    country: "Switzerland",
+                    flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
+                    review: "Sehr effizient und Projekt genau nach meinen Anforderungen erfüllt. Sehr gerne wieder! Vielen Dank.",
+                    reviewedAt: "14 hours ago",
+                    rate: 5
+                },
+                {
+                    name: "stoxventures",
+                    country: "Canada",
+                    flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
+                    review: "Nadia is such a pleasure to work with. I am a repeat customer. She's always friendly, professional, creative and very talented!",
+                    reviewedAt: "2 weeks ago",
+                    rate: 5
+                },
+                {
+                    name: "ruobingyang",
+                    country: "Netherlands",
+                    flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
+                    review: "Great communication! Nice design! Appreciate your help!",
+                    reviewedAt: "2 days ago",
+                    rate: 5
+                },
+            ]
         },
 
         {
@@ -174,7 +229,7 @@ function _createGigs() {
                 "Minimalist",
                 "WordPress"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 131
         },
         {
             _id: "i103",
@@ -194,7 +249,7 @@ function _createGigs() {
             tags: [
                 "Minimalist",
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 152
         },
         {
             _id: "i104",
@@ -215,7 +270,7 @@ function _createGigs() {
                 "Minimalist",
                 "Logo Design"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 117
         },
         {
             _id: "i105",
@@ -235,7 +290,7 @@ function _createGigs() {
                 "Minimalist",
                 "AI services"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 146
         },
         {
             _id: "i106",
@@ -258,7 +313,7 @@ function _createGigs() {
                 "architecture",
                 "landscape"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 132
         },
         {
             _id: "i107",
@@ -281,7 +336,7 @@ function _createGigs() {
                 "3d design",
                 "landscape design"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 528
         },
         {
             _id: "i108",
@@ -303,7 +358,7 @@ function _createGigs() {
                 "pencil sketch",
                 "landscape design"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 694
         },
         {
             _id: "i109",
@@ -325,7 +380,7 @@ function _createGigs() {
                 "pool design",
                 "landscape design"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 854
         },
         {
             _id: "i110",
@@ -371,7 +426,7 @@ function _createGigs() {
                 "responsive",
                 "ecommerce website"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 364
         },
         {
             _id: "i112",
@@ -395,7 +450,7 @@ function _createGigs() {
                 "wordpress website",
                 "wordpress services"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 847
         },
         {
             _id: "i113",
@@ -415,7 +470,7 @@ function _createGigs() {
             tags: [
                 "wordpress issue fix"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 235
         },
         {
             _id: "i114",
@@ -437,7 +492,7 @@ function _createGigs() {
                 "ghostwriting",
                 "poetry"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 415
         },
         {
             _id: "i115",
@@ -458,7 +513,7 @@ function _createGigs() {
                 "explainer video",
                 "animated video"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 118
         },
         {
             _id: "i116",
@@ -480,7 +535,7 @@ function _createGigs() {
                 "audio recording",
                 "music"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 261
         },
         {
             _id: "i117",
@@ -501,7 +556,7 @@ function _createGigs() {
                 "unique",
                 "creative"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 351
         },
         {
             _id: "i118",
@@ -524,7 +579,7 @@ function _createGigs() {
                 "unique",
                 "creative"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 613
         },
         {
             _id: "i119",
@@ -547,7 +602,7 @@ function _createGigs() {
                 "selling",
                 "best seller"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 168
         },
         {
             _id: "i120",
@@ -570,7 +625,7 @@ function _createGigs() {
                 "artcharacter design",
                 "product design"
             ],
-            likedByUsers: ['mini-user']
+            likedByUsers: 924
         },
 
 
