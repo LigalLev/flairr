@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { gigService } from "../services/gig.service.local"
+import { gigService } from "../services/gig.service"
 import { userService } from "../services/user.service"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useParams, useNavigate } from "react-router-dom"

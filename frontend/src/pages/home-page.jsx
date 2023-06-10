@@ -9,7 +9,7 @@ export function HomePage() {
     const dispatch = useDispatch()
     const count = useSelector(storeState => storeState.userModule.count)
     const iconCategories = categories.filter(category => category.iconUrl)
-    console.log('iconCategories: ', iconCategories)
+    // console.log('iconCategories: ', iconCategories)
 
     return (
         <section className="home-page main-layout full">

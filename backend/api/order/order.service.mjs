@@ -4,17 +4,13 @@ import { utilService } from '../../services/util.service.mjs'
 import mongodb from 'mongodb'
 const { ObjectId } = mongodb
 
-async function query() {
+async function query(filterBy) {
     try {
         const criteria = {
+            "buyer._id": filterBy.buyerId
         }
         const collection = await dbService.getCollection('order')
-        var orderCursor = await collection.find(criteria)
-
-        // if (filterBy.pageIdx !== undefined) {
-        //     orderCursor.skip(filterBy.pageIdx * PAGE_SIZE).limit(PAGE_SIZE)     
-        // }
-
+        let orderCursor = await collection.find(criteria)
         const orders = orderCursor.toArray()
         return orders
     } catch (err) {
@@ -48,9 +44,31 @@ async function remove(orderId) {
 
 async function add(order) {
     try {
+        const orderTosave = order
+
+
+        // "buyer": {
+        //     "_id": "",
+        //     "fullname": ""
+        // },
+        // "seller": {
+        //     "_id": "",
+        //     "fullname": ""
+        // },
+        // "gig": {
+        //     "_id": "",
+        //     "title": "I will design modern minimalist elegant logo",
+        //     "package": {
+        //         "price": 20,
+        //         "daysToComplete": 4
+        //     },
+        //     "imgUrl": "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607894/gigs/yc9ye93cjn3gfpgzsaid.png"
+        // },
+        // "status": "Pending"
+
         const collection = await dbService.getCollection('order')
-        await collection.insertOne(order)
-        return order
+        await collection.insertOne(orderTosave)
+        return orderTosave
     } catch (err) {
         logger.error('cannot insert order', err)
         throw err

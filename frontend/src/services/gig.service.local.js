@@ -108,7 +108,6 @@ function getDefaultFilter() {
 function getEmptyGig() {
     const user = userService.getLoggedinUser()
     return {
-        _id: '',
         title: '',
         description: '',
         imgUrls: [],
@@ -122,7 +121,6 @@ function getEmptyGig() {
         category: '',
         tags: [],
         likedByUsers: [],
-
         packages: {
             basic: {
                 price: '',

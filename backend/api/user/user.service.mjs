@@ -77,7 +77,15 @@ async function update(user) {
         // peek only updatable properties
         const userToSave = {
             _id: ObjectId(user._id), // needed for the returnd obj
+            username: user.username,
+            password: user.password,
             fullname: user.fullname,
+            imgUrl: user.imgUrl,
+            flag: user.flag,
+            profession: user.profession, 
+            launguage: user.launguage,
+            about: user.about,
+            memberSince: user.memberSince
         }
         const collection = await dbService.getCollection('user')
         await collection.updateOne({ _id: userToSave._id }, { $set: userToSave })
@@ -96,8 +104,8 @@ async function add(user) {
             password: user.password,
             fullname: user.fullname,
             imgUrl: user.imgUrl,
-            score: 100
         }
+
         const collection = await dbService.getCollection('user')
         await collection.insertOne(userToAdd)
         return userToAdd
@@ -125,7 +133,5 @@ function _buildCriteria(filterBy) {
     }
     return criteria
 }
-
-
 
 

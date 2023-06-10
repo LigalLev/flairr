@@ -4,7 +4,7 @@ import {logger} from '../../services/logger.service.mjs'
 export async function getGigs(req, res) {
   try {
     logger.debug('Getting Gigs:', req.query)
-    console.log('req.query:', req.query.txt)
+    // console.log('req.query:', req.query.txt)
     const  filterBy  = req.query
     const gigs = await gigService.query(filterBy)
     res.json(gigs)

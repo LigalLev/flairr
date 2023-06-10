@@ -39,30 +39,28 @@ function remove(userId) {
     // return httpService.delete(`user/${userId}`)
 }
 
-async function update({ _id, score }) {
-    const user = await storageService.get('user', _id)
-    // user.score = score
+async function update({ _id }) {
+    const user = await httpService.get('user', _id)
     await storageService.put('user', user)
 
-    // const user = await httpService.put(`user/${_id}`, {_id, score})
     // Handle case in which admin updates other user's details
     if (getLoggedinUser()._id === user._id) saveLocalUser(user)
     return user
 }
 
 async function login(userCred) {
-    const users = await storageService.query('user')
-    const user = users.find(user => user.username === userCred.username)
-    // const user = await httpService.post('auth/login', userCred)
+    // const users = await httpService.query('user')
+    // const user = users.find(user => user.username === userCred.username)
+    const user = await httpService.post('auth/login', userCred)
     if (user) {
-        return saveLocalUser(user)
+        return user
     }
 }
 async function signup(userCred) {
     if (!userCred.imgUrl) userCred.imgUrl = 'https://res.cloudinary.com/dqhfnvtca/image/upload/v1686399022/flairr/profile_pic_rvmsjs.svg'
-    const user = await storageService.post('user', userCred)
-    // const user = await httpService.post('auth/signup', userCred)
-    return saveLocalUser(user)
+    // const user = await httpService.post('user', userCred)
+    const user = await httpService.post('auth/signup', userCred)
+    return user
 }
 async function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
@@ -91,6 +89,15 @@ function saveLocalUser(user) {
 function getLoggedinUser() {
     return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
+
+function getEmptyCredentials() {
+    return {
+      fullname: '',
+      username: '',
+      password: '',
+      isAdmin: false,
+    }
+  }
 
 
 // ;(async ()=>{

@@ -6,6 +6,7 @@ import { userService } from './user.service.js'
 
 
 const STORAGE_KEY = 'gig'
+const BASE_URL = 'gig/'
 
 export const gigService = {
     query,
@@ -20,16 +21,24 @@ export const gigService = {
 window.cs = gigService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
-    return httpService.get(STORAGE_KEY, filterBy)
+async function query() {
+    const filterKeysValues = window.location.search
+    const urlParams = new URLSearchParams(filterKeysValues)
+    const filterBy = {
+        txt: urlParams.get('txt'),
+        category: urlParams.get('category'),
+        tag: urlParams.get('tag')
+    }
+    return httpService.get(BASE_URL, filterBy)
 }
 
 function getById(gigId) {
-    return httpService.get(`gig/${gigId}`)
+    console.log(':gigId', gigId )
+    return httpService.get(BASE_URL + gigId)
 }
 
 async function remove(gigId) {
-    return httpService.delete(`gig/${gigId}`)
+    return httpService.delete(BASE_URL + gigId)
 }
 async function save(gig) {
     var savedGig
@@ -48,22 +57,27 @@ async function addGigMsg(gigId, txt) {
 }
 
 
+function getDefaultFilter() {
+    return { txt: '', category: '', price: 0 }
+}
+
+
+function getImgUrl(imgUrl) {
+    const tempUrl = "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"
+    if (imgUrl) return imgUrl
+    return tempUrl
+
+}
+
 function getEmptyGig() {
+    const user = userService.getLoggedinUser()
     return {
-        _id: '',
         title: '',
         description: '',
         imgUrls: [],
-        owner: {
-            "_id": '',
-            "fullname": '',
-            "imgUrl": '',
-            "level": '',
-            "rate": ''
-        },
+        category: '',
         tags: [],
         likedByUsers: [],
-
         packages: {
             basic: {
                 price: '',
@@ -82,17 +96,4 @@ function getEmptyGig() {
             }
         }
     }
-}
-
-
-function getDefaultFilter() {
-    return { txt: '', category: '', price: 0 }
-}
-
-
-function getImgUrl(imgUrl) {
-    const tempUrl = "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"
-    if (imgUrl) return imgUrl
-    return tempUrl
-
 }
