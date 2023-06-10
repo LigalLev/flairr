@@ -5,6 +5,8 @@
         font-size: rem(20px);
         line-height: 28px;
         padding-block: 1.5625em;
+        color: $clr8;
+
     }
 
     .seller-name-email-wrapper {
@@ -75,6 +77,7 @@
 
                         span {
                             color: $clrInProgress;
+                            font-family: Macan-bold;
                         }
                     }
                 }
@@ -88,8 +91,9 @@
                 border: 1px solid $clr8;
                 border-radius: 0.25em;
                 background: none;
-                color: black;
                 padding: 0.75em 1.5em;
+                font-family: Macan-semibold;
+
                 color: $clr5;
             }
 
@@ -101,5 +105,40 @@
         border-radius: 0.1875em;
         margin-top: 0;
         padding: 1.5em;
+
+        .seller-short-info-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 1px solid $grey2;
+
+
+            &>* {
+                display: flex;
+                flex-direction: column;
+                color: $clr5;
+                font-family: Macan;
+                padding-bottom: 1em;
+                font-size: rem(16px);
+
+                span {
+                    font-family: Macan-bold;
+                    padding-block-start: 0.25em;
+                }
+            }
+        }
+
+        .seller-about {
+            overflow: hidden;
+            white-space: pre-line;
+            font-family: Macan;
+            color: $clr5;
+            margin-block-start: 1em;
+
+            p{
+                line-height: 150%;
+                text-align: left;
+                font-size: rem(16px);
+            }
+        }
     }
 }

@@ -76,7 +76,6 @@ export function GigDetails() {
                                     {gig.owner.rate} <span>(116)</span>
                                 </div>
                             </div>
-                            {/* <span className="gig-rate">{getRatingString(gig)}</span> */}
                             <p className="gig-orders">14 Orders in Queue</p>
                         </div>
                     </div>
@@ -95,10 +94,19 @@ export function GigDetails() {
 
                 <article className="about-gig-container">
                     <h3>About this gig</h3>
-                    <p>{gig.description}</p>
+                    {/* {const splitedDescription = gig.description.split('/n')} */}
+
+                    {gig.description.split('\n').map((section, idx) => (
+                        <p key={idx} >
+                            {section}
+                        </p>
+                    ))}
+                    {/* <p>{gig.description}</p> */}
+                    {/* <pre >{gig.description}</pre> */}
+                    {/* <p dangerouslySetInnerHTML={{__html: textDataWithLineBreaks}}> {textDataWithLineBreaks} </p> */}
                 </article>
 
-                <article>
+                <article className="about-seller-container">
                     <AboutTheSeller
                         gig={gig}
                     />
