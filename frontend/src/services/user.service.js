@@ -2,16 +2,11 @@ import { storageService } from './async-storage.service'
 import { httpService } from './http.service'
 import { utilService } from './util.service.js'
 
-<<<<<<< HEAD
 // _createUsers()
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 const STORAGE_KEY= 'users'
-=======
 
-
-const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
->>>>>>> refs/remotes/origin/main
 
 const GUEST = {
     _id: '0001',
@@ -31,10 +26,6 @@ export const userService = {
     getById,
     remove,
     update,
-<<<<<<< HEAD
-    changeScore,
-=======
->>>>>>> refs/remotes/origin/main
 }
 
 window.userService = userService
@@ -85,42 +76,18 @@ async function signup(userCred) {
     return saveLocalUser(user)
 }
 async function logout() {
-<<<<<<< HEAD
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
     // return await httpService.post('auth/logout')
 }
 
-async function changeScore(by) {
-    const user = getLoggedinUser()
-    if (!user) throw new Error('Not loggedin')
-    user.score = user.score + by || by
-    await update(user)
-    return user.score
-}
-
-
-function saveLocalUser(user) {
-    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, username: '', level: 'Basic', reviews: [] }
-    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
-=======
-    localStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-    // return await httpService.post('auth/logout')
-}
-
-
 function saveLocalUser(user) {
     user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, username: '', level: 'Basic', reviews: [] }
     localStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
->>>>>>> refs/remotes/origin/main
     return user
 }
 
 function getLoggedinUser() {
-<<<<<<< HEAD
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
-=======
     return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
->>>>>>> refs/remotes/origin/main
 }
 
 
@@ -156,51 +123,6 @@ function getUser() {
     ]
 }
 
-
-<<<<<<< HEAD
-// function _createUser() {
-//     let user = utilService.loadFromStorage(STORAGE_KEY_LOGGEDIN_USER)
-//     return [
-//         {
-//             _id: "seller1",
-//             fullname: "User 1",
-//             imgUrl: "/img/img1.jpg",
-//             username: "user1",
-//             password: "secret",
-//             level: "basic/premium",
-//             reviews: [
-//                 {
-//                     _id: "review1",
-//                     gig: "{optional-mini-gig}",
-//                     txt: "He is a super kind artist. While processing the project he was super professional and only took him 1 shot to deliver a perfect result!",
-//                     rate: 4,
-//                     reviewedAt: "1 week ago",
-//                     byUser: {
-//                         _id: "buyer1",
-//                         fullname: 'Anna_brod',
-//                         imgUrl: "https://res.cloudinary.com/dm4cdho4d/image/upload/v1685460594/cld-sample.jpg",
-//                         country: 'United state',
-//                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-//                     }
-//                 },
-//                 {
-//                     _id: "review2",
-//                     gig: "{optional-mini-gig}",
-//                     txt: "It was great to work with. Communication was prompt and clear. All deadlines were met without issue. I will be using them again when I am ready for another project.",
-//                     rate: 5,
-//                     reviewedAt: "2 week ago",
-//                     byUser: {
-//                         _id: "buyer2",
-//                         fullname: 'colton_miller',
-//                         imgUrl: "https://res.cloudinary.com/dm4cdho4d/image/upload/v1685460594/cld-sample.jpg",
-//                         country: 'United state',
-//                         flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-//                     }
-//                 }
-//             ],
-//         },
-//     ]
-// }
 
 function _createUsers() {
     let users = utilService.loadFromStorage(STORAGE_KEY_LOGGEDIN_USER)
@@ -476,51 +398,6 @@ function _createUsers() {
 }
 
 
-=======
-function _createUser() {
-    let user = utilService.loadFromStorage(STORAGE_KEY_LOGGEDIN_USER)
-    return [
-        {
-            _id: "seller1",
-            fullname: "User 1",
-            imgUrl: "/img/img1.jpg",
-            username: "user1",
-            password: "secret",
-            level: "basic/premium",
-            reviews: [
-                {
-                    _id: "review1",
-                    gig: "{optional-mini-gig}",
-                    txt: "He is a super kind artist. While processing the project he was super professional and only took him 1 shot to deliver a perfect result!",
-                    rate: 4,
-                    reviewedAt: "1 week ago",
-                    byUser: {
-                        _id: "buyer1",
-                        fullname: 'Anna_brod',
-                        imgUrl: "https://res.cloudinary.com/dm4cdho4d/image/upload/v1685460594/cld-sample.jpg",
-                        country: 'United state',
-                        flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-                    }
-                },
-                {
-                    _id: "review2",
-                    gig: "{optional-mini-gig}",
-                    txt: "It was great to work with. Communication was prompt and clear. All deadlines were met without issue. I will be using them again when I am ready for another project.",
-                    rate: 5,
-                    reviewedAt: "2 week ago",
-                    byUser: {
-                        _id: "buyer2",
-                        fullname: 'colton_miller',
-                        imgUrl: "https://res.cloudinary.com/dm4cdho4d/image/upload/v1685460594/cld-sample.jpg",
-                        country: 'United state',
-                        flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-                    }
-                }
-            ],
-        },
-    ]
-}
->>>>>>> refs/remotes/origin/main
 function getEmptyUser() {
     return {
         _id: '',
