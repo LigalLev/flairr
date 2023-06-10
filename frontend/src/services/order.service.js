@@ -82,13 +82,14 @@ async function remove(orderId) {
 }
 
 async function save(order) {
+  console.log('order from BE!!!!!!:', order)
   var savedOrder
   if (order._id) {
-    savedOrder = await storageService.put(STORAGE_KEY, order)
+    savedOrder = await httpService.put(BASE_URL, order)
   } else {
     // Later, owner is set by the backend
-    order.gig.user = userService.getLoggedinUser()
-    savedOrder = await storageService.post(STORAGE_KEY, order)
+    // order.gig.user = userService.getLoggedinUser()
+    savedOrder = await httpService.post(BASE_URL, order)
   }
   return savedOrder
 }

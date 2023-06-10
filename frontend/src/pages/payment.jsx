@@ -4,8 +4,10 @@ import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service"
 import { useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { orderService } from "../services/order.service"
-import { gigService } from "../services/gig.service.local"
+import { gigService } from "../services/gig.service"
 import { saveOrder } from '../store/order.action'
+import { userService } from '../services/user.service'
+import { useSelector } from 'react-redux'
 
 
 export function Payment() {
@@ -14,6 +16,8 @@ export function Payment() {
     const navigate = useNavigate()
     const included = ['Vector file', 'One concept included', 'Include source file', 'Progress update', 'Printable file']
     const [orderToSave, setOrderToSave] = useState(orderService.getEmptyOrder())
+    
+    const loggedInUser = useSelector(storeState => storeState.userModule.user)
 
     useEffect(() => {
         loadGig()
@@ -21,6 +25,7 @@ export function Payment() {
 
     async function loadGig() {
         try {
+            console.log('gigId in load gig in payment:', gigId)
             const gig = await gigService.getById(gigId)
             setGig(gig)
 
@@ -34,13 +39,18 @@ export function Payment() {
 
     async function onAddOrder(orderToSave) {
         try {
-            // console.log('gig:', gig)
+            console.log('gig from on add order:', gig)
+            console.log('user from on add order:', loggedInUser)
+            
             const newOrder = orderToSave
             newOrder.gig._id = gig._id
             newOrder.gig.title = gig.title
             newOrder.gig.imgUrl = gig.imgUrls[0]
             newOrder.gig.price = gig.price
             newOrder.seller.fullname = gig.owner.fullname
+            newOrder.seller._id = gig.owner._id
+            newOrder.buyer.fullName = loggedInUser.fullName
+            newOrder.buyer._id = loggedInUser._id
             setOrderToSave(newOrder)
             const savedOrder = await saveOrder(orderToSave)
             showSuccessMsg(`order added (id: ${savedOrder._id})`)

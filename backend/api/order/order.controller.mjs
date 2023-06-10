@@ -2,8 +2,9 @@ import {orderService} from './order.service.mjs'
 import {logger} from '../../services/logger.service.mjs'
 
 export async function getOrders(req, res) {
+  
     try {
-      logger.debug('Getting Gigs:', req.query)
+      logger.debug('Getting Orders:', req.query)
       const  filterBy   = req.query
       const orders = await orderService.query(filterBy)
       res.json(orders)
@@ -23,6 +24,7 @@ export async function getOrders(req, res) {
     }
   }
   export async function addOrder(req, res) {
+    console.log('req:', req)
     // const {loggedinUser} = req
     try {
       const order = req.body
