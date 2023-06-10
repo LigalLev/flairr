@@ -48,7 +48,9 @@ export function SearchFilter(props) {
         setFilterBy({ txt: filterBySearch })
         setIsOpen(false)
         // setSearchParams({ ...searchParams, txt: filterBySearch })
+        // navigate(`gig/?txt=${filterBySearch.toString()}`)
         navigate(`gig/?txt=${filterBySearch.toString()}`)
+        // navigate("/gig")
     }
 
     function onChange({ target }) {

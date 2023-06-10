@@ -26,6 +26,7 @@ export function getActionUpdateGig(gig) {
 }
 
 export async function loadGigs(filterBy) {
+    console.log('inside loadGigs with',filterBy)
     try {
         const gigs = await gigService.query(filterBy)
         console.log('Gigs from DB:', gigs)

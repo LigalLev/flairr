@@ -1,22 +1,40 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { loadGigs, addGig, updateGig, removeGig, addToCart } from '../store/gig.actions.js'
+import { loadGigs, addGig, updateGig, removeGig, addToCart, setFilterBy } from '../store/gig.actions.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 // import { gigService } from '../services/gig.service.js'
 import { gigService } from '../services/gig.service.local.js'
 import { GigList } from '../cmps/gig-list.jsx'
 import { CarouselContainer } from '../cmps/carousel-container.jsx'
 import { GigFilter } from '../cmps/search-filter.jsx'
+import { useLocation, useSearchParams } from 'react-router-dom'
+
 
 export function GigIndex() {
     
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
-
-
+    const location = useLocation()
+    const [searchParams, setSearchParams] = useSearchParams(new URLSearchParams(location.search))
+    
+    let paramsObj={}
     useEffect(() => {
         loadGigs(filterBy)
-    }, [])
+        // for(const [key,value] of searchParams.entries()){
+        //     paramsObj[key]=value
+        // }
+        // if(Object.keys(paramsObj).length > 0){
+        //     console.log('PARAMSSSSSSSSSSSSSSSSSSS')
+        //     setFilterBy(paramsObj)
+        //     loadGigs(paramsObj)
+        // } else {
+        //     setSearchParams(filterBy)
+        //     console.log('REUUUUUUUUUUUUUUXXXXX')
+
+        //     loadGigs(filterBy)
+        // }
+    
+    }, [searchParams])
 
     async function onRemoveGig(gigId) {
         try {

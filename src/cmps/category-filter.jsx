@@ -15,8 +15,9 @@ export function CategoryFilter(props) {
         // ev.preventDefault()
        const filterByCategory ={ category:  category  }
         setFilterBy(filterByCategory)
-        loadGigs(filterByCategory)
-        navigate('/gig')
+        navigate(`gig/?category=${filterByCategory.category}`)
+        // loadGigs(filterByCategory)
+        // navigate('/gig')
     }
 
     return <div className='categoty-btns-container main-layout full'> <ul className='category-btns'>
