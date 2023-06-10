@@ -63,6 +63,7 @@ export function BecomeSeller() {
                 initialValues={user || userService.getEmptyUser}
                 validationSchema={user ? sellerSchema : userSellerSchema}
                 onSubmit={onSubmit}
+                enableReinitialize={true}
             >
                 {({ errors, touched, dirty, setFieldValue }) => (
                     <Form className='formik become-seller-form'>
@@ -92,6 +93,13 @@ export function BecomeSeller() {
                             <div>
                                 <Field as={CustomInput} name='about' />
                                 {errors['about'] && touched['about'] && <div className="error">{errors['about']}</div>}
+                            </div>
+                        </label>
+                   
+                        <label htmlFor='from'>Country
+                            <div>
+                                <Field as={CustomInput} name='from' />
+                                {errors['from'] && touched['from'] && <div className="error">{errors['from']}</div>}
                             </div>
                         </label>
 

@@ -7,15 +7,6 @@ import { utilService } from './util.service.js'
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 const STORAGE_KEY = 'users'
 
-
-const GUEST = {
-    _id: '0001',
-    fullname: 'Guest',
-    imgUrl: 'https://res.cloudinary.com/dqhfnvtca/image/upload/v1686055437/flairr/undraw_male_avatar_g98d_nn0ijg.svg',
-    level: 'Basic',
-    rate: 5
-}
-
 export const userService = {
     login,
     logout,
@@ -88,6 +79,7 @@ function saveLocalUser(user) {
         profession: user.profession,
         from: user.from,
         languages: user.languages,
+        memberSince: user.memberSince,
         about: user.about,
         reviews: [],
         rate: 5

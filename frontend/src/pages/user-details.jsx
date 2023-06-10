@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 
 import { loadUser } from '../store/user.actions'
 import { store } from '../store/store'
@@ -36,22 +36,40 @@ export function UserDetails() {
 
   return (
     <section className="user-details">
-      <h1>User Details</h1>
-      {user && <div>
-        <h3>
-          {user.fullname}
-        </h3>
-        {/* Demo for dynamic images: */}
-        <div className="user-img" style={{ backgroundImage: `url(${user.imgUrl})` }}>
-        </div>
-        <pre>
-          {JSON.stringify(user, null, 2)}
-        </pre>
-      </div>}
 
+      {user && <div>
+
+
+        <article className="user-info">
+          <div
+            className="user-img"
+            style={{ backgroundImage: `url(${user.imgUrl})` }}>
+          </div>
+          <h3>
+            {user.fullname}
+          </h3>
+          <p>@{user.username}</p>
+
+          <div>
+            <p>From</p>
+            <p>{user.from}</p>
+            <p>Member since</p>
+            <p>{user.memberSince}</p>
+          </div>
+        </article>
+
+        <article className="user-action">
       {user.profession &&
         <button onClick={() => navigate('/gig/edit')}>Create a new gig</button>
+        
+        // <Link to='/gig-dashboard'>Dashboard</Link>
       }
+
+
+        </article>
+
+      </div>}
+
     </section>
   )
 }
