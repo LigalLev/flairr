@@ -14,7 +14,8 @@ export function TagFilter(props) {
         const filterByTag = { tag: tag }
         setFilterBy(filterByTag)
         loadGigs(filterByTag)
-        navigate('/gig')
+        navigate(`gig/?tag=${tag}`)
+        
     }
 
 

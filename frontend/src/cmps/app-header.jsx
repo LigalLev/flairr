@@ -33,7 +33,6 @@ export function AppHeader() {
     function onScroll() {
         setIsHomePageTop((location.pathname === '/') && (window.pageYOffset === 0))
         setIsFilterVisible((location.pathname !== '/') || (window.pageYOffset > 152))
-
     }
 
     function toggleSignup() {
@@ -83,7 +82,7 @@ export function AppHeader() {
     }
 
     function onClickExpolore() {
-console.log(':hi' )
+        console.log(':hi')
         setFilterBy({})
         // navigate('/gig')
     }
@@ -98,10 +97,10 @@ console.log(':hi' )
                     </Link>
                 </div>
 
-                <SearchFilter placeholder={'What service are you looking for today?'} />
+                <SearchFilter placeholder={'What service are you looking for today?'} isDarkening={true}/>
 
                 <nav>
-                    <NavLink to="/gig"  onClick={()=>onClickExpolore()} className="orders-btn"> Explore</NavLink>
+                    <NavLink to="/gig" onClick={() => onClickExpolore()} className="orders-btn"> Explore</NavLink>
                     <NavLink to="/gigs-dashboard">Become a Seller</NavLink>
                     <div>
                         <button onClick={onClickOrders} className="orders-btn">Orders</button>

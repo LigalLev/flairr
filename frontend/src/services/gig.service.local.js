@@ -15,9 +15,27 @@ export const gigService = {
     getDefaultFilter,
 }
 window.cs = gigService
+// const criteria = {};
 
+// if (filterBy.name) {
+//   criteria.$or = [
+//     { name: { $regex: filterBy.name, $options: 'i' } },
+//     { field2: { $regex: filterBy.name, $options: 'i' } },
+//     { field3: { $regex: filterBy.name, $options: 'i' } }
+//     // Add more fields as needed
+//   ];
+// }
 
-async function query(filterBy = { title: '', price: 0 }) {
+// async function query(filterBy = { title: '', price: 0 }) {
+async function query() {
+    const filterKeysValues = window.location.search
+    const urlParams = new URLSearchParams(filterKeysValues)
+    const filterBy = {
+        txt: urlParams.get('txt'),
+        category: urlParams.get('category'),
+        tag: urlParams.get('tag')
+    }
+
     let gigs = await storageService.query(STORAGE_KEY)
     if (filterBy.txt) {
         const regex = new RegExp(filterBy.txt, 'i')
@@ -30,7 +48,7 @@ async function query(filterBy = { title: '', price: 0 }) {
         })
     }
     if (filterBy.category) {
-        gigs = gigs.filter(gig => gig.category === filterBy.category)
+        gigs = gigs.filter(gig => gig.category === utilService.formatSearchParam(filterBy.category))
     }
     if (filterBy.tag) {
         gigs = gigs.filter((gig) => {
@@ -54,7 +72,6 @@ async function remove(gigId) {
 }
 
 async function save(gig) {
-    console.log('hi from service ♥♥♥♥♥♥')
     console.log('gig: ', gig)
     let savedGig
     if (gig._id) {
