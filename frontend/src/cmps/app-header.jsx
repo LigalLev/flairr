@@ -119,7 +119,7 @@ export function AppHeader() {
 
                     {(user) ?
                         <>
-                            <span className="user-info">
+                            <span className="user-info flex">
                                 <div
                                     className="user-profile-img"
                                     title={user.fullname}
