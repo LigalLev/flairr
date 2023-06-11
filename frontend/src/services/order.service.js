@@ -30,10 +30,9 @@ async function query(filterBy) {
 
 function getEmptyOrder() {
   return {
-    _id: "",
     buyer: {
-      _id: "b101",
-      fullname: "Puki"
+      _id: "",
+      fullname: ""
     },
     seller: {
       _id: "",
