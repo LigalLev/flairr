@@ -2,24 +2,24 @@ import { StarRating } from "../cmps/star-rating-new"
 
 export function AboutTheSeller({ user, gig }) {
 
-
+console.log('userowner!!:', user)
     return (
         <section className="about-the-seller">
             <h1 className="about-seller-header">About the seller</h1>
             {user && <section>
                 <div className="seller-profesional-info-wrapper">
                     <div className="about-seller-img">
-                        {/* <img src={user.imgUrl} alt="owner-img" className="details-owner-img" /> */}
+                        <img src={user.imgUrl} alt="owner-img" className="details-owner-img" />
                     </div>
                     <div className="seller-details-wrapper">
                         <div className="seller-name-email-wrapper">
-                            {/* <h2>{user.fullname}</h2> */}
-                            {/* <p className="about-gig-email">@{gig.owner.fullname}</p> */}
+                            <h2>{user.fullname}</h2>
+                            <p className="about-gig-email">@{user.fullname}</p>
                         </div>
                         <div className="seller-profession-rating-wrapper">
-                            {/* <p className="seller-profession">{gig.owner.profession}</p> */}
+                            <p className="seller-profession">{user.profession}</p>
                             <div className="rating-wrapper">
-                                {/* <StarRating rating={gig.owner.rate} /> */}
+                                <StarRating rating={user.rate} />
                                 {/* <p><span>{gig.owner.rate}</span> ({gig.likedByUsers})</p> */}
                             </div>
                         </div>
@@ -29,18 +29,18 @@ export function AboutTheSeller({ user, gig }) {
                 <div className="seller-personal-info-wrapper">
                     <div className="seller-short-info-wrapper">
                         <div>From
-                            {/* <span>{gig.owner.from}</span> */}
+                            <span>{user.from}</span>
                         </div>
                         <div>Member since
-                            {/* <span>{gig.owner.memberSince}</span> */}
+                            <span>{user.memberSince}</span>
                         </div>
                         <div>Languages
-                            {/* <span>{gig.owner.languages}</span> */}
+                            <span>{user.languages}</span>
                         </div>
                     </div>
 
                     <div className="seller-about">
-                        <p>{gig.owner.about}</p>
+                        {/* <p>{gig.owner.about}</p> */}
                     </div>
                 </div>
 

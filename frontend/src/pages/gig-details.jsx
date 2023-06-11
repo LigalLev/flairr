@@ -17,7 +17,8 @@ import { ReviewList } from "../cmps/review-list"
 
 export function GigDetails() {
     const [gig, setGig] = useState(null)
-    const user = useSelector(storeState => storeState.userModule.user)
+    const [owner, setOwner] = useState (null)
+    // const user = useSelector(storeState => storeState.userModule.user)
     const [isOpen, setIsOpen] = useState(false)
     const { gigId } = useParams()
 
@@ -27,21 +28,27 @@ export function GigDetails() {
         loadGig()
     }, [gigId])
 
+   
+
     useEffect(() => {
 
     }, [isOpen])
 
     async function loadGig() {
         try {
+
             const gig = await gigService.getById(gigId)
-            console.log('gig:', gig)
             setGig(gig)
+            const owner = await userService.getById(gig.owner._id)
+            console.log('gig:', gig)
+            setOwner(owner)
         } catch (err) {
             console.log('Had issues in order details', err)
             showErrorMsg('Cannot load order')
             navigate('/gig')
         }
     }
+
 
     function onToggleIsOpen() {
         setIsOpen(prevIsOpen => !prevIsOpen)
@@ -105,14 +112,14 @@ export function GigDetails() {
                 </article>
 
                 <article className="about-seller-container">
-                    <AboutTheSeller
-                        user={user}
-                    />
+                   {owner && <AboutTheSeller
+                        user={owner}
+                    />}
                 </article>
 
                 <article className="gig-review">
-                    <ReviewList 
-                    gig={gig}
+                    <ReviewList
+                        gig={gig}
                     />
                 </article>
 
