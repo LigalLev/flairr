@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { loadGigs, addGig, updateGig, removeGig, addToCart, setFilterBy } from '../store/gig.actions.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 // import { gigService } from '../services/gig.service.js'
-import { gigService } from '../services/gig.service.local.js'
+import { gigService } from '../services/gig.service.js'
 import { GigList } from '../cmps/gig-list.jsx'
 import { CarouselContainer } from '../cmps/carousel-container.jsx'
 import { GigFilter } from '../cmps/search-filter.jsx'
@@ -45,7 +45,7 @@ export function GigIndex() {
         }
     }
 
-    console.log('filterByindex:', filterBy)
+    // console.log('filterByindex:', filterBy)
 
     return (
         <section className="gig-index">

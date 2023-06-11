@@ -3,7 +3,6 @@ import { StarRating } from "../cmps/star-rating-new"
 export function AboutTheSeller({ gig }) {
 
 
-
     return (
         <section className="about-the-seller">
             <h1 className="about-seller-header">About the seller</h1>
@@ -36,7 +35,7 @@ export function AboutTheSeller({ gig }) {
                             <span>{gig.owner.memberSince}</span>
                         </div>
                         <div>Languages
-                            <span>{gig.owner.Languages}</span>
+                            <span>{gig.owner.languages}</span>
                         </div>
                     </div>
 

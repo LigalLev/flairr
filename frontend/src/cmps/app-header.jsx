@@ -9,6 +9,7 @@ import { setOrdeModalVisible, setOrderNotice } from '../store/order.action'
 import { SearchFilter } from './search-filter'
 import { CategoryFilter } from './category-filter'
 import { setFilterBy } from '../store/gig.actions'
+import { UserMenu } from './user-menu'
 
 export function AppHeader() {
     const location = useLocation()
@@ -18,6 +19,7 @@ export function AppHeader() {
     const isOrderModalOpen = useSelector(storeState => storeState.orderModule.isOrderModalOpen)
     const [isShowLoginSignup, setIsShowLoginSignup] = useState(false)
     const [isSignup, setIsSignup] = useState(false)
+    const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -28,6 +30,7 @@ export function AppHeader() {
     }, [location.pathname])
 
     useEffect(() => {
+        setIsUserMenuOpen(false)
     }, [location.pathname])
 
     function onScroll() {
@@ -50,6 +53,7 @@ export function AppHeader() {
 
     async function onLogin(credentials) {
         try {
+            console.log('credentials:', credentials)
             const user = await login(credentials)
             showSuccessMsg(`Welcome: ${user.fullname}`)
         } catch (err) {
@@ -67,6 +71,7 @@ export function AppHeader() {
     async function onLogout() {
         try {
             await logout()
+            setIsShowLoginSignup(false)
             showSuccessMsg(`Bye now`)
         } catch (err) {
             showErrorMsg('Cannot logout')
@@ -81,10 +86,14 @@ export function AppHeader() {
 
     }
 
-    function onClickExpolore() {
+    function onClickExplore() {
         console.log(':hi')
         setFilterBy({})
         // navigate('/gig')
+    }
+
+    function toggleUserMenu() {
+        setIsUserMenuOpen((prev) => !prev)
     }
 
     return (
@@ -97,39 +106,53 @@ export function AppHeader() {
                     </Link>
                 </div>
 
-                <SearchFilter placeholder={'What service are you looking for today?'} isDarkening={true}/>
+                <SearchFilter placeholder={'What service are you looking for today?'} isDarkening={true} />
 
                 <nav>
-                    <NavLink to="/gig" onClick={() => onClickExpolore()} className="orders-btn"> Explore</NavLink>
-                    <NavLink to="/gigs-dashboard">Become a Seller</NavLink>
+                    <NavLink to="/gig" onClick={() => onClickExplore()} className="orders-btn"> Explore</NavLink>
+                    <NavLink to="/become-seller">Become a Seller</NavLink>
                     <div>
                         <button onClick={onClickOrders} className="orders-btn">Orders</button>
                         {isOrderNotice && <span>🔴</span>}
                         {isOrderModalOpen && < OrderModal />}
                     </div>
-                    <NavLink onClick={() => {
-                        setIsSignup(false)
-                        setIsShowLoginSignup(true)
-                    }} to="/">Sign in</NavLink>
-                    <button onClick={() => {
-                        setIsSignup(true)
-                        setIsShowLoginSignup(true)
-                    }} className='join-btn'>Join</button>
-                    {/* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */}
 
-                    {user &&
-                        <span className="user-info">
-                            <Link to={`user/${user._id}`}>
-                                {user.imgUrl && <img src={user.imgUrl} />}
-                                {user.fullname}
-                            </Link>
-                            {/* <span className="score">{user.score?.toLocaleString()}</span> */}
-                            <button onClick={onLogout}>Logout</button>
-                        </span>
+                    {(user) ?
+                        <>
+                            <span className="user-info">
+                                <div
+                                    className="user-profile-img"
+                                    title={user.fullname}
+                                    onClick={toggleUserMenu}
+                                >
+                                    {user.imgUrl && <img src={user.imgUrl} />}
+                                </div>
+                                {isUserMenuOpen && 
+                                <UserMenu user={user} onLogout={onLogout}/>
+                                }
+                            </span>
+                        </>
+                        :
+                        <>
+                            <NavLink onClick={() => {
+                                setIsSignup(false)
+                                setIsShowLoginSignup(true)
+                            }} to="/">Sign in</NavLink>
+                            <button onClick={() => {
+                                setIsSignup(true)
+                                setIsShowLoginSignup(true)
+                            }} className='join-btn'>Join</button>
+                        </>
                     }
-                    {isShowLoginSignup &&
-                        <section className="user-info">
-                            <LoginSignup onLogin={onLogin} onSignup={onSignup} toggleSignup={toggleSignup} isSignup={isSignup} />
+                    {!user && isShowLoginSignup &&
+                        <section className="user-cred">
+                            <LoginSignup
+                                onLogin={onLogin}
+                                onSignup={onSignup}
+                                toggleSignup={toggleSignup}
+                                isSignup={isSignup}
+                                setIsShowLoginSignup={setIsShowLoginSignup}
+                            />
                         </section>
                     }
                 </nav>

@@ -1,0 +1,28 @@
+.become-seller {
+    background-color: $grey2;
+    width: 100%;
+    
+    input {
+        outline: none;
+        border: 1px solid $grey1;
+        &:focus {
+            border-color: $clr1;
+        }
+    }
+
+    .become-seller-form {
+        @include generic-form;
+        width: 100%;
+        margin-block-end: 1em;
+        h2 {
+            white-space: nowrap;
+        }
+    }
+
+    .language-select {
+        .language-checkboxes {
+            @include checkbox-form;
+            
+        }
+    }
+}

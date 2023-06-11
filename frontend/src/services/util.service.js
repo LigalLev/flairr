@@ -48,11 +48,11 @@ function randomPastTime() {
     return Date.now() - pastTime
 }
 
-function debounce(func, timeout = 300){
+function debounce(func, timeout = 300) {
     let timer
     return (...args) => {
-      clearTimeout(timer)
-      timer = setTimeout(() => { func.apply(this, args) }, timeout)
+        clearTimeout(timer)
+        timer = setTimeout(() => { func.apply(this, args) }, timeout)
     }
 }
 
@@ -79,17 +79,17 @@ function resizeImgUrl(url, params = 'w_440,h_230,c_fill') {
 }
 
 function formatSearchParam(searchParam) {
-    if (searchParam.includes('&')) return searchParam.replaceAll(' & ', '-')
-    else if (searchParam.includes('-')) return searchParam.replaceAll('-',' & ')
+    if (searchParam.includes('&')) return searchParam.replaceAll('&', '%26')
+    // else if (searchParam.includes('-')) return searchParam.replaceAll('%26',' & ')
     else return searchParam
 }
 
 //get random color HEX
 function getRandomColor() {
-    var letters = '0123456789ABCDEF';
+    var letters = '0123456789ABCDEF'
     var color = '#';
     for (var i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * 16)];
     }
-    return color;
+    return color
 }

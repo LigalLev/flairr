@@ -5,16 +5,7 @@ import { utilService } from './util.service.js'
 // _createUsers()
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
-const STORAGE_KEY= 'users'
-
-
-const GUEST = {
-    _id: '0001',
-    fullname: 'Guest',
-    imgUrl: 'https://res.cloudinary.com/dqhfnvtca/image/upload/v1686055437/flairr/undraw_male_avatar_g98d_nn0ijg.svg',
-    level: 'Basic',
-    rate: 5
-}
+const STORAGE_KEY = 'users'
 
 export const userService = {
     login,
@@ -26,6 +17,7 @@ export const userService = {
     getById,
     remove,
     update,
+    getEmptyUser
 }
 
 window.userService = userService
@@ -35,8 +27,6 @@ function getUsers() {
     return storageService.query('user')
     // return httpService.get(`user`)
 }
-
-
 
 async function getById(userId) {
     const user = await storageService.get('user', userId)
@@ -49,31 +39,30 @@ function remove(userId) {
     // return httpService.delete(`user/${userId}`)
 }
 
-async function update({ _id, score }) {
-    const user = await storageService.get('user', _id)
-    // user.score = score
+async function update({ _id }) {
+    const user = await httpService.get('user', _id)
     await storageService.put('user', user)
 
-    // const user = await httpService.put(`user/${_id}`, {_id, score})
     // Handle case in which admin updates other user's details
     if (getLoggedinUser()._id === user._id) saveLocalUser(user)
     return user
 }
 
 async function login(userCred) {
-    const users = await storageService.query('user')
-    const user = users.find(user => user.username === userCred.username)
-    // const user = await httpService.post('auth/login', userCred)
+    // const users = await httpService.query('user')
+    // const user = users.find(user => user.username === userCred.username)
+    const user = await httpService.post('auth/login', userCred)
     if (user) {
-        return saveLocalUser(user)
+        return user
     }
 }
 async function signup(userCred) {
-    userCred.score = 10000
-    if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
-    const user = await storageService.post('user', userCred)
-    // const user = await httpService.post('auth/signup', userCred)
-    return saveLocalUser(user)
+    if (!userCred.imgUrl) userCred.imgUrl = 'https://res.cloudinary.com/dqhfnvtca/image/upload/v1686399022/flairr/profile_pic_rvmsjs.svg'
+    // const user = await httpService.post('user', userCred)
+    console.log('userCred: ', userCred)
+    const user = await httpService.post('auth/signup', userCred)
+    console.log('user: ', user)
+    return user
 }
 async function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
@@ -81,7 +70,20 @@ async function logout() {
 }
 
 function saveLocalUser(user) {
-    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, username: '', level: 'Basic', reviews: [] }
+    user = {
+        _id: user._id,
+        fullname: user.fullname,
+        imgUrl: user.imgUrl,
+        username: user.username,
+        level: 'Basic',
+        profession: user.profession,
+        from: user.from,
+        languages: user.languages,
+        memberSince: user.memberSince,
+        about: user.about,
+        reviews: [],
+        rate: 5
+    }
     localStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -89,6 +91,15 @@ function saveLocalUser(user) {
 function getLoggedinUser() {
     return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
+
+function getEmptyCredentials() {
+    return {
+      fullname: '',
+      username: '',
+      password: '',
+      isAdmin: false,
+    }
+  }
 
 
 // ;(async ()=>{
@@ -405,6 +416,12 @@ function getEmptyUser() {
         imgUrl: '',
         username: '',
         password: '',
+        profession: '',
+        about: '',
+        from: '',
+        memberSince: Date.now(),
+        languages: [],
+        rate: '',
         level: 'Basic',
         reviews: [],
 

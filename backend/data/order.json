@@ -1,0 +1,22 @@
+[
+    {
+        "buyer": {
+            "_id": "6483441d525333284e0d178b",
+            "fullname": "nadia_younus"
+        },
+        "seller": {
+            "_id": "6483441d525333284e0d178c",
+            "fullname": "morningdesigns"
+        },
+        "gig": {
+            "_id": "64834818525333284e0d17b0",
+            "title": "I will design modern minimalist elegant logo",
+            "package": {
+                "price": 20,
+                "daysToComplete": 4
+            },
+            "imgUrl": "https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685607894/gigs/yc9ye93cjn3gfpgzsaid.png"
+        },
+        "status": "Pending"
+    }
+]

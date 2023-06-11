@@ -106,3 +106,14 @@ export const heroSlides = [
         occupation: 'Video Editor'
     },
 ]
+
+export const languages = [
+    'English',
+    'Spanish',
+    'Italian',
+    'French',
+    'Hebrew',
+    'Arabic',
+    'Russian',
+    'Chinese',
+    'Japanese']

@@ -8,10 +8,12 @@ export function LoginSignup(props) {
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
     // const [isSignup, setIsSignup] = useState(false)
     const [users, setUsers] = useState([])
-    const {isSignup} = props
+    const [isOpen, setIsOpen] = useState(false)
+    const { isSignup } = props
 
 
     useEffect(() => {
+        setIsOpen(true)
         loadUsers()
     }, [])
 
@@ -53,47 +55,51 @@ export function LoginSignup(props) {
         setCredentials({ ...credentials, imgUrl })
     }
 
+    function hideLoginSignup() {
+        props.setIsShowLoginSignup(false)
+    }
+
+    function onToggleIsOpen() {
+        setIsOpen(prevIsOpen => !prevIsOpen)
+    }
+    const classMenu = (isOpen) ? 'isOpen' : ''
     return (
         <div className="login-page">
+            {/* <div className={`main-screen ${classMenu}`} onClick={onToggleIsOpen}></div> */}
+            <h1 className='join-flairr'>{isSignup ? 'Join Flairr' : 'Sign In to Flairr'}</h1>
             {/* <p> */}
             {/* <button onClick={toggleSignup} className='join-btn'>Join</button>
             <NavLink onClick={onLogin} to="/">Sign in</NavLink> */}
             {/* onClick={toggleSignup} */}
 
-                {/* <button className="btn-link" >{!isSignup ? 'Signup' : 'Login'}</button> */}
+            {/* <button className="btn-link" >{!isSignup ? 'Signup' : 'Login'}</button> */}
             {/* </p> */}
             {!isSignup && <form className="login-form" onSubmit={onLogin}>
-                <select
+
+                <input
+                    type="text"
                     name="username"
-                    value={credentials.username}
+
+                    placeholder="Username"
                     onChange={handleChange}
-                >
-                    <option value="">Select User</option>
-                    {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
-                </select>
-                {/* <input
-                        type="text"
-                        name="username"
-                        value={username}
-                        placeholder="Username"
-                        onChange={handleChange}
-                        required
-                        autoFocus
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        value={password}
-                        placeholder="Password"
-                        onChange={handleChange}
-                        required
-                    /> */}
+                    required
+                    autoFocus
+                />
+                <input
+                    type="password"
+                    name="password"
+
+                    placeholder="Password"
+                    onChange={handleChange}
+                    required
+                />
+
                 <button>Login!</button>
             </form>}
 
             <div className="signup-section">
                 {isSignup && <form className="signup-form" onSubmit={onSignup}>
-                    <h1 className='join-fiverr'>Join Fiverr</h1>
+
                     <input
                         type="text"
                         name="fullname"
@@ -122,6 +128,7 @@ export function LoginSignup(props) {
                     <button >Signup!</button>
                 </form>}
             </div>
+            <button onClick={hideLoginSignup}>Cancel</button>
         </div>
     )
 }
