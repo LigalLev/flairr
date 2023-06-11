@@ -71,8 +71,30 @@ async function query(filterBy = {}) {
 async function getById(gigId) {
     try {
         const collection = await dbService.getCollection('gig')
-        const gig = collection.findOne({ _id: ObjectId(gigId) })
-        return gig
+        var gigs = await collection.aggregate([
+            {
+                $match: { _id: ObjectId(gigId) }
+            },
+            {
+                $lookup:
+                {
+                    localField: 'owner._id',
+                    from: 'review',
+                    foreignField: 'sellerId',
+                    as: 'reviews'
+                }
+            },
+            {
+                $replaceRoot: {
+                    newRoot: {
+                        $mergeObjects: ["$$ROOT", { reviews: "$reviews" }]
+                    }
+                }
+            },
+        ]).toArray()
+
+        // const gig = collection.findOne( { _id: ObjectId(gigId) })
+        return gigs[0]
     } catch (err) {
         logger.error(`while finding gig ${gigId}`, err)
         throw err
@@ -93,8 +115,8 @@ async function remove(gigId) {
 async function add(gig) {
     try {
         const userCollection = await dbService.getCollection('user')
-        const owner = await userCollection.findOne({_id: ObjectId(gig.ownerId)})
-        
+        const owner = await userCollection.findOne({ _id: ObjectId(gig.ownerId) })
+
         const gigToSave = {
             title: gig.title,
             // price: gig.price,
@@ -104,8 +126,8 @@ async function add(gig) {
             category: gig.category,
             tags: [...gig.tags],
             likedByUsers: [...gig.likedByUsers],
-            packages: {...gig.packages},
-            owner:{
+            packages: { ...gig.packages },
+            owner: {
                 _id: owner._id,
                 fullname: owner.fullname,
                 imgUrl: owner.imgUrl,
@@ -126,7 +148,7 @@ async function update(gig) {
     try {
         const gigToSave = {
             title: gig.title,
-            packages: {...gig.packages},
+            packages: { ...gig.packages },
             // price: gig.price,
             // daysToMake: gig.daysToMake,
             description: gig.description,
