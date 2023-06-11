@@ -7,7 +7,8 @@ export const utilService = {
     saveToStorage,
     loadFromStorage,
     resizeImgUrl,
-    formatSearchParam
+    formatSearchParam,
+    getRandomColor
 }
 
 function makeId(length = 6) {
@@ -81,4 +82,14 @@ function formatSearchParam(searchParam) {
     if (searchParam.includes('&')) return searchParam.replaceAll(' & ', '-')
     else if (searchParam.includes('-')) return searchParam.replaceAll('-',' & ')
     else return searchParam
+}
+
+//get random color HEX
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }

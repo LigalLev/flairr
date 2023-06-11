@@ -10,7 +10,9 @@ import { utilService } from "../services/util.service"
 import { BigCarousel } from "../cmps/big-carousel"
 import { Payment } from "../pages/payment"
 import { StarRating } from "../cmps/star-rating-new"
-import {AboutTheSeller} from "../cmps/about-the-seller"
+import { AboutTheSeller } from "../cmps/about-the-seller"
+import { ReviewList } from "../cmps/review-list"
+
 
 export function GigDetails() {
     const [gig, setGig] = useState(null)
@@ -94,16 +96,11 @@ export function GigDetails() {
 
                 <article className="about-gig-container">
                     <h3>About this gig</h3>
-                    {/* {const splitedDescription = gig.description.split('/n')} */}
-
                     {gig.description.split('\n').map((section, idx) => (
                         <p key={idx} >
                             {section}
                         </p>
                     ))}
-                    {/* <p>{gig.description}</p> */}
-                    {/* <pre >{gig.description}</pre> */}
-                    {/* <p dangerouslySetInnerHTML={{__html: textDataWithLineBreaks}}> {textDataWithLineBreaks} </p> */}
                 </article>
 
                 <article className="about-seller-container">
@@ -112,6 +109,11 @@ export function GigDetails() {
                     />
                 </article>
 
+                <article className="gig-review">
+                    <ReviewList 
+                    gig={gig}
+                    />
+                </article>
 
                 <GigShoppingCart
                     gig={gig}
@@ -120,7 +122,7 @@ export function GigDetails() {
                 />
 
                 <div className={`main-screen ${classMenu}`} onClick={onToggleIsOpen}></div>
-                
+
             </section>
 
 
@@ -128,7 +130,7 @@ export function GigDetails() {
 
 
 
-{/* <ReviewIndex/> */}
+            {/* <ReviewIndex/> */}
 
         </main>
 
