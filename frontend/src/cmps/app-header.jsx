@@ -110,7 +110,7 @@ export function AppHeader() {
 
                 <nav>
                     <NavLink to="/gig" onClick={() => onClickExplore()} className="orders-btn"> Explore</NavLink>
-                    <NavLink to="/gigs-dashboard">Become a Seller</NavLink>
+                    <NavLink to="/become-seller">Become a Seller</NavLink>
                     <div>
                         <button onClick={onClickOrders} className="orders-btn">Orders</button>
                         {isOrderNotice && <span>🔴</span>}

@@ -5,16 +5,7 @@ import { utilService } from './util.service.js'
 // _createUsers()
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
-const STORAGE_KEY= 'users'
-
-
-const GUEST = {
-    _id: '0001',
-    fullname: 'Guest',
-    imgUrl: 'https://res.cloudinary.com/dqhfnvtca/image/upload/v1686055437/flairr/undraw_male_avatar_g98d_nn0ijg.svg',
-    level: 'Basic',
-    rate: 5
-}
+const STORAGE_KEY = 'users'
 
 export const userService = {
     login,
@@ -26,6 +17,7 @@ export const userService = {
     getById,
     remove,
     update,
+    getEmptyUser
 }
 
 window.userService = userService
@@ -65,10 +57,11 @@ async function login(userCred) {
     }
 }
 async function signup(userCred) {
-    userCred.score = 10000
     if (!userCred.imgUrl) userCred.imgUrl = 'https://res.cloudinary.com/dqhfnvtca/image/upload/v1686399022/flairr/profile_pic_rvmsjs.svg'
     // const user = await httpService.post('user', userCred)
+    console.log('userCred: ', userCred)
     const user = await httpService.post('auth/signup', userCred)
+    console.log('user: ', user)
     return user
 }
 async function logout() {
@@ -77,7 +70,20 @@ async function logout() {
 }
 
 function saveLocalUser(user) {
-    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, username: '', level: 'Basic', reviews: [] }
+    user = {
+        _id: user._id,
+        fullname: user.fullname,
+        imgUrl: user.imgUrl,
+        username: user.username,
+        level: 'Basic',
+        profession: user.profession,
+        from: user.from,
+        languages: user.languages,
+        memberSince: user.memberSince,
+        about: user.about,
+        reviews: [],
+        rate: 5
+    }
     localStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -410,6 +416,12 @@ function getEmptyUser() {
         imgUrl: '',
         username: '',
         password: '',
+        profession: '',
+        about: '',
+        from: '',
+        memberSince: Date.now(),
+        languages: [],
+        rate: '',
         level: 'Basic',
         reviews: [],
 

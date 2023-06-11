@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 
 import { loadUser } from '../store/user.actions'
 import { store } from '../store/store'
@@ -10,8 +10,9 @@ import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from
 export function UserDetails() {
 
   const params = useParams()
-  const user = useSelector(storeState => storeState.userModule.watchedUser)
-
+  const navigate = useNavigate()
+  const user = useSelector(storeState => storeState.userModule.user)
+  console.log('user: ', user)
   useEffect(() => {
     loadUser(params.id)
 
@@ -24,6 +25,10 @@ export function UserDetails() {
 
   }, [])
 
+  useEffect(() => {
+
+  }, [user])
+
   function onUserUpdate(user) {
     showSuccessMsg(`This user ${user.fullname} just got updated from socket, new score: ${user.score}`)
     store.dispatch({ type: 'SET_WATCHED_USER', user })
@@ -31,18 +36,54 @@ export function UserDetails() {
 
   return (
     <section className="user-details">
-      <h1>User Details</h1>
+
       {user && <div>
-        <h3>
-          {user.fullname}
-        </h3>
-        {/* Demo for dynamic images: */}
-        <div className="user-img" style={{ backgroundImage: `url('/img/u${0}.png')` }}>
-        </div>
-        <pre>
-          {JSON.stringify(user, null, 2)}
-        </pre>
+
+
+        <article className="user-info">
+          <div
+            className="user-img"
+            style={{ backgroundImage: `url(${user.imgUrl})` }}>
+          </div>
+          <h3>
+            {user.fullname}
+          </h3>
+          <p>@{user.username}</p>
+
+          <div>
+            <p>From</p>
+            <p>{'Israel'}</p>
+            <p>Member since</p>
+            <p>{'Feb 2017'}</p>
+          </div>
+        </article>
+
+        <article className="user-description">
+          <h3>Description</h3>
+          <p>{user.description}</p>
+        </article>
+
+        <article className="user-action">
+          {(user.profession) ?
+            <>
+              <button onClick={() => navigate('/gig/edit')}>Create a new gig</button>
+              <Link to="/gigs-dashboard">Dashboard</Link>
+            </>
+            :
+            <>
+            <div className="img-wrapper">
+              <img src="https://res.cloudinary.com/dqhfnvtca/image/upload/v1686464572/flairr/svg_xml_base64_PHN2ZyB3aWR0aD0iMjUyIiBoZWlnaHQ9IjEwNCIgdmlld0JveD0iMCAwIDI1MiAxMDQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI_PHBhdGggZD0iTTI1MC42NDEgOTYuMDAwNUgwLjg3NDAyM1YxMDIuNzExSDI1MC42NDFW_cfpyz4.svg" alt="Become a seller illustration" />
+            </div>
+            <h3>Ready to earn on your own terms?</h3>
+            <Link to="/become-seller">Become a Seller</Link>
+            </>
+          }
+
+
+        </article>
+
       </div>}
+
     </section>
   )
 }

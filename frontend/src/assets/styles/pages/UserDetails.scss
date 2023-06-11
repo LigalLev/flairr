@@ -1,7 +1,13 @@
 .user-details {
+background-color: $grey2;
+    .article {
+        background-color: $clr6;
+    }
+
     .user-img {
-        height: 200px;
-        width: 200px;
+        height: 150px;
+        width: 150px;
         background-size: contain;
+        background-repeat: no-repeat;
     }
 }

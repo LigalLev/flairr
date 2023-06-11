@@ -111,6 +111,13 @@ function getEmptyGig() {
         title: '',
         description: '',
         imgUrls: [],
+        owner: {
+            _id: user._id,
+            fullname: user.fullname,
+            imgUrl: user.imgUrl,
+            level: 1,
+            rate: 0
+        },
         category: '',
         tags: [],
         likedByUsers: [],

@@ -82,8 +82,9 @@ async function update(user) {
             fullname: user.fullname,
             imgUrl: user.imgUrl,
             flag: user.flag,
+            from: user.from,
             profession: user.profession, 
-            launguage: user.launguage,
+            language: user.language,
             about: user.about,
             memberSince: user.memberSince
         }
@@ -97,6 +98,7 @@ async function update(user) {
 }
 
 async function add(user) {
+    console.log('user: ', user)
     try {
         // peek only updatable fields!
         const userToAdd = {
@@ -104,8 +106,15 @@ async function add(user) {
             password: user.password,
             fullname: user.fullname,
             imgUrl: user.imgUrl,
+            flag: user.flag,
+            from: user.from,
+            profession: user.profession, 
+            languages: user.languages,
+            about: user.about,
+            memberSince: user.memberSince
         }
 
+        console.log('userToAdd: ', userToAdd)
         const collection = await dbService.getCollection('user')
         await collection.insertOne(userToAdd)
         return userToAdd

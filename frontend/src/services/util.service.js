@@ -7,7 +7,8 @@ export const utilService = {
     saveToStorage,
     loadFromStorage,
     resizeImgUrl,
-    formatSearchParam
+    formatSearchParam,
+    capitalizeFirstLetter
 }
 
 function makeId(length = 6) {
@@ -81,4 +82,10 @@ function formatSearchParam(searchParam) {
     if (searchParam.includes('&')) return searchParam.replaceAll('&', '%26')
     // else if (searchParam.includes('-')) return searchParam.replaceAll('%26',' & ')
     else return searchParam
+}
+
+function capitalizeFirstLetter(sentence) {
+    let firstLetter = sentence.charAt(0)
+    return sentence.replace(firstLetter, firstLetter.toUpperCase)
+    
 }

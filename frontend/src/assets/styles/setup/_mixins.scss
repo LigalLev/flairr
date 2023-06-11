@@ -85,3 +85,50 @@
     color: $clr6;
   }
 }
+
+//forms 
+
+@mixin generic-form {
+  background-color: $clr6;
+  margin-top: 1em;
+  padding: 30px;
+  border: 1px solid $grey1;
+
+  .error {
+    color: rgba($clrRejected, 0.7);
+    font-size: 0.8em;
+    align-self: end;
+  }
+
+  h3 {
+    width: 100%;
+    margin-block-start: 1.5em;
+    border-top: 1px solid $grey;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    white-space: nowrap;
+    margin-inline-end: 2em;
+  }
+}
+
+@mixin checkbox-form {
+  border: 2px solid $white1;
+  background-color: &clr6;
+  padding: 1em;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 12em);
+  grid-auto-flow: dense;
+
+  label {
+    font-family: Macan-light;
+    justify-self: start;
+    text-align: start;
+    display: block;
+  }
+}
