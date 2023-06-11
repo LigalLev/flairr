@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useSelector } from 'react-redux'
 import { gigService } from "../services/gig.service"
 import { userService } from "../services/user.service"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
@@ -16,7 +17,7 @@ import { ReviewList } from "../cmps/review-list"
 
 export function GigDetails() {
     const [gig, setGig] = useState(null)
-    const [user, setUser] = useState(null)
+    const user = useSelector(storeState => storeState.userModule.user)
     const [isOpen, setIsOpen] = useState(false)
     const { gigId } = useParams()
 
@@ -105,7 +106,7 @@ export function GigDetails() {
 
                 <article className="about-seller-container">
                     <AboutTheSeller
-                        gig={gig}
+                        user={user}
                     />
                 </article>
 

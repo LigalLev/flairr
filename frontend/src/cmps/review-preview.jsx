@@ -30,14 +30,14 @@ export function ReviewPreview({ gig, review }) {
                         <StarRating rating={review.rate} />
                         <div className="seller-rate">
                             {gig.owner.rate}  <span></span>
-                            <p>{review.reviewedAt}</p>
+                            <p>{review.createdAt}</p>
                         </div>
                     </div>
                     <p className='review-content'>{review.review}</p>
 
                     <div className='review-footer'>
                         <div className='gig-img-reviewer-container'>
-                            <img src={gig.imgUrls[0]} />
+                            <img src={gig.imgUrls[1]} />
                         </div>
                         <div className="feedback-container">
                             <p>Helpful?</p>
