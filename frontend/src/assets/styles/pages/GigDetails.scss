@@ -1,6 +1,5 @@
 .gig-details-main {
 
-
     &.isOpen {
         .shopping-cart {
             transform: translate(0%, 0%);
@@ -20,7 +19,6 @@
         z-index: 50;
         backface-visibility: hidden;
         border-bottom: 1px solid $grey2;
-        border-top: 1px solid $grey2;
         background-color: #ffff;
 
         nav {
@@ -38,11 +36,9 @@
             a {
                 font-size: rem(14px);
                 padding-inline-end: 1em;
-                // padding-block: ;
                 text-decoration: none;
                 color: #95979d;
                 display: inline-block;
-                // font-size: 14px;
                 font-weight: 600;
                 line-height: 53px;
                 transition: color .2s;
@@ -58,26 +54,17 @@
     .gig-details-content {
         display: grid;
 
-        // display: flex;
-        // flex: 1fr 1fr;
-        // flex-wrap: wrap;
-
         @include for-normal-layout {
             grid-template-columns: 66.4% 33.6%;
             padding: 3% 5%;
-            // grid-auto-flow: row;
-            // grid-area: 2;   
         }
 
-        .gig-details-container {
-            // margin-right: 8%;
-            // width: 57.42%;           
+        .gig-details-container {       
             margin-inline-end: 1%;
 
             @include for-normal-layout {
                 margin-inline-end: 9.15%;
             }
-
 
             h1 {
                 color: $clr8;
@@ -87,7 +74,6 @@
                 padding-block-start: 0em;
                 margin-block: -0.2em 0.67em;
                 margin-inline-end: 2em;
-
                 letter-spacing: 0.2px;
                 overflow-wrap: break-word;
             }
@@ -141,26 +127,24 @@
                     .gig-level {
                         color: $clr5;
                         // padding-inline-end: 8px;
-
                         span {
                             color: $grey;
-
                             padding-inline-start: 8px;
-
-
                         }
                     }
 
                     .gig-starRate {
                         display: flex;
                         flex-direction: row;
+                        align-items: center;
                         color: $clr5;
                         padding-inline-end: 8px;
                         color: $clr4;
 
                         .owner-rate {
                             color: #ffb33e;
-                            font-family: Macan;
+                            font-family: Macan-semibold;
+                            font-size: rem(14px);
 
                             span {
                                 color: $clr4;
@@ -169,22 +153,9 @@
                                 padding-left: 4px;
                             }
                         }
-
-
                     }
                 }
             }
-
-            // .img-container {
-            //     background-color: whitesmoke;
-            //     display: flex;
-            //     justify-content: center;
-
-            //     img {
-            //         width: 94%;
-            //         // border: 1px solid #404145 ;
-            //     }
-            // }
 
             .carousel-wrapper {
                 max-width: 90vw;
@@ -195,7 +166,7 @@
             max-width: 100%;
 
             @include for-normal-layout {
-                grid-area: 1/2/3/3
+                grid-area: 1/2/5/-1
             }
         }
 
@@ -218,7 +189,6 @@
             p {
                 color: $clr5;
                 font-size: rem(16px);
-                // white-space: pre-wrap;
                 white-space: pre-line;
                 font-family: Macan;
                 line-break: auto;
@@ -226,16 +196,13 @@
             }
         }
 
-        .about-seller-container {
+        .about-seller-container,
+        .gig-review{
             margin-inline-end: 1%;
 
             @include for-normal-layout {
                 margin-inline-end: 9.15%;
             }
         }
-
-
-
-
     }
 }

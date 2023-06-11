@@ -1,0 +1,162 @@
+.review-preview {
+    border-top: 1px solid $grey2;
+    color: $clr5;
+    padding-block: 2.5em;
+
+    .reviewer-preview-wrapper {
+        display: flex;
+
+        .reviewer-name-label-wrapper {
+            margin-inline-end: 1em;
+
+            .reviewer-name-label {
+                display: flex;
+                align-content: center;
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background-color: plum;
+                font-size: 1.5em;
+                color: white;
+                font-family: Macan-bold;
+            }
+        }
+
+        .reviewer-details-wrapper {
+            font-size: rem(16px);
+            line-height: 24px;
+            color: $clr8;
+            font-family: Macan-bold;
+
+            .reviewer-region-wrapper {
+                display: flex;
+                flex-direction: row;
+
+                align-items: center;
+
+                .flag-wrapper {
+                    height: 20px;
+
+                    img {
+                        height: 20px;
+                    }
+
+                }
+
+                p {
+                    font-size: rem(14px);
+                    color: $clr5;
+                    font-family: Macan-light;
+                    padding-inline-start: 0.5em;
+                    padding-block-start: 0.5em;
+                }
+            }
+
+            .review-starRate-wrapper {
+                margin-block-start: 1.25em;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                .seller-rate {
+                    display: flex;
+                    align-content: center;
+                    justify-content: center;
+                    color: $clrInProgress;
+                    font-size: rem(14px);
+
+                    span {
+                        margin: 0.125em 0.5em;
+                        border-right: 1px solid $grey3;
+                    }
+
+                    p {
+                        color: $clr5;
+                        font-family: Macan;
+                    }
+                }
+            }
+
+            .review-content {
+                margin-block-start: 0.75em;
+                font-size: rem(16px);
+                color: $clr8;
+                font-family: Macan;
+                word-wrap: break-word;
+            }
+
+            .review-footer {
+                margin-block-start: 1em;
+
+                .gig-img-reviewer-container {
+                    img {
+                        border-radius: 0.25em;
+                        height: 52px;
+                        opacity: .7;
+                        width: 79px;
+                        border: 1px solid #efeff0;
+
+                        // &:hover {
+                        //     scale: 4;
+                        //     animation-duration: .5s;
+                        //     animation-iteration-count: 1;
+                        //     animation-timing-function: ease-in;
+                        //     overflow-clip-margin: content-box;
+                        //     overflow: clip;
+                        // }
+                    }
+                }
+
+                .feedback-container {
+                    display: flex;
+                    align-items: center;
+                    color: $clr8;
+                    font-family: Macan-semibold;
+                    font-size: rem(14px);
+                    margin-block-start: 1em;
+
+                    p {
+                        margin-inline-end: 0.75em;
+                    }
+
+                    p:nth-child(2n) {
+
+                        &::before {
+                            content: ' ';
+                            background-image: url('https://res.cloudinary.com/dm4cdho4d/image/upload/v1686421678/flairr/svg/like_e3gvyn.svg');
+                            width: 14px;
+                            height: 14px;
+                            display: inline-block;
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+                            margin-inline-end: 0.5em;
+                            margin-block-end: -2.5px;
+                        }
+                    }
+
+                    p:nth-child(3n) {
+                        &::before {
+                            content: ' ';
+                            background-image: url('https://res.cloudinary.com/dm4cdho4d/image/upload/v1686421679/flairr/svg/dislike_vcnsx9.svg');
+                            width: 14px;
+                            height: 14px;
+                            display: inline-block;
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+                            margin-inline-end: 0.5em;
+                            margin-block-end: -4.5px;
+                        }
+                    }
+
+                }
+            }
+        }
+
+
+
+
+    }
+}

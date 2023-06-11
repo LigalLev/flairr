@@ -8,7 +8,7 @@ export const utilService = {
     loadFromStorage,
     resizeImgUrl,
     formatSearchParam,
-    capitalizeFirstLetter
+    getRandomColor
 }
 
 function makeId(length = 6) {
@@ -48,11 +48,11 @@ function randomPastTime() {
     return Date.now() - pastTime
 }
 
-function debounce(func, timeout = 300){
+function debounce(func, timeout = 300) {
     let timer
     return (...args) => {
-      clearTimeout(timer)
-      timer = setTimeout(() => { func.apply(this, args) }, timeout)
+        clearTimeout(timer)
+        timer = setTimeout(() => { func.apply(this, args) }, timeout)
     }
 }
 
@@ -84,8 +84,12 @@ function formatSearchParam(searchParam) {
     else return searchParam
 }
 
-function capitalizeFirstLetter(sentence) {
-    let firstLetter = sentence.charAt(0)
-    return sentence.replace(firstLetter, firstLetter.toUpperCase)
-    
+//get random color HEX
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color
 }
