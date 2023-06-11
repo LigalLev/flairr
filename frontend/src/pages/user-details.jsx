@@ -52,18 +52,32 @@ export function UserDetails() {
 
           <div>
             <p>From</p>
-            <p>{user.from}</p>
+            <p>{'Israel'}</p>
             <p>Member since</p>
-            <p>{user.memberSince}</p>
+            <p>{'Feb 2017'}</p>
           </div>
         </article>
 
+        <article className="user-description">
+          <h3>Description</h3>
+          <p>{user.description}</p>
+        </article>
+
         <article className="user-action">
-      {user.profession &&
-        <button onClick={() => navigate('/gig/edit')}>Create a new gig</button>
-        
-        // <Link to='/gig-dashboard'>Dashboard</Link>
-      }
+          {(user.profession) ?
+            <>
+              <button onClick={() => navigate('/gig/edit')}>Create a new gig</button>
+              <Link to="/gigs-dashboard">Dashboard</Link>
+            </>
+            :
+            <>
+            <div className="img-wrapper">
+              <img src="https://res.cloudinary.com/dqhfnvtca/image/upload/v1686464572/flairr/svg_xml_base64_PHN2ZyB3aWR0aD0iMjUyIiBoZWlnaHQ9IjEwNCIgdmlld0JveD0iMCAwIDI1MiAxMDQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI_PHBhdGggZD0iTTI1MC42NDEgOTYuMDAwNUgwLjg3NDAyM1YxMDIuNzExSDI1MC42NDFW_cfpyz4.svg" alt="Become a seller illustration" />
+            </div>
+            <h3>Ready to earn on your own terms?</h3>
+            <Link to="/become-seller">Become a Seller</Link>
+            </>
+          }
 
 
         </article>

@@ -27,6 +27,7 @@ export async function getGigById(req, res) {
 
 export async function addGig(req, res) {
   const {loggedinUser} = req
+  console.log('loggedinUser: ', loggedinUser)
   try {
     const gig = req.body
     gig.owner = loggedinUser

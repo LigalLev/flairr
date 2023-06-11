@@ -59,7 +59,9 @@ async function login(userCred) {
 async function signup(userCred) {
     if (!userCred.imgUrl) userCred.imgUrl = 'https://res.cloudinary.com/dqhfnvtca/image/upload/v1686399022/flairr/profile_pic_rvmsjs.svg'
     // const user = await httpService.post('user', userCred)
+    console.log('userCred: ', userCred)
     const user = await httpService.post('auth/signup', userCred)
+    console.log('user: ', user)
     return user
 }
 async function logout() {
