@@ -2,19 +2,29 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 
+import { loadOrders } from "../store/order.action"
 import { loadUser } from '../store/user.actions'
 import { store } from '../store/store'
 import { showSuccessMsg } from '../services/event-bus.service'
 import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from '../services/socket.service'
+import { SellerOrderList } from '../cmps/seller-order-list'
+import { SellerDashboard } from '../cmps/seller-dashboard'
+
+
 
 export function UserDetails() {
-
   const params = useParams()
   const navigate = useNavigate()
   const user = useSelector(storeState => storeState.userModule.user)
   console.log('user: ', user)
+
+  const orders = useSelector(storeState => storeState.orderModule.orders)
+
+
   useEffect(() => {
     loadUser(params.id)
+    loadOrders({ sellerId: user._id })
+
 
     socketService.emit(SOCKET_EMIT_USER_WATCH, params.id)
     socketService.on(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
@@ -42,7 +52,7 @@ export function UserDetails() {
             className="user-img"
             style={{ backgroundImage: `url(${user.imgUrl})` }}>
           </div>
-          
+
           <div className='name-username'>
             <h3>
               {user.fullname}
@@ -72,6 +82,12 @@ export function UserDetails() {
             <div className="seller-actions btns-container">
               <button onClick={() => navigate('/gig/edit')}>Create a new gig</button>
               <button onClick={() => navigate('/gigs-dashboard')}>Dahsboard</button>
+
+
+              <SellerDashboard orders={orders} />
+              
+              <SellerOrderList orders={orders} />
+
             </div>
             :
             <div className="not-seller-action flex column">
