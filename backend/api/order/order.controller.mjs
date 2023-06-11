@@ -23,8 +23,18 @@ export async function getOrders(req, res) {
       res.status(400).send({ err: 'Failed to get order' })
     }
   }
+  export async function getOrderBySellerId(req, res) {
+    try {
+      const sellerId = req.params.id
+      const orders = await orderService.getBySellerId(sellerId)
+      res.json(orders)
+    } catch (err) {
+      logger.error('Failed to get order', err)
+      res.status(400).send({ err: 'Failed to get order' })
+    }
+  }
   export async function addOrder(req, res) {
-    console.log('req:', req)
+    // console.log('req:', req)
     // const {loggedinUser} = req
     try {
       const order = req.body

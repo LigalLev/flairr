@@ -9,7 +9,7 @@ const PAGE_SIZE = 12
 
 function setCriteria(filterBy) {
     const criteria = {}
-    console.log('filterBy!@!!nn:', filterBy)
+    // console.log('filterBy!@!!nn:', filterBy)
     if (filterBy.txt) {
         criteria.$or = [
             { title: { $regex: filterBy.txt, $options: "i" } },
