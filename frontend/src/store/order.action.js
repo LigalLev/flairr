@@ -28,6 +28,7 @@ export async function removeOrder(orderId) {
 }
 
 export async function saveOrder(order) {
+    console.log('ordertosave!!!!!:', order)
     const type = order._id ? UPDATE_ORDER: ADD_ORDER
     try {
         const savedOrder = await orderService.save(order)

@@ -79,15 +79,15 @@ export function UserDetails() {
 
         <article className="user-action flex">
           {(user.profession) ?
-            <div className="seller-actions btns-container">
-              <button onClick={() => navigate('/gig/edit')}>Create a new gig</button>
-              <button onClick={() => navigate('/gigs-dashboard')}>Dahsboard</button>
+            <div >
+              {/* <button onClick={() => navigate('/gig/edit')}>Create a new gig</button>
+              <button onClick={() => navigate('/gigs-dashboard')}>Dahsboard</button> */}
 
 
               <SellerDashboard orders={orders} />
               
-              <SellerOrderList orders={orders} />
 
+           <div> <SellerOrderList orders={orders} /> </div>
             </div>
             :
             <div className="not-seller-action flex column">

@@ -1,3 +1,37 @@
-.sellerOrderList {
-    
-}
+ .seller-order-list li {
+    //  display: flex;
+     padding: 0.5em;
+    //  width: 100%;
+    //  border: 0.5px solid $grey1;
+     margin-block-start: 10px;
+
+     border: 1px solid $grey2;
+     color: $clr5;
+     display: grid;
+     grid-template-columns: 2fr 3fr 2fr 1fr 2fr;
+
+     span {
+         font-size: 12px;
+         color: $clr10;
+     }
+
+     .img-seller-order {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+     }
+
+     .buyer-fullname-seller-order {
+        font-size: 14px;
+        margin-inline: 1.8em ;
+      
+     }
+
+
+ }
+
+//  @media (min-width: 600px)
+// .orders-dashboard li {
+//     grid-template-columns: 2fr 3fr 2fr 1fr 2fr;
+//     margin-bottom: 1em;
+// }
