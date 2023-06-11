@@ -20,7 +20,9 @@ console.log('userowner!!:', user)
                             <p className="seller-profession">{user.profession}</p>
                             <div className="rating-wrapper">
                                 <StarRating rating={user.rate} />
-                                {/* <p><span>{gig.owner.rate}</span> ({gig.likedByUsers})</p> */}
+                                <p><span>{user.rate}</span> (204)</p>
+                                {/* <p><span>{user.rate}</span> ({user.likedByUsers})</p> */}
+                                
                             </div>
                         </div>
                         <button className="contect-seller-btn">Contact me</button>
@@ -40,7 +42,7 @@ console.log('userowner!!:', user)
                     </div>
 
                     <div className="seller-about">
-                        {/* <p>{gig.owner.about}</p> */}
+                        <p>{user.about}</p>
                     </div>
                 </div>
 

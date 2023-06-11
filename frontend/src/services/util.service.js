@@ -8,7 +8,8 @@ export const utilService = {
     loadFromStorage,
     resizeImgUrl,
     formatSearchParam,
-    getRandomColor
+    getRandomColor,
+    formatTime
 }
 
 function makeId(length = 6) {
@@ -92,4 +93,37 @@ function getRandomColor() {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color
+}
+
+function formatTime(time) {
+    let now = Date.now()
+    let diff = now - time
+
+    const SECOND = 1000
+    const MINUTE = SECOND * 60
+    const HOUR = MINUTE * 60
+    const DAY = HOUR * 24
+    const WEEK = DAY * 7
+    const MONTH = DAY * 30
+    const YEAR = DAY * 365
+
+    if (diff < MINUTE) return 'Just now'
+    if (diff < MINUTE * 5) return 'A few minutes ago'
+    if (diff < HOUR) return 'Less than a hour ago'
+    if (diff < HOUR * 3) return 'Couple of hours ago'
+    if (diff < DAY) return 'Today'
+    if (diff < DAY * 2) return 'Yesterday'
+    if (diff < DAY * 3) return '2 days ago'
+    if (diff < WEEK) return 'About a week ago'
+
+    return _getFormattedTime(time)
+}
+
+function _getFormattedTime(t) {
+    var d = new Date(t)
+    // console.log('d', d)
+
+    var str = 'At ' + d.getDate() + '/' + (d.getMonth() + 1) + '/' +
+        d.getFullYear() + ' Time: ' + d.getHours() + ':' + d.getMinutes()
+    return str
 }

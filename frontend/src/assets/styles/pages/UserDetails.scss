@@ -1,13 +1,83 @@
 .user-details {
-background-color: $grey2;
-    .article {
-        background-color: $clr6;
+    background-color: #f7f7f7;
+
+    .user-details-content {
+        margin-block: 1em;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px;
     }
 
-    .user-img {
-        height: 150px;
-        width: 150px;
-        background-size: contain;
-        background-repeat: no-repeat;
+    article {
+        background-color: $clr6;
+        border: 1px solid #ddd;
+        padding: 1em;
+        border-radius: 2px;
+    }
+
+    .user-info {
+        grid-column: 1;
+        grid-row: 1;
+        justify-content: center;
+        .user-img {
+            margin-inline: auto;
+            height: 150px;
+            width: 150px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .name-username {
+            margin-inline: auto;
+            margin-block-end: 2em;
+        }
+    }
+
+    .user-description {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .user-action {
+        grid-column: 2;
+        grid-row: 1/ -1;
+        height: 60%;
+        align-self: start;
+
+        .seller-actions {
+            display: flex;
+            justify-content: space-between;
+            align-self: center;
+
+            width: 40%;
+
+            button {
+                margin: 0;
+            }
+        }
+
+        .not-seller-action {
+            width: 100%;
+            padding: 128px 0 120px;
+            text-align: center;
+
+            .img-wrapper {
+                width: 252px;
+                height: 104px;
+                margin-inline: auto;
+                margin-block-end: 1em;
+            }
+
+            h3 {
+                margin-block-end: 1em;
+            }
+
+            a {
+                @include btn1($clr1);
+                width: max-content;
+                margin-inline: auto;
+            }
+        }
     }
 }
