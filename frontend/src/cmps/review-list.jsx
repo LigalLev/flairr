@@ -2,13 +2,25 @@ import React from 'react'
 import { ReviewPreview } from "./review-preview.jsx";
 
 
-export function ReviewList({ reviews }) {
+export function ReviewList({ gig }) {
+    const {reviews} = gig
+    console.log('gig:', gig)
 
-    
-    if (!reviews.length) return <div className="review-list"> No reviews yet.. be the 1st to add a review!</div>
-    return <section className="review-list">
-        {reviews.map((review, idx) => <ReviewPreview review={review} key={review._id} />
-        )}
-    </section>
+
+    return(
+        <section className='review-list'>
+            <h1>Reviews</h1>
+            {gig.reviews && !gig.reviews.length && <div className="review-list"> No reviews yet.. be the 1st to add a review!</div>}
+            {gig.reviews && 
+            <section className='review-list-container'>
+                {reviews.map((review, idx)=> (
+                    <li key={idx}>
+                        <ReviewPreview gig={gig} review={review}/>
+                    </li>
+                ))}
+            </section>}
+      
+        </section>
+    )
 
 }
