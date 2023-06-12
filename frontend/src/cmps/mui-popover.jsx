@@ -13,7 +13,7 @@ export function MuiPopover({ btnTitle, children }) {
 
     return (
         <div>
-            <button onClick={openPopover} type="button">{btnTitle}</button>
+            <button onClick={openPopover} type="button" className='dropdown-btn'>{btnTitle}</button>
             <Popover
                 open={Boolean(anchorEl)}
                 anchorOrigin={{

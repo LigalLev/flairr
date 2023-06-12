@@ -32,7 +32,9 @@ export function GigIndex() {
         }
     }
 
-    const categoryForFilter = searchParams.values().next().value
+    // const categoryForFilter = searchParams.values().next().value
+
+    const categoryForFilter = searchParams.has('category') ? searchParams.get('category') : 'All'
     return (
         <section className="gig-index">
             <h1 className="index-title">{categoryForFilter ? categoryForFilter : 'All'}</h1>
