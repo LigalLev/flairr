@@ -4,12 +4,12 @@ import { useState } from 'react'
 export function StatusDropdown(props) {
     const {
         initialStatus,
-        onSelectStatus // a function that will send the request according to the value of the selected option
+        onSelectStatus
     } = props
 
 
     const [anchorEl, setAnchorEl] = useState(false)
-    const [orderStatusLabel, setOrderStatusLabel] = useState(initialStatus)
+    const [orderStatus, setOrderStatus] = useState(initialStatus)
 
     function openPopover(event) {
         setAnchorEl(event.currentTarget)
@@ -23,14 +23,18 @@ export function StatusDropdown(props) {
 
     function onSelect(option) {
         onSelectStatus(option.value)
-        setOrderStatusLabel(option.label)
+        setOrderStatus(option.value)
         setAnchorEl(false)
     }
-    function getClassName(label) {
-        return options.find(option => option.label === orderStatusLabel).className
+    function getClassName(orderStatus) {
+        return options.find(option => option.value === orderStatus).className
+    }
+
+    function getLabel(value){
+        return options.find(option=> option.value === value).label
     }
     return <div>
-        <div onClick={openPopover} className={getClassName(orderStatusLabel)} >{orderStatusLabel} </div>
+        <div onClick={openPopover} className={getClassName(orderStatus)} >{getLabel(orderStatus)} </div>
         <Popover open={Boolean(anchorEl)}
             anchorOrigin={{
                 vertical: 'bottom',
@@ -45,7 +49,7 @@ export function StatusDropdown(props) {
             {options.slice(1).map(option => {
                 return <div className={option.className} onClick={() => {
                     onSelect(option)
-                }}>{option.label}</div>
+                }}>{getLabel(option.value)}</div>
             })}
         </Popover>
 
