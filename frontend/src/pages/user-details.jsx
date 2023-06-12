@@ -94,7 +94,8 @@ export function UserDetails() {
               <button onClick={() => navigate('/gigs-dashboard')}>Dahsboard</button> */}
 
 
-              <SellerDashboard orders={orders} />
+              <SellerDashboard orders={orders} user={user}/>
+              
 
 
               <div> <SellerOrderList orders={orders} user={user} updateOrder={updateOrder}/> </div>

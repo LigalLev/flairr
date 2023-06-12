@@ -112,7 +112,11 @@
                         color: $clr1;
                     }
 
-                    &.progress {
+                    // &.progress {
+                    //     color: $clrInProgress;
+                    // }
+
+                    &.approved {
                         color: $clrInProgress;
                     }
                 }
