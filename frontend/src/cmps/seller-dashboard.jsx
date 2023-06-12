@@ -11,7 +11,7 @@ import "react-circular-progressbar/dist/styles.css"
 
 export function SellerDashboard( { orders, user } ) {
     const [ordersLength, setOrdersLength] = useState(orders.filter(order => order.seller._id === user._id).length)
-    const basicPrice=30
+    const basicPrice=55
     
     const percentage = 66;
     return (
@@ -20,7 +20,7 @@ export function SellerDashboard( { orders, user } ) {
             <div className="total-income">
                 <p>Active orders</p>
                 <p>{ordersLength}</p>
-                <p>${ordersLength*basicPrice}</p>
+                <p>(${ordersLength*basicPrice})</p>
             </div>
             <div className="progress-wrapper-pending" lable="Default" style={{ width: 100, height: 140 }}>
                 <p>Pending</p>

@@ -6,8 +6,14 @@
 
     .total-income{
         p:first-child{
-            margin-block-end: 0.5em;
+            margin-block-end: 1em;
         }
+        p:last-child{
+            margin-block-start: 1.5em;
+            font-family: Macan;
+
+        }
+
     }
 
     .progress-wrapper-pending,
