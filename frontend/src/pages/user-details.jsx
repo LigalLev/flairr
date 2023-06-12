@@ -87,7 +87,7 @@ export function UserDetails() {
               <SellerDashboard orders={orders} />
               
 
-           <div> <SellerOrderList orders={orders} /> </div>
+           <div> <SellerOrderList orders={orders} user={user}/> </div>
             </div>
             :
             <div className="not-seller-action flex column">

@@ -3,6 +3,7 @@ import { store } from './store'
 import { ADD_ORDER, REMOVE_ORDER, SET_ORDERS, SET_IS_LOADING, UPDATE_ORDER, SET_ORDER_NOTICE, SET_ORDER_MODAL_VISIBLE } from './order.reducer'
 
 export async function loadOrders(filterBy) {
+    
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
     try {
         const orders = await orderService.query(filterBy)
@@ -28,7 +29,7 @@ export async function removeOrder(orderId) {
 }
 
 export async function saveOrder(order) {
-    console.log('ordertosave!!!!!:', order)
+    // console.log('ordertosave!!!!!:', order)
     const type = order._id ? UPDATE_ORDER: ADD_ORDER
     try {
         const savedOrder = await orderService.save(order)
