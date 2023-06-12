@@ -26,6 +26,7 @@ export function StatusDropdown(props) {
         setOrderStatus(option.value)
         setAnchorEl(false)
     }
+    
     function getClassName(orderStatus) {
         return options.find(option => option.value === orderStatus).className
     }

@@ -1,5 +1,5 @@
 import {StatusDropdown} from "./status-dropdown"
-
+import { loadOrders } from "../store/order.action"
 import {socketService} from "../services/socket.service";
 
 
@@ -20,6 +20,7 @@ export function SellerOrderList({orders, user, updateOrder}) {
                             onSelectStatus={(selectedStatus) => {
                                                 const newOrder = {...order, status: selectedStatus}
                                                 updateOrder(newOrder)
+                                                loadOrders({ sellerId: order.seller._id })
                                                 socketService.emit('update-order-status', {
                                                     order: order,
                                                     status: selectedStatus

@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from 'react-redux'
+
 import { useEffect, useState } from "react"
 import { render } from "react-dom";
 import {
@@ -8,23 +10,38 @@ import {
 } from "react-circular-progressbar"
 import "react-circular-progressbar/dist/styles.css"
 // import RadialSeparators from "./RadialSeparators";
+import { loadOrders } from "../store/order.action"
 
-export function SellerDashboard( { orders, user } ) {
-    const [ordersLength, setOrdersLength] = useState(orders.filter(order => order.seller._id === user._id).length)
+export function SellerDashboard( { user } ) {
+    // const [ordersLength, setOrdersLength] = useState(orders.filter(order => order.seller._id === user._id).length)
+    const orders = useSelector(storeState => storeState.orderModule.orders)
+    console.log('hey from dashboard')
+
+
+    useEffect(() => {
+        loadOrders({ sellerId: user._id })
+    }, [])
+
     const basicPrice=55
-    
-    const pendingPercentage = 49;
-    const approvedPercentage = 49;
-    const complitedPercentage = 1;
-    const rejectedPercentage = 1;
+    const pendingCount = orders.filter(order => order.status === 'pending')
+    const pendingPercentage = Math.floor((pendingCount.length/orders.length)*100)
+
+    const approvedCount = orders.filter(order => order.status === 'approved')
+    const approvedPercentage = Math.floor((approvedCount.length/orders.length)*100)
+
+    const completedCount = orders.filter(order => order.status === 'completed')
+    const complitedPercentage = ((completedCount.length/orders.length)*100).toFixed(0)
+
+    const rejectedCount = orders.filter(order => order.status === 'rejected')
+    const rejectedPercentage = ((rejectedCount.length/orders.length)*100).toFixed(0)
 
     return (
         <section className="seller-dashboard">
 
             <div className="total-income">
                 <p>Active orders</p>
-                <p>{ordersLength}</p>
-                <p>(${ordersLength*basicPrice})</p>
+                <p>{orders.length}</p>
+                <p>(${orders.length*basicPrice})</p>
             </div>
             <div className="progress-wrapper-pending" lable="Default" style={{ width: 100, height: 140 }}>
                 <p>Pending</p>
@@ -51,7 +68,7 @@ export function SellerDashboard( { orders, user } ) {
                   })}  />
             </div>
             <div className="progress-wrapper-declined" style={{ width: 100, height: 100 }}>
-                <p>Complited</p>
+                <p>Completed</p>
                 <CircularProgressbar 
                 value={complitedPercentage} 
                 text={`${complitedPercentage}%`}
