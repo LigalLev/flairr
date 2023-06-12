@@ -5,10 +5,12 @@ import mongodb from 'mongodb'
 const { ObjectId } = mongodb
 
 async function query(filterBy) {
+    console.log('filterBy:', filterBy)
     try {
-        const criteria = {
-            "buyer._id": filterBy.buyerId
-        }
+        const criteria = {}
+        criteria.$or = [ {"buyer._id": filterBy.buyerId},
+            {"seller._id": filterBy.sellerId}]
+        
         const collection = await dbService.getCollection('order')
         let orderCursor = await collection.find(criteria)
         const orders = orderCursor.toArray()
@@ -26,6 +28,16 @@ async function getById(orderId) {
         return order
     } catch (err) {
         logger.error(`while finding order ${orderId}`, err)
+        throw err
+    }
+}
+async function getBySellerId(sellerId) {
+    try {
+        const collection = await dbService.getCollection('order')
+        const order = collection.find({ "seller._id": ObjectId(sellerId) })
+        return order
+    } catch (err) {
+        logger.error(`while finding order ${sellerId}`, err)
         throw err
     }
 }
@@ -92,6 +104,7 @@ export const orderService = {
     getById,
     remove,
     add,
-    update
+    update,
+    // getBySellerId
 
 }

@@ -63,6 +63,8 @@ export function GigDetails() {
                 <nav>
                     <Link >Overview</Link>
                     <Link >Description</Link>
+                    <Link >About the seller</Link>
+                    <Link >Reviews</Link>
                     {/* <Link to={`/gig/${gig._id}`}>About the seller</Link> */}
                 </nav>
             </section>

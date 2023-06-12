@@ -29,6 +29,7 @@ async function query(filterBy) {
 }
 
 function getEmptyOrder() {
+
   return {
     buyer: {
       _id: "",

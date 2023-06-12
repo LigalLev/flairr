@@ -29,7 +29,7 @@ export async function removeUser(userId) {
 
 export async function login(credentials) {
     try {
-        alert(credentials.username)
+        // alert(credentials.username)
         const user = await userService.login(credentials)
         store.dispatch({
             type: SET_USER,

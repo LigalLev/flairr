@@ -22,7 +22,7 @@ export function GigEdit() {
         try {
             if(!updatedGig._id){
                 updatedGig.ownerId = loggedInUser._id
-                alert(updatedGig)
+                // alert(updatedGig)
             }
             const gig = await saveGig(updatedGig)
             console.log('gig saved', gig)
