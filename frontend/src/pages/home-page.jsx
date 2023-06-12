@@ -49,7 +49,7 @@ export function HomePage() {
                 <ul className="icon-categories">
                     {iconCategories.map(category =>
                         <li className="category-card">
-                            <Link to="/gig">
+                            <Link to="/gig/{}">
                                 <img src={category.iconUrl} alt={category.name} />
                                 {category.name}
                             </Link>
