@@ -1,12 +1,8 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { loadGigs, addGig, updateGig, removeGig, addToCart, setFilterBy } from '../store/gig.actions.js'
+import { loadGigs, removeGig} from '../store/gig.actions.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-// import { gigService } from '../services/gig.service.js'
-import { gigService } from '../services/gig.service.js'
 import { GigList } from '../cmps/gig-list.jsx'
-import { CarouselContainer } from '../cmps/carousel-container.jsx'
-import { GigFilter } from '../cmps/search-filter.jsx'
 import { useLocation, useSearchParams } from 'react-router-dom'
 import { ExploreFilters } from '../cmps/explore-filters.jsx'
 

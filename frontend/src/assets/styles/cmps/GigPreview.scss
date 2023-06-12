@@ -69,10 +69,14 @@
         .preview-rate {
             margin-block: 8px;
             display: flex;
-            font-family: Macan-bold;
+            
             // line-height: 24px;
+            .rate-number{
+                font-family: Macan-bold;
+            }
 
             &::before {
+                font-family: Macan-bold;
                 content: '';
                 background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1685972958/flairr/star-fixed_q9f8og.svg');
                 width: 15px;
@@ -91,9 +95,11 @@
 
         }
 
-        // .star-rate {
-        //     margin-inline-end: 4px;
-        // }
+        .likedByUsers{
+            color: $clr4;
+            margin-inline-start: 5px ;
+            font-size: Macan-Thin;
+        }
     }
 }
 

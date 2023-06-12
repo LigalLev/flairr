@@ -22,6 +22,7 @@ export function GigPreview({ gig }) {
             <div className="preview-rate">
                 {/* <div className="star-rate">&#9733;</div> */}
                 <div className="rate-number">{gig.owner.rate.toFixed(1)}</div>
+                <div className="likedByUsers">({gig.likedByUsers})</div>
             </div>
             <div className="preview-gig-price">From ${gig.price}</div>
         </div>

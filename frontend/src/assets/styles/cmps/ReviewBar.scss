@@ -1,0 +1,22 @@
+.review-bars {
+    width: 50%;
+    margin-block-start: 10px;
+    margin-block-end: 20px;
+  
+    .stars-top {
+      display: flex;
+      margin-block-end: 15px;
+      font-weight: 800;
+    }
+  
+    .rating {
+      margin-inline-start: 10px;
+      display: flex;
+    }
+  
+    .stars {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+  }

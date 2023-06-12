@@ -1,5 +1,6 @@
 import React from 'react'
 import { ReviewPreview } from "./review-preview.jsx";
+import { ReviewBars } from './review-bars.jsx';
 
 
 export function ReviewList({ gig }) {
@@ -10,6 +11,7 @@ export function ReviewList({ gig }) {
     return(
         <section className='review-list'>
             <h1>Reviews</h1>
+            <ReviewBars/>
             {gig.reviews && !gig.reviews.length && <div className="review-list"> No reviews yet.. be the 1st to add a review!</div>}
             {gig.reviews && 
             <section className='review-list-container'>

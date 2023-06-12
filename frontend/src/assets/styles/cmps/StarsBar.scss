@@ -1,0 +1,24 @@
+.stars-bar {
+    display: flex;
+    align-items: start;
+
+    .rate {
+        color: #446ee7;
+        font-size: 16px;
+        font-weight: 600;
+        min-width: 60px;
+    }
+    .score{
+        color: #446ee7;
+        font-weight: 400;
+        font-size: 16px;
+    }
+
+    .stars-bar-box {
+        padding-inline: 10px;
+        padding-block: 10px;
+        width: 70%;
+    }
+
+
+}
