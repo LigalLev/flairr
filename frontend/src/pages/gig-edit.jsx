@@ -16,13 +16,11 @@ export function GigEdit() {
     const params = useParams()
     const gigToEdit = useSelector((storeState) => storeState.gigModule.gigs.find(gig => gig._id === params.gigId)) || gigService.getEmptyGig()
     const loggedInUser =  useSelector((storeState)=>storeState.userModule.user)
+    
     async function onSubmit(updatedGig) {
-        console.log('updatedGig: ', updatedGig)
-        console.log('loggedInUser:', loggedInUser)
         try {
             if(!updatedGig._id){
                 updatedGig.ownerId = loggedInUser._id
-                // alert(updatedGig)
             }
             const gig = await saveGig(updatedGig)
             console.log('gig saved', gig)
@@ -92,12 +90,7 @@ export function GigEdit() {
 
                         <label htmlFor="category" className="category-label">Category
                             <Field name="category" component={CustomSelect} className="category-select">
-                                {/* {
-                                    categories.map(category =>
-                                        <option key={category} value={category}>{category}</option>
-                                    )
-                                } */}
-
+                            
                                 {categories.map((category) =>
                                     <MenuItem value={category.name} key={category.name}>{category.name}</MenuItem>
                                 )}

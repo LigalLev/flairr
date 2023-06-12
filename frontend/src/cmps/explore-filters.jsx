@@ -6,23 +6,32 @@ import { MuiPopover } from '../cmps/mui-popover'
 import OutlinedInput from '@mui/material/OutlinedInput'
 import InputAdornment from '@mui/material/InputAdornment'
 import InputLabel from '@mui/material/InputLabel'
-import { Formik, Form, Field, getIn, useFormikContext } from 'formik'
+import { Formik, Form, Field, getIn, useFormikContext, useField } from 'formik'
 import { languages } from "../constants/constants"
+
 export function ExploreFilters() {
 
-    const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
     let [searchParams, setSearchParams] = useSearchParams()
-    const [filterByDropdown, setFilterByDropdown] = useState({})
-    
-    useEffect(() => {
-        console.log('filterBy:', filterBy)
-
-        loadGigs(filterBy)
-    }, [filterBy])
 
 
+    function onSubmit(filterKeys) {
+        console.log('submitting')
+        console.log('filterKeys: ', filterKeys)
+        filterKeys = {...filterKeys, languages: JSON.stringify(filterKeys.languages)}
+        setSearchParams(filterKeys)
+    }
+
+    const filterInitialValues = {
+        languages: [],
+        level: [],
+        from: [],
+        minPrice: 0,
+        maxPrice: 9999
+    }
+    const [filterByDropdown, setFilterByDropdown] = useState(filterInitialValues)
 
     function FormSection({ type, checks, filterKey, title, subtitle }) {
+
         return (
             <div className="checkboxes-container">
                 <label className="bold" >{title}</label>
@@ -38,39 +47,38 @@ export function ExploreFilters() {
         )
     }
 
+    function DollarInput({ field }) {
+
+        function handleChange(ev) {
+            const { value } = ev.target
+            //regex to make sure the value is numeric
+            const numericValue = value.replace(/[^0-9]/g, '')
+            if (field && field.onChange) {
+                console.log('onchange')
+                field.onChange({ target: { value: numericValue, name: field.name } })
+            }
+        }
+
+        return (
+            <OutlinedInput
+                endAdornment={<InputAdornment position="end">$</InputAdornment>}
+                placeholder='Any'
+                onChange={handleChange}
+            />
+        )
+    }
 
     function SubmitBox({ handleReset }) {
-        const formik = useFormikContext()
+        const { handleSubmit, resetForm } = useFormikContext()
 
-        function handleReset() {
-            formik.resetForm({ values: filterInitialValues })
-        }
-
-        function handleClearAll() {
-            handleReset()
-        }
         return (
             <div>
-                <button onClick={() => handleReset()}>Clear All</button>
-                <button type="submit">Apply</button>
+                <button onClick={() => resetForm({ values: filterInitialValues })}>Clear All</button>
+                <button type="submit" onClick={handleSubmit}>Apply</button>
             </div>
         )
     }
 
-
-    function onSubmit(filterBy) {
-        console.log('filterBy: ', filterBy)
-        setFilterByDropdown((prev) => ({...prev, ...filterBy}))
-        setSearchParams(filterByDropdown)
-    }
-
-    const filterInitialValues = {
-        languages: [],
-        level: [],
-        from: [],
-        minPrice: '',
-        maxPrice: ''
-    }
 
     return (
         <section className="explore-filters">
@@ -79,51 +87,37 @@ export function ExploreFilters() {
                 onSubmit={onSubmit}
                 initialValues={filterInitialValues}
                 enableReinitialize={true}
-
             >
                 <Form>
-
                     <div className="dropdowns">
                         <article className="seller-details">
-
                             <MuiPopover btnTitle={'Seller Details'}>
                                 <FormSection
                                     type='checkbox'
                                     checks={languages}
                                     filterKey='languages'
-                                    title='Seller speaks' />
+                                    title='Seller speaks'
+                                    
+                                    />
                                 <SubmitBox />
                             </MuiPopover>
                         </article>
                         <article className="budget">
                             <MuiPopover
                                 btnTitle={'Budget'}>
-                                {/* <FormSection
-                                    type='radio'
-                                    checks={['Value', 'Mid-range', 'High-end', 'Custom']}
-                                    filterKey='price'
-                                    title=''
-                                /> */}
-
                                 <InputLabel htmlFor="minPrice">MIN.</InputLabel>
-                                <OutlinedInput
+                                <Field
+                                    component={DollarInput}
                                     id='minPrice'
-                                    endAdornment={<InputAdornment
-                                        position="end">$</InputAdornment>}
-                                    placeholder='Any'
-                                />
-
+                                    name='minPrice' />
 
                                 <InputLabel htmlFor="maxPrice">MAX.</InputLabel>
-                                <OutlinedInput
+                                <Field
+                                    component={DollarInput}
                                     id='maxPrice'
-                                    endAdornment={<InputAdornment position="end">$</InputAdornment>}
-                                    placeholder='Any'
-                                />
+                                    name='maxPrice' />
                                 <SubmitBox />
-
                             </MuiPopover>
-
                         </article>
                         <article className="delivery-time"></article>
                     </div>

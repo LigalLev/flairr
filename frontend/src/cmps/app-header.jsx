@@ -127,8 +127,8 @@ export function AppHeader() {
                                 >
                                     {user.imgUrl && <img src={user.imgUrl} />}
                                 </div>
-                                {isUserMenuOpen && 
-                                <UserMenu user={user} onLogout={onLogout}/>
+                                {isUserMenuOpen &&
+                                    <UserMenu user={user} onLogout={onLogout} />
                                 }
                             </span>
                         </>
@@ -157,7 +157,9 @@ export function AppHeader() {
                     }
                 </nav>
             </div>
-            <CategoryFilter />
+            {!location.pathname.includes('payment') && !location.pathname.includes('user') &&
+                <CategoryFilter />
+            }
         </header>
     )
 }  

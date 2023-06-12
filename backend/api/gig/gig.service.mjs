@@ -16,6 +16,7 @@ function setCriteria(filterBy) {
             { description: { $regex: filterBy.txt, $options: "i" } },
             { category: { $regex: filterBy.txt, $options: "i" } },
             { "owner.fullname": { $regex: filterBy.txt, $options: "i" } }
+
         ]
     }
     if (filterBy.category) {
@@ -23,9 +24,21 @@ function setCriteria(filterBy) {
     }
     if (filterBy.tag) {
         criteria.tags = { $elemMatch: { $regex: filterBy.tag, $options: "i" } }
-
     }
-    console.log('creteria:', criteria)
+
+    if (filterBy.minPrice || filterBy.maxPrice) {
+        criteria.price = {
+            $gt: +filterBy.minPrice,
+            $lt: +filterBy.maxPrice
+        }
+    }
+
+    if (filterBy.languages) {
+        console.log('filterBy.languages: ', filterBy.languages)
+        criteria["owner.languages"] = { $in: filterBy.languages }
+    }
+
+    console.log('criteria:', criteria)
 
     return criteria
 }
@@ -34,43 +47,39 @@ async function query(filterBy = {}) {
     try {
         const criteria = setCriteria(filterBy)
         const collection = await dbService.getCollection('gig')
+        let gigCursor = await collection.find(criteria)
 
-        var gigCursor = await collection.aggregate([
-            {
-                $match: criteria
-            },
-            {
-                $lookup:
-                {
-                    localField: 'owner._id',
-                    from: 'review',
-                    foreignField: 'sellerId',
-                    as: 'reviews'
-                }
-            },
-            {
-                $replaceRoot: {
-                    newRoot: {
-                        $mergeObjects: ["$$ROOT", { reviews: "$reviews" }]
-                    }
-                }
-            },
-        ])
+        if (filterBy.languages && Array.isArray(filterBy.languages)) {
+            const ownerIds = await collection.distinct('owner._id', criteria);
+            const ownerCriteria = { _id: { $in: ownerIds }, languages: { $in: filterBy.languages } };
+            const userCollection = await dbService.getCollection('user');
+            gigCursor = await collection.aggregate([
+              { $match: criteria },
+              { $lookup: { from: 'user', localField: 'owner._id', foreignField: '_id', as: 'owner' } },
+              { $unwind: '$owner' },
+              { $match: ownerCriteria }
+            ])
+          }
+
 
         if (filterBy.pageIdx !== undefined) {
-            gigCursor.skip(filterBy.pageIdx * PAGE_SIZE).limit(PAGE_SIZE)
+            gigCursor = gigCursor.skip(filterBy.pageIdx * PAGE_SIZE).limit(PAGE_SIZE)
         }
-        let gigs = gigCursor.toArray()
+
+        const gigs = await gigCursor.toArray()
         return gigs
+
     } catch (err) {
         logger.error('cannot find gigs', err)
         throw err
     }
 }
 
+///////////////////////////////////////
 async function getById(gigId) {
     try {
         const collection = await dbService.getCollection('gig')
+
         var gigs = await collection.aggregate([
             {
                 $match: { _id: ObjectId(gigId) }
@@ -93,7 +102,7 @@ async function getById(gigId) {
             },
         ]).toArray()
 
-        // const gig = collection.findOne( { _id: ObjectId(gigId) })
+        const gig = collection.findOne({ _id: ObjectId(gigId) })
         return gigs[0]
     } catch (err) {
         logger.error(`while finding gig ${gigId}`, err)

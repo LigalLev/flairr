@@ -27,7 +27,10 @@ async function query() {
     const filterBy = {
         txt: urlParams.get('txt'),
         category: urlParams.get('category'),
-        tag: urlParams.get('tag')
+        tag: urlParams.get('tag'),
+        minPrice: urlParams.get('minPrice'),
+        maxPrice: urlParams.get('maxPrice'),
+        languages: urlParams.has('languages') ? JSON.parse(urlParams.get('languages')) : []
     }
     return httpService.get(BASE_URL, filterBy)
 }
