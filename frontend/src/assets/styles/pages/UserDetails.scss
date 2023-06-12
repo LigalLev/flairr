@@ -20,6 +20,8 @@
         grid-column: 1;
         grid-row: 1;
         justify-content: center;
+        text-align: center;
+
         .user-img {
             margin-inline: auto;
             height: 150px;
@@ -31,6 +33,17 @@
         .name-username {
             margin-inline: auto;
             margin-block-end: 2em;
+
+            h3 {
+                color: $clr7;
+                font-size: 20px;
+                line-height: 28px;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 24px;
+            }
         }
     }
 

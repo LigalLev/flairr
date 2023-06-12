@@ -8,6 +8,7 @@ import { GigList } from '../cmps/gig-list.jsx'
 import { CarouselContainer } from '../cmps/carousel-container.jsx'
 import { GigFilter } from '../cmps/search-filter.jsx'
 import { useLocation, useSearchParams } from 'react-router-dom'
+import { ExploreFilters } from '../cmps/explore-filters.jsx'
 
 
 export function GigIndex() {
@@ -50,6 +51,7 @@ export function GigIndex() {
     return (
         <section className="gig-index">
             <h1 className="index-title">{filterBy.category ? filterBy.category : 'All'}</h1>
+            <ExploreFilters />
             <div className="index-gigs-length">{gigs.length} services available</div>
             <GigList
                 gigs={gigs}

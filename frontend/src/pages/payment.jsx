@@ -49,7 +49,7 @@ export function Payment() {
             newOrder.gig.price = gig.price
             newOrder.seller.fullname = gig.owner.fullname
             newOrder.seller._id = gig.owner._id
-            newOrder.buyer.fullName = loggedInUser.fullName
+            newOrder.buyer.fullname = loggedInUser.fullname
             newOrder.buyer._id = loggedInUser._id
             setOrderToSave(newOrder)
             const savedOrder = await saveOrder(orderToSave)

@@ -58,7 +58,7 @@ async function query(filterBy = {}) {
         ])
 
         if (filterBy.pageIdx !== undefined) {
-            carCursor.skip(filterBy.pageIdx * PAGE_SIZE).limit(PAGE_SIZE)
+            gigCursor.skip(filterBy.pageIdx * PAGE_SIZE).limit(PAGE_SIZE)
         }
         let gigs = gigCursor.toArray()
         return gigs
