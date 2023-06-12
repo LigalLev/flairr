@@ -1,11 +1,99 @@
+import React from "react";
+import { useSelector } from 'react-redux'
 
-export function SellerDashboard({orders}){
+import { useEffect, useState } from "react"
+import { render } from "react-dom";
+import {
+    CircularProgressbar,
+    CircularProgressbarWithChildren,
+    buildStyles
+} from "react-circular-progressbar"
+import "react-circular-progressbar/dist/styles.css"
+// import RadialSeparators from "./RadialSeparators";
+import { loadOrders } from "../store/order.action"
+
+export function SellerDashboard( { user } ) {
+    // const [ordersLength, setOrdersLength] = useState(orders.filter(order => order.seller._id === user._id).length)
+    const orders = useSelector(storeState => storeState.orderModule.orders)
+    console.log('hey from dashboard')
 
 
-    return(
+    useEffect(() => {
+        loadOrders({ sellerId: user._id })
+    }, [])
+
+    const basicPrice=55
+    const pendingCount = orders.filter(order => order.status === 'pending')
+    const pendingPercentage = Math.floor((pendingCount.length/orders.length)*100)
+
+    const approvedCount = orders.filter(order => order.status === 'approved')
+    const approvedPercentage = Math.floor((approvedCount.length/orders.length)*100)
+
+    const completedCount = orders.filter(order => order.status === 'completed')
+    const complitedPercentage = ((completedCount.length/orders.length)*100).toFixed(0)
+
+    const rejectedCount = orders.filter(order => order.status === 'rejected')
+    const rejectedPercentage = ((rejectedCount.length/orders.length)*100).toFixed(0)
+
+    return (
         <section className="seller-dashboard">
-            {/* <h1>hey from dashboard</h1> */}
 
+            <div className="total-income">
+                <p>Active orders</p>
+                <p>{orders.length}</p>
+                <p>(${orders.length*basicPrice})</p>
+            </div>
+            <div className="progress-wrapper-pending" lable="Default" style={{ width: 100, height: 140 }}>
+                <p>Pending</p>
+                <CircularProgressbar 
+                value={pendingPercentage} 
+                text={`${pendingPercentage}%`}
+                strokeWidth={12}
+                styles={buildStyles({
+                    textColor: "#404145",
+                    pathColor: "#446ee7",
+                    trailColor: "#f7f7f7"
+                  })} />
+            </div>
+            <div className="progress-wrapper-approved" style={{ width: 100, height: 100 }}>
+                <p>Approved</p >
+                <CircularProgressbar 
+                value={approvedPercentage} 
+                text={`${approvedPercentage}%`}
+                strokeWidth={12}
+                styles={buildStyles({
+                    textColor: "#404145",
+                    pathColor: "#ffb33e",
+                    trailColor: "#f7f7f7"
+                  })}  />
+            </div>
+            <div className="progress-wrapper-declined" style={{ width: 100, height: 100 }}>
+                <p>Completed</p>
+                <CircularProgressbar 
+                value={complitedPercentage} 
+                text={`${complitedPercentage}%`}
+                strokeWidth={12}
+                styles={buildStyles({
+                    textColor: "#404145",
+                    pathColor: "#1dbf73",
+                    trailColor: "#f7f7f7"
+                  })}
+                 />
+            </div>
+            <div className="progress-wrapper-declined" style={{ width: 100, height: 100 }}>
+                <p>Declined</p>
+                <CircularProgressbar 
+                value={rejectedPercentage} 
+                text={`${rejectedPercentage}%`}
+                strokeWidth={12}
+                styles={buildStyles({
+                    textColor: "#404145",
+                    pathColor: "#CD1818",
+                    trailColor: "#f7f7f7"
+                  })}
+                 />
+            </div>
+           
         </section>
     )
 }

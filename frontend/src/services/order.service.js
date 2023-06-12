@@ -45,7 +45,7 @@ function getEmptyOrder() {
       price: null,
       imgUrl: ""
     },
-    status: 'Pending'
+    status: 'pending'
   }
 }
 function createOrder() {
@@ -69,27 +69,27 @@ function createOrder() {
     status: "pending"
   }
 
-  utilService.saveToStorage(STORAGE_KEY, order)
+  utilService.saveToStorage(BASE_URL, order)
 }
 
 function getById(orderId) {
-  return storageService.get(STORAGE_KEY, orderId)
+  return httpService.get(BASE_URL, orderId)
 }
 
 async function remove(orderId) {
   // throw new Error('Nope')
-  await storageService.remove(STORAGE_KEY, orderId)
+  await httpService.remove(BASE_URL, orderId)
 }
 
 async function save(order) {
   console.log('order from BE!!!!!!:', order)
   var savedOrder
   if (order._id) {
-    savedOrder = await httpService.put(BASE_URL, order)
+    savedOrder = await httpService.put(BASE_URL + order._id, order)
   } else {
     // Later, owner is set by the backend
     // order.gig.user = userService.getLoggedinUser()
-    savedOrder = await httpService.post(BASE_URL, order)
+    savedOrder = await httpService.post(BASE_URL , order)
   }
   return savedOrder
 }

@@ -1,37 +1,76 @@
- .seller-order-list li {
-    //  display: flex;
-     padding: 0.5em;
-    //  width: 100%;
-    //  border: 0.5px solid $grey1;
-     margin-block-start: 10px;
+.seller-order-list-container {
+    button {
+        background-color: transparent;
+        color: $clr10
+    }
+    
+    display: flex;
+    flex-direction: column-reverse;
 
-     border: 1px solid $grey2;
-     color: $clr5;
-     display: grid;
-     grid-template-columns: 2fr 3fr 2fr 1fr 2fr;
+    .seller-order-list li {
 
-     span {
-         font-size: 12px;
-         color: $clr10;
-     }
+        //  display: flex;
+        padding: 0.5em;
+        //  width: 100%;
+        //  border: 0.5px solid $grey1;
+        margin-block-start: 10px;
 
-     .img-seller-order {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-     }
+        border: 1px solid $grey2;
+        color: $clr5;
+        display: grid;
+        grid-template-columns: 2fr 3fr 2fr 1fr 2fr;
 
-     .buyer-fullname-seller-order {
-        font-size: 14px;
-        margin-inline: 1.8em ;
-      
-     }
+        span {
+            font-size: 12px;
+            color: $clr10;
+        }
+
+        .img-seller-order {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .seller-order {
+            font-size: 14px;
+            margin-inline: 1.8em;
+            padding: 0.5em;
+
+        }
 
 
- }
+    }
+ 
+}
+
+.btn-approved-status{
+    color: $clrInProgress;
+    cursor: pointer;
+    padding: 8px;
+   
+}
+.btn-completed-status{
+    color: $clr1;
+    cursor: pointer;
+    padding: 8px;
+}
+.btn-rejected-status{
+    color: red;
+    cursor: pointer;
+    padding: 8px;
+
+    
+}
+.btn-pending-status{
+    color:  $clr2;
+    cursor: pointer;
+    padding: 8px;
+}
+
 
 //  @media (min-width: 600px)
 // .orders-dashboard li {
 //     grid-template-columns: 2fr 3fr 2fr 1fr 2fr;
 //     margin-bottom: 1em;
 // }
+

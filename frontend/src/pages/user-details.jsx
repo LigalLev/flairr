@@ -9,7 +9,7 @@ import { showSuccessMsg } from '../services/event-bus.service'
 import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from '../services/socket.service'
 import { SellerOrderList } from '../cmps/seller-order-list'
 import { SellerDashboard } from '../cmps/seller-dashboard'
-
+import { saveOrder } from '../store/order.action'
 
 
 export function UserDetails() {
@@ -17,7 +17,6 @@ export function UserDetails() {
   const navigate = useNavigate()
   const user = useSelector(storeState => storeState.userModule.user)
   console.log('user: ', user)
-
   const orders = useSelector(storeState => storeState.orderModule.orders)
 
 
@@ -38,6 +37,17 @@ export function UserDetails() {
   useEffect(() => {
 
   }, [user])
+
+  async function updateOrder(updatedOrder) {
+    try {
+      const order = await saveOrder(updatedOrder)
+      console.log('order saved', order)
+    } catch (err) {
+      console.log('Cannot set order', err)
+    }
+  }
+
+
 
   function onUserUpdate(user) {
     showSuccessMsg(`This user ${user.fullname} just got updated from socket, new score: ${user.score}`)
@@ -83,11 +93,13 @@ export function UserDetails() {
               {/* <button onClick={() => navigate('/gig/edit')}>Create a new gig</button>
               <button onClick={() => navigate('/gigs-dashboard')}>Dahsboard</button> */}
 
+              <div className='seller-dashboard-wrapper'>
+                <SellerDashboard orders={orders} user={user} />
+              </div>
 
-              <SellerDashboard orders={orders} />
-              
 
-           <div> <SellerOrderList orders={orders} /> </div>
+
+              <div> <SellerOrderList orders={orders} user={user} updateOrder={updateOrder} /> </div>
             </div>
             :
             <div className="not-seller-action flex column">

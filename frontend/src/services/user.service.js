@@ -1,6 +1,7 @@
 import { storageService } from './async-storage.service'
 import { httpService } from './http.service'
 import { utilService } from './util.service.js'
+import {socketService} from "./socket.service";
 
 // _createUsers()
 
@@ -52,6 +53,7 @@ async function login(userCred) {
     // const users = await httpService.query('user')
     // const user = users.find(user => user.username === userCred.username)
     const user = await httpService.post('auth/login', userCred)
+    socketService.setup(user)
     if (user) {
         return user
     }

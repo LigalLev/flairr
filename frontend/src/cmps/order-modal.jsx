@@ -8,12 +8,14 @@ export function OrderModal() {
 
 
     useEffect(() => {
-        loadOrders({buyerId: user._id})
+        loadOrders({buyerId: user._id, sellerId: user._id})
     }, [])
+
+
 
     return <div className="order-modal">
         {orders?.length > 0 && <ul className="buyer-order-list-container">
-            {orders.map(order =>
+            {orders.filter(order=>{return order.buyer._id === user._id}).map(order =>
                 <li key={order._id} className="order-list-item">
                     <div className="order-gig-img-container"><img src={order.gig.imgUrl} alt="" className="order-gig-img" /></div>
                     <div className="order-info-container">

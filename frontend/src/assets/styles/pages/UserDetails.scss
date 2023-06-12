@@ -55,7 +55,7 @@
     .user-action {
         grid-column: 2;
         grid-row: 1/ -1;
-        height: 60%;
+        height: 100%;
         align-self: start;
 
         .seller-actions {
@@ -68,6 +68,11 @@
             button {
                 margin: 0;
             }
+        }
+
+        .seller-dashboard-wrapper{
+            border: 1px solid $grey2;
+            padding-block: 0.5em;
         }
 
         .not-seller-action {
