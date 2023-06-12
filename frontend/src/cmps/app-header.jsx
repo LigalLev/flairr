@@ -1,15 +1,16 @@
-import { useState, useEffect } from 'react'
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { login, logout, signup } from '../store/user.actions.js'
-import { LoginSignup } from './login-signup.jsx'
-import { OrderModal } from './order-modal'
-import { setOrdeModalVisible, setOrderNotice } from '../store/order.action'
-import { SearchFilter } from './search-filter'
-import { CategoryFilter } from './category-filter'
-import { setFilterBy } from '../store/gig.actions'
-import { UserMenu } from './user-menu'
+import {useState, useEffect} from 'react'
+import {Link, NavLink, useLocation, useNavigate} from 'react-router-dom'
+import {useSelector} from 'react-redux'
+import {showErrorMsg, showSuccessMsg} from '../services/event-bus.service'
+import {login, logout, signup} from '../store/user.actions.js'
+import {LoginSignup} from './login-signup.jsx'
+import {OrderModal} from './order-modal'
+import {setOrdeModalVisible, setOrderNotice} from '../store/order.action'
+import {SearchFilter} from './search-filter'
+import {CategoryFilter} from './category-filter'
+import {setFilterBy} from '../store/gig.actions'
+import {UserMenu} from './user-menu'
+import {socketService} from '../services/socket.service'
 
 export function AppHeader() {
     const location = useLocation()
@@ -21,10 +22,13 @@ export function AppHeader() {
     const [isSignup, setIsSignup] = useState(false)
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
     const navigate = useNavigate()
+    const [isReceivedOrder, setIsReceiverOrder] = useState(false)
 
     useEffect(() => {
         /* eslint-disable no-restricted-globals */
-        addEventListener('scroll', () => { onScroll() })
+        addEventListener('scroll', () => {
+            onScroll()
+        })
         onScroll()
         return removeEventListener('scroll', onScroll)
     }, [location.pathname])
@@ -32,6 +36,29 @@ export function AppHeader() {
     useEffect(() => {
         setIsUserMenuOpen(false)
     }, [location.pathname])
+
+    useEffect(() => {
+        socketService.on('received-order', (data) => {
+            setIsReceiverOrder(true)
+        })
+        return () => {
+            console.log('cleaning up')
+            socketService.off('received-order')
+        }
+    }, [])
+
+    useEffect(() => {
+        socketService.on('order-status-updated', (data) => {
+            const order = data?.order;
+            const newStatus = data.status
+            const sellerName = order.seller.fullname
+            setOrderNotice(true)
+        })
+        return () => {
+            console.log('cleaning up')
+            socketService.off('order-status-updated')
+        }
+    }, [])
 
     function onScroll() {
         setIsHomePageTop((location.pathname === '/') && (window.pageYOffset === 0))
@@ -96,6 +123,10 @@ export function AppHeader() {
         setIsUserMenuOpen((prev) => !prev)
     }
 
+    function hideOrderNotification() {
+        setIsReceiverOrder(false)
+    }
+
     return (
         <header className={`app-header main-layout full ${getHeaderStyle()}`}>
             <div className='header-content'>
@@ -125,10 +156,12 @@ export function AppHeader() {
                                     title={user.fullname}
                                     onClick={toggleUserMenu}
                                 >
-                                    {user.imgUrl && <img src={user.imgUrl} />}
+                                    {user.imgUrl && <img src={user.imgUrl}/>}
+                                    {isReceivedOrder && <span>🔴</span>}
                                 </div>
-                                {isUserMenuOpen && 
-                                <UserMenu user={user} onLogout={onLogout}/>
+                                {isUserMenuOpen &&
+                                    <UserMenu user={user} onLogout={onLogout}
+                                              onProfileCallback={hideOrderNotification}/>
                                 }
                             </span>
                         </>
@@ -141,7 +174,8 @@ export function AppHeader() {
                             <button onClick={() => {
                                 setIsSignup(true)
                                 setIsShowLoginSignup(true)
-                            }} className='join-btn'>Join</button>
+                            }} className='join-btn'>Join
+                            </button>
                         </>
                     }
                     {!user && isShowLoginSignup &&
