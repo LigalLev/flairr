@@ -13,7 +13,11 @@ export function SellerDashboard( { orders, user } ) {
     const [ordersLength, setOrdersLength] = useState(orders.filter(order => order.seller._id === user._id).length)
     const basicPrice=55
     
-    const percentage = 66;
+    const pendingPercentage = 49;
+    const approvedPercentage = 49;
+    const complitedPercentage = 1;
+    const rejectedPercentage = 1;
+
     return (
         <section className="seller-dashboard">
 
@@ -25,8 +29,8 @@ export function SellerDashboard( { orders, user } ) {
             <div className="progress-wrapper-pending" lable="Default" style={{ width: 100, height: 140 }}>
                 <p>Pending</p>
                 <CircularProgressbar 
-                value={percentage} 
-                text={`${percentage}%`}
+                value={pendingPercentage} 
+                text={`${pendingPercentage}%`}
                 strokeWidth={12}
                 styles={buildStyles({
                     textColor: "#404145",
@@ -37,8 +41,8 @@ export function SellerDashboard( { orders, user } ) {
             <div className="progress-wrapper-approved" style={{ width: 100, height: 100 }}>
                 <p>Approved</p >
                 <CircularProgressbar 
-                value={percentage} 
-                text={`${percentage}%`}
+                value={approvedPercentage} 
+                text={`${approvedPercentage}%`}
                 strokeWidth={12}
                 styles={buildStyles({
                     textColor: "#404145",
@@ -49,8 +53,8 @@ export function SellerDashboard( { orders, user } ) {
             <div className="progress-wrapper-declined" style={{ width: 100, height: 100 }}>
                 <p>Complited</p>
                 <CircularProgressbar 
-                value={percentage} 
-                text={`${percentage}%`}
+                value={complitedPercentage} 
+                text={`${complitedPercentage}%`}
                 strokeWidth={12}
                 styles={buildStyles({
                     textColor: "#404145",
@@ -62,8 +66,8 @@ export function SellerDashboard( { orders, user } ) {
             <div className="progress-wrapper-declined" style={{ width: 100, height: 100 }}>
                 <p>Declined</p>
                 <CircularProgressbar 
-                value={percentage} 
-                text={`${percentage}%`}
+                value={rejectedPercentage} 
+                text={`${rejectedPercentage}%`}
                 strokeWidth={12}
                 styles={buildStyles({
                     textColor: "#404145",

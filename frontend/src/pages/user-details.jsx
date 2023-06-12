@@ -93,12 +93,13 @@ export function UserDetails() {
               {/* <button onClick={() => navigate('/gig/edit')}>Create a new gig</button>
               <button onClick={() => navigate('/gigs-dashboard')}>Dahsboard</button> */}
 
+              <div className='seller-dashboard-wrapper'>
+                <SellerDashboard orders={orders} user={user} />
+              </div>
 
-              <SellerDashboard orders={orders} user={user}/>
-              
 
 
-              <div> <SellerOrderList orders={orders} user={user} updateOrder={updateOrder}/> </div>
+              <div> <SellerOrderList orders={orders} user={user} updateOrder={updateOrder} /> </div>
             </div>
             :
             <div className="not-seller-action flex column">
