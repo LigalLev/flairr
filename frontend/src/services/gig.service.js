@@ -30,7 +30,8 @@ async function query() {
         tag: urlParams.get('tag'),
         minPrice: urlParams.get('minPrice'),
         maxPrice: urlParams.get('maxPrice'),
-        languages: urlParams.has('languages') ? JSON.parse(urlParams.get('languages')) : []
+        languages: urlParams.has('languages') ? JSON.parse(urlParams.get('languages')) : [],
+        daysToMake: urlParams.get('daysToMake')
     }
     return httpService.get(BASE_URL, filterBy)
 }
