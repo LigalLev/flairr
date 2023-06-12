@@ -8,9 +8,9 @@ async function query(filterBy) {
     console.log('filterBy:', filterBy)
     try {
         const criteria = {}
-        criteria.$or = [ {"buyer._id": filterBy.buyerId},
-            {"seller._id": filterBy.sellerId}]
-        
+        criteria.$or = [{ "buyer._id": filterBy.buyerId },
+        { "seller._id": filterBy.sellerId }]
+
         const collection = await dbService.getCollection('order')
         let orderCursor = await collection.find(criteria)
         const orders = orderCursor.toArray()
@@ -89,12 +89,16 @@ async function add(order) {
 
 async function update(order) {
     try {
-        const orderToSave = order
+        const orderToSave = {
+            "gig.price": order.gig.price,
+            "gig.daysToComplete": order.gig.daysToComplete,
+            status: order.status
+        }
         const collection = await dbService.getCollection('order')
         await collection.updateOne({ _id: ObjectId(order._id) }, { $set: orderToSave })
         return order
     } catch (err) {
-        logger.error(`cannot update order ${orderId}`, err)
+        logger.error(`cannot update order ${order._id}`, err)
         throw err
     }
 }

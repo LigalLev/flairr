@@ -17,8 +17,8 @@ export function StatusDropdown(props) {
     const options = [
         { value: 'pending', label: 'Pending', className: 'btn-pending-status' },
         { value: 'approved', label: 'Approved', className: 'btn-approved-status' },
-        { value: 'inProgress', label: 'In-Progress', className: 'btn-in-progress-status' },
         { value: 'completed', label: 'Completed', className: 'btn-completed-status' },
+        { value: 'rejected', label: 'Rejected', className: 'btn-rejected-status' },
     ]
 
     function onSelect(option) {
@@ -26,14 +26,15 @@ export function StatusDropdown(props) {
         setOrderStatusLabel(option.label)
         setAnchorEl(false)
     }
-
+    function getClassName(label) {
+        return options.find(option => option.label === orderStatusLabel).className
+    }
     return <div>
-        <div onClick={openPopover}>{orderStatusLabel}</div>
+        <div onClick={openPopover} className={getClassName(orderStatusLabel)} >{orderStatusLabel} </div>
         <Popover open={Boolean(anchorEl)}
             anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'left',
-
             }}
             transformOrigin={{
                 vertical: 'top',
@@ -41,12 +42,13 @@ export function StatusDropdown(props) {
             }}
             onClose={() => setAnchorEl(false)}
             anchorEl={anchorEl}>
-            {options.map(option => {
+            {options.slice(1).map(option => {
                 return <div className={option.className} onClick={() => {
                     onSelect(option)
                 }}>{option.label}</div>
             })}
         </Popover>
+
     </div>
 }
 
