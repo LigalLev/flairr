@@ -30,7 +30,7 @@ export function ReviewPreview({ gig, review }) {
                         <StarRating rating={review.rate} />
                         <div className="seller-rate">
                             {gig.owner.rate}  <span></span>
-                            <p>1 week ago</p>
+                            {/* <p>{utilService.formatTime(gig.review.createdAt)}</p> */}
                             {/* <p>{utilService.formatTime(review.createdAt)}</p> */}
                         </div>
                     </div>
