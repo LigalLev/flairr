@@ -83,7 +83,9 @@ export function SearchFilter(props) {
             onKeyDown={handleKeyDown}
             name="txt"
             id="header-search-text"
+            autocomplete="off"
             isDarkening={props.isDarkening}
+
         />
 
         <button className='search-btn' onClick={handleSubmit} type="submit">
