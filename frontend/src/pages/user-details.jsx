@@ -56,7 +56,7 @@ export function UserDetails() {
 
   return (
     <section className="user-details  main-layout full">
-      <section className="user-details-content">
+      <section className="user-details-content main-layout">
         <article className="user-info flex column">
           <div
             className="user-img"

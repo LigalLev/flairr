@@ -34,8 +34,8 @@
             .reviewer-region-wrapper {
                 display: flex;
                 flex-direction: row;
-
                 align-items: center;
+                padding-block-start: 0.5em;
 
                 .flag-wrapper {
                     height: 20px;
@@ -51,7 +51,6 @@
                     color: $clr5;
                     font-family: Macan-light;
                     padding-inline-start: 0.5em;
-                    padding-block-start: 0.5em;
                 }
             }
 
@@ -60,6 +59,8 @@
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+
+
 
                 .seller-rate {
                     display: flex;
