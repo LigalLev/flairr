@@ -13,7 +13,7 @@ export function SellerOrderList({orders, user, updateOrder}) {
                     <li key={order._id}>
                         <div className="img-seller-order"><img src={order.gig.imgUrl} alt=""/></div>
                         {/* <div className="seller-order order-title flex column"><span>Gig</span>{order.gig.title}</div> */}
-                        <div className="seller-order flex column"><span>Buyer</span>{order.buyer.fullname}</div>
+                        <div className="seller-order flex column buyer"><span>Buyer</span><p>{order.buyer.fullname}</p></div>
                         <div className="seller-order flex column"><span>Price</span>${order.gig.price}</div>
                         <div className="seller-order flex column status-options"><span>Status</span>
                             <StatusDropdown initialStatus={order.status}

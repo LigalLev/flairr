@@ -228,6 +228,7 @@
 
 .header-menu-btn {
     display: block;
+    padding: 0;
     @include for-narrow-layout {
         display: none;
     }
