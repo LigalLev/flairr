@@ -74,7 +74,8 @@ export function AppHeader() {
         const isFixed = (location.pathname === '/') ? 'fixed' : ''
         const isTransparent = (isHomePageTop) ? 'home-page-top' : ''
         const isFilterVisibleClass = (isFilterVisible) ? 'filter-visible' : ''
-        return `${isFixed} ${isTransparent} ${isFilterVisibleClass}`
+        const isBottomBorder = ((location.pathname.includes('payment') || location.pathname.includes('user')) ? 'header-border' : '')
+        return `${isFixed} ${isTransparent} ${isFilterVisibleClass} ${isBottomBorder}`
     }
 
     const user = useSelector(storeState => storeState.userModule.user)
