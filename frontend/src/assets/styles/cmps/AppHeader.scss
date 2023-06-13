@@ -80,15 +80,27 @@
         }
 
         .orders-btn {
-            font-family: Macan-semibold;
-            background: none;
-            font-size: rem(16px);
-            padding: 0;
-            margin: 0;
-            color: $clr5;
+            display: none;
+            @include for-narrow-layout {
+                display: block;
+                font-family: Macan-semibold;
+                background: none;
+                font-size: rem(16px);
+                padding: 0;
+                margin: 0;
+                color: $clr5;
+    
+                &:hover {
+                    color: $clr1;
+                }
 
-            &:hover {
-                color: $clr1;
+            }
+        }
+
+        .become-seller-btn, .explore-btn {
+            display: none;
+            @include for-narrow-layout {
+                display: block;
             }
         }
 
@@ -210,14 +222,15 @@
     }
 }
 
-// .header-menu-btn {
-//     @include for-narrow-layout {
-//         display: none;
-//     }
-//     background: none;
-//     color: $clr8;
-//     font-size: 1.5em;
-// }
+.header-menu-btn {
+    display: block;
+    @include for-narrow-layout {
+        display: none;
+    }
+    background: none;
+    color: $clr8;
+    font-size: 1.5em;
+}
 
 
 

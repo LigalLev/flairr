@@ -132,7 +132,9 @@ export function AppHeader() {
         <header className={`app-header main-layout full ${getHeaderStyle()}`}>
 
             <div className='header-content'>
-                {/* <TemporaryDrawer /> */}
+                { window.innerWidth < 600 &&
+                <TemporaryDrawer />
+                }
                 <div className='logo'>
                     <Link to="/">
                         flai<span className='rr'>rr</span><span className='dot'>.</span>
@@ -142,8 +144,8 @@ export function AppHeader() {
                 <SearchFilter placeholder={'What service are you looking for today?'} isDarkening={true} />
 
                 <nav>
-                    <NavLink to="/gig" onClick={() => onClickExplore()} className="orders-btn"> Explore</NavLink>
-                    <NavLink to="/become-seller">Become a Seller</NavLink>
+                    <NavLink to="/gig" onClick={() => onClickExplore()} className="explore-btn"> Explore</NavLink>
+                    <NavLink to="/become-seller" className='become-seller-btn'>Become a Seller</NavLink>
                     <div>
                         <button onClick={onClickOrders} className="orders-btn">Orders</button>
                         {isOrderNotice && <span>🔴</span>}
