@@ -15,6 +15,10 @@
     background-color: $clr6;
     margin-block-end: 47px;
 
+    &.header-border {
+        border-block-end:1px solid $grey2;
+    }
+
     >*:not(last-child) {
         align-self: center;
     }
