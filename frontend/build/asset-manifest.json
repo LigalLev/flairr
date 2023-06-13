@@ -1,12 +1,7 @@
 {
   "files": {
-<<<<<<< HEAD
-    "main.css": "/static/css/main.60967e79.css",
-    "main.js": "/static/js/main.ff5559b7.js",
-=======
-    "main.css": "/static/css/main.d12ae1f5.css",
-    "main.js": "/static/js/main.95f6ec72.js",
->>>>>>> 87a3b56deb70c24c0b7fc1f4736e09b534013dac
+    "main.css": "/static/css/main.518f2a87.css",
+    "main.js": "/static/js/main.b6ff9c73.js",
     "static/media/MacanPanWeb-Bold.ttf": "/static/media/MacanPanWeb-Bold.bee873973ca210318b0a.ttf",
     "static/media/Macan-Regular.ttf": "/static/media/Macan-Regular.082a6d6abda824738774.ttf",
     "static/media/MacanPanWeb-Semibold.ttf": "/static/media/MacanPanWeb-Semibold.69c9d787bde44ba28fdd.ttf",
@@ -14,20 +9,11 @@
     "static/media/DomaineDispNar-MediumItalic.otf": "/static/media/DomaineDispNar-MediumItalic.dde827c06f732a0127f1.otf",
     "service-worker.js": "/service-worker.js",
     "index.html": "/index.html",
-<<<<<<< HEAD
-    "main.60967e79.css.map": "/static/css/main.60967e79.css.map",
-    "main.ff5559b7.js.map": "/static/js/main.ff5559b7.js.map"
+    "main.518f2a87.css.map": "/static/css/main.518f2a87.css.map",
+    "main.b6ff9c73.js.map": "/static/js/main.b6ff9c73.js.map"
   },
   "entrypoints": [
-    "static/css/main.60967e79.css",
-    "static/js/main.ff5559b7.js"
-=======
-    "main.d12ae1f5.css.map": "/static/css/main.d12ae1f5.css.map",
-    "main.95f6ec72.js.map": "/static/js/main.95f6ec72.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.d12ae1f5.css",
-    "static/js/main.95f6ec72.js"
->>>>>>> 87a3b56deb70c24c0b7fc1f4736e09b534013dac
+    "static/css/main.518f2a87.css",
+    "static/js/main.b6ff9c73.js"
   ]
 }
