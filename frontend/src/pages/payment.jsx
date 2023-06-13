@@ -11,13 +11,13 @@ import { useSelector } from 'react-redux'
 import {socketService} from '../services/socket.service'
 
 
+
 export function Payment() {
     const [gig, setGig] = useState(null)
     const { gigId } = useParams()
     const navigate = useNavigate()
     const included = ['Vector file', 'One concept included', 'Include source file', 'Progress update', 'Printable file']
     const [orderToSave, setOrderToSave] = useState(orderService.getEmptyOrder())
-    
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
 
     useEffect(() => {
@@ -97,6 +97,7 @@ export function Payment() {
                 <button className="btn-pay" onClick={() => {
                     setOrderNotice(true)
                     onAddOrder(orderToSave)
+                    navigate("/gig")
                 }}>Pay</button>
 
                 <div className='ssl-secure'>

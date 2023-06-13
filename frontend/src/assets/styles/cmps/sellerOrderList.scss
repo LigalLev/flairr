@@ -68,7 +68,11 @@
                 }
             }
 
-            @include for-normal-layout {}
+            &.status-options{
+                &.statusdropdown-wrapper{
+
+                }
+            }
 
         }
 
@@ -80,28 +84,26 @@
 .btn-approved-status {
     color: $clrInProgress;
     cursor: pointer;
-    padding: 8px;
+    // padding: 8px;
 
 }
 
 .btn-completed-status {
     color: $clr1;
     cursor: pointer;
-    padding: 8px;
+    // padding: 8px;
 }
 
 .btn-rejected-status {
     color: red;
     cursor: pointer;
-    padding: 8px;
-
-
+    // padding-block: 8px;
 }
 
 .btn-pending-status {
     color: $clr2;
     cursor: pointer;
-    padding: 8px;
+    // padding: 8px;
 }
 
 
