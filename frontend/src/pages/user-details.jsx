@@ -106,9 +106,7 @@ export function UserDetails() {
               <div className='seller-dashboard-wrapper'>
                 <SellerDashboard orders={orders} user={user} />
               </div>
-
-
-
+              
               <SellerOrderList orders={orders} user={user} updateOrder={updateOrder} />
             </div>
             :

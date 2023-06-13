@@ -1,5 +1,5 @@
 import Popover from '@mui/material/Popover'
-import { useState } from "react"
+import React, { useState } from "react"
 import { Formik, Form, Field, getIn } from 'formik'
 
 export function MuiPopover({ btnTitle, children }) {
@@ -9,6 +9,17 @@ export function MuiPopover({ btnTitle, children }) {
     function openPopover(event) {
         setAnchorEl(event.currentTarget)
     }
+    
+    function onClose() {
+        setAnchorEl(null)
+    }
+
+    const modifiedChildren = React.Children.map(children, (child) => {
+        if (child.props.isSubmitBox) {
+            return React.cloneElement(child, { onClose: onClose })
+        }
+        return child
+    })
 
 
     return (
@@ -25,12 +36,11 @@ export function MuiPopover({ btnTitle, children }) {
                     vertical: 'top',
                     horizontal: 'left',
                 }}
-                onClose={() => setAnchorEl(null)}
+                onClose={onClose}
                 anchorEl={anchorEl}
             >
                 <div className='children-container'>
-                    {children}
-
+                    {modifiedChildren}
                 </div>
 
             </Popover>
