@@ -13,10 +13,7 @@ import "react-circular-progressbar/dist/styles.css"
 import { loadOrders } from "../store/order.action"
 
 export function SellerDashboard( { user } ) {
-    // const [ordersLength, setOrdersLength] = useState(orders.filter(order => order.seller._id === user._id).length)
     const orders = useSelector(storeState => storeState.orderModule.orders)
-    console.log('hey from dashboard')
-
 
     useEffect(() => {
         loadOrders({ sellerId: user._id })
@@ -43,7 +40,7 @@ export function SellerDashboard( { user } ) {
                 <p>{orders.length}</p>
                 <p>(${orders.length*basicPrice})</p>
             </div>
-            <div className="progress-wrapper-pending" lable="Default" style={{ width: 100, height: 140 }}>
+            <div className="progress-wrapper-pending" lable="Default">
                 <p>Pending</p>
                 <CircularProgressbar 
                 value={pendingPercentage} 
@@ -55,7 +52,8 @@ export function SellerDashboard( { user } ) {
                     trailColor: "#f7f7f7"
                   })} />
             </div>
-            <div className="progress-wrapper-approved" style={{ width: 100, height: 100 }}>
+            {/* style={{ width: 100, height: 100 }} */}
+            <div className="progress-wrapper-approved" >
                 <p>Approved</p >
                 <CircularProgressbar 
                 value={approvedPercentage} 
@@ -67,7 +65,7 @@ export function SellerDashboard( { user } ) {
                     trailColor: "#f7f7f7"
                   })}  />
             </div>
-            <div className="progress-wrapper-declined" style={{ width: 100, height: 100 }}>
+            <div className="progress-wrapper-completed" >
                 <p>Completed</p>
                 <CircularProgressbar 
                 value={complitedPercentage} 
@@ -80,8 +78,8 @@ export function SellerDashboard( { user } ) {
                   })}
                  />
             </div>
-            <div className="progress-wrapper-declined" style={{ width: 100, height: 100 }}>
-                <p>Declined</p>
+            <div className="progress-wrapper-declined" >
+                <p>Rejected</p>
                 <CircularProgressbar 
                 value={rejectedPercentage} 
                 text={`${rejectedPercentage}%`}

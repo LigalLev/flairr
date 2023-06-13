@@ -1,12 +1,22 @@
 .user-details {
     background-color: #f7f7f7;
+    grid-template-columns: 1fr;
+
+    @include for-normal-layout{
+        grid-template-columns: 32px 1fr 32px;
+    }
 
     .user-details-content {
         margin-block: 1em;
         display: grid;
-        grid-template-columns: 1fr 2fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 20px;
+        grid-template-columns: 1fr;
+    
+
+        @include for-normal-layout {
+            grid-template-columns: 1fr 2fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+        }
     }
 
     article {
@@ -26,6 +36,7 @@
             margin-inline: auto;
             height: 150px;
             width: 150px;
+            border-radius: 50%;
             background-size: contain;
             background-repeat: no-repeat;
         }
@@ -48,13 +59,19 @@
     }
 
     .user-description {
-        grid-column: 1;
-        grid-row: 2;
+
+        @include for-normal-layout {
+            grid-column: 1;
+            grid-row: 2;
+        }
     }
 
     .user-action {
-        grid-column: 2;
-        grid-row: 1/ -1;
+        @include for-normal-layout {
+            grid-column: 2;
+            grid-row: 1/ -1;
+
+        }
         height: 100%;
         align-self: start;
 

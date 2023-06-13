@@ -55,7 +55,7 @@ export function UserDetails() {
   }
 
   return (
-    <section className="user-details main-layout full">
+    <section className="user-details  main-layout full">
       <section className="user-details-content">
         <article className="user-info flex column">
           <div
@@ -73,11 +73,11 @@ export function UserDetails() {
           <div>
             <div className="from flex space-between">
               <p>From</p>
-              <p className='bold'>{'Israel'}</p>
+              <p className='bold'>{user.from}</p>
             </div>
             <div className="member-since flex space-between">
               <p>Member since</p>
-              <p className='bold'>{'Feb 2017'}</p>
+              <p className='bold'>{user.memberSince}</p>
             </div>
           </div>
         </article>
