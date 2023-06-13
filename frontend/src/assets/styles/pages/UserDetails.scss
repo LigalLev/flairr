@@ -1,10 +1,10 @@
 .user-details {
     background-color: #f7f7f7;
-    grid-template-columns: 1fr;
+    // grid-template-columns: 1fr;
 
-    @include for-normal-layout{
-        grid-template-columns: 32px 1fr 32px;
-    }
+    // @include for-normal-layout{
+    //     grid-template-columns: 32px 1fr 32px;
+    // }
 
     .user-details-content {
         margin-block: 1em;
@@ -24,10 +24,10 @@
         border: 1px solid #ddd;
         padding: 1em;
         border-radius: 2px;
+        grid-column: 1;
     }
 
     .user-info {
-        grid-column: 1;
         grid-row: 1;
         justify-content: center;
         text-align: center;
@@ -59,14 +59,15 @@
     }
 
     .user-description {
+        grid-row: 2;
 
         @include for-normal-layout {
             grid-column: 1;
-            grid-row: 2;
         }
     }
 
     .user-action {
+        grid-row: 3;
         @include for-normal-layout {
             grid-column: 2;
             grid-row: 1/ -1;
@@ -75,21 +76,9 @@
         height: 100%;
         align-self: start;
 
-        .seller-actions {
-            display: flex;
-            justify-content: space-between;
-            align-self: center;
-
-            width: 40%;
-
-            button {
-                margin: 0;
-            }
-        }
-
         .seller-dashboard-wrapper{
             border: 1px solid $grey2;
-            padding-block: 0.5em;
+            // padding-block: 0.5em;
         }
 
         .not-seller-action {
@@ -116,3 +105,4 @@
         }
     }
 }
+

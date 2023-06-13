@@ -58,36 +58,40 @@ export function UserDetails() {
     <section className="user-details main-layout full">
       <section className="user-details-content">
         <article className="user-info flex column">
-          <div
-            className="user-img"
-            style={{ backgroundImage: `url(${user.imgUrl})` }}>
-          </div>
-
-          <div className='name-username'>
-            <h3>
-              {user.fullname}
-            </h3>
-            <p className='light'>@{user.username}</p>
-          </div>
-
           <div>
-            <div className="from flex space-between">
-              <p>From</p>
-              <p className='bold'>{user.from}</p>
+            <div
+              className="user-img"
+              style={{ backgroundImage: `url(${user.imgUrl})` }}>
             </div>
-            <div className="member-since flex space-between">
-              <p>Member since</p>
-              <p className='bold'>{user.memberSince}</p>
+
+            <div className='name-username'>
+              <h3>
+                {user.fullname}
+              </h3>
+              <p className='light'>@{user.username}</p>
+            </div>
+
+            <div>
+              <div className="from flex space-between">
+                <p>From</p>
+                <p className='bold'>{user.from}</p>
+              </div>
+              <div className="member-since flex space-between">
+                <p>Member since</p>
+                <p className='bold'>{user.memberSince}</p>
+              </div>
             </div>
           </div>
         </article>
 
         <article className="user-description">
-          <h3>Description</h3>
-          <p>{user.about}</p>
+          <div>
+            <h3>Description</h3>
+            <p>{user.about}</p>
+          </div>
         </article>
 
-        <article className="user-action flex">
+        <div className="user-action flex">
           {(user.profession) ?
             <div >
               {/* <button onClick={() => navigate('/gig/edit')}>Create a new gig</button>
@@ -99,7 +103,7 @@ export function UserDetails() {
 
 
 
-              <div> <SellerOrderList orders={orders} user={user} updateOrder={updateOrder} /> </div>
+              <SellerOrderList orders={orders} user={user} updateOrder={updateOrder} /> 
             </div>
             :
             <div className="not-seller-action flex column">
@@ -110,9 +114,7 @@ export function UserDetails() {
               <Link to="/become-seller">Become a Seller</Link>
             </div>
           }
-
-
-        </article>
+        </div>
 
 
       </section>
