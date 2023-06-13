@@ -1,16 +1,17 @@
-import {useState, useEffect} from 'react'
-import {Link, NavLink, useLocation, useNavigate} from 'react-router-dom'
-import {useSelector} from 'react-redux'
-import {showErrorMsg, showSuccessMsg} from '../services/event-bus.service'
-import {login, logout, signup} from '../store/user.actions.js'
-import {LoginSignup} from './login-signup.jsx'
-import {OrderModal} from './order-modal'
-import {setOrdeModalVisible, setOrderNotice} from '../store/order.action'
-import {SearchFilter} from './search-filter'
-import {CategoryFilter} from './category-filter'
-import {setFilterBy} from '../store/gig.actions'
-import {UserMenu} from './user-menu'
-import {socketService} from '../services/socket.service'
+import { useState, useEffect } from 'react'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { login, logout, signup } from '../store/user.actions.js'
+import { LoginSignup } from './login-signup.jsx'
+import { OrderModal } from './order-modal'
+import { setOrdeModalVisible, setOrderNotice } from '../store/order.action'
+import { SearchFilter } from './search-filter'
+import { CategoryFilter } from './category-filter'
+import { setFilterBy } from '../store/gig.actions'
+import { UserMenu } from './user-menu'
+import { socketService } from '../services/socket.service'
+import { TemporaryDrawer } from './app-header-drawer'
 
 export function AppHeader() {
     const location = useLocation()
@@ -129,8 +130,9 @@ export function AppHeader() {
 
     return (
         <header className={`app-header main-layout full ${getHeaderStyle()}`}>
-            <div className='header-content'>
 
+            <div className='header-content'>
+                {/* <TemporaryDrawer /> */}
                 <div className='logo'>
                     <Link to="/">
                         flai<span className='rr'>rr</span><span className='dot'>.</span>
@@ -156,12 +158,12 @@ export function AppHeader() {
                                     title={user.fullname}
                                     onClick={toggleUserMenu}
                                 >
-                                    {user.imgUrl && <img src={user.imgUrl}/>}
+                                    {user.imgUrl && <img src={user.imgUrl} />}
                                     {isReceivedOrder && <span>🔴</span>}
                                 </div>
                                 {isUserMenuOpen &&
                                     <UserMenu user={user} onLogout={onLogout}
-                                              onProfileCallback={hideOrderNotification}/>
+                                        onProfileCallback={hideOrderNotification} />
                                 }
                             </span>
                         </>

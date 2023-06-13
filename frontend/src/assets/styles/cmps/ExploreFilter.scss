@@ -1,41 +1,99 @@
 .dropdowns {
-    
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     max-width: $break-wide;
+
+    .children-container {
+        padding: 1em;
+
+    }
+
     article {
         margin-inline-end: 0.5em;
     }
+
+    .dropdown-btn {
+        border: 1px solid $grey3;
+        border-radius: 8px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        color: $clr7;
+        line-height: 24px;
+        min-height: 48px;
+        min-width: 50px;
+        padding: 12px 16px;
+        background-color: $clr6;
+        transition: border-color .12s cubic-bezier(.215, .61, .355, 1);
+        user-select: none;
+        font-size: rem(16px);
+        font-family: Macan-semibold;
+        white-space: nowrap;
+        margin: 0;
+
+        &:hover {
+            border-color: $clr7;
+        }
+
+        span {
+            &::after {
+                content: '';
+                background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1686612960/chevron_sjybj9.svg');
+            }
+        }
+
+
+    }
+
 }
 
-.dropdown-btn {
-    border: 1px solid $grey3;
-    border-radius: 8px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    color: $clr7;
-    line-height: 24px;
-    min-height: 48px;
-    min-width: 50px;
-    padding: 12px 16px;
-    background-color: $clr6;
-    transition: border-color .12s cubic-bezier(.215,.61,.355,1);
-    user-select: none;
-    font-size: rem(16px);
-    font-family: Macan-semibold;
-    white-space: nowrap;
-    margin: 0;
+.fields {
+    padding: 1em;
+}
 
-    &:hover {
-        border-color: $clr7;
+.submit-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-top: 1px solid $grey;
+    margin-top: 10px;
+    width: 100%;
+
+    .clear-btn {
+        justify-self: start;
+        background-color: $clr6;
+        color: $clr4;
+        border: none;
+        line-height: 24px;
+        font-size: rem(16px);
+        padding: 0;
+        margin: 0;
+        margin-inline-end: 20px;
+        font-family: Macan-semibold;
     }
 
-    span {
-        &::after {
-            content: '';
-            background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1686612960/chevron_sjybj9.svg');
+    .submit-btn {
+        background-color: black;
+        justify-self: end;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        line-height: 24px;
+        font-size: rem(16px);
+        font-family: Macan-semibold;
+        padding: 12px 24px;
+        text-align: center;
+        transition: 70ms cubic-bezier(.75, 0, .25, 1);
+
+        &:hover {
+            background: #404145;
+
         }
     }
+
+    .max-price-label {
+        margin-top: 20px;
+    }
+
 }

@@ -15,6 +15,7 @@ export function MuiPopover({ btnTitle, children }) {
         <div>
             <button onClick={openPopover} type="button" className='dropdown-btn'>{btnTitle} <span></span></button>
             <Popover
+                style={{ marginTop: '10px', minWidth: '250px' }}
                 open={Boolean(anchorEl)}
                 anchorOrigin={{
                     vertical: 'bottom',
@@ -27,8 +28,10 @@ export function MuiPopover({ btnTitle, children }) {
                 onClose={() => setAnchorEl(null)}
                 anchorEl={anchorEl}
             >
+                <div className='children-container'>
+                    {children}
 
-                {children}
+                </div>
 
             </Popover>
         </div>

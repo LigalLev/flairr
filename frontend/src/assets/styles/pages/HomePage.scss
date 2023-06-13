@@ -222,17 +222,7 @@
     }
 
     button {
-        font-family: Macan;
-        border: 1px solid transparent;
-        background-color: $clr1;
-        border-radius: 4px;
-        font-size: em(16px);
-        font-weight: 600;
-        line-height: 100%;
-        padding: 12px 24px;
-        position: relative;
-        text-align: center;
-        width: max-content;
+        @include btn2;
 
         &:hover {
             background-color: darken($clr1, 5%);

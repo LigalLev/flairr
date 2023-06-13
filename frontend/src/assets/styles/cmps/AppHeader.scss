@@ -209,3 +209,28 @@
         }
     }
 }
+
+// .header-menu-btn {
+//     @include for-narrow-layout {
+//         display: none;
+//     }
+//     background: none;
+//     color: $clr8;
+//     font-size: 1.5em;
+// }
+
+
+
+
+
+.drawer-content {
+    display: flex;
+    width: 100%;
+    padding: 1em;
+
+    .join-flairr-btn {
+        @include btn2;
+        justify-self: center;
+        margin-top: 10px;
+    }
+}

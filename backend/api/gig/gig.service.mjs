@@ -38,6 +38,10 @@ function setCriteria(filterBy) {
         criteria["owner.languages"] = { $in: filterBy.languages }
     }
 
+    if (filterBy.daysToMake) {
+        criteria.daysToMake = {$lte: +filterBy.daysToMake}
+    }
+
     console.log('criteria:', criteria)
 
     return criteria
