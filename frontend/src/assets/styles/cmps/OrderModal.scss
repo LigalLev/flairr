@@ -128,11 +128,13 @@
         .order-gig-img-container {
             margin-inline-end: 10px;
             width: 60px;
+            height: 40px;
             margin-block: auto;
 
             .order-gig-img {
                 margin-inline-end: 10px;
                 width: 60px;
+                height: 40px;
                 margin-block: auto; // grid-column: 2;
             }
         }
