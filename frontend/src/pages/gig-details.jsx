@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { useSelector } from 'react-redux'
 import { gigService } from "../services/gig.service"
 import { userService } from "../services/user.service"
@@ -21,14 +21,23 @@ export function GigDetails() {
     // const user = useSelector(storeState => storeState.userModule.user)
     const [isOpen, setIsOpen] = useState(false)
     const { gigId } = useParams()
-
     const navigate = useNavigate()
+
+    const overview = useRef(null)
+    const aboutThisGig = useRef(null)
+    const aboutTheSeller = useRef(null)
+    const sellerReviews = useRef(null)
+
+    const scrollToSection = (elementRef) => {
+        window.scrollTo({
+            top: elementRef.current.offsetTop,
+            behavior:'smooth'
+        })
+    }
 
     useEffect(() => {
         loadGig()
     }, [gigId])
-
-   
 
     useEffect(() => {
 
@@ -49,7 +58,6 @@ export function GigDetails() {
         }
     }
 
-
     function onToggleIsOpen() {
         setIsOpen(prevIsOpen => !prevIsOpen)
     }
@@ -61,17 +69,17 @@ export function GigDetails() {
 
             <section className="top-nav-container full">
                 <nav>
-                    <Link >Overview</Link>
-                    <Link >Description</Link>
-                    <Link >About the seller</Link>
-                    <Link >Reviews</Link>
+                    <Link onClick={()=> scrollToSection(overview)}>Overview</Link>
+                    <Link onClick={()=> scrollToSection(aboutThisGig)}>Description</Link>
+                    <Link onClick={()=> scrollToSection(aboutTheSeller)}>About the seller</Link>
+                    <Link onClick={()=> scrollToSection(sellerReviews)}>Reviews</Link>
                     {/* <Link to={`/gig/${gig._id}`}>About the seller</Link> */}
                 </nav>
             </section>
 
             {gig && <section className="gig-details-content">
 
-                <article className="gig-details-container">
+                <article ref={overview} className="gig-details-container">
 
                     <h1>{gig.title}</h1>
                     <div className="main-details-container">
@@ -104,7 +112,7 @@ export function GigDetails() {
                     />
                 </aside>
 
-                <article className="about-gig-container">
+                <article ref={aboutThisGig} className="about-gig-container">
                     <h3>About this gig</h3>
                     {gig.description.split('\n').map((section, idx) => (
                         <p key={idx} >
@@ -113,13 +121,13 @@ export function GigDetails() {
                     ))}
                 </article>
 
-                <article className="about-seller-container">
+                <article ref={aboutTheSeller} className="about-seller-container">
                    {owner && <AboutTheSeller
                         user={owner}
                     />}
                 </article>
 
-                <article className="gig-review">
+                <article ref={sellerReviews} className="gig-review">
                     <ReviewList
                         gig={gig}
                     />

@@ -10,10 +10,10 @@ export function PricingPackage({ gig, onToggleIsOpen }) {
     return (
         <section className="pricing-package">
             <nav>
-                {/* <NavLink>Pricing</NavLink> */}
-                <NavLink>Basic</NavLink>
+                <NavLink>Pricing</NavLink>
+                {/* <NavLink>Basic</NavLink>
                 <NavLink>Standard</NavLink>
-                <NavLink>Premium</NavLink> 
+                <NavLink>Premium</NavLink>  */}
             </nav>
             <section className="pricing-details">
                 <h1>US${gig.price}</h1>
