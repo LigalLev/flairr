@@ -20,7 +20,7 @@ export const CCPayment = () => {
                 <section className='billing-content'>
                     <div>
                         <p>Your invoice will be isuued according to the details listed here</p>
-                        <p>John John</p>
+                        <p>Karin Zohar</p>
                         <p>Israel</p>
                     </div>
                     <button>Add details</button>
@@ -64,11 +64,11 @@ export const CCPayment = () => {
                             <div className='buyer-name'>
                                 <label>
                                     First name
-                                    <input name="myInput" defaultValue="John" />
+                                    <input name="myInput" defaultValue="Karin" />
                                 </label>
                                 <label>
                                     Last name
-                                    <input name="myInput" defaultValue="John" />
+                                    <input name="myInput" defaultValue="Zohar" />
                                 </label>
                             </div>
 
