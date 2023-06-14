@@ -87,7 +87,19 @@
 }
 
 .status-modal-content {
+    display: flex;
+    flex-direction: column;
     padding: 0.5em;
+    text-align: center;
+    height: 30vh;
+    justify-content: space-evenly;
+
+
+    > * {
+        text-align: center;
+        align-self: center;
+        width: 100%;
+    }
 }
 
 .btn-approved-status {
