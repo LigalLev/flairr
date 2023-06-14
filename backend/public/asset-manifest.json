@@ -1,12 +1,7 @@
 {
   "files": {
-<<<<<<< HEAD
-    "main.css": "/static/css/main.d12ae1f5.css",
-    "main.js": "/static/js/main.95f6ec72.js",
-=======
     "main.css": "/static/css/main.518f2a87.css",
     "main.js": "/static/js/main.b6ff9c73.js",
->>>>>>> 97b00c87b60994412a0cce773e55f13924d2f8a9
     "static/media/MacanPanWeb-Bold.ttf": "/static/media/MacanPanWeb-Bold.bee873973ca210318b0a.ttf",
     "static/media/Macan-Regular.ttf": "/static/media/Macan-Regular.082a6d6abda824738774.ttf",
     "static/media/MacanPanWeb-Semibold.ttf": "/static/media/MacanPanWeb-Semibold.69c9d787bde44ba28fdd.ttf",
@@ -14,20 +9,11 @@
     "static/media/DomaineDispNar-MediumItalic.otf": "/static/media/DomaineDispNar-MediumItalic.dde827c06f732a0127f1.otf",
     "service-worker.js": "/service-worker.js",
     "index.html": "/index.html",
-<<<<<<< HEAD
-    "main.d12ae1f5.css.map": "/static/css/main.d12ae1f5.css.map",
-    "main.95f6ec72.js.map": "/static/js/main.95f6ec72.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.d12ae1f5.css",
-    "static/js/main.95f6ec72.js"
-=======
     "main.518f2a87.css.map": "/static/css/main.518f2a87.css.map",
     "main.b6ff9c73.js.map": "/static/js/main.b6ff9c73.js.map"
   },
   "entrypoints": [
     "static/css/main.518f2a87.css",
     "static/js/main.b6ff9c73.js"
->>>>>>> 97b00c87b60994412a0cce773e55f13924d2f8a9
   ]
 }
