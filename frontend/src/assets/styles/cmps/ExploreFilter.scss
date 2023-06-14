@@ -35,6 +35,7 @@
         min-height: 48px;
         min-width: 50px;
         padding: 12px 16px;
+        padding-inline-end: 28px;
         background-color: $clr6;
         transition: border-color .12s cubic-bezier(.215, .61, .355, 1);
         user-select: none;
@@ -43,18 +44,32 @@
         white-space: nowrap;
         margin: 0;
 
+        &.open {
+            background-color: $grey4;
+
+            span {
+                &::after {
+                    transform:translate(50%,40%) rotate(-180deg); 
+                }
+            }
+        }
+
         &:hover {
             border-color: $clr7;
         }
 
         span {
             &::after {
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                background-repeat: no-repeat;
                 content: '';
                 background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1686612960/chevron_sjybj9.svg');
+                transform:translate(50%,80%);
+                transition: all .24s cubic-bezier(.215,.61,.355,1);
             }
         }
-
-
     }
 
 }

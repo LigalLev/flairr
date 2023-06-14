@@ -21,10 +21,12 @@ export function MuiPopover({ btnTitle, children }) {
         return child
     })
 
+    const isOpen = Boolean(anchorEl) ? 'open' : ''
+
 
     return (
         <div>
-            <button onClick={openPopover} type="button" className='dropdown-btn'>{btnTitle} <span></span></button>
+            <button onClick={openPopover} type="button" className={`dropdown-btn ${isOpen}`}>{btnTitle} <span></span></button>
             <Popover
                 style={{ marginTop: '10px', minWidth: '250px' }}
                 open={Boolean(anchorEl)}
