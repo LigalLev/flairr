@@ -14,9 +14,10 @@ export function HomePage() {
     return (
         <section className="home-page main-layout full">
             <Hero />
+
             <section className="popular-services">
-                {/* <h2>Popular Services</h2>
-                <div className="carousel-wrapper">
+                {/* <h2>Popular Services</h2> */}
+                {/* <div className="carousel-wrapper">
                     <PopularServicesCarousel />
                 </div> */}
             </section>
