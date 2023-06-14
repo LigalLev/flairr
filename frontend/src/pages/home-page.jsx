@@ -23,7 +23,7 @@ export function HomePage() {
                     <PopularServicesCarousel />
                 </div> */}
             </section>
-            <h2 className='big-carousel-title'>Papular services</h2>
+            <h2 className='big-carousel-title'>Popular services</h2>
             <HomePageCarousel popularServices={popularServices} />
             <section className="info-wrapper main-layout full">
                 <div className="info">
