@@ -248,3 +248,13 @@
         margin-top: 10px;
     }
 }
+
+.notification::after {
+    content: '';
+    position: absolute;
+    background-image: url('https://res.cloudinary.com/dqhfnvtca/image/upload/v1686733706/flairr/notification-svgrepo-com_qrmwjm.svg');
+    background-repeat: no-repeat;
+    height: 15px;
+    width: 15px;
+
+}

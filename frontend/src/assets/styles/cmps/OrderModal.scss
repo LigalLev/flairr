@@ -52,7 +52,7 @@
         // height: -moz-fit-content;
         height: fit-content;
         max-height: 40vh;
-        overflow: scroll;
+        overflow-y: auto;
         position: absolute;
         right: 3rem;
         width: 400px;
