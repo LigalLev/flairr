@@ -18,13 +18,10 @@ export function HomePage() {
             <Hero />
 
             <section className="popular-services">
-                {/* <h2>Popular Services</h2> */}
-                {/* <div className="carousel-wrapper">
-                    <PopularServicesCarousel />
-                </div> */}
+                <h2 className='big-carousel-title'>Popular services</h2>
+                <HomePageCarousel popularServices={popularServices} />
             </section>
-            <h2 className='big-carousel-title'>Popular services</h2>
-            <HomePageCarousel popularServices={popularServices} />
+
             <section className="info-wrapper main-layout full">
                 <div className="info">
                     <div className="info-text">
