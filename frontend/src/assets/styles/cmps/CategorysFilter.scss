@@ -1,4 +1,8 @@
 .categoty-btns-container {
+    display:none;
+    @include for-normal-layout {
+        display:grid;
+    }
     background-color: white;
     margin: 0;
     padding: 0;
