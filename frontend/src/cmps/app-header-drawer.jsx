@@ -29,7 +29,7 @@ export function TemporaryDrawer() {
 
 
     return (
-        <div>
+        <div className='flex'>
             {['left'].map((anchor) => (
                 <React.Fragment key={anchor}>
                     <button className='header-menu-btn' onClick={toggleDrawer(anchor, true)}>&#9776;</button>

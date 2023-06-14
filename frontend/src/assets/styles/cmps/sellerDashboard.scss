@@ -1,22 +1,73 @@
 .seller-dashboard {
     display: flex;
+    flex-direction: column;
     text-align: center;
     font-family: Macan-semibold;
     justify-content: space-between;
-    // gap: 1.5em;
+   
     
     @include for-normal-layout{
         justify-content: space-evenly;
         
     }
 
-    .total-income{
-        p:first-child{
-            font-size: rem(16px);
+    .progress-bars-container{
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-between;
+        // margin-block-end: 0.5em;
+
+        .progress-wrapper-pending,
+        .progress-wrapper-approved,
+        .progress-wrapper-declined,
+        .progress-wrapper-completed
+        {
+            width: 60px;
+            height: 110px;
+            
+    
+            @include for-normal-layout {
+                width: 100px;
+                height: 100px;
+            }
+            
+            p{
+                margin-block-end: 0.5em;
+                font-size: rem(14px);
+    
+                @include for-normal-layout{
+                    font-size: rem(16px);
+                    
+                }
+            }
         }
-        p:last-child{
-            margin-block-start: 1em;
+    }
+
+    .orders-summery{
+        display: flex;
+        justify-content: space-around;
+        border-top: 1px solid $grey;
+
+        .active-orders,
+        .total-income{
+            display: flex;
+            flex-direction: row;
+
+            p:first-child{
+                font-size: rem(16px);
+                margin-inline-end: 1em;
+            }
+
+            p:last-child{
+               font-family: Macan-light;
+            }
+
         }
+
+
+       
+        
         @include for-normal-layout{
             p:first-child{
                 margin-block-end: 1em;
@@ -26,31 +77,5 @@
                 font-family: Macan;
             }
         }
-    }
-
-    .progress-wrapper-pending,
-    .progress-wrapper-approved,
-    .progress-wrapper-declined,
-    .progress-wrapper-completed
-    {
-        width: 70px;
-        height: 70px;
-
-        @include for-normal-layout {
-            width: 100px;
-            height: 100px;
-
-        }
-        
-        p{
-            margin-block-end: 0.5em;
-            font-size: rem(14px);
-
-            @include for-normal-layout{
-                font-size: rem(16px);
-                
-            }
-        }
-
     }
 }

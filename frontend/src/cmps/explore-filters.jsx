@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { React, useState, useEffect, useRef } from "react"
 import { useSelector } from 'react-redux'
 import { useSearchParams, useLocation } from "react-router-dom"
 import { loadGigs, setFilterBy } from '../store/gig.actions.js'
@@ -27,7 +27,7 @@ export function ExploreFilters() {
         from: [],
         minPrice: 0,
         maxPrice: 9999,
-        daysToMake: '',
+        daysToMake: 10,
     }
     const [filterByDropdown, setFilterByDropdown] = useState(filterInitialValues)
 
@@ -108,25 +108,37 @@ export function ExploreFilters() {
         )
     }
 
-    function SubmitBox({ handleReset }) {
+    function SubmitBox({ handleReset, onClose }) {
         const { handleSubmit, resetForm } = useFormikContext()
 
+        function onClearAll() {
+            resetForm({ values: filterInitialValues })
+            onClose()
+        }
+
+        function onApply() {
+            handleSubmit()
+            onClose()
+        }
+
         return (
+
             <div className="submit-box">
                 <button
                     className="clear-btn"
-                    onClick={() => resetForm({ values: filterInitialValues })}>
+                    onClick={onClearAll}>
                     Clear All
                 </button>
                 <button
                     className="submit-btn"
                     type="submit"
-                    onClick={handleSubmit}>
+                    onClick={onApply}>
                     Apply
                 </button>
             </div>
         )
     }
+    
 
 
     return (
@@ -152,30 +164,34 @@ export function ExploreFilters() {
 
                                         />
                                     </div>
-                                    <SubmitBox />
+                                    <SubmitBox isSubmitBox={true} />
                                 </MuiPopover>
                             </article>
                             <article className="budget">
                                 <MuiPopover
                                     btnTitle={'Budget'}>
                                     <div className="fields">
-                                        <InputLabel htmlFor="minPrice">MIN.</InputLabel>
-                                        <Field
-                                            component={DollarInput}
-                                            id='minPrice'
-                                            name='minPrice'
-                                            
-                                            />
+                                        <div className="min-price">
+                                            <InputLabel htmlFor="minPrice">MIN.</InputLabel>
+                                            <Field
+                                                component={DollarInput}
+                                                id='minPrice'
+                                                name='minPrice'
 
-                                        <InputLabel htmlFor="maxPrice" >MAX.</InputLabel>
-                                        <Field
-                                            component={DollarInput}
-                                            id='maxPrice'
-                                            name='maxPrice' 
-                                            
                                             />
+                                        </div>
+
+                                        <div className="max-price">
+                                            <InputLabel htmlFor="maxPrice" >MAX.</InputLabel>
+                                            <Field
+                                                component={DollarInput}
+                                                id='maxPrice'
+                                                name='maxPrice'
+
+                                            />
+                                        </div>
                                     </div>
-                                    <SubmitBox />
+                                    <SubmitBox isSubmitBox={true} />
                                 </MuiPopover>
                             </article>
                             <article className="delivery-time">
@@ -185,7 +201,7 @@ export function ExploreFilters() {
                                     <div className="fields">
                                         <DeliveryTimeRadio />
                                     </div>
-                                    <SubmitBox />
+                                    <SubmitBox isSubmitBox={true} />
                                 </MuiPopover>
                             </article>
                         </div>
