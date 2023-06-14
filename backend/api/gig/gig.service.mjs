@@ -112,9 +112,9 @@ async function getById(gigId) {
                 }
             },
         ]).toArray()
-       
-        const gig = collection.findOne({ _id: ObjectId(gigId) })
-        return gigs[0]
+        const [gig] = gigs
+        // const gig = collection.findOne({ _id: ObjectId(gigId) })
+        return gig
     } catch (err) {
         logger.error(`while finding gig ${gigId}`, err)
         throw err
