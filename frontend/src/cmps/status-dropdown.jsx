@@ -26,13 +26,13 @@ export function StatusDropdown(props) {
         setOrderStatus(option.value)
         setAnchorEl(false)
     }
-    
+
     function getClassName(orderStatus) {
         return options.find(option => option.value === orderStatus).className
     }
 
-    function getLabel(value){
-        return options.find(option=> option.value === value).label
+    function getLabel(value) {
+        return options.find(option => option.value === value).label
     }
     return <div>
         <div onClick={openPopover} className={getClassName(orderStatus)} >{getLabel(orderStatus)} </div>
@@ -47,11 +47,13 @@ export function StatusDropdown(props) {
             }}
             onClose={() => setAnchorEl(false)}
             anchorEl={anchorEl}>
-            {options.slice(1).map(option => {
-                return <div className={option.className} onClick={() => {
-                    onSelect(option)
-                }}>{getLabel(option.value)}</div>
-            })}
+            <div className='status-modal-content'>
+                {options.slice(1).map(option => {
+                    return <div className={option.className} onClick={() => {
+                        onSelect(option)
+                    }}>{getLabel(option.value)}</div>
+                })}
+            </div>
         </Popover>
 
     </div>
