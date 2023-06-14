@@ -11,8 +11,6 @@ export function OrderModal() {
         loadOrders({buyerId: user._id, sellerId: user._id})
     }, [])
 
-
-
     return <div className="order-modal">
         {orders?.length > 0 && <ul className="buyer-order-list-container">
             {orders.filter(order=>{return order.buyer._id === user._id}).map(order =>

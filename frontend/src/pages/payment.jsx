@@ -5,7 +5,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { orderService } from "../services/order.service"
 import { gigService } from "../services/gig.service"
-import { saveOrder } from '../store/order.action'
+import { saveOrder, setOrdeModalVisible } from '../store/order.action'
 import { userService } from '../services/user.service'
 import { useSelector } from 'react-redux'
 import {socketService} from '../services/socket.service'
@@ -95,7 +95,8 @@ export function Payment() {
                 </div>    
                 
                 <button className="btn-pay" onClick={() => {
-                    setOrderNotice(true)
+                    setOrdeModalVisible(true)
+                    // setOrderNotice(true)
                     onAddOrder(orderToSave)
                     navigate("/gig")
                 }}>Pay</button>

@@ -39,7 +39,7 @@ function setCriteria(filterBy) {
     }
 
     if (filterBy.daysToMake) {
-        criteria.daysToMake = {$lte: +filterBy.daysToMake}
+        criteria.daysToMake = { $lte: +filterBy.daysToMake }
     }
 
     console.log('criteria:', criteria)
@@ -48,26 +48,33 @@ function setCriteria(filterBy) {
 }
 
 async function query(filterBy = {}) {
+   console.log('filterBy:', filterBy)
     try {
         const criteria = setCriteria(filterBy)
         const collection = await dbService.getCollection('gig')
         let gigCursor = await collection.find(criteria)
 
         if (filterBy.languages && Array.isArray(filterBy.languages)) {
+
             const ownerIds = await collection.distinct('owner._id', criteria);
             const ownerCriteria = { _id: { $in: ownerIds }, languages: { $in: filterBy.languages } };
             const userCollection = await dbService.getCollection('user');
             gigCursor = await collection.aggregate([
-              { $match: criteria },
-              { $lookup: { from: 'user', localField: 'owner._id', foreignField: '_id', as: 'owner' } },
-              { $unwind: '$owner' },
-              { $match: ownerCriteria }
+                {
+                    $match: criteria
+                },
+                {
+                    $lookup: {
+                        localField: 'owner._id',
+                        from: 'user',
+                        foreignField: '_id',
+                        as: 'owner'
+                    }
+                },
+                {
+                    $unwind: '$owner'
+                },
             ])
-          }
-
-
-        if (filterBy.pageIdx !== undefined) {
-            gigCursor = gigCursor.skip(filterBy.pageIdx * PAGE_SIZE).limit(PAGE_SIZE)
         }
 
         const gigs = await gigCursor.toArray()
@@ -84,7 +91,7 @@ async function getById(gigId) {
     try {
         const collection = await dbService.getCollection('gig')
 
-        var gigs = await collection.aggregate([
+        let gigs = await collection.aggregate([
             {
                 $match: { _id: ObjectId(gigId) }
             },
@@ -105,7 +112,7 @@ async function getById(gigId) {
                 }
             },
         ]).toArray()
-
+       
         const gig = collection.findOne({ _id: ObjectId(gigId) })
         return gigs[0]
     } catch (err) {
