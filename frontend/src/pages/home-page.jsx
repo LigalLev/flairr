@@ -4,6 +4,8 @@ import { Hero } from '../cmps/hero'
 import { Link } from 'react-router-dom'
 import { PopularServicesCarousel } from '../cmps/popular-service-carousel'
 import { categories } from '../constants/constants'
+import { popularServices } from '../constants/constants'
+import { HomePageCarousel } from '../cmps/homePageCarousel'
 
 export function HomePage() {
     const dispatch = useDispatch()
@@ -20,7 +22,8 @@ export function HomePage() {
                     <PopularServicesCarousel />
                 </div> */}
             </section>
-
+            <h2 className='big-carousel-title'>Papular services</h2>
+            <HomePageCarousel popularServices={popularServices} />
             <section className="info-wrapper main-layout full">
                 <div className="info">
                     <div className="info-text">

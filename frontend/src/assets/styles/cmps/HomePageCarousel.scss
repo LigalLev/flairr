@@ -1,0 +1,19 @@
+.popular-services-container {
+    position: relative;
+
+    img {}
+
+    .popular-services-txt {
+        position: absolute;
+        color: white;
+        padding: 16px;
+        .preTitle{
+            font-size: 14px;
+        }
+        .title{
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+    }
+}
