@@ -1,4 +1,6 @@
 .seller-dashboard {
+    background-color: $clr6;
+    padding: 1em;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -48,11 +50,15 @@
         display: flex;
         justify-content: space-around;
         border-top: 1px solid $grey;
+        align-items: center;
+        // background-color: red;
+        padding-block-start: 1em;
 
         .active-orders,
         .total-income{
             display: flex;
             flex-direction: row;
+           
 
             p:first-child{
                 font-size: rem(16px);
