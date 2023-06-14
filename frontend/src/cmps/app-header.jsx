@@ -12,6 +12,7 @@ import { setFilterBy } from '../store/gig.actions'
 import { UserMenu } from './user-menu'
 import { socketService } from '../services/socket.service'
 import { TemporaryDrawer } from './app-header-drawer'
+import { NotificationBubble } from './notification-bubble'
 
 export function AppHeader() {
     const location = useLocation()
@@ -162,7 +163,7 @@ export function AppHeader() {
                                     onClick={toggleUserMenu}
                                 >
                                     {user.imgUrl && <img src={user.imgUrl} />}
-                                    {isReceivedOrder && <span>🔴</span>}
+                                    {/* {isReceivedOrder && <span>🔴</span>} */}
                                 </div>
                                 {isUserMenuOpen &&
                                     <UserMenu user={user} onLogout={onLogout}
@@ -199,6 +200,7 @@ export function AppHeader() {
             {!location.pathname.includes('payment') && !location.pathname.includes('user') &&
                 <CategoryFilter />
             }
+            {isReceivedOrder && <NotificationBubble text = {"You've got a new order!"} onHide={()=>setIsReceiverOrder(false)}/>}
         </header>
     )
 }  

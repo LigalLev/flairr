@@ -98,6 +98,8 @@ function getRandomColor() {
 function formatTime(time) {
     let now = Date.now()
     let diff = now - time
+    console.log('now:', now)
+    console.log('time:', time)
 
     const SECOND = 1000
     const MINUTE = SECOND * 60
@@ -115,6 +117,9 @@ function formatTime(time) {
     if (diff < DAY * 2) return 'Yesterday'
     if (diff < DAY * 3) return '2 days ago'
     if (diff < WEEK) return 'About a week ago'
+    if (diff < MONTH) return 'About a month ago'
+    if (diff < MONTH * 2) return 'A few months ago'
+    // if (diff < YEAR) return 'About a year ago'
 
     return _getFormattedTime(time)
 }
@@ -124,6 +129,12 @@ function _getFormattedTime(t) {
     // console.log('d', d)
 
     var str = 'At ' + d.getDate() + '/' + (d.getMonth() + 1) + '/' +
-        d.getFullYear() + ' Time: ' + d.getHours() + ':' + d.getMinutes()
+        d.getFullYear() + ', ' + padTime(d.getHours())+ ':' + padTime(d.getMinutes())
     return str
+}
+
+function padTime(time){
+    const res = time < 10 ? "0"+time.toString() : time.toString()
+    return res
+    
 }
