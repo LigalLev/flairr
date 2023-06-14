@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 
@@ -66,6 +66,29 @@ export function HomePageCarousel(props) {
         },
         [ThumbnailPlugin(instanceRef)]
     );
+
+    function getNumOfSlides(windowWidth){
+        if (windowWidth >= 1400){
+            return 5
+        }
+        if (windowWidth >= 900){
+            return 3
+        }
+        if (windowWidth >= 600){
+            return 2
+        }
+        return 1
+    }
+    function handleResize(){
+        instanceRef.current.options.slides.perView = (getNumOfSlides(window.innerWidth))
+    }
+    useEffect(()=>{
+        window.addEventListener('resize', handleResize)
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    },[])
+
     return (
         <>
             <div className="navigation-wrapper">
