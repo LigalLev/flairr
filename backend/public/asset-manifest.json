@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.576d1dbf.css",
-    "main.js": "/static/js/main.7cf18c17.js",
+    "main.js": "/static/js/main.8d603219.js",
     "static/media/MacanPanWeb-Bold.ttf": "/static/media/MacanPanWeb-Bold.bee873973ca210318b0a.ttf",
     "static/media/Macan-Regular.ttf": "/static/media/Macan-Regular.082a6d6abda824738774.ttf",
     "static/media/MacanPanWeb-Semibold.ttf": "/static/media/MacanPanWeb-Semibold.69c9d787bde44ba28fdd.ttf",
@@ -10,10 +10,10 @@
     "service-worker.js": "/service-worker.js",
     "index.html": "/index.html",
     "main.576d1dbf.css.map": "/static/css/main.576d1dbf.css.map",
-    "main.7cf18c17.js.map": "/static/js/main.7cf18c17.js.map"
+    "main.8d603219.js.map": "/static/js/main.8d603219.js.map"
   },
   "entrypoints": [
     "static/css/main.576d1dbf.css",
-    "static/js/main.7cf18c17.js"
+    "static/js/main.8d603219.js"
   ]
 }
